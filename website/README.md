@@ -1,26 +1,41 @@
-# Robota 문서 웹사이트
+# Website
 
-이 디렉토리는 Robota 프로젝트의 문서 웹사이트를 포함하고 있습니다.
+This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
-## 개발 서버 실행
+### Installation
 
-```bash
-npm run dev
+```
+$ yarn
 ```
 
-## 빌드
+### Local Development
 
-```bash
-npm run build
+```
+$ yarn start
 ```
 
-## GitHub Pages 배포 정보
+This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
-이 웹사이트는 GitHub Actions를 통해 자동으로 GitHub Pages에 배포됩니다. 배포 구성은 `.github/workflows/deploy-docs.yml` 파일에 정의되어 있습니다.
+### Build
 
-웹사이트는 상대 경로를 사용하여 `/robota/` 또는 `/` 경로 모두에서 작동할 수 있도록 설정되어 있습니다.
+```
+$ yarn build
+```
 
-## 기술 스택
+This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
-- [Next.js](https://nextjs.org/)
-- [Nextra](https://nextra.site/) 
+### Deployment
+
+Using SSH:
+
+```
+$ USE_SSH=true yarn deploy
+```
+
+Not using SSH:
+
+```
+$ GIT_USER=<Your GitHub username> yarn deploy
+```
+
+If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.

@@ -28,20 +28,21 @@ jobs:
           cache: 'pnpm'
       
       - name: Install dependencies
-        run: pnpm install
-      
-      - name: Build Nextra docs
         run: |
           cd website
-          npm install
-          npm run build
+          pnpm install
+      
+      - name: Build Docusaurus docs
+        run: |
+          cd website
+          pnpm build
           
       - name: Add .nojekyll file
         run: |
-          touch website/out/.nojekyll
+          touch website/build/.nojekyll
       
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./website/out 
+          publish_dir: ./website/build 
