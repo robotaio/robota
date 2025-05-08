@@ -82,6 +82,48 @@ console.log(result);
 - ⏳ 추가 제공업체 지원 작업 중
 - ⏳ 성능 최적화 작업 중
 
+## 테스트
+
+이 프로젝트는 [Vitest](https://vitest.dev/)를 사용하여 테스트를 실행합니다. 각 패키지별로 테스트를 실행하거나 전체 테스트를 한번에 실행할 수 있습니다.
+
+### 테스트 실행
+
+전체 테스트 실행:
+
+```bash
+pnpm test
+```
+
+특정 패키지 테스트:
+
+```bash
+pnpm --filter @robota/core test
+```
+
+테스트 감시 모드:
+
+```bash
+pnpm test:watch
+```
+
+테스트 커버리지 보고서:
+
+```bash
+pnpm test:coverage
+```
+
+### 테스트 파일 작성
+
+테스트 파일은 소스 파일 옆에 위치하며, 파일 이름은 `.test.ts` 또는 `.spec.ts` 확장자를 사용합니다:
+
+```
+packages/core/src/
+  ├── memory.ts
+  ├── memory.test.ts  // memory.ts에 대한 테스트
+  ├── robota.ts
+  └── robota.test.ts  // robota.ts에 대한 테스트
+```
+
 ## 기여하기
 
 기여는 언제나 환영합니다! 자세한 내용은 [CONTRIBUTING.md](CONTRIBUTING.md)를 참조하세요.
