@@ -1,0 +1,23 @@
+{
+  "name": "website",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Robota 공식 문서 웹사이트",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "export": "next build && next export"
+  },
+  "dependencies": {
+    "next": "^13.0.0",
+    "next-mdx-remote": "^5.0.0",
+    "nextra": "^2.13.2",
+    "nextra-theme-docs": "^2.13.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "keywords": [],
+  "author": "Robota 팀",
+  "license": "MIT"
+}

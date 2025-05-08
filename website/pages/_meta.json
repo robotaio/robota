@@ -1,0 +1,41 @@
+{
+    "index": {
+        "title": "홈",
+        "type": "page",
+        "display": "hidden"
+    },
+    "docs": {
+        "title": "문서",
+        "type": "page"
+    },
+    "getting-started": {
+        "title": "시작하기",
+        "href": "/docs/getting-started.md",
+        "type": "page"
+    },
+    "core-concepts": {
+        "title": "핵심 개념",
+        "href": "/docs/core-concepts.md",
+        "type": "page"
+    },
+    "providers": {
+        "title": "제공업체",
+        "href": "/docs/providers.md",
+        "type": "page"
+    },
+    "function-calling": {
+        "title": "함수 호출",
+        "href": "/docs/function-calling.md",
+        "type": "page"
+    },
+    "model-context-protocol": {
+        "title": "모델 컨텍스트 프로토콜",
+        "href": "/docs/model-context-protocol.md",
+        "type": "page"
+    },
+    "openapi-integration": {
+        "title": "OpenAPI 통합",
+        "href": "/docs/openapi-integration.md",
+        "type": "page"
+    }
+}
