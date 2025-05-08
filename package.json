@@ -1,0 +1,58 @@
+{
+  "name": "robota-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "쉽게 Agentic AI를 만들 수 있는 JavaScript 라이브러리",
+  "type": "module",
+  "scripts": {
+    "build": "pnpm run -r build",
+    "build:deps": "pnpm --filter @robota/core build && pnpm --filter @robota/tools build && pnpm --filter \"@robota/!(core|tools)\" build",
+    "test": "pnpm run -r test",
+    "typecheck": "pnpm --filter @robota/core typecheck && pnpm --filter @robota/tools typecheck && pnpm --filter @robota/openai typecheck",
+    "lint": "pnpm run -r lint",
+    "dev": "pnpm run -r dev",
+    "clean": "pnpm run -r clean",
+    "prepare": "husky install",
+    "example:basic": "pnpm --filter robota-examples run start:basic",
+    "example:function-calling": "pnpm --filter robota-examples run start:function-calling",
+    "example:tools": "pnpm --filter robota-examples run start:tools",
+    "example:agents": "pnpm --filter robota-examples run start:agents",
+    "example:system-messages": "pnpm --filter robota-examples run start:system-messages",
+    "example:mcp": "pnpm --filter robota-examples run start:mcp",
+    "example:all": "pnpm --filter robota-examples run start:all",
+    "docs:generate": "node scripts/docs-generator.js"
+  },
+  "keywords": [
+    "ai",
+    "agent",
+    "llm",
+    "function-calling",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "@typescript-eslint/eslint-plugin": "^6.18.0",
+    "@typescript-eslint/parser": "^6.18.0",
+    "eslint": "^8.56.0",
+    "glob": "^10.3.10",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "marked": "^9.1.5",
+    "prettier": "^3.1.1",
+    "typedoc": "^0.25.9",
+    "typedoc-plugin-markdown": "^3.17.1",
+    "typescript": "^5.3.3",
+    "vitest": "^1.6.1"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0",
+    "bun": ">=1.0.0"
+  },
+  "packageManager": "pnpm@8.15.4",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.11.2"
+  }
+}
