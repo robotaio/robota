@@ -13,7 +13,7 @@ const config: Config = {
   // Set the production url of your site here
   url: 'https://robota.ai',
   // Set the /<baseUrl>/ pathname under which your site is served
-  baseUrl: '/',
+  baseUrl: '/robota/',
 
   // GitHub pages deployment config.
   organizationName: 'robotaio', // GitHub org/user name.
