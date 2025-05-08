@@ -31,12 +31,12 @@ export class OpenAIProvider implements ModelContextProtocol {
       ...options
     };
 
-    this.client = new OpenAI({
-      apiKey: options.apiKey,
-      organization: options.organization,
-      timeout: options.timeout,
-      baseURL: options.baseURL
-    });
+    // 클라이언트가 주입되지 않았으면 에러 발생
+    if (!options.client) {
+      throw new Error('OpenAI 클라이언트가 주입되지 않았습니다. client 옵션은 필수입니다.');
+    }
+
+    this.client = options.client;
   }
 
   /**
