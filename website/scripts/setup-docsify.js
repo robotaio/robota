@@ -25,6 +25,7 @@ function createIndexHtml() {
   <meta charset="UTF-8">
   <title>Robota 문서</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/themes/vue.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
   <style>
     :root {
       --theme-color: #42b983;
@@ -68,7 +69,15 @@ function createIndexHtml() {
         nextText: '다음',
         crossChapter: true
       },
-      notFoundPage: '404.html'
+      notFoundPage: '404.html',
+      alias: {
+        '/api-reference/core': '/api-reference/core/',
+        '/api-reference/openai': '/api-reference/openai/',
+        '/api-reference/anthropic': '/api-reference/anthropic/',
+        '/api-reference/langchain': '/api-reference/langchain/',
+        '/api-reference/replicate': '/api-reference/replicate/',
+        '/api-reference/tools': '/api-reference/tools/'
+      }
     }
   </script>
   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
@@ -94,10 +103,6 @@ function createSidebar() {
 * [핵심 개념](core-concepts.md)
 * [API 참조](api-reference.md)
 * [프로바이더](providers.md)
-  * [OpenAI](providers/openai.md)
-  * [Anthropic](providers/anthropic.md)
-  * [LangChain](providers/langchain.md)
-  * [Replicate](providers/replicate.md)
 * [함수 호출](function-calling.md)
 * [모델 컨텍스트 프로토콜](model-context-protocol.md)
 * [시스템 메시지](system-messages.md)
@@ -118,6 +123,7 @@ function create404Page() {
   <meta charset="UTF-8">
   <title>페이지를 찾을 수 없습니다 - Robota</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/themes/vue.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
 </head>
 <body>
   <div id="app">페이지를 찾을 수 없습니다. <a href="/">홈으로 돌아가기</a></div>
