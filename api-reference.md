@@ -9,9 +9,9 @@ Robota 라이브러리의 API 문서입니다. 각 클래스, 함수, 타입에 
 
 ## 패키지
 
-- [Core](api-reference/core)
-- [OpenAI](api-reference/openai)
-- [Anthropic](api-reference/anthropic)
-- [LangChain](api-reference/langchain)
-- [Replicate](api-reference/replicate)
-- [Tools](api-reference/tools)
+- [Core](api-reference/core/)
+- [OpenAI](api-reference/openai/)
+- [Anthropic](api-reference/anthropic/)
+- [LangChain](api-reference/langchain/)
+- [Replicate](api-reference/replicate/)
+- [Tools](api-reference/tools/)
