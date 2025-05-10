@@ -6,47 +6,47 @@ Core API
 
 ### Classes
 
-- [FunctionRegistry](classes/FunctionRegistry.md)
-- [SimpleMemory](classes/SimpleMemory.md)
-- [PersistentSystemMemory](classes/PersistentSystemMemory.md)
-- [Robota](classes/Robota.md)
-- [SimpleTool](classes/SimpleTool.md)
-- [ToolRegistry](classes/ToolRegistry.md)
+- [FunctionRegistry](/api-reference/core/classes/FunctionRegistry.md)
+- [SimpleMemory](/api-reference/core/classes/SimpleMemory.md)
+- [PersistentSystemMemory](/api-reference/core/classes/PersistentSystemMemory.md)
+- [Robota](/api-reference/core/classes/Robota.md)
+- [SimpleTool](/api-reference/core/classes/SimpleTool.md)
+- [ToolRegistry](/api-reference/core/classes/ToolRegistry.md)
 
 ### Interfaces
 
-- [Memory](interfaces/Memory.md)
-- [ModelContextProtocol](interfaces/ModelContextProtocol.md)
-- [Tool](interfaces/Tool.md)
-- [ToolOptions](interfaces/ToolOptions.md)
-- [Message](interfaces/Message.md)
-- [FunctionCall](interfaces/FunctionCall.md)
-- [FunctionCallResult](interfaces/FunctionCallResult.md)
-- [FunctionDefinition](interfaces/FunctionDefinition.md)
-- [FunctionSchema](interfaces/FunctionSchema.md)
-- [ModelResponse](interfaces/ModelResponse.md)
-- [StreamingResponseChunk](interfaces/StreamingResponseChunk.md)
-- [ProviderOptions](interfaces/ProviderOptions.md)
-- [RunOptions](interfaces/RunOptions.md)
-- [FunctionCallConfig](interfaces/FunctionCallConfig.md)
-- [RobotaOptions](interfaces/RobotaOptions.md)
-- [Context](interfaces/Context.md)
+- [Memory](/api-reference/core/interfaces/Memory.md)
+- [ModelContextProtocol](/api-reference/core/interfaces/ModelContextProtocol.md)
+- [Tool](/api-reference/core/interfaces/Tool.md)
+- [ToolOptions](/api-reference/core/interfaces/ToolOptions.md)
+- [Message](/api-reference/core/interfaces/Message.md)
+- [FunctionCall](/api-reference/core/interfaces/FunctionCall.md)
+- [FunctionCallResult](/api-reference/core/interfaces/FunctionCallResult.md)
+- [FunctionDefinition](/api-reference/core/interfaces/FunctionDefinition.md)
+- [FunctionSchema](/api-reference/core/interfaces/FunctionSchema.md)
+- [ModelResponse](/api-reference/core/interfaces/ModelResponse.md)
+- [StreamingResponseChunk](/api-reference/core/interfaces/StreamingResponseChunk.md)
+- [ProviderOptions](/api-reference/core/interfaces/ProviderOptions.md)
+- [RunOptions](/api-reference/core/interfaces/RunOptions.md)
+- [FunctionCallConfig](/api-reference/core/interfaces/FunctionCallConfig.md)
+- [RobotaOptions](/api-reference/core/interfaces/RobotaOptions.md)
+- [Context](/api-reference/core/interfaces/Context.md)
 
 ### Type Aliases
 
-- [FunctionHandler](README.md#functionhandler)
-- [MessageRole](README.md#messagerole)
-- [FunctionCallMode](README.md#functioncallmode)
+- [FunctionHandler](/api-reference/core/README.md#functionhandler)
+- [MessageRole](/api-reference/core/README.md#messagerole)
+- [FunctionCallMode](/api-reference/core/README.md#functioncallmode)
 
 ### Functions
 
-- [createFunctionSchema](README.md#createfunctionschema)
-- [splitTextIntoChunks](README.md#splittextintochunks)
-- [removeUndefined](README.md#removeundefined)
-- [isJSON](README.md#isjson)
-- [delay](README.md#delay)
-- [estimateTokenCount](README.md#estimatetokencount)
-- [extractJSONObjects](README.md#extractjsonobjects)
+- [createFunctionSchema](/api-reference/core/README.md#createfunctionschema)
+- [splitTextIntoChunks](/api-reference/core/README.md#splittextintochunks)
+- [removeUndefined](/api-reference/core/README.md#removeundefined)
+- [isJSON](/api-reference/core/README.md#isjson)
+- [delay](/api-reference/core/README.md#delay)
+- [estimateTokenCount](/api-reference/core/README.md#estimatetokencount)
+- [extractJSONObjects](/api-reference/core/README.md#extractjsonobjects)
 
 ## Type Aliases
 
@@ -111,7 +111,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `definition` | [`FunctionDefinition`](interfaces/FunctionDefinition.md) |
+| `definition` | [`FunctionDefinition`](/api-reference/core/interfaces/FunctionDefinition.md) |
 
 #### Returns
 

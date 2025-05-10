@@ -6,8 +6,8 @@ OpenAI API
 
 ### Classes
 
-- [OpenAIProvider](classes/OpenAIProvider.md)
+- [OpenAIProvider](/api-reference/openai/classes/OpenAIProvider.md)
 
 ### Interfaces
 
-- [OpenAIProviderOptions](interfaces/OpenAIProviderOptions.md)
+- [OpenAIProviderOptions](/api-reference/openai/interfaces/OpenAIProviderOptions.md)
