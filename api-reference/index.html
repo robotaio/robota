@@ -1,86 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Robota API 문서</title>
   <meta name="description" content="Robota API 문서">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/themes/vue.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
-  <style>
-    :root {
-      --theme-color: #42b983;
-      --sidebar-width: 300px;
-    }
-    .sidebar {
-      padding: 20px;
-    }
-    .markdown-section {
-      max-width: 900px;
-    }
-    .markdown-section code {
-      background-color: #f8f8f8;
-    }
-  </style>
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    // 페이지 로드 시 Docsify 라우팅으로 리다이렉트
+    window.onload = function() {
+      // history 모드를 위한 리다이렉트 처리
+      const currentPath = window.location.pathname;
+      
+      // HTML 확장자 제거하여 원래 경로로 리다이렉트
+      if (currentPath.endsWith('.html')) {
+        window.location.href = currentPath.replace('.html', '');
+        return;
+      }
+      
+      // 이미 적절한 경로라면 Docsify로 전달
+      window.location.href = '/';
+    };
+  </script>
 </head>
 <body>
-  <div id="app"></div>
-  <script>
-    // 경로 자동 감지
-    (function() {
-      var root = '';
-      var path = window.location.pathname;
-      
-      // robotaio.github.io/robota나 다른 루트 경로 자동 감지
-      var match = path.match(/^(\/[^\/]+){1,2}\//);
-      if (match && match[0]) {
-        root = match[0].endsWith('/') ? match[0] : match[0] + '/';
-      }
-      
-      // Docsify 설정
-      window.$docsify = {
-        name: 'Robota API',
-        repo: 'https://github.com/robotaio/robota',
-        loadSidebar: true,
-        subMaxLevel: 3,
-        auto2top: true,
-        homepage: 'README.md',
-        relativePath: true,
-        search: {
-          maxAge: 86400000,
-          paths: 'auto',
-          placeholder: '검색',
-          noData: '결과 없음',
-          depth: 6
-        },
-        copyCode: {
-          buttonText: '복사',
-          errorText: '오류',
-          successText: '복사됨'
-        },
-        pagination: {
-          previousText: '이전',
-          nextText: '다음',
-          crossChapter: true
-        },
-        notFoundPage: '404.html',
-        routerMode: 'history'
-      };
-      
-      // 루트 경로가 감지되면 basePath 설정
-      if (root) {
-        window.$docsify.basePath = root;
-      }
-    })();
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-typescript.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+  <div id="content">
+    <h1>Robota API 참조</h1>
+<p>Robota 라이브러리의 API 문서입니다. 각 클래스, 함수, 타입에 대한 자세한 설명을 확인할 수 있습니다.</p>
+<h2>패키지</h2>
+<ul>
+<li><a href="core/index.md">Core</a></li>
+<li><a href="openai/index.md">OpenAI</a></li>
+<li><a href="anthropic/index.md">Anthropic</a></li>
+<li><a href="langchain/index.md">LangChain</a></li>
+<li><a href="replicate/index.md">Replicate</a></li>
+<li><a href="tools/index.md">Tools</a></li>
+</ul>
+
+  </div>
 </body>
 </html>

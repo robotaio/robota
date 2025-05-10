@@ -23,80 +23,61 @@
       background-color: #f8f8f8;
     }
   </style>
-  <script src="./scripts/redirect.js"></script>
+  <script src="/scripts/redirect.js"></script>
 </head>
 <body>
   <div id="app"></div>
   <script>
-    // 경로 자동 감지
-    (function() {
-      var root = '';
-      var path = window.location.pathname;
-      
-      // robotaio.github.io/robota나 다른 루트 경로 자동 감지
-      var match = path.match(/^(\/[^\/]+){1,2}\//);
-      if (match && match[0]) {
-        root = match[0].endsWith('/') ? match[0] : match[0] + '/';
-      }
-      
-      // Docsify 설정
-      window.$docsify = {
-        name: 'Robota',
-        repo: 'https://github.com/robotaio/robota',
-        loadSidebar: true,
-        subMaxLevel: 3,
-        auto2top: true,
-        homepage: 'README.md',
-        relativePath: true,
-        search: {
-          maxAge: 86400000,
-          paths: 'auto',
-          placeholder: '검색',
-          noData: '결과 없음',
-          depth: 6
-        },
-        copyCode: {
-          buttonText: '복사',
-          errorText: '오류',
-          successText: '복사됨'
-        },
-        pagination: {
-          previousText: '이전',
-          nextText: '다음',
-          crossChapter: true
-        },
-        notFoundPage: '404.html',
-        routerMode: 'history',
-        alias: {
-          '/api-reference/core': '/api-reference/core/',
-          '/api-reference/openai': '/api-reference/openai/',
-          '/api-reference/anthropic': '/api-reference/anthropic/',
-          '/api-reference/langchain': '/api-reference/langchain/',
-          '/api-reference/replicate': '/api-reference/replicate/',
-          '/api-reference/tools': '/api-reference/tools/'
-        },
-        plugins: [
-          function(hook, vm) {
-            hook.doneEach(function() {
-              document.title = vm.config.name + ' - ' + vm.route.file.split('/').pop().replace('.md', '');
-              
-              const existingMeta = document.querySelector('meta[name="description"]');
-              if (existingMeta) existingMeta.remove();
-              
-              const meta = document.createElement('meta');
-              meta.name = 'description';
-              meta.content = 'Robota ' + vm.route.file.split('/').pop().replace('.md', '') + ' 문서';
-              document.head.appendChild(meta);
-            });
-          }
-        ]
-      };
-      
-      // 루트 경로가 감지되면 basePath 설정
-      if (root) {
-        window.$docsify.basePath = root;
-      }
-    })();
+    window.$docsify = {
+      name: 'Robota',
+      repo: 'https://github.com/robotaio/robota',
+      loadSidebar: true,
+      subMaxLevel: 3,
+      auto2top: true,
+      homepage: 'README.md',
+      search: {
+        maxAge: 86400000,
+        paths: 'auto',
+        placeholder: '검색',
+        noData: '결과 없음',
+        depth: 6
+      },
+      copyCode: {
+        buttonText: '복사',
+        errorText: '오류',
+        successText: '복사됨'
+      },
+      pagination: {
+        previousText: '이전',
+        nextText: '다음',
+        crossChapter: true
+      },
+      notFoundPage: '404.html',
+      routerMode: 'history',
+      alias: {
+        '/api-reference/core': '/api-reference/core/',
+        '/api-reference/openai': '/api-reference/openai/',
+        '/api-reference/anthropic': '/api-reference/anthropic/',
+        '/api-reference/langchain': '/api-reference/langchain/',
+        '/api-reference/replicate': '/api-reference/replicate/',
+        '/api-reference/tools': '/api-reference/tools/'
+      },
+      plugins: [
+        function(hook, vm) {
+          hook.doneEach(function() {
+            document.title = vm.config.name + ' - ' + vm.route.file.split('/').pop().replace('.md', '');
+            
+            const existingMeta = document.querySelector('meta[name="description"]');
+            if (existingMeta) existingMeta.remove();
+            
+            const meta = document.createElement('meta');
+            meta.name = 'description';
+            meta.content = 'Robota ' + vm.route.file.split('/').pop().replace('.md', '') + ' 문서';
+            document.head.appendChild(meta);
+          });
+        }
+      ]
+    }
   </script>
   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
