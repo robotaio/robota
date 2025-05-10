@@ -17,9 +17,18 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^6.18.0
         version: 6.21.0(eslint@8.57.1)(typescript@5.6.3)
+      docsify-cli:
+        specifier: ^4.4.4
+        version: 4.4.4
       eslint:
         specifier: ^8.56.0
         version: 8.57.1
+      gh-pages:
+        specifier: ^6.3.0
+        version: 6.3.0
+      glob:
+        specifier: ^10.3.10
+        version: 10.4.5
       husky:
         specifier: ^8.0.3
         version: 8.0.3
@@ -29,6 +38,15 @@ importers:
       prettier:
         specifier: ^3.1.1
         version: 3.5.3
+      rimraf:
+        specifier: ^5.0.5
+        version: 5.0.10
+      typedoc:
+        specifier: ^0.25.9
+        version: 0.25.13(typescript@5.6.3)
+      typedoc-plugin-markdown:
+        specifier: ^3.17.1
+        version: 3.17.1(typedoc@0.25.13(typescript@5.6.3))
       typescript:
         specifier: ^5.3.3
         version: 5.6.3
@@ -213,6 +231,9 @@ importers:
       typescript:
         specifier: ~5.6.2
         version: 5.6.3
+      vitest:
+        specifier: ^1.6.1
+        version: 1.6.1(@types/node@20.17.45)(terser@5.39.0)
 
 packages:
 
