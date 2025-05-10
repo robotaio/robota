@@ -3,7 +3,7 @@
  */
 
 // 테스트 케이스 정의
-const TEST_CASES = [
+export const TEST_CASES = [
     // 기본 링크 테스트
     {
         description: '같은 파일 내 자기 참조 링크',
@@ -104,7 +104,7 @@ const TEST_CASES = [
 ];
 
 // 링크 처리 로직 (generate-api-docs.js 파일에서 가져옴)
-function processLinks(content, fileName, fileDir, categoryName) {
+export function processLinks(content, fileName, fileDir, categoryName) {
     // 확장자 없는 파일명
     const fileNameWithoutExt = fileName.replace('.md', '');
     // 현재 파일의 절대 경로 (URL 기준)
@@ -191,42 +191,45 @@ function processLinks(content, fileName, fileDir, categoryName) {
     return content;
 }
 
-// 테스트 실행
-function runTests() {
-    console.log('🧪 링크 정규표현식 테스트 시작...\n');
+// 직접 실행될 때만 테스트 실행
+if (import.meta.url === import.meta.main) {
+    // 테스트 실행
+    function runTests() {
+        console.log('🧪 링크 정규표현식 테스트 시작...\n');
 
-    let passed = 0;
-    let failed = 0;
+        let passed = 0;
+        let failed = 0;
 
-    TEST_CASES.forEach((test, index) => {
-        try {
-            const actual = processLinks(test.input, test.fileName, test.fileDir, test.categoryName);
+        TEST_CASES.forEach((test, index) => {
+            try {
+                const actual = processLinks(test.input, test.fileName, test.fileDir, test.categoryName);
 
-            if (actual === test.expectedOutput) {
-                console.log(`✅ 테스트 #${index + 1} 통과: ${test.description}`);
-                passed++;
-            } else {
-                console.log(`❌ 테스트 #${index + 1} 실패: ${test.description}`);
-                console.log(`   입력: ${test.input}`);
-                console.log(`   기대 출력: ${test.expectedOutput}`);
-                console.log(`   실제 출력: ${actual}`);
+                if (actual === test.expectedOutput) {
+                    console.log(`✅ 테스트 #${index + 1} 통과: ${test.description}`);
+                    passed++;
+                } else {
+                    console.log(`❌ 테스트 #${index + 1} 실패: ${test.description}`);
+                    console.log(`   입력: ${test.input}`);
+                    console.log(`   기대 출력: ${test.expectedOutput}`);
+                    console.log(`   실제 출력: ${actual}`);
+                    failed++;
+                }
+            } catch (error) {
+                console.log(`⚠️ 테스트 #${index + 1} 오류: ${test.description}`);
+                console.log(`   오류 메시지: ${error.message}`);
                 failed++;
             }
-        } catch (error) {
-            console.log(`⚠️ 테스트 #${index + 1} 오류: ${test.description}`);
-            console.log(`   오류 메시지: ${error.message}`);
-            failed++;
-        }
-    });
+        });
 
-    console.log(`\n🔍 테스트 결과: ${passed}개 통과, ${failed}개 실패 (총 ${TEST_CASES.length}개)`);
+        console.log(`\n🔍 테스트 결과: ${passed}개 통과, ${failed}개 실패 (총 ${TEST_CASES.length}개)`);
 
-    // 테스트 성공 여부 반환
-    return failed === 0;
-}
+        // 테스트 성공 여부 반환
+        return failed === 0;
+    }
 
-// 테스트 실행
-const success = runTests();
+    // 테스트 실행
+    const success = runTests();
 
-// 종료 코드 설정 (CI/CD 파이프라인에서 활용 가능)
-process.exit(success ? 0 : 1); 
+    // 종료 코드 설정 (CI/CD 파이프라인에서 활용 가능)
+    process.exit(success ? 0 : 1);
+} 

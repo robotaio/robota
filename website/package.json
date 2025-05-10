@@ -5,6 +5,9 @@
   "type": "module",
   "scripts": {
     "test": "vitest run",
+    "test:unit": "vitest run --testNamePattern='generate-api-docs'",
+    "test:links": "vitest run --testNamePattern='링크 처리 테스트'",
+    "test:only:links": "vitest run --testNamePattern='링크 처리 테스트' --exclude '**/docs-integration.test.js'",
     "build": "npm run clear && npm run generate-api-docs && npm run setup-docsify",
     "clear": "rimraf dist && mkdir -p dist",
     "serve": "npx serve ./dist",
@@ -12,8 +15,7 @@
     "setup-docsify": "node scripts/setup-docsify.js",
     "preview": "npm run build && npm run serve",
     "prepare-deploy": "npm run build",
-    "deploy": "gh-pages -d dist -b gh-pages",
-    "test:links": "node scripts/tests/run-link-tests.js"
+    "deploy": "gh-pages -d dist -b gh-pages"
   },
   "devDependencies": {
     "docsify-cli": "^4.4.4",

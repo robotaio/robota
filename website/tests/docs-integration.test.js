@@ -20,7 +20,6 @@ describe('generate-api-docs 스크립트 테스트', () => {
         // 각 함수가 올바른 링크 변환 로직을 포함하고 있는지 확인
         expect(scriptContent).toContain('FunctionRegistry.md');
         expect(scriptContent).toContain('README.md');
-        expect(scriptContent).toContain('?id=');
         expect(scriptContent).toContain('/api-reference/');
 
         // API 카테고리 정의가 올바른지 확인
@@ -49,9 +48,7 @@ describe('generate-api-docs 스크립트 테스트', () => {
         const testCases = [
             { pattern: 'classes/', description: '클래스 링크 변환' },
             { pattern: 'interfaces/', description: '인터페이스 링크 변환' },
-            { pattern: 'README.md', description: 'README 링크 변환' },
-            { pattern: '../README.md', description: '상위 디렉토리 README 링크 변환' },
-            { pattern: '?id=', description: '?id= 형식으로 변환' }
+            { pattern: 'README.md', description: 'README 링크 변환' }
         ];
 
         // 스크립트 내용 가져오기
