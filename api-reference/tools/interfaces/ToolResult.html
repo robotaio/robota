@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Robota 문서</title>
+  <meta name="description" content="Robota API 문서">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    // 페이지 로드 시 Docsify 라우팅으로 리다이렉트
+    window.onload = function() {
+      const currentPath = window.location.pathname;
+      if (!currentPath.endsWith('/')) {
+        const redirectPath = currentPath.includes('.html') 
+          ? currentPath.replace('.html', '') 
+          : currentPath;
+        window.location.href = '/#' + redirectPath;
+      } else {
+        window.location.href = '/#' + currentPath;
+      }
+    };
+  </script>
+</head>
+<body>
+  <div id="content">
+    [Tools API - v0.1.0](../README.md) / ToolResult
+
+# Interface: ToolResult\<T\>
+
+도구 실행 결과 타입
+
+## Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | `any` |
+
+## Table of contents
+
+### Properties
+
+- [success](ToolResult.md#success)
+- [data](ToolResult.md#data)
+- [error](ToolResult.md#error)
+- [metadata](ToolResult.md#metadata)
+
+## Properties
+
+### <a id="success" name="success"></a> success
+
+• **success**: `boolean`
+
+도구 실행 성공 여부
+
+#### Defined in
+
+[index.ts:14](https://github.com/robotaio/robota/blob/main/packages/tools/src/index.ts#L14)
+
+___
+
+### <a id="data" name="data"></a> data
+
+• `Optional` **data**: `T`
+
+도구 실행 결과 데이터
+
+#### Defined in
+
+[index.ts:19](https://github.com/robotaio/robota/blob/main/packages/tools/src/index.ts#L19)
+
+___
+
+### <a id="error" name="error"></a> error
+
+• `Optional` **error**: `string`
+
+도구 실행 중 발생한 오류
+
+#### Defined in
+
+[index.ts:24](https://github.com/robotaio/robota/blob/main/packages/tools/src/index.ts#L24)
+
+___
+
+### <a id="metadata" name="metadata"></a> metadata
+
+• `Optional` **metadata**: `Record`\<`string`, `any`\>
+
+추가 메타데이터
+
+#### Defined in
+
+[index.ts:29](https://github.com/robotaio/robota/blob/main/packages/tools/src/index.ts#L29)
+
+  </div>
+</body>
+</html>

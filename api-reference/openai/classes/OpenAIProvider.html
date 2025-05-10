@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Robota 문서</title>
+  <meta name="description" content="Robota API 문서">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    // 페이지 로드 시 Docsify 라우팅으로 리다이렉트
+    window.onload = function() {
+      const currentPath = window.location.pathname;
+      if (!currentPath.endsWith('/')) {
+        const redirectPath = currentPath.includes('.html') 
+          ? currentPath.replace('.html', '') 
+          : currentPath;
+        window.location.href = '/#' + redirectPath;
+      } else {
+        window.location.href = '/#' + currentPath;
+      }
+    };
+  </script>
+</head>
+<body>
+  <div id="content">
+    [OpenAI API - v0.1.0](../README.md) / OpenAIProvider
+
+# Class: OpenAIProvider
+
+OpenAI 제공업체 클래스
+
+## Table of contents
+
+### Constructors
+
+- [constructor](OpenAIProvider.md#constructor)
+
+## Constructors
+
+### <a id="constructor" name="constructor"></a> constructor
+
+• **new OpenAIProvider**(`options`): [`OpenAIProvider`](OpenAIProvider.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `options` | [`OpenAIProviderOptions`](../interfaces/OpenAIProviderOptions.md) |
+
+#### Returns
+
+[`OpenAIProvider`](OpenAIProvider.md)
+
+#### Defined in
+
+[openai/src/index.ts:14](https://github.com/robotaio/robota/blob/main/packages/openai/src/index.ts#L14)
+
+  </div>
+</body>
+</html>

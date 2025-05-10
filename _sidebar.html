@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Robota 문서</title>
+  <meta name="description" content="Robota API 문서">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    // 페이지 로드 시 Docsify 라우팅으로 리다이렉트
+    window.onload = function() {
+      const currentPath = window.location.pathname;
+      if (!currentPath.endsWith('/')) {
+        const redirectPath = currentPath.includes('.html') 
+          ? currentPath.replace('.html', '') 
+          : currentPath;
+        window.location.href = '/#' + redirectPath;
+      } else {
+        window.location.href = '/#' + currentPath;
+      }
+    };
+  </script>
+</head>
+<body>
+  <div id="content">
+    * [홈](/)
+* [시작하기](getting-started.md)
+* [핵심 개념](core-concepts.md)
+* [API 참조](api-reference.md)
+  * [Anthropic](api-reference/anthropic/)
+  * [Core](api-reference/core/)
+  * [Langchain](api-reference/langchain/)
+  * [Openai](api-reference/openai/)
+  * [Replicate](api-reference/replicate/)
+  * [Tools](api-reference/tools/)
+* [프로바이더](providers.md)
+* [함수 호출](function-calling.md)
+* [모델 컨텍스트 프로토콜](model-context-protocol.md)
+* [시스템 메시지](system-messages.md)
+* [코드 개선사항](code-improvements.md)
+  </div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Robota 문서</title>
+  <meta name="description" content="Robota API 문서">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    // 페이지 로드 시 Docsify 라우팅으로 리다이렉트
+    window.onload = function() {
+      const currentPath = window.location.pathname;
+      if (!currentPath.endsWith('/')) {
+        const redirectPath = currentPath.includes('.html') 
+          ? currentPath.replace('.html', '') 
+          : currentPath;
+        window.location.href = '/#' + redirectPath;
+      } else {
+        window.location.href = '/#' + currentPath;
+      }
+    };
+  </script>
+</head>
+<body>
+  <div id="content">
+    # Robota 문서
+
+Robota 라이브러리의 사용법과 API 참조 문서입니다.
+
+## 목차
+
+1. [시작하기](./getting-started.md)
+2. [핵심 개념](./core-concepts.md)
+3. [제공업체](./providers.md)
+   - [OpenAI](./providers/openai.md)
+   - [Anthropic](./providers/anthropic.md)
+   - [LangChain](./providers/langchain.md)
+   - [Replicate](./providers/replicate.md)
+   - [커스텀 제공업체 만들기](./providers/custom.md)
+4. [함수 호출](./function-calling.md)
+5. [시스템 메시지와 함수 호출 모드](./system-messages.md)
+6. [에이전트 구축](./building-agents.md)
+7. [도구와 유틸리티](./tools-and-utilities.md)
+8. [모델 컨텍스트 프로토콜](./model-context-protocol.md)
+9. [OpenAPI/Swagger 통합](./openapi-integration.md)
+10. [고급 사용법](./advanced-usage.md)
+11. [API 참조](./api-reference.md)
+12. [예제](./examples.md)
+13. [코드 구조 및 개선사항](./code-improvements.md)
+
+## 기여하기
+
+Robota에 기여하고 싶으시다면 [기여 가이드라인](./contributing.md)을 참조하세요. 
+
+## 코드 개선 요약
+
+최근 코드 리팩토링 작업에서 다음과 같은 개선사항이 적용되었습니다:
+
+1. **타입 안전성 강화**
+   - 인터페이스와 타입 정의 확장 
+   - 제네릭 타입을 활용한 타입 안전성 향상
+   - 명시적인 타입 체크 추가
+
+2. **코드 모듈화**
+   - 논리적 기능별 모듈 분리 
+   - 관련 기능 그룹화
+   - 책임 분리 원칙 적용
+
+3. **문서화 개선**
+   - JSDoc 주석 추가 및 개선
+   - 예제 코드 추가
+   - 상세한 API 설명 제공
+
+4. **에러 처리 향상**
+   - 더 명확한 에러 메시지 제공
+   - 예외 처리 로직 개선
+   - 함수 호출 실패에 대한 강건성 증가
+
+5. **개발자 경험 개선**
+   - 직관적인 API 디자인
+   - IDE 지원 최적화
+   - 일관된 코딩 스타일 적용
+
+6. **테스트 강화**
+   - 단위 테스트 확대
+   - 에지 케이스 처리
+   - 테스트 커버리지 향상 
+  </div>
+</body>
+</html>
