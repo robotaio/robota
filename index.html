@@ -35,6 +35,8 @@
       subMaxLevel: 3,
       auto2top: true,
       homepage: 'README.md',
+      basePath: '/robota/', // 기본 경로 설정
+      routerMode: 'hash', // history 모드에서 hash 모드로 변경
       search: {
         maxAge: 86400000,
         paths: 'auto',
@@ -53,14 +55,13 @@
         crossChapter: true
       },
       notFoundPage: '404.html',
-      routerMode: 'history',
       alias: {
-        '/api-reference/core': '/api-reference/core/',
-        '/api-reference/openai': '/api-reference/openai/',
-        '/api-reference/anthropic': '/api-reference/anthropic/',
-        '/api-reference/langchain': '/api-reference/langchain/',
-        '/api-reference/replicate': '/api-reference/replicate/',
-        '/api-reference/tools': '/api-reference/tools/'
+        '/robota/api-reference/core': '/robota/api-reference/core/',
+        '/robota/api-reference/openai': '/robota/api-reference/openai/',
+        '/robota/api-reference/anthropic': '/robota/api-reference/anthropic/',
+        '/robota/api-reference/langchain': '/robota/api-reference/langchain/',
+        '/robota/api-reference/replicate': '/robota/api-reference/replicate/',
+        '/robota/api-reference/tools': '/robota/api-reference/tools/'
       },
       plugins: [
         function(hook, vm) {
