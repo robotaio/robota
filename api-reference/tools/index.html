@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Robota API 문서</title>
   <meta name="description" content="Robota API 문서">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/themes/vue.css">
@@ -11,91 +11,58 @@
   <style>
     :root {
       --theme-color: #42b983;
+      --sidebar-width: 300px;
+    }
+    .sidebar {
+      padding: 20px;
     }
     .markdown-section {
       max-width: 900px;
-      padding: 30px;
     }
     .markdown-section code {
       background-color: #f8f8f8;
     }
   </style>
+  <script src="../../scripts/redirect.js"></script>
 </head>
 <body>
-  <div class="markdown-section">
-    <p>Tools API</p>
-<h1>Tools API - v0.1.0</h1>
-<h2>Table of contents</h2>
-<h3>Classes</h3>
-<ul>
-<li><a href="/api-reference/tools/classes/ToolRegistry">ToolRegistry</a></li>
-</ul>
-<h3>Interfaces</h3>
-<ul>
-<li><a href="/api-reference/tools/interfaces/ToolResult">ToolResult</a></li>
-<li><a href="/api-reference/tools/interfaces/ToolParameter">ToolParameter</a></li>
-<li><a href="/api-reference/tools/interfaces/Tool">Tool</a></li>
-<li><a href="/api-reference/tools/interfaces/CreateToolOptions">CreateToolOptions</a></li>
-</ul>
-<h3>Functions</h3>
-<ul>
-<li><a href="/api-reference/tools/README#createtool">createTool</a></li>
-</ul>
-<h2>Functions</h2>
-<h3><a id="createtool" name="createtool"></a> createTool</h3>
-<p>▸ <strong>createTool</strong>&lt;<code>TInput</code>, <code>TOutput</code>&gt;(<code>options</code>): <a href="/api-reference/tools/interfaces/Tool"><code>Tool</code></a>&lt;<code>TInput</code>, <code>TOutput</code>&gt;</p>
-<p>도구 생성 함수</p>
-<h4>Type parameters</h4>
-<table>
-<thead>
-<tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>TInput</code></td>
-<td align="left"><code>any</code></td>
-</tr>
-<tr>
-<td align="left"><code>TOutput</code></td>
-<td align="left"><code>any</code></td>
-</tr>
-</tbody></table>
-<h4>Parameters</h4>
-<table>
-<thead>
-<tr>
-<th align="left">Name</th>
-<th align="left">Type</th>
-<th align="left">Description</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>options</code></td>
-<td align="left"><a href="/api-reference/tools/interfaces/CreateToolOptions"><code>CreateToolOptions</code></a>&lt;<code>TInput</code>, <code>TOutput</code>&gt;</td>
-<td align="left">도구 생성 옵션</td>
-</tr>
-</tbody></table>
-<h4>Returns</h4>
-<p><a href="/api-reference/tools/interfaces/Tool"><code>Tool</code></a>&lt;<code>TInput</code>, <code>TOutput</code>&gt;</p>
-<p>생성된 도구</p>
-<p><strong><code>Example</code></strong></p>
-<pre><code class="language-ts">const weatherTool = createTool({
-  name: &#39;getWeather&#39;,
-  description: &#39;특정 위치의 날씨 정보를 가져옵니다&#39;,
-  parameters: [
-    { name: &#39;location&#39;, type: &#39;string&#39;, description: &#39;위치 (도시명)&#39;, required: true }
-  ],
-  execute: async ({ location }) =&gt; {
-    // 날씨 API 호출 로직
-    return { temperature: 25, humidity: 60, conditions: &#39;맑음&#39; };
-  }
-});
-</code></pre>
-<h4>Defined in</h4>
-<p><a href="https://github.com/robotaio/robota/blob/main/packages/tools/src/index.ts#L117">index.ts:117</a></p>
-
-  </div>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      name: 'Robota API',
+      repo: 'https://github.com/robotaio/robota',
+      loadSidebar: true,
+      subMaxLevel: 3,
+      auto2top: true,
+      homepage: 'README.md',
+      search: {
+        maxAge: 86400000,
+        paths: 'auto',
+        placeholder: '검색',
+        noData: '결과 없음',
+        depth: 6
+      },
+      copyCode: {
+        buttonText: '복사',
+        errorText: '오류',
+        successText: '복사됨'
+      },
+      pagination: {
+        previousText: '이전',
+        nextText: '다음',
+        crossChapter: true
+      },
+      notFoundPage: '404.html',
+      routerMode: 'history'
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-typescript.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
 </body>
 </html>

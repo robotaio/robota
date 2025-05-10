@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Robota API 문서</title>
   <meta name="description" content="Robota API 문서">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/themes/vue.css">
@@ -11,30 +11,58 @@
   <style>
     :root {
       --theme-color: #42b983;
+      --sidebar-width: 300px;
+    }
+    .sidebar {
+      padding: 20px;
     }
     .markdown-section {
       max-width: 900px;
-      padding: 30px;
     }
     .markdown-section code {
       background-color: #f8f8f8;
     }
   </style>
+  <script src="../scripts/redirect.js"></script>
 </head>
 <body>
-  <div class="markdown-section">
-    <h1>Robota API 참조</h1>
-<p>Robota 라이브러리의 API 문서입니다. 각 클래스, 함수, 타입에 대한 자세한 설명을 확인할 수 있습니다.</p>
-<h2>패키지</h2>
-<ul>
-<li><a href="core/index.md">Core</a></li>
-<li><a href="openai/index.md">OpenAI</a></li>
-<li><a href="anthropic/index.md">Anthropic</a></li>
-<li><a href="langchain/index.md">LangChain</a></li>
-<li><a href="replicate/index.md">Replicate</a></li>
-<li><a href="tools/index.md">Tools</a></li>
-</ul>
-
-  </div>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      name: 'Robota API',
+      repo: 'https://github.com/robotaio/robota',
+      loadSidebar: true,
+      subMaxLevel: 3,
+      auto2top: true,
+      homepage: 'README.md',
+      search: {
+        maxAge: 86400000,
+        paths: 'auto',
+        placeholder: '검색',
+        noData: '결과 없음',
+        depth: 6
+      },
+      copyCode: {
+        buttonText: '복사',
+        errorText: '오류',
+        successText: '복사됨'
+      },
+      pagination: {
+        previousText: '이전',
+        nextText: '다음',
+        crossChapter: true
+      },
+      notFoundPage: '404.html',
+      routerMode: 'history'
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-typescript.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
 </body>
 </html>
