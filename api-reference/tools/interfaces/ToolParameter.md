@@ -1,4 +1,4 @@
-[Tools API - v0.1.0](/api-reference/tools/) / ToolParameter
+[Tools API - v0.1.0](../README.md) / ToolParameter
 
 # Interface: ToolParameter
 
@@ -8,11 +8,11 @@
 
 ### Properties
 
-- [name](#name)
-- [type](#type)
-- [description](#description)
-- [required](#required)
-- [defaultValue](#defaultvalue)
+- [name](ToolParameter.md#name)
+- [type](ToolParameter.md#type)
+- [description](ToolParameter.md#description)
+- [required](ToolParameter.md#required)
+- [defaultValue](ToolParameter.md#defaultvalue)
 
 ## Properties
 

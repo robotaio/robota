@@ -6,8 +6,8 @@ LangChain API
 
 ### Classes
 
-- [LangChainProvider](/api-reference/langchain/classes/LangChainProvider.md)
+- [LangChainProvider](classes/LangChainProvider.md)
 
 ### Interfaces
 
-- [LangChainProviderOptions](/api-reference/langchain/interfaces/LangChainProviderOptions.md)
+- [LangChainProviderOptions](interfaces/LangChainProviderOptions.md)

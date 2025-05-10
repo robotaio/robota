@@ -1,4 +1,4 @@
-[Tools API - v0.1.0](/api-reference/tools/) / ToolRegistry
+[Tools API - v0.1.0](../README.md) / ToolRegistry
 
 # Class: ToolRegistry
 
@@ -10,31 +10,31 @@
 
 ### Constructors
 
-- [constructor](#constructor)
+- [constructor](ToolRegistry.md#constructor)
 
 ### Methods
 
-- [register](#register)
-- [registerMany](#registermany)
-- [getTool](#gettool)
-- [getAllTools](#getalltools)
-- [executeTool](#executetool)
+- [register](ToolRegistry.md#register)
+- [registerMany](ToolRegistry.md#registermany)
+- [getTool](ToolRegistry.md#gettool)
+- [getAllTools](ToolRegistry.md#getalltools)
+- [executeTool](ToolRegistry.md#executetool)
 
 ## Constructors
 
 ### <a id="constructor" name="constructor"></a> constructor
 
-• **new ToolRegistry**(): [`ToolRegistry`]()
+• **new ToolRegistry**(): [`ToolRegistry`](ToolRegistry.md)
 
 #### Returns
 
-[`ToolRegistry`]()
+[`ToolRegistry`](ToolRegistry.md)
 
 ## Methods
 
 ### <a id="register" name="register"></a> register
 
-▸ **register**(`tool`): [`ToolRegistry`]()
+▸ **register**(`tool`): [`ToolRegistry`](ToolRegistry.md)
 
 도구 등록
 
@@ -42,11 +42,11 @@
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `tool` | [`Tool`](/api-reference/tools/interfaces/Tool.md)\<`any`, `any`\> | 등록할 도구 |
+| `tool` | [`Tool`](../interfaces/Tool.md)\<`any`, `any`\> | 등록할 도구 |
 
 #### Returns
 
-[`ToolRegistry`]()
+[`ToolRegistry`](ToolRegistry.md)
 
 #### Defined in
 
@@ -56,7 +56,7 @@ ___
 
 ### <a id="registermany" name="registermany"></a> registerMany
 
-▸ **registerMany**(`tools`): [`ToolRegistry`]()
+▸ **registerMany**(`tools`): [`ToolRegistry`](ToolRegistry.md)
 
 여러 도구 등록
 
@@ -64,11 +64,11 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `tools` | [`Tool`](/api-reference/tools/interfaces/Tool.md)\<`any`, `any`\>[] | 등록할 도구 배열 |
+| `tools` | [`Tool`](../interfaces/Tool.md)\<`any`, `any`\>[] | 등록할 도구 배열 |
 
 #### Returns
 
-[`ToolRegistry`]()
+[`ToolRegistry`](ToolRegistry.md)
 
 #### Defined in
 
@@ -78,7 +78,7 @@ ___
 
 ### <a id="gettool" name="gettool"></a> getTool
 
-▸ **getTool**(`name`): `undefined` \| [`Tool`](/api-reference/tools/interfaces/Tool.md)\<`any`, `any`\>
+▸ **getTool**(`name`): `undefined` \| [`Tool`](../interfaces/Tool.md)\<`any`, `any`\>
 
 도구 가져오기
 
@@ -90,7 +90,7 @@ ___
 
 #### Returns
 
-`undefined` \| [`Tool`](/api-reference/tools/interfaces/Tool.md)\<`any`, `any`\>
+`undefined` \| [`Tool`](../interfaces/Tool.md)\<`any`, `any`\>
 
 도구 또는 undefined
 
@@ -102,13 +102,13 @@ ___
 
 ### <a id="getalltools" name="getalltools"></a> getAllTools
 
-▸ **getAllTools**(): [`Tool`](/api-reference/tools/interfaces/Tool.md)\<`any`, `any`\>[]
+▸ **getAllTools**(): [`Tool`](../interfaces/Tool.md)\<`any`, `any`\>[]
 
 모든 도구 가져오기
 
 #### Returns
 
-[`Tool`](/api-reference/tools/interfaces/Tool.md)\<`any`, `any`\>[]
+[`Tool`](../interfaces/Tool.md)\<`any`, `any`\>[]
 
 모든 등록된 도구 배열
 
@@ -120,7 +120,7 @@ ___
 
 ### <a id="executetool" name="executetool"></a> executeTool
 
-▸ **executeTool**\<`TInput`, `TOutput`\>(`name`, `input`): `Promise`\<[`ToolResult`](/api-reference/tools/interfaces/ToolResult.md)\<`TOutput`\>\>
+▸ **executeTool**\<`TInput`, `TOutput`\>(`name`, `input`): `Promise`\<[`ToolResult`](../interfaces/ToolResult.md)\<`TOutput`\>\>
 
 도구 실행
 
@@ -140,7 +140,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`ToolResult`](/api-reference/tools/interfaces/ToolResult.md)\<`TOutput`\>\>
+`Promise`\<[`ToolResult`](../interfaces/ToolResult.md)\<`TOutput`\>\>
 
 도구 실행 결과
 

@@ -6,24 +6,24 @@ Tools API
 
 ### Classes
 
-- [ToolRegistry](/api-reference/tools/classes/ToolRegistry.md)
+- [ToolRegistry](classes/ToolRegistry.md)
 
 ### Interfaces
 
-- [ToolResult](/api-reference/tools/interfaces/ToolResult.md)
-- [ToolParameter](/api-reference/tools/interfaces/ToolParameter.md)
-- [Tool](/api-reference/tools/interfaces/Tool.md)
-- [CreateToolOptions](/api-reference/tools/interfaces/CreateToolOptions.md)
+- [ToolResult](interfaces/ToolResult.md)
+- [ToolParameter](interfaces/ToolParameter.md)
+- [Tool](interfaces/Tool.md)
+- [CreateToolOptions](interfaces/CreateToolOptions.md)
 
 ### Functions
 
-- [createTool](#createtool)
+- [createTool](README.md#createtool)
 
 ## Functions
 
 ### <a id="createtool" name="createtool"></a> createTool
 
-▸ **createTool**\<`TInput`, `TOutput`\>(`options`): [`Tool`](/api-reference/tools/interfaces/Tool.md)\<`TInput`, `TOutput`\>
+▸ **createTool**\<`TInput`, `TOutput`\>(`options`): [`Tool`](interfaces/Tool.md)\<`TInput`, `TOutput`\>
 
 도구 생성 함수
 
@@ -38,11 +38,11 @@ Tools API
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `options` | [`CreateToolOptions`](/api-reference/tools/interfaces/CreateToolOptions.md)\<`TInput`, `TOutput`\> | 도구 생성 옵션 |
+| `options` | [`CreateToolOptions`](interfaces/CreateToolOptions.md)\<`TInput`, `TOutput`\> | 도구 생성 옵션 |
 
 #### Returns
 
-[`Tool`](/api-reference/tools/interfaces/Tool.md)\<`TInput`, `TOutput`\>
+[`Tool`](interfaces/Tool.md)\<`TInput`, `TOutput`\>
 
 생성된 도구
 

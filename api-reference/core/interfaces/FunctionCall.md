@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / FunctionCall
+[Core API - v0.1.0](../README.md) / FunctionCall
 
 # Interface: FunctionCall
 
@@ -8,8 +8,8 @@
 
 ### Properties
 
-- [name](#name)
-- [arguments](#arguments)
+- [name](FunctionCall.md#name)
+- [arguments](FunctionCall.md#arguments)
 
 ## Properties
 

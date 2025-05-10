@@ -1,4 +1,4 @@
-[OpenAI API - v0.1.0](/api-reference/openai/) / OpenAIProvider
+[OpenAI API - v0.1.0](../README.md) / OpenAIProvider
 
 # Class: OpenAIProvider
 
@@ -8,23 +8,23 @@ OpenAI 제공업체 클래스
 
 ### Constructors
 
-- [constructor](#constructor)
+- [constructor](OpenAIProvider.md#constructor)
 
 ## Constructors
 
 ### <a id="constructor" name="constructor"></a> constructor
 
-• **new OpenAIProvider**(`options`): [`OpenAIProvider`]()
+• **new OpenAIProvider**(`options`): [`OpenAIProvider`](OpenAIProvider.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [`OpenAIProviderOptions`](/api-reference/openai/interfaces/OpenAIProviderOptions.md) |
+| `options` | [`OpenAIProviderOptions`](../interfaces/OpenAIProviderOptions.md) |
 
 #### Returns
 
-[`OpenAIProvider`]()
+[`OpenAIProvider`](OpenAIProvider.md)
 
 #### Defined in
 

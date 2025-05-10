@@ -6,8 +6,8 @@ Replicate API
 
 ### Classes
 
-- [ReplicateProvider](/api-reference/replicate/classes/ReplicateProvider.md)
+- [ReplicateProvider](classes/ReplicateProvider.md)
 
 ### Interfaces
 
-- [ReplicateProviderOptions](/api-reference/replicate/interfaces/ReplicateProviderOptions.md)
+- [ReplicateProviderOptions](interfaces/ReplicateProviderOptions.md)

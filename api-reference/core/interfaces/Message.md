@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / Message
+[Core API - v0.1.0](../README.md) / Message
 
 # Interface: Message
 
@@ -8,17 +8,17 @@
 
 ### Properties
 
-- [role](#role)
-- [content](#content)
-- [name](#name)
-- [functionCall](#functioncall)
-- [functionResult](#functionresult)
+- [role](Message.md#role)
+- [content](Message.md#content)
+- [name](Message.md#name)
+- [functionCall](Message.md#functioncall)
+- [functionResult](Message.md#functionresult)
 
 ## Properties
 
 ### <a id="role" name="role"></a> role
 
-• **role**: [`MessageRole`](/api-reference/core/?id=messagerole)
+• **role**: [`MessageRole`](../README.md#messagerole)
 
 #### Defined in
 

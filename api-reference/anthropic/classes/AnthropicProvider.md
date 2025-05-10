@@ -1,4 +1,4 @@
-[Anthropic API - v0.1.0](/api-reference/anthropic/) / AnthropicProvider
+[Anthropic API - v0.1.0](../README.md) / AnthropicProvider
 
 # Class: AnthropicProvider
 
@@ -8,23 +8,23 @@ Anthropic 제공업체 클래스
 
 ### Constructors
 
-- [constructor](#constructor)
+- [constructor](AnthropicProvider.md#constructor)
 
 ## Constructors
 
 ### <a id="constructor" name="constructor"></a> constructor
 
-• **new AnthropicProvider**(`options`): [`AnthropicProvider`]()
+• **new AnthropicProvider**(`options`): [`AnthropicProvider`](AnthropicProvider.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [`AnthropicProviderOptions`](/api-reference/anthropic/interfaces/AnthropicProviderOptions.md) |
+| `options` | [`AnthropicProviderOptions`](../interfaces/AnthropicProviderOptions.md) |
 
 #### Returns
 
-[`AnthropicProvider`]()
+[`AnthropicProvider`](AnthropicProvider.md)
 
 #### Defined in
 

@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / SimpleMemory
+[Core API - v0.1.0](../README.md) / SimpleMemory
 
 # Class: SimpleMemory
 
@@ -6,25 +6,25 @@
 
 ## Implements
 
-- [`Memory`](/api-reference/core/interfaces/Memory.md)
+- [`Memory`](../interfaces/Memory.md)
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](#constructor)
+- [constructor](SimpleMemory.md#constructor)
 
 ### Methods
 
-- [addMessage](#addmessage)
-- [getMessages](#getmessages)
-- [clear](#clear)
+- [addMessage](SimpleMemory.md#addmessage)
+- [getMessages](SimpleMemory.md#getmessages)
+- [clear](SimpleMemory.md#clear)
 
 ## Constructors
 
 ### <a id="constructor" name="constructor"></a> constructor
 
-• **new SimpleMemory**(`options?`): [`SimpleMemory`]()
+• **new SimpleMemory**(`options?`): [`SimpleMemory`](SimpleMemory.md)
 
 #### Parameters
 
@@ -35,7 +35,7 @@
 
 #### Returns
 
-[`SimpleMemory`]()
+[`SimpleMemory`](SimpleMemory.md)
 
 #### Defined in
 
@@ -53,7 +53,7 @@
 
 | Name | Type |
 | :------ | :------ |
-| `message` | [`Message`](/api-reference/core/interfaces/Message.md) |
+| `message` | [`Message`](../interfaces/Message.md) |
 
 #### Returns
 
@@ -61,7 +61,7 @@
 
 #### Implementation of
 
-[Memory](/api-reference/core/interfaces/Memory.md).[addMessage](/api-reference/core/interfaces/Memory.md#addmessage)
+[Memory](../interfaces/Memory.md).[addMessage](../interfaces/Memory.md#addmessage)
 
 #### Defined in
 
@@ -71,17 +71,17 @@ ___
 
 ### <a id="getmessages" name="getmessages"></a> getMessages
 
-▸ **getMessages**(): [`Message`](/api-reference/core/interfaces/Message.md)[]
+▸ **getMessages**(): [`Message`](../interfaces/Message.md)[]
 
 저장된 모든 메시지를 가져옵니다.
 
 #### Returns
 
-[`Message`](/api-reference/core/interfaces/Message.md)[]
+[`Message`](../interfaces/Message.md)[]
 
 #### Implementation of
 
-[Memory](/api-reference/core/interfaces/Memory.md).[getMessages](/api-reference/core/interfaces/Memory.md#getmessages)
+[Memory](../interfaces/Memory.md).[getMessages](../interfaces/Memory.md#getmessages)
 
 #### Defined in
 
@@ -101,7 +101,7 @@ ___
 
 #### Implementation of
 
-[Memory](/api-reference/core/interfaces/Memory.md).[clear](/api-reference/core/interfaces/Memory.md#clear)
+[Memory](../interfaces/Memory.md).[clear](../interfaces/Memory.md#clear)
 
 #### Defined in
 

@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / PersistentSystemMemory
+[Core API - v0.1.0](../README.md) / PersistentSystemMemory
 
 # Class: PersistentSystemMemory
 
@@ -6,26 +6,26 @@
 
 ## Implements
 
-- [`Memory`](/api-reference/core/interfaces/Memory.md)
+- [`Memory`](../interfaces/Memory.md)
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](#constructor)
+- [constructor](PersistentSystemMemory.md#constructor)
 
 ### Methods
 
-- [addMessage](#addmessage)
-- [getMessages](#getmessages)
-- [clear](#clear)
-- [updateSystemPrompt](#updatesystemprompt)
+- [addMessage](PersistentSystemMemory.md#addmessage)
+- [getMessages](PersistentSystemMemory.md#getmessages)
+- [clear](PersistentSystemMemory.md#clear)
+- [updateSystemPrompt](PersistentSystemMemory.md#updatesystemprompt)
 
 ## Constructors
 
 ### <a id="constructor" name="constructor"></a> constructor
 
-• **new PersistentSystemMemory**(`systemPrompt`, `options?`): [`PersistentSystemMemory`]()
+• **new PersistentSystemMemory**(`systemPrompt`, `options?`): [`PersistentSystemMemory`](PersistentSystemMemory.md)
 
 #### Parameters
 
@@ -37,7 +37,7 @@
 
 #### Returns
 
-[`PersistentSystemMemory`]()
+[`PersistentSystemMemory`](PersistentSystemMemory.md)
 
 #### Defined in
 
@@ -55,7 +55,7 @@
 
 | Name | Type |
 | :------ | :------ |
-| `message` | [`Message`](/api-reference/core/interfaces/Message.md) |
+| `message` | [`Message`](../interfaces/Message.md) |
 
 #### Returns
 
@@ -63,7 +63,7 @@
 
 #### Implementation of
 
-[Memory](/api-reference/core/interfaces/Memory.md).[addMessage](/api-reference/core/interfaces/Memory.md#addmessage)
+[Memory](../interfaces/Memory.md).[addMessage](../interfaces/Memory.md#addmessage)
 
 #### Defined in
 
@@ -73,17 +73,17 @@ ___
 
 ### <a id="getmessages" name="getmessages"></a> getMessages
 
-▸ **getMessages**(): [`Message`](/api-reference/core/interfaces/Message.md)[]
+▸ **getMessages**(): [`Message`](../interfaces/Message.md)[]
 
 저장된 모든 메시지를 가져옵니다.
 
 #### Returns
 
-[`Message`](/api-reference/core/interfaces/Message.md)[]
+[`Message`](../interfaces/Message.md)[]
 
 #### Implementation of
 
-[Memory](/api-reference/core/interfaces/Memory.md).[getMessages](/api-reference/core/interfaces/Memory.md#getmessages)
+[Memory](../interfaces/Memory.md).[getMessages](../interfaces/Memory.md#getmessages)
 
 #### Defined in
 
@@ -103,7 +103,7 @@ ___
 
 #### Implementation of
 
-[Memory](/api-reference/core/interfaces/Memory.md).[clear](/api-reference/core/interfaces/Memory.md#clear)
+[Memory](../interfaces/Memory.md).[clear](../interfaces/Memory.md#clear)
 
 #### Defined in
 

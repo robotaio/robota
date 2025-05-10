@@ -1,4 +1,4 @@
-[Replicate API - v0.1.0](/api-reference/replicate/) / ReplicateProvider
+[Replicate API - v0.1.0](../README.md) / ReplicateProvider
 
 # Class: ReplicateProvider
 
@@ -8,23 +8,23 @@ Replicate 제공업체 클래스
 
 ### Constructors
 
-- [constructor](#constructor)
+- [constructor](ReplicateProvider.md#constructor)
 
 ## Constructors
 
 ### <a id="constructor" name="constructor"></a> constructor
 
-• **new ReplicateProvider**(`options`): [`ReplicateProvider`]()
+• **new ReplicateProvider**(`options`): [`ReplicateProvider`](ReplicateProvider.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [`ReplicateProviderOptions`](/api-reference/replicate/interfaces/ReplicateProviderOptions.md) |
+| `options` | [`ReplicateProviderOptions`](../interfaces/ReplicateProviderOptions.md) |
 
 #### Returns
 
-[`ReplicateProvider`]()
+[`ReplicateProvider`](ReplicateProvider.md)
 
 #### Defined in
 

@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / SimpleTool
+[Core API - v0.1.0](../README.md) / SimpleTool
 
 # Class: SimpleTool
 
@@ -6,40 +6,40 @@
 
 ## Implements
 
-- [`Tool`](/api-reference/core/interfaces/Tool.md)
+- [`Tool`](../interfaces/Tool.md)
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](#constructor)
+- [constructor](SimpleTool.md#constructor)
 
 ### Properties
 
-- [name](#name)
-- [description](#description)
-- [schema](#schema)
-- [execute](#execute)
+- [name](SimpleTool.md#name)
+- [description](SimpleTool.md#description)
+- [schema](SimpleTool.md#schema)
+- [execute](SimpleTool.md#execute)
 
 ### Methods
 
-- [toFunctionDefinition](#tofunctiondefinition)
+- [toFunctionDefinition](SimpleTool.md#tofunctiondefinition)
 
 ## Constructors
 
 ### <a id="constructor" name="constructor"></a> constructor
 
-• **new SimpleTool**(`options`): [`SimpleTool`]()
+• **new SimpleTool**(`options`): [`SimpleTool`](SimpleTool.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [`ToolOptions`](/api-reference/core/interfaces/ToolOptions.md) |
+| `options` | [`ToolOptions`](../interfaces/ToolOptions.md) |
 
 #### Returns
 
-[`SimpleTool`]()
+[`SimpleTool`](SimpleTool.md)
 
 #### Defined in
 
@@ -55,7 +55,7 @@
 
 #### Implementation of
 
-[Tool](/api-reference/core/interfaces/Tool.md).[name](/api-reference/core/interfaces/Tool.md#name)
+[Tool](../interfaces/Tool.md).[name](../interfaces/Tool.md#name)
 
 #### Defined in
 
@@ -71,7 +71,7 @@ ___
 
 #### Implementation of
 
-[Tool](/api-reference/core/interfaces/Tool.md).[description](/api-reference/core/interfaces/Tool.md#description)
+[Tool](../interfaces/Tool.md).[description](../interfaces/Tool.md#description)
 
 #### Defined in
 
@@ -87,7 +87,7 @@ ___
 
 #### Implementation of
 
-[Tool](/api-reference/core/interfaces/Tool.md).[schema](/api-reference/core/interfaces/Tool.md#schema)
+[Tool](../interfaces/Tool.md).[schema](../interfaces/Tool.md#schema)
 
 #### Defined in
 
@@ -117,7 +117,7 @@ ___
 
 #### Implementation of
 
-[Tool](/api-reference/core/interfaces/Tool.md).[execute](/api-reference/core/interfaces/Tool.md#execute)
+[Tool](../interfaces/Tool.md).[execute](../interfaces/Tool.md#execute)
 
 #### Defined in
 
@@ -127,17 +127,17 @@ ___
 
 ### <a id="tofunctiondefinition" name="tofunctiondefinition"></a> toFunctionDefinition
 
-▸ **toFunctionDefinition**(): [`FunctionDefinition`](/api-reference/core/interfaces/FunctionDefinition.md)
+▸ **toFunctionDefinition**(): [`FunctionDefinition`](../interfaces/FunctionDefinition.md)
 
 함수 정의로 변환
 
 #### Returns
 
-[`FunctionDefinition`](/api-reference/core/interfaces/FunctionDefinition.md)
+[`FunctionDefinition`](../interfaces/FunctionDefinition.md)
 
 #### Implementation of
 
-[Tool](/api-reference/core/interfaces/Tool.md).[toFunctionDefinition](/api-reference/core/interfaces/Tool.md#tofunctiondefinition)
+[Tool](../interfaces/Tool.md).[toFunctionDefinition](../interfaces/Tool.md#tofunctiondefinition)
 
 #### Defined in
 

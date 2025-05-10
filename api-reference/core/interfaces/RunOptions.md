@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / RunOptions
+[Core API - v0.1.0](../README.md) / RunOptions
 
 # Interface: RunOptions
 
@@ -8,12 +8,12 @@
 
 ### Properties
 
-- [systemPrompt](#systemprompt)
-- [functionCallMode](#functioncallmode)
-- [forcedFunction](#forcedfunction)
-- [forcedArguments](#forcedarguments)
-- [temperature](#temperature)
-- [maxTokens](#maxtokens)
+- [systemPrompt](RunOptions.md#systemprompt)
+- [functionCallMode](RunOptions.md#functioncallmode)
+- [forcedFunction](RunOptions.md#forcedfunction)
+- [forcedArguments](RunOptions.md#forcedarguments)
+- [temperature](RunOptions.md#temperature)
+- [maxTokens](RunOptions.md#maxtokens)
 
 ## Properties
 
@@ -29,7 +29,7 @@ ___
 
 ### <a id="functioncallmode" name="functioncallmode"></a> functionCallMode
 
-• `Optional` **functionCallMode**: [`FunctionCallMode`](/api-reference/core/?id=functioncallmode)
+• `Optional` **functionCallMode**: [`FunctionCallMode`](../README.md#functioncallmode)
 
 #### Defined in
 

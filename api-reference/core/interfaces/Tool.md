@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / Tool
+[Core API - v0.1.0](../README.md) / Tool
 
 # Interface: Tool
 
@@ -6,20 +6,20 @@
 
 ## Implemented by
 
-- [`SimpleTool`](/api-reference/core/classes/SimpleTool.md)
+- [`SimpleTool`](../classes/SimpleTool.md)
 
 ## Table of contents
 
 ### Properties
 
-- [name](#name)
-- [description](#description)
-- [schema](#schema)
-- [execute](#execute)
+- [name](Tool.md#name)
+- [description](Tool.md#description)
+- [schema](Tool.md#schema)
+- [execute](Tool.md#execute)
 
 ### Methods
 
-- [toFunctionDefinition](#tofunctiondefinition)
+- [toFunctionDefinition](Tool.md#tofunctiondefinition)
 
 ## Properties
 

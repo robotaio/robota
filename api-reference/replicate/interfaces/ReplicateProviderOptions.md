@@ -1,4 +1,4 @@
-[Replicate API - v0.1.0](/api-reference/replicate/) / ReplicateProviderOptions
+[Replicate API - v0.1.0](../README.md) / ReplicateProviderOptions
 
 # Interface: ReplicateProviderOptions
 
@@ -14,12 +14,12 @@ Replicate 제공업체 옵션
 
 ### Properties
 
-- [model](#model)
-- [temperature](#temperature)
-- [maxTokens](#maxtokens)
-- [stopSequences](#stopsequences)
-- [streamMode](#streammode)
-- [apiToken](#apitoken)
+- [model](ReplicateProviderOptions.md#model)
+- [temperature](ReplicateProviderOptions.md#temperature)
+- [maxTokens](ReplicateProviderOptions.md#maxtokens)
+- [stopSequences](ReplicateProviderOptions.md#stopsequences)
+- [streamMode](ReplicateProviderOptions.md#streammode)
+- [apiToken](ReplicateProviderOptions.md#apitoken)
 
 ## Properties
 

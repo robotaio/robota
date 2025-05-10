@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / Robota
+[Core API - v0.1.0](../README.md) / Robota
 
 # Class: Robota
 
@@ -23,28 +23,28 @@ const response = await robota.run('안녕하세요!');
 
 ### Constructors
 
-- [constructor](#constructor)
+- [constructor](Robota.md#constructor)
 
 ### Methods
 
-- [setSystemPrompt](#setsystemprompt)
-- [setSystemMessages](#setsystemmessages)
-- [addSystemMessage](#addsystemmessage)
-- [setFunctionCallMode](#setfunctioncallmode)
-- [configureFunctionCall](#configurefunctioncall)
-- [registerFunctions](#registerfunctions)
-- [registerFunction](#registerfunction)
-- [run](#run)
-- [chat](#chat)
-- [runStream](#runstream)
-- [addResponseToMemory](#addresponsetomemory)
-- [clearMemory](#clearmemory)
+- [setSystemPrompt](Robota.md#setsystemprompt)
+- [setSystemMessages](Robota.md#setsystemmessages)
+- [addSystemMessage](Robota.md#addsystemmessage)
+- [setFunctionCallMode](Robota.md#setfunctioncallmode)
+- [configureFunctionCall](Robota.md#configurefunctioncall)
+- [registerFunctions](Robota.md#registerfunctions)
+- [registerFunction](Robota.md#registerfunction)
+- [run](Robota.md#run)
+- [chat](Robota.md#chat)
+- [runStream](Robota.md#runstream)
+- [addResponseToMemory](Robota.md#addresponsetomemory)
+- [clearMemory](Robota.md#clearmemory)
 
 ## Constructors
 
 ### <a id="constructor" name="constructor"></a> constructor
 
-• **new Robota**(`options`): [`Robota`]()
+• **new Robota**(`options`): [`Robota`](Robota.md)
 
 Robota 인스턴스 생성
 
@@ -52,11 +52,11 @@ Robota 인스턴스 생성
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `options` | [`RobotaOptions`](/api-reference/core/interfaces/RobotaOptions.md) | Robota 초기화 옵션 |
+| `options` | [`RobotaOptions`](../interfaces/RobotaOptions.md) | Robota 초기화 옵션 |
 
 #### Returns
 
-[`Robota`]()
+[`Robota`](Robota.md)
 
 #### Defined in
 
@@ -96,7 +96,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `messages` | [`Message`](/api-reference/core/interfaces/Message.md)[] | 시스템 메시지 배열 |
+| `messages` | [`Message`](../interfaces/Message.md)[] | 시스템 메시지 배열 |
 
 #### Returns
 
@@ -140,7 +140,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `mode` | [`FunctionCallMode`](/api-reference/core/?id=functioncallmode) | 함수 호출 모드 ('auto', 'force', 'disabled') |
+| `mode` | [`FunctionCallMode`](../README.md#functioncallmode) | 함수 호출 모드 ('auto', 'force', 'disabled') |
 
 #### Returns
 
@@ -163,7 +163,7 @@ ___
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `config` | `Object` | 함수 호출 구성 옵션 |
-| `config.mode?` | [`FunctionCallMode`](/api-reference/core/?id=functioncallmode) | - |
+| `config.mode?` | [`FunctionCallMode`](../README.md#functioncallmode) | - |
 | `config.maxCalls?` | `number` | - |
 | `config.timeout?` | `number` | - |
 | `config.allowedFunctions?` | `string`[] | - |
@@ -210,7 +210,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `schema` | [`FunctionSchema`](/api-reference/core/interfaces/FunctionSchema.md) | 함수 스키마 |
+| `schema` | [`FunctionSchema`](../interfaces/FunctionSchema.md) | 함수 스키마 |
 | `fn` | `Function` | 함수 구현 |
 
 #### Returns
@@ -234,7 +234,7 @@ ___
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `prompt` | `string` | 사용자 프롬프트 |
-| `options` | [`RunOptions`](/api-reference/core/interfaces/RunOptions.md) | 실행 옵션 |
+| `options` | [`RunOptions`](../interfaces/RunOptions.md) | 실행 옵션 |
 
 #### Returns
 
@@ -259,7 +259,7 @@ ___
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `message` | `string` | 사용자 메시지 |
-| `options` | [`RunOptions`](/api-reference/core/interfaces/RunOptions.md) | 실행 옵션 |
+| `options` | [`RunOptions`](../interfaces/RunOptions.md) | 실행 옵션 |
 
 #### Returns
 
@@ -275,7 +275,7 @@ ___
 
 ### <a id="runstream" name="runstream"></a> runStream
 
-▸ **runStream**(`prompt`, `options?`): `Promise`\<`AsyncIterable`\<[`StreamingResponseChunk`](/api-reference/core/interfaces/StreamingResponseChunk.md), `any`, `any`\>\>
+▸ **runStream**(`prompt`, `options?`): `Promise`\<`AsyncIterable`\<[`StreamingResponseChunk`](../interfaces/StreamingResponseChunk.md), `any`, `any`\>\>
 
 스트리밍 응답 생성
 
@@ -284,11 +284,11 @@ ___
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `prompt` | `string` | 사용자 프롬프트 |
-| `options` | [`RunOptions`](/api-reference/core/interfaces/RunOptions.md) | 실행 옵션 |
+| `options` | [`RunOptions`](../interfaces/RunOptions.md) | 실행 옵션 |
 
 #### Returns
 
-`Promise`\<`AsyncIterable`\<[`StreamingResponseChunk`](/api-reference/core/interfaces/StreamingResponseChunk.md), `any`, `any`\>\>
+`Promise`\<`AsyncIterable`\<[`StreamingResponseChunk`](../interfaces/StreamingResponseChunk.md), `any`, `any`\>\>
 
 스트리밍 응답 청크 이터레이터
 
@@ -308,7 +308,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `response` | [`ModelResponse`](/api-reference/core/interfaces/ModelResponse.md) | 모델 응답 |
+| `response` | [`ModelResponse`](../interfaces/ModelResponse.md) | 모델 응답 |
 
 #### Returns
 

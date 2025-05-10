@@ -6,8 +6,8 @@ Anthropic API
 
 ### Classes
 
-- [AnthropicProvider](/api-reference/anthropic/classes/AnthropicProvider.md)
+- [AnthropicProvider](classes/AnthropicProvider.md)
 
 ### Interfaces
 
-- [AnthropicProviderOptions](/api-reference/anthropic/interfaces/AnthropicProviderOptions.md)
+- [AnthropicProviderOptions](interfaces/AnthropicProviderOptions.md)

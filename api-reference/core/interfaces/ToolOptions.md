@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / ToolOptions
+[Core API - v0.1.0](../README.md) / ToolOptions
 
 # Interface: ToolOptions
 
@@ -8,10 +8,10 @@
 
 ### Properties
 
-- [name](#name)
-- [description](#description)
-- [schema](#schema)
-- [execute](#execute)
+- [name](ToolOptions.md#name)
+- [description](ToolOptions.md#description)
+- [schema](ToolOptions.md#schema)
+- [execute](ToolOptions.md#execute)
 
 ## Properties
 

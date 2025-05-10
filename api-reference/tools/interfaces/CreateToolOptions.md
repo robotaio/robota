@@ -1,4 +1,4 @@
-[Tools API - v0.1.0](/api-reference/tools/) / CreateToolOptions
+[Tools API - v0.1.0](../README.md) / CreateToolOptions
 
 # Interface: CreateToolOptions\<TInput, TOutput\>
 
@@ -15,10 +15,10 @@
 
 ### Properties
 
-- [name](#name)
-- [description](#description)
-- [parameters](#parameters)
-- [execute](#execute)
+- [name](CreateToolOptions.md#name)
+- [description](CreateToolOptions.md#description)
+- [parameters](CreateToolOptions.md#parameters)
+- [execute](CreateToolOptions.md#execute)
 
 ## Properties
 

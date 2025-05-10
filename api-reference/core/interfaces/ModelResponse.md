@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / ModelResponse
+[Core API - v0.1.0](../README.md) / ModelResponse
 
 # Interface: ModelResponse
 
@@ -8,10 +8,10 @@
 
 ### Properties
 
-- [content](#content)
-- [functionCall](#functioncall)
-- [usage](#usage)
-- [metadata](#metadata)
+- [content](ModelResponse.md#content)
+- [functionCall](ModelResponse.md#functioncall)
+- [usage](ModelResponse.md#usage)
+- [metadata](ModelResponse.md#metadata)
 
 ## Properties
 

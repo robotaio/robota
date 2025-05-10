@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / ToolRegistry
+[Core API - v0.1.0](../README.md) / ToolRegistry
 
 # Class: ToolRegistry
 
@@ -8,24 +8,24 @@
 
 ### Constructors
 
-- [constructor](#constructor)
+- [constructor](ToolRegistry.md#constructor)
 
 ### Methods
 
-- [register](#register)
-- [getTool](#gettool)
-- [getFunctionDefinitions](#getfunctiondefinitions)
-- [execute](#execute)
+- [register](ToolRegistry.md#register)
+- [getTool](ToolRegistry.md#gettool)
+- [getFunctionDefinitions](ToolRegistry.md#getfunctiondefinitions)
+- [execute](ToolRegistry.md#execute)
 
 ## Constructors
 
 ### <a id="constructor" name="constructor"></a> constructor
 
-• **new ToolRegistry**(): [`ToolRegistry`]()
+• **new ToolRegistry**(): [`ToolRegistry`](ToolRegistry.md)
 
 #### Returns
 
-[`ToolRegistry`]()
+[`ToolRegistry`](ToolRegistry.md)
 
 ## Methods
 
@@ -39,7 +39,7 @@
 
 | Name | Type |
 | :------ | :------ |
-| `tool` | [`Tool`](/api-reference/core/interfaces/Tool.md) |
+| `tool` | [`Tool`](../interfaces/Tool.md) |
 
 #### Returns
 
@@ -53,7 +53,7 @@ ___
 
 ### <a id="gettool" name="gettool"></a> getTool
 
-▸ **getTool**(`name`): `undefined` \| [`Tool`](/api-reference/core/interfaces/Tool.md)
+▸ **getTool**(`name`): `undefined` \| [`Tool`](../interfaces/Tool.md)
 
 도구 이름으로 도구 가져오기
 
@@ -65,7 +65,7 @@ ___
 
 #### Returns
 
-`undefined` \| [`Tool`](/api-reference/core/interfaces/Tool.md)
+`undefined` \| [`Tool`](../interfaces/Tool.md)
 
 #### Defined in
 
@@ -75,13 +75,13 @@ ___
 
 ### <a id="getfunctiondefinitions" name="getfunctiondefinitions"></a> getFunctionDefinitions
 
-▸ **getFunctionDefinitions**(): [`FunctionDefinition`](/api-reference/core/interfaces/FunctionDefinition.md)[]
+▸ **getFunctionDefinitions**(): [`FunctionDefinition`](../interfaces/FunctionDefinition.md)[]
 
 모든 도구의 함수 정의 가져오기
 
 #### Returns
 
-[`FunctionDefinition`](/api-reference/core/interfaces/FunctionDefinition.md)[]
+[`FunctionDefinition`](../interfaces/FunctionDefinition.md)[]
 
 #### Defined in
 

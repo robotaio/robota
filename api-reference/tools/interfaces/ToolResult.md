@@ -1,4 +1,4 @@
-[Tools API - v0.1.0](/api-reference/tools/) / ToolResult
+[Tools API - v0.1.0](../README.md) / ToolResult
 
 # Interface: ToolResult\<T\>
 
@@ -14,10 +14,10 @@
 
 ### Properties
 
-- [success](#success)
-- [data](#data)
-- [error](#error)
-- [metadata](#metadata)
+- [success](ToolResult.md#success)
+- [data](ToolResult.md#data)
+- [error](ToolResult.md#error)
+- [metadata](ToolResult.md#metadata)
 
 ## Properties
 

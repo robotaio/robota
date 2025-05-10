@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / Memory
+[Core API - v0.1.0](../README.md) / Memory
 
 # Interface: Memory
 
@@ -8,16 +8,16 @@
 
 ## Implemented by
 
-- [`PersistentSystemMemory`](/api-reference/core/classes/PersistentSystemMemory.md)
-- [`SimpleMemory`](/api-reference/core/classes/SimpleMemory.md)
+- [`PersistentSystemMemory`](../classes/PersistentSystemMemory.md)
+- [`SimpleMemory`](../classes/SimpleMemory.md)
 
 ## Table of contents
 
 ### Methods
 
-- [addMessage](#addmessage)
-- [getMessages](#getmessages)
-- [clear](#clear)
+- [addMessage](Memory.md#addmessage)
+- [getMessages](Memory.md#getmessages)
+- [clear](Memory.md#clear)
 
 ## Methods
 
