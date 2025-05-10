@@ -1,41 +1,25 @@
 
 // GitHub Pages에서 SPA 히스토리 모드를 지원하기 위한 스크립트
 (function() {
-  // 현재 URL에서 경로 부분 가져오기
-  var path = window.location.pathname;
+  // 현재 URL 확인
   var isGitHubPages = window.location.hostname.indexOf('github.io') > -1;
   var basePath = '/robota'; // 마지막 슬래시 제외
   
-  // 이미 index.html로 접근한 경우나 404 페이지인 경우는 처리하지 않음
-  if (path === basePath + '/' || path.endsWith('/index.html') || path.endsWith('/404.html')) {
-    return;
-  }
-
-  // HTML 파일로 직접 접근한 경우 처리
-  if (path.endsWith('.html')) {
-    window.location.href = path.replace('.html', '');
-    return;
-  }
-
-  // 디렉토리 경로에 후행 슬래시가 없는 경우 추가
-  if (!path.endsWith('/') && !path.includes('.')) {
-    window.location.href = path + '/';
-    return;
-  }
-
-  // GitHub Pages의 경우 SPA 리다이렉트 처리
   if (isGitHubPages) {
-    // 404.html 페이지에서 원래 경로를 복원
-    if (path === basePath + '/404.html') {
-      var redirectTo = sessionStorage.getItem('redirectPath');
-      if (redirectTo) {
-        sessionStorage.removeItem('redirectPath');
-        window.location.replace(redirectTo);
-      }
-    } else {
-      // 현재 경로를 저장하고 404.html로 리다이렉트
-      sessionStorage.setItem('redirectPath', path);
-      window.location.replace(basePath + '/404.html');
+    // 히스토리 모드를 위한 처리
+    console.log('GitHub Pages에서 Docsify를 실행 중입니다.');
+    
+    // 히스토리 모드에서 서버 측 라우팅이 없으므로, 클라이언트에서 처리
+    // 404 페이지가 표시될 때, 원래 요청된 URL을 파싱하여 Docsify가 처리할 수 있게 함
+    if (window.location.pathname.indexOf('/404.html') === -1) {
+      // 현재 경로를 Docsify에서 처리할 수 있도록 설정
+      window.$docsify = window.$docsify || {};
+      window.$docsify.routerMode = 'history';
+      
+      // 경로가 실제 파일을 가리키지 않는 경우 Docsify가 처리할 수 있도록 설정
+      var script = document.createElement('script');
+      script.text = 'window.$docsify.fallbackPage = true;';
+      document.body.appendChild(script);
     }
   }
 })();

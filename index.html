@@ -24,6 +24,19 @@
     }
   </style>
   
+  <script>
+    // 404에서 리다이렉트된 경우 원래 경로로 복원
+    (function() {
+      var redirectPath = sessionStorage.getItem('redirectPath');
+      if (redirectPath) {
+        sessionStorage.removeItem('redirectPath');
+        // 페이지가 완전히 로드된 후 경로 변경 (history API 사용)
+        window.addEventListener('DOMContentLoaded', function() {
+          history.replaceState(null, null, redirectPath);
+        });
+      }
+    })();
+  </script>
 </head>
 <body>
   <div id="app"></div>
@@ -80,6 +93,7 @@
       ]
     }
   </script>
+  <script src="/robota/scripts/redirect.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>

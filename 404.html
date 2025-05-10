@@ -24,6 +24,21 @@
     }
   </style>
   
+  <script>
+    // 원래 요청된 URL에서 Docsify가 처리할 수 있는 경로로 리다이렉트
+    (function() {
+      var path = window.location.pathname;
+      var basePath = '/robota/';
+      
+      // 기본 경로가 포함된 경우에만 처리
+      if (path.indexOf(basePath) === 0) {
+        // 현재 URL 저장
+        sessionStorage.setItem('redirectPath', path);
+        // 메인 페이지로 리다이렉트 (여기서 Docsify가 적절히 처리)
+        window.location.href = basePath;
+      }
+    })();
+  </script>
 </head>
 <body>
   <div id="app">페이지를 찾을 수 없습니다. <a href="/robota/">홈으로 돌아가기</a></div>
@@ -80,6 +95,7 @@
       ]
     }
   </script>
+  <script src="/robota/scripts/redirect.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
