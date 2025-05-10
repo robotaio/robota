@@ -14,43 +14,48 @@ export interface OpenAIProviderOptions extends ProviderOptions {
   /**
    * OpenAI API 키
    */
-  apiKey: string;
-  
+  apiKey?: string;
+
+  /**
+   * OpenAI 클라이언트 인스턴스
+   */
+  client: OpenAI;
+
   /**
    * 사용할 모델 (기본값: gpt-3.5-turbo)
    */
   model: string;
-  
+
   /**
    * 응답 온도 (0~2, 기본값: 0.7)
    */
   temperature?: number;
-  
+
   /**
    * 응답 토큰 수 제한
    */
   maxTokens?: number;
-  
+
   /**
    * 상위 p 샘플링 (0~1)
    */
   topP?: number;
-  
+
   /**
    * 빈도 페널티 (-2.0~2.0)
    */
   frequencyPenalty?: number;
-  
+
   /**
    * 존재 페널티 (-2.0~2.0)
    */
   presencePenalty?: number;
-  
+
   /**
    * OpenAI 조직 ID
    */
   organization?: string;
-  
+
   /**
    * 사용자 정의 기본 URL
    */
@@ -65,7 +70,7 @@ export class OpenAIProvider extends BaseProvider {
    * OpenAI 클라이언트
    */
   private client: OpenAI;
-  
+
   /**
    * 생성자
    * @param options OpenAI 제공업체 옵션
@@ -76,16 +81,12 @@ export class OpenAIProvider extends BaseProvider {
       ...options,
       model: options.model || 'gpt-3.5-turbo'
     };
-    
+
     super(defaultedOptions);
-    
-    this.client = new OpenAI({
-      apiKey: options.apiKey,
-      organization: options.organization,
-      baseURL: options.baseURL
-    });
+
+    this.client = options.client;
   }
-  
+
   /**
    * 텍스트 완성 생성
    * @param context 모델 컨텍스트
@@ -98,9 +99,9 @@ export class OpenAIProvider extends BaseProvider {
   ): Promise<ProviderResponse> {
     const options = this.mergeOptions(additionalOptions);
     const openaiFormat = this.convertContextToModelFormat(context);
-    
+
     try {
-      const response = await this.client.chat.completions.create({
+      const requestParams: OpenAI.Chat.ChatCompletionCreateParams = {
         model: options.model,
         messages: openaiFormat.messages,
         temperature: options.temperature,
@@ -109,17 +110,34 @@ export class OpenAIProvider extends BaseProvider {
         frequency_penalty: (options as OpenAIProviderOptions).frequencyPenalty,
         presence_penalty: (options as OpenAIProviderOptions).presencePenalty,
         stop: options.stopSequences,
-        functions: openaiFormat.functions,
         stream: false
-      });
-      
+      };
+
+      // 함수 호출 모드 처리
+      if (openaiFormat.functions && openaiFormat.functions.length > 0) {
+        requestParams.functions = openaiFormat.functions;
+
+        // 함수 호출 모드 설정
+        if (options.functionCallMode === 'auto') {
+          requestParams.function_call = 'auto';
+        } else if (options.functionCallMode === 'disabled') {
+          requestParams.function_call = 'none';
+        } else if (options.functionCallMode === 'force' && additionalOptions?.forcedFunction) {
+          requestParams.function_call = {
+            name: additionalOptions.forcedFunction
+          };
+        }
+      }
+
+      const response = await this.client.chat.completions.create(requestParams);
+
       return this.convertModelResponseToMCP(response);
     } catch (error) {
       // OpenAI API 오류 처리
       throw this.handleOpenAIError(error);
     }
   }
-  
+
   /**
    * 스트리밍 텍스트 완성 생성
    * @param context 모델 컨텍스트
@@ -132,9 +150,9 @@ export class OpenAIProvider extends BaseProvider {
   ): Promise<ProviderResponseStream> {
     const options = this.mergeOptions(additionalOptions);
     const openaiFormat = this.convertContextToModelFormat(context);
-    
+
     try {
-      const stream = await this.client.chat.completions.create({
+      const requestParams: OpenAI.Chat.ChatCompletionCreateParams = {
         model: options.model,
         messages: openaiFormat.messages,
         temperature: options.temperature,
@@ -143,10 +161,27 @@ export class OpenAIProvider extends BaseProvider {
         frequency_penalty: (options as OpenAIProviderOptions).frequencyPenalty,
         presence_penalty: (options as OpenAIProviderOptions).presencePenalty,
         stop: options.stopSequences,
-        functions: openaiFormat.functions,
         stream: true
-      });
-      
+      };
+
+      // 함수 호출 모드 처리
+      if (openaiFormat.functions && openaiFormat.functions.length > 0) {
+        requestParams.functions = openaiFormat.functions;
+
+        // 함수 호출 모드 설정
+        if (options.functionCallMode === 'auto') {
+          requestParams.function_call = 'auto';
+        } else if (options.functionCallMode === 'disabled') {
+          requestParams.function_call = 'none';
+        } else if (options.functionCallMode === 'force' && additionalOptions?.forcedFunction) {
+          requestParams.function_call = {
+            name: additionalOptions.forcedFunction
+          };
+        }
+      }
+
+      const stream = await this.client.chat.completions.create(requestParams);
+
       // 스트림 처리 및 반환
       return this.handleOpenAIStream(stream);
     } catch (error) {
@@ -154,7 +189,7 @@ export class OpenAIProvider extends BaseProvider {
       throw this.handleOpenAIError(error);
     }
   }
-  
+
   /**
    * MCP 컨텍스트를 OpenAI 형식으로 변환
    * @param context MCP 컨텍스트
@@ -163,7 +198,7 @@ export class OpenAIProvider extends BaseProvider {
   convertContextToModelFormat(context: ModelContext): any {
     // 시스템 프롬프트 처리
     const messages = [...context.messages];
-    
+
     // 시스템 프롬프트가 없고 컨텍스트에 시스템 프롬프트가 있는 경우 추가
     if (context.systemPrompt && !messages.some(msg => msg.role === 'system')) {
       messages.unshift({
@@ -171,16 +206,16 @@ export class OpenAIProvider extends BaseProvider {
         content: context.systemPrompt
       });
     }
-    
+
     // OpenAI 형식으로 메시지 변환
     const openaiMessages = messages.map(msg => this.convertMessageToOpenAIFormat(msg));
-    
+
     return {
       messages: openaiMessages,
       functions: context.functions
     };
   }
-  
+
   /**
    * OpenAI 응답을 MCP 형식으로 변환
    * @param response OpenAI 응답
@@ -196,9 +231,9 @@ export class OpenAIProvider extends BaseProvider {
         }
       };
     }
-    
+
     const message = choice.message;
-    
+
     let functionCall = undefined;
     if (message.function_call) {
       try {
@@ -211,7 +246,7 @@ export class OpenAIProvider extends BaseProvider {
         console.error('Error parsing function arguments:', error);
       }
     }
-    
+
     return {
       content: message.content || '',
       functionCall,
@@ -226,7 +261,7 @@ export class OpenAIProvider extends BaseProvider {
       }
     };
   }
-  
+
   /**
    * 메시지를 OpenAI 형식으로 변환
    * @param message MCP 메시지
@@ -234,18 +269,18 @@ export class OpenAIProvider extends BaseProvider {
    */
   private convertMessageToOpenAIFormat(message: Message): any {
     const { role, content, name, functionCall } = message;
-    
+
     // 기본 메시지 객체
     const openaiMessage: any = {
       role: role,
       content: content
     };
-    
+
     // 함수 메시지인 경우 name 추가
     if (role === 'function' && name) {
       openaiMessage.name = name;
     }
-    
+
     // 함수 호출이 있는 경우 추가
     if (functionCall) {
       openaiMessage.function_call = {
@@ -253,10 +288,10 @@ export class OpenAIProvider extends BaseProvider {
         arguments: JSON.stringify(functionCall.arguments)
       };
     }
-    
+
     return openaiMessage;
   }
-  
+
   /**
    * OpenAI 스트림 처리
    * @param stream OpenAI 스트림
@@ -266,29 +301,29 @@ export class OpenAIProvider extends BaseProvider {
     let content = '';
     let functionName = '';
     let functionArgs = '';
-    
+
     for await (const chunk of stream) {
       const delta = chunk.choices[0]?.delta;
-      
+
       // delta가 정의되지 않은 경우 스킵
       if (!delta) continue;
-      
+
       if (delta.content) {
         content += delta.content;
         yield { content: delta.content };
       }
-      
+
       if (delta.function_call) {
         if (delta.function_call.name) {
           functionName += delta.function_call.name;
         }
-        
+
         if (delta.function_call.arguments) {
           functionArgs += delta.function_call.arguments;
         }
       }
     }
-    
+
     // 스트림이 완료되면 최종 상태 반환
     if (functionName && functionArgs) {
       try {
@@ -307,7 +342,7 @@ export class OpenAIProvider extends BaseProvider {
       yield { content };
     }
   }
-  
+
   /**
    * OpenAI 오류 처리
    * @param error OpenAI API 오류
@@ -318,19 +353,19 @@ export class OpenAIProvider extends BaseProvider {
     if (error.response) {
       const status = error.response.status;
       const message = error.response.data?.error?.message || 'Unknown OpenAI API error';
-      
+
       return new Error(`OpenAI API error (${status}): ${message}`);
     }
-    
+
     // 네트워크 오류 또는 타임아웃
     if (error.request) {
       return new Error('Network error: No response received from OpenAI API');
     }
-    
+
     // 기타 오류
     return error;
   }
-  
+
   /**
    * 함수 스키마 변환
    * @param functions 함수 스키마 배열
@@ -340,7 +375,7 @@ export class OpenAIProvider extends BaseProvider {
     // OpenAI는 이미 호환되므로 그대로 반환
     return functions;
   }
-  
+
   /**
    * 제공업체가 특정 기능을 지원하는지 확인
    * @param feature 확인할 기능 이름
@@ -353,7 +388,7 @@ export class OpenAIProvider extends BaseProvider {
       'json-mode',
       'vision'
     ];
-    
+
     return supportedFeatures.includes(feature);
   }
 } 

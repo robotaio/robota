@@ -184,6 +184,9 @@ interface ProviderOptions {
   maxTokens?: number;   // 최대 생성 토큰 수
   stopSequences?: string[]; // 생성 중지 시퀀스
   streamMode?: boolean; // 스트리밍 모드 활성화 여부
+  functionCallMode?: 'auto' | 'disabled' | 'force'; // 함수 호출 모드
+  forcedFunction?: string; // 강제 실행할 함수 이름 (functionCallMode가 'force'인 경우)
+  forcedArguments?: Record<string, any>; // 강제 함수 인자 (functionCallMode가 'force'인 경우)
 }
 ```
 

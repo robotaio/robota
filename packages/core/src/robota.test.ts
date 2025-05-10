@@ -19,14 +19,17 @@ class MockProvider implements ModelContextProtocol {
     public options = { model: 'mock-model' };
     public lastContext: Context | null = null;
     public mockResponse: ModelResponse = { content: '안녕하세요!' };
+    public mockOptions: any = {};
 
-    async chat(context: Context): Promise<ModelResponse> {
+    async chat(context: Context, options?: any): Promise<ModelResponse> {
         this.lastContext = context;
+        this.mockOptions = options || {};
         return this.mockResponse;
     }
 
-    async *chatStream(context: Context): AsyncGenerator<any, void, unknown> {
+    async *chatStream(context: Context, options?: any): AsyncGenerator<any, void, unknown> {
         this.lastContext = context;
+        this.mockOptions = options || {};
         yield { content: '안녕', isComplete: false };
         yield { content: '하세요', isComplete: true };
     }
@@ -77,6 +80,40 @@ describe('Robota', () => {
             expect(customRobota['provider']).toBe(mockProvider);
             expect(customRobota['memory']).toBe(customMemory);
             expect(customRobota['systemPrompt']).toBe(customSystemPrompt);
+        });
+
+        it('시스템 메시지 배열로 초기화되어야 함', () => {
+            const systemMessages = [
+                { role: 'system', content: '당신은 전문가입니다.' },
+                { role: 'system', content: '정확한 정보를 제공하세요.' }
+            ];
+
+            const customRobota = new Robota({
+                provider: mockProvider,
+                systemMessages
+            });
+
+            expect(customRobota['systemMessages']).toEqual(systemMessages);
+            expect(customRobota['systemPrompt']).toBeUndefined();
+        });
+
+        it('함수 호출 설정으로 초기화되어야 함', () => {
+            const functionCallConfig = {
+                defaultMode: 'auto',
+                maxCalls: 5,
+                timeout: 10000,
+                allowedFunctions: ['getWeather']
+            };
+
+            const customRobota = new Robota({
+                provider: mockProvider,
+                functionCallConfig
+            });
+
+            expect(customRobota['functionCallConfig'].defaultMode).toBe('auto');
+            expect(customRobota['functionCallConfig'].maxCalls).toBe(5);
+            expect(customRobota['functionCallConfig'].timeout).toBe(10000);
+            expect(customRobota['functionCallConfig'].allowedFunctions).toEqual(['getWeather']);
         });
     });
 
@@ -171,6 +208,111 @@ describe('Robota', () => {
 
             // 함수가 호출되었는지 확인
             expect(calculator).toHaveBeenCalledWith({ a: 5, b: 3 });
+        });
+    });
+
+    describe('시스템 메시지', () => {
+        it('setSystemPrompt로 단일 시스템 메시지를 설정할 수 있어야 함', async () => {
+            const systemPrompt = '당신은 도움이 되는 AI 비서입니다.';
+            robota.setSystemPrompt(systemPrompt);
+
+            await robota.run('안녕하세요');
+
+            expect(robota['systemPrompt']).toBe(systemPrompt);
+            expect(robota['systemMessages']).toEqual([{ role: 'system', content: systemPrompt }]);
+
+            // 시스템 메시지가 컨텍스트에 포함되었는지 확인
+            const messages = mockProvider.lastContext?.messages || [];
+            expect(messages.length).toBeGreaterThan(1);
+            expect(messages[0]).toEqual({ role: 'system', content: systemPrompt });
+        });
+
+        it('setSystemMessages로 여러 시스템 메시지를 설정할 수 있어야 함', async () => {
+            const systemMessages = [
+                { role: 'system', content: '당신은 전문가입니다.' },
+                { role: 'system', content: '정확한 정보를 제공하세요.' }
+            ];
+
+            robota.setSystemMessages(systemMessages);
+
+            await robota.run('안녕하세요');
+
+            expect(robota['systemPrompt']).toBeUndefined();
+            expect(robota['systemMessages']).toEqual(systemMessages);
+
+            // 시스템 메시지가 컨텍스트에 포함되었는지 확인
+            const messages = mockProvider.lastContext?.messages || [];
+            expect(messages.length).toBeGreaterThan(2);
+            expect(messages[0]).toEqual(systemMessages[0]);
+            expect(messages[1]).toEqual(systemMessages[1]);
+        });
+
+        it('addSystemMessage로 시스템 메시지를 추가할 수 있어야 함', async () => {
+            robota.setSystemPrompt('당신은 도움이 되는 AI 비서입니다.');
+            robota.addSystemMessage('사용자에게 공손하게 대응하세요.');
+
+            await robota.run('안녕하세요');
+
+            expect(robota['systemPrompt']).toBeUndefined();
+            expect(robota['systemMessages']).toEqual([
+                { role: 'system', content: '당신은 도움이 되는 AI 비서입니다.' },
+                { role: 'system', content: '사용자에게 공손하게 대응하세요.' }
+            ]);
+
+            // 시스템 메시지가 컨텍스트에 포함되었는지 확인
+            const messages = mockProvider.lastContext?.messages || [];
+            expect(messages.length).toBeGreaterThan(2);
+            expect(messages[0]).toEqual({ role: 'system', content: '당신은 도움이 되는 AI 비서입니다.' });
+            expect(messages[1]).toEqual({ role: 'system', content: '사용자에게 공손하게 대응하세요.' });
+        });
+    });
+
+    describe('함수 호출 모드', () => {
+        it('setFunctionCallMode로 전역 함수 호출 모드를 설정할 수 있어야 함', async () => {
+            robota.setFunctionCallMode('disabled');
+
+            await robota.run('안녕하세요');
+
+            expect(robota['functionCallConfig'].defaultMode).toBe('disabled');
+            expect(mockProvider.mockOptions.functionCallMode).toBe('disabled');
+        });
+
+        it('run 메서드에서 함수 호출 모드를 지정할 수 있어야 함', async () => {
+            await robota.run('안녕하세요', { functionCallMode: 'disabled' });
+
+            expect(mockProvider.mockOptions.functionCallMode).toBe('disabled');
+        });
+
+        it('force 모드에서 강제 함수와 인자를 지정할 수 있어야 함', async () => {
+            const forcedFunction = 'getWeather';
+            const forcedArguments = { location: '서울' };
+
+            await robota.run('안녕하세요', {
+                functionCallMode: 'force',
+                forcedFunction,
+                forcedArguments
+            });
+
+            expect(mockProvider.mockOptions.functionCallMode).toBe('force');
+            expect(mockProvider.mockOptions.forcedFunction).toBe(forcedFunction);
+            expect(mockProvider.mockOptions.forcedArguments).toEqual(forcedArguments);
+        });
+
+        it('configureFunctionCall로 함수 호출 설정을 변경할 수 있어야 함', async () => {
+            robota.configureFunctionCall({
+                mode: 'auto',
+                maxCalls: 5,
+                timeout: 10000,
+                allowedFunctions: ['getWeather', 'calculate']
+            });
+
+            await robota.run('안녕하세요');
+
+            expect(robota['functionCallConfig'].defaultMode).toBe('auto');
+            expect(robota['functionCallConfig'].maxCalls).toBe(5);
+            expect(robota['functionCallConfig'].timeout).toBe(10000);
+            expect(robota['functionCallConfig'].allowedFunctions).toEqual(['getWeather', 'calculate']);
+            expect(mockProvider.mockOptions.functionCallMode).toBe('auto');
         });
     });
 }); 

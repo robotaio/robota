@@ -116,9 +116,47 @@ MCP에서 컨텍스트는 대화의 상태를 나타내며, 다음 요소를 포
 interface Context {
   messages: Message[];            // 지금까지의 대화 기록
   functions?: FunctionSchema[];   // 사용 가능한 함수 목록
-  systemPrompt?: string;          // 시스템 프롬프트
+  systemPrompt?: string;          // 단일 시스템 프롬프트
+  systemMessages?: Message[];     // 여러 시스템 메시지
   metadata?: Record<string, any>; // 추가 메타데이터
 }
+```
+
+### 시스템 메시지 관리
+
+Robota는 단일 시스템 프롬프트와 여러 시스템 메시지를 모두 지원합니다:
+
+```typescript
+// 단일 시스템 프롬프트 설정
+robota.setSystemPrompt('당신은 도움이 되는 AI 어시스턴트입니다.');
+
+// 여러 시스템 메시지 설정
+robota.setSystemMessages([
+  { role: 'system', content: '당신은 전문 데이터 분석가입니다.' },
+  { role: 'system', content: '사용자가 데이터 분석 관련 질문을 할 때마다 단계별로 설명해주세요.' }
+]);
+
+// 기존 시스템 메시지에 추가
+robota.addSystemMessage('항상 정확한 정보를 제공하려고 노력하세요.');
+```
+
+Robota 인스턴스 생성 시 시스템 메시지를 설정할 수도 있습니다:
+
+```typescript
+// 단일 시스템 프롬프트로 초기화
+const robota1 = new Robota({
+  provider: provider,
+  systemPrompt: '당신은 도움이 되는 AI 어시스턴트입니다.'
+});
+
+// 여러 시스템 메시지로 초기화
+const robota2 = new Robota({
+  provider: provider,
+  systemMessages: [
+    { role: 'system', content: '당신은 전문 데이터 분석가입니다.' },
+    { role: 'system', content: '사용자가 데이터 분석 관련 질문을 할 때마다 단계별로 설명해주세요.' }
+  ]
+});
 ```
 
 ## 응답 형식
