@@ -17,7 +17,7 @@
     "docs:preview": "pnpm --filter website preview",
     "lint": "eslint . --ext .ts,.tsx",
     "lint:fix": "eslint . --ext .ts,.tsx --fix",
-    "serve": "npx serve docs"
+    "serve": "pnpm --filter website serve"
   },
   "keywords": [
     "ai",

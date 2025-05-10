@@ -74,7 +74,7 @@ function createIndexHtml() {
         crossChapter: true
       },
       notFoundPage: '404.html',
-      routerMode: 'hash',
+      routerMode: 'history',
       alias: {
         '/api-reference/core': '/api-reference/core/',
         '/api-reference/openai': '/api-reference/openai/',
@@ -133,6 +133,55 @@ function getApiCategories() {
     });
 
   return categories;
+}
+
+// 하위 디렉토리에 index.md 파일 생성
+function createSubdirectoryIndexFiles(categories) {
+  console.log('🔍 하위 디렉토리 index.md 파일 생성 중...');
+
+  categories.forEach(category => {
+    const categoryPath = path.join(DIST_DIR, category.path);
+    if (!fs.existsSync(categoryPath)) return;
+
+    // 하위 디렉토리 확인(classes, interfaces 등)
+    const subdirs = fs.readdirSync(categoryPath)
+      .filter(item => {
+        const itemPath = path.join(categoryPath, item);
+        return fs.statSync(itemPath).isDirectory();
+      });
+
+    subdirs.forEach(subdir => {
+      const subdirPath = path.join(categoryPath, subdir);
+      const indexPath = path.join(subdirPath, 'index.md');
+
+      // 이미 index.md가 있는지 확인
+      if (fs.existsSync(indexPath)) return;
+
+      // 하위 디렉토리의 모든 마크다운 파일 찾기
+      const mdFiles = globSync(path.join(subdirPath, '*.md'));
+      if (mdFiles.length === 0) return;
+
+      // 인덱스 파일 내용 생성
+      const categoryTitle = category.name;
+      const subdirTitle = subdir.charAt(0).toUpperCase() + subdir.slice(1);
+
+      let indexContent = `# ${categoryTitle} ${subdirTitle}\n\n${categoryTitle} 패키지의 ${subdirTitle} 목록입니다.\n\n`;
+
+      // 모든 파일을 링크로 추가
+      mdFiles.forEach(file => {
+        const fileName = path.basename(file, '.md');
+        if (fileName !== 'index') {
+          indexContent += `- [${fileName}](./${fileName}.md)\n`;
+        }
+      });
+
+      // 인덱스 파일 저장
+      fs.writeFileSync(indexPath, indexContent);
+      console.log(`✅ ${subdir} 디렉토리에 index.md 파일 생성 완료: ${indexPath}`);
+    });
+  });
+
+  console.log('🎉 하위 디렉토리 index.md 파일 생성 완료!');
 }
 
 // 사이드바 파일 생성
@@ -199,6 +248,19 @@ function createSidebar() {
       if (fs.existsSync(categoryPath)) {
         fs.writeFileSync(path.join(categoryPath, '_sidebar.md'), sidebarContent);
         console.log(`✅ ${category.name} 카테고리 디렉토리에 _sidebar.md 파일 복사 완료`);
+
+        // 하위 디렉토리(classes, interfaces 등)에도 사이드바 파일 복사
+        const subdirs = fs.readdirSync(categoryPath)
+          .filter(item => {
+            const itemPath = path.join(categoryPath, item);
+            return fs.statSync(itemPath).isDirectory();
+          });
+
+        subdirs.forEach(subdir => {
+          const subdirPath = path.join(categoryPath, subdir);
+          fs.writeFileSync(path.join(subdirPath, '_sidebar.md'), sidebarContent);
+          console.log(`✅ ${category.name}/${subdir} 디렉토리에 _sidebar.md 파일 복사 완료`);
+        });
       }
     });
   }
@@ -244,6 +306,12 @@ function createRedirects() {
   // HTML 파일로 직접 접근한 경우 처리
   if (path.endsWith('.html')) {
     window.location.href = path.replace('.html', '');
+    return;
+  }
+
+  // 디렉토리 경로에 후행 슬래시가 없는 경우 추가
+  if (!path.endsWith('/') && !path.includes('.')) {
+    window.location.href = path + '/';
     return;
   }
 
@@ -323,6 +391,13 @@ function main() {
   // 각 파일 생성
   createNojekyllFile();
   createIndexHtml();
+
+  // API 카테고리 가져오기
+  const apiCategories = getApiCategories();
+
+  // 하위 디렉토리 index.md 파일 생성
+  createSubdirectoryIndexFiles(apiCategories);
+
   createSidebar();
   create404Page();
   createRedirects();

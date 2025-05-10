@@ -144,34 +144,34 @@ function fixDocumentLinks(categoryDir, categoryName) {
                 content = content.replace(/\[`FunctionRegistry`\]\(FunctionRegistry\.md\)/g, '[`FunctionRegistry`]()');
             }
 
-            // 2. ../interfaces/XXX.md -> /api-reference/카테고리명/interfaces/XXX.md (상대 경로를 절대 경로로)
-            content = content.replace(/\]\(\.\.\/interfaces\/([^)]+)\)/g, `](/api-reference/${categoryName}/interfaces/$1)`);
+            // 2. ../interfaces/XXX.md -> /api-reference/카테고리명/interfaces/XXX (상대 경로를 절대 경로로)
+            content = content.replace(/\]\(\.\.\/interfaces\/([^)]+)\.md(#[^)]*)?\)/g, `](/api-reference/${categoryName}/interfaces/$1$2)`);
 
-            // 3. ../classes/XXX.md -> /api-reference/카테고리명/classes/XXX.md (상대 경로를 절대 경로로)
-            content = content.replace(/\]\(\.\.\/classes\/([^)]+)\)/g, `](/api-reference/${categoryName}/classes/$1)`);
+            // 3. ../classes/XXX.md -> /api-reference/카테고리명/classes/XXX (상대 경로를 절대 경로로)
+            content = content.replace(/\]\(\.\.\/classes\/([^)]+)\.md(#[^)]*)?\)/g, `](/api-reference/${categoryName}/classes/$1$2)`);
 
-            // 4. interfaces/XXX.md -> /api-reference/카테고리명/interfaces/XXX.md (디렉토리 내 상대 경로도 절대 경로로)
-            content = content.replace(/\]\(interfaces\/([^)]+)\)/g, `](/api-reference/${categoryName}/interfaces/$1)`);
+            // 4. interfaces/XXX.md -> /api-reference/카테고리명/interfaces/XXX (디렉토리 내 상대 경로도 절대 경로로)
+            content = content.replace(/\]\(interfaces\/([^)]+)\.md(#[^)]*)?\)/g, `](/api-reference/${categoryName}/interfaces/$1$2)`);
 
-            // 5. classes/XXX.md -> /api-reference/카테고리명/classes/XXX.md (디렉토리 내 상대 경로도 절대 경로로)
-            content = content.replace(/\]\(classes\/([^)]+)\)/g, `](/api-reference/${categoryName}/classes/$1)`);
+            // 5. classes/XXX.md -> /api-reference/카테고리명/classes/XXX (디렉토리 내 상대 경로도 절대 경로로)
+            content = content.replace(/\]\(classes\/([^)]+)\.md(#[^)]*)?\)/g, `](/api-reference/${categoryName}/classes/$1$2)`);
 
-            // 6. README.md#XXX -> /api-reference/카테고리명/?id=XXX (README.md 생략, ?id= 형식으로 변환)
+            // 6. README.md#XXX -> /api-reference/카테고리명/#XXX (README.md 생략, 앵커 형식으로 변환)
             content = content.replace(/\]\(README\.md(#[^)]+)?\)/g, (match, section) => {
                 if (section) {
-                    // 섹션 ID가 있는 경우: /api-reference/카테고리명/?id=섹션명
-                    return `](/api-reference/${categoryName}/?id=${section.substring(1)})`;
+                    // 섹션 ID가 있는 경우: /api-reference/카테고리명/#섹션명
+                    return `](/api-reference/${categoryName}/${section})`;
                 } else {
                     // 섹션 ID가 없는 경우: /api-reference/카테고리명/
                     return `](/api-reference/${categoryName}/)`;
                 }
             });
 
-            // 7. 서브 디렉토리에서 상위 디렉토리의 README.md 링크 수정 (../README.md#XXX -> /api-reference/카테고리명/?id=XXX)
+            // 7. 서브 디렉토리에서 상위 디렉토리의 README.md 링크 수정 (../README.md#XXX -> /api-reference/카테고리명/#XXX)
             content = content.replace(/\]\(\.\.\/README\.md(#[^)]+)?\)/g, (match, section) => {
                 if (section) {
-                    // 섹션 ID가 있는 경우: /api-reference/카테고리명/?id=섹션명
-                    return `](/api-reference/${categoryName}/?id=${section.substring(1)})`;
+                    // 섹션 ID가 있는 경우: /api-reference/카테고리명/#섹션명
+                    return `](/api-reference/${categoryName}/${section})`;
                 } else {
                     // 섹션 ID가 없는 경우: /api-reference/카테고리명/
                     return `](/api-reference/${categoryName}/)`;
@@ -189,6 +189,15 @@ function fixDocumentLinks(categoryDir, categoryName) {
 
             // 9. ../ 단독 참조 처리
             content = content.replace(/\]\(\.\.\/()\)/g, `](/api-reference/${categoryName}/)`);
+
+            // 10. 다른 마크다운 파일을 참조하는 모든 링크에서 .md 확장자 제거
+            content = content.replace(/\]\(([^)]+)\.md(#[^)]*)?\)/g, (match, path, anchor) => {
+                // 이미 처리된 절대 경로는 건너뛰기
+                if (path.startsWith('/api-reference/')) {
+                    return match;
+                }
+                return `](${path}${anchor || ''})`;
+            });
 
             // 파일 저장
             fs.writeFileSync(mdFile, content);
@@ -232,18 +241,17 @@ async function prerenderPages() {
             // 마크다운 링크를 HTML 링크로 변환
             let processedContent = mdContent;
 
-            // 자기 참조 링크 처리 (예: FunctionRegistry.md -> FunctionRegistry.html)
-            const currentFileName = path.basename(mdFile);
-            const htmlFileName = currentFileName.replace('.md', '.html');
-            processedContent = processedContent.replace(
-                new RegExp(`\\]\\(${currentFileName.replace('.md', '')}(#[^)]*)?\\)`, 'g'),
-                (match, anchor) => `](${htmlFileName}${anchor || ''})`
-            );
-
-            // .md 링크를 .html 링크로 변환 (상대 경로)
+            // .md 확장자 제거 (Docsify history 모드에 맞게)
             processedContent = processedContent.replace(/\]\(([^)]+)\.md(#[^)]*)?/g, (match, filePath, anchor) => {
-                return `](${filePath}.html${anchor || ''}`;
+                return `](${filePath}${anchor || ''}`;
             });
+
+            // 자기 참조 링크 처리 (앵커만 남기기)
+            const currentFileName = path.basename(mdFile, '.md');
+            processedContent = processedContent.replace(
+                new RegExp(`\\]\\(${currentFileName}(#[^)]*)?\\)`, 'g'),
+                (match, anchor) => `](${anchor || ''})`
+            );
 
             // 기본 HTML 템플릿
             const htmlTemplate = `<!DOCTYPE html>
@@ -258,15 +266,17 @@ async function prerenderPages() {
   <script>
     // 페이지 로드 시 Docsify 라우팅으로 리다이렉트
     window.onload = function() {
+      // history 모드를 위한 리다이렉트 처리
       const currentPath = window.location.pathname;
-      if (!currentPath.endsWith('/')) {
-        const redirectPath = currentPath.includes('.html') 
-          ? currentPath.replace('.html', '') 
-          : currentPath;
-        window.location.href = '/#' + redirectPath;
-      } else {
-        window.location.href = '/#' + currentPath;
+      
+      // HTML 확장자 제거하여 원래 경로로 리다이렉트
+      if (currentPath.endsWith('.html')) {
+        window.location.href = currentPath.replace('.html', '');
+        return;
       }
+      
+      // 이미 적절한 경로라면 Docsify로 전달
+      window.location.href = '/';
     };
   </script>
 </head>
