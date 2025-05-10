@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Robota API 문서</title>
+  <meta name="description" content="Robota API 문서">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    // 페이지 로드 시 Docsify 라우팅으로 리다이렉트
+    window.onload = function() {
+      // history 모드를 위한 리다이렉트 처리
+      const currentPath = window.location.pathname;
+      
+      // HTML 확장자 제거하여 원래 경로로 리다이렉트
+      if (currentPath.endsWith('.html')) {
+        window.location.href = currentPath.replace('.html', '');
+        return;
+      }
+      
+      // 이미 적절한 경로라면 Docsify로 전달
+      window.location.href = '/';
+    };
+  </script>
+</head>
+<body>
+  <div id="content">
+    <h1>시작하기</h1>
+<p>Robota를 사용하여 에이전틱 AI를 구축하는 방법을 알아보겠습니다.</p>
+<h2>설치</h2>
+<p>Bun을 사용하여 설치:</p>
+<pre><code class="language-bash">bun install robota
+</code></pre>
+<p>npm을 사용하여 설치:</p>
+<pre><code class="language-bash">npm install robota
+</code></pre>
+<p>yarn을 사용하여 설치:</p>
+<pre><code class="language-bash">yarn add robota
+</code></pre>
+<h2>기본 사용법</h2>
+<p>가장 기본적인 형태로 Robota를 설정하고 사용하는 방법은 다음과 같습니다:</p>
+<pre><code class="language-typescript">import { Robota, OpenAIProvider } from &#39;robota&#39;;
+
+// 환경 변수에서 API 키 가져오기
+const apiKey = process.env.OPENAI_API_KEY;
+if (!apiKey) {
+  throw new Error(&#39;OPENAI_API_KEY 환경 변수가 필요합니다&#39;);
+}
+
+// Robota 인스턴스 생성
+const robota = new Robota({
+  provider: new OpenAIProvider({
+    apiKey,
+    model: &#39;gpt-4&#39;
+  })
+});
+
+// 간단한 질문 실행
+const result = await robota.run(&#39;타입스크립트란 무엇인가요?&#39;);
+console.log(result);
+</code></pre>
+<h2>함수 호출 사용</h2>
+<p>AI가 함수를 호출할 수 있도록 설정:</p>
+<pre><code class="language-typescript">import { Robota, OpenAIProvider } from &#39;robota&#39;;
+
+// Robota 인스턴스 생성
+const robota = new Robota({
+  provider: new OpenAIProvider({
+    apiKey: process.env.OPENAI_API_KEY,
+    model: &#39;gpt-4&#39;
+  })
+});
+
+// 함수 정의
+const functions = {
+  getWeather: async (location: string) =&gt; {
+    // 실제 구현에서는 여기서 날씨 API를 호출
+    console.log(`${location}의 날씨를 가져오는 중...`);
+    return { temperature: 20, condition: &#39;맑음&#39; };
+  },
+  
+  getCurrentTime: async (timezone: string = &#39;Asia/Seoul&#39;) =&gt; {
+    console.log(`${timezone}의 현재 시간을 가져오는 중...`);
+    return new Date().toLocaleString(&#39;ko-KR&#39;, { timeZone: timezone });
+  }
+};
+
+// 함수 등록
+robota.registerFunctions(functions);
+
+// 실행
+const result = await robota.run(&#39;서울의 날씨가 어떤지 알려주고, 현재 시간도 알려줘.&#39;);
+console.log(result);
+</code></pre>
+<h2>스트리밍 응답</h2>
+<p>스트리밍 응답을 사용하여 실시간으로 결과 받기:</p>
+<pre><code class="language-typescript">import { Robota, OpenAIProvider } from &#39;robota&#39;;
+
+const robota = new Robota({
+  provider: new OpenAIProvider({
+    apiKey: process.env.OPENAI_API_KEY,
+    model: &#39;gpt-4&#39;
+  })
+});
+
+// 스트리밍 응답 처리
+const stream = await robota.runStream(&#39;타입스크립트의 장점에 대해 5가지 알려줘&#39;);
+
+for await (const chunk of stream) {
+  process.stdout.write(chunk.content || &#39;&#39;);
+}
+</code></pre>
+<h2>다음 단계</h2>
+<ul>
+<li><a href="./core-concepts.md">핵심 개념</a>을 읽고 Robota의 구성 요소를 이해하세요.</li>
+<li>다양한 <a href="./providers.md">제공업체</a>에 대해 알아보세요.</li>
+<li><a href="./function-calling.md">함수 호출</a>에 대한 자세한 내용을 확인하세요.</li>
+<li>복잡한 <a href="./building-agents.md">에이전트 구축</a> 방법을 배워보세요.</li>
+</ul>
+
+  </div>
+</body>
+</html>

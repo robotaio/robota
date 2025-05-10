@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Robota API 문서</title>
+  <meta name="description" content="Robota API 문서">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    // 페이지 로드 시 Docsify 라우팅으로 리다이렉트
+    window.onload = function() {
+      // history 모드를 위한 리다이렉트 처리
+      const currentPath = window.location.pathname;
+      
+      // HTML 확장자 제거하여 원래 경로로 리다이렉트
+      if (currentPath.endsWith('.html')) {
+        window.location.href = currentPath.replace('.html', '');
+        return;
+      }
+      
+      // 이미 적절한 경로라면 Docsify로 전달
+      window.location.href = '/';
+    };
+  </script>
+</head>
+<body>
+  <div id="content">
+    <ul>
+<li><a href="/">홈</a></li>
+<li><a href="getting-started.md">시작하기</a></li>
+<li><a href="core-concepts.md">핵심 개념</a></li>
+<li><a href="api-reference.md">API 참조</a><ul>
+<li><a href="api-reference/anthropic/">Anthropic</a></li>
+<li><a href="api-reference/core/">Core</a></li>
+<li><a href="api-reference/langchain/">Langchain</a></li>
+<li><a href="api-reference/openai/">Openai</a></li>
+<li><a href="api-reference/replicate/">Replicate</a></li>
+<li><a href="api-reference/tools/">Tools</a></li>
+</ul>
+</li>
+<li><a href="providers.md">프로바이더</a></li>
+<li><a href="function-calling.md">함수 호출</a></li>
+<li><a href="model-context-protocol.md">모델 컨텍스트 프로토콜</a></li>
+<li><a href="system-messages.md">시스템 메시지</a></li>
+<li><a href="code-improvements.md">코드 개선사항</a></li>
+</ul>
+
+  </div>
+</body>
+</html>
