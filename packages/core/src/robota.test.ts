@@ -84,8 +84,8 @@ describe('Robota', () => {
 
         it('시스템 메시지 배열로 초기화되어야 함', () => {
             const systemMessages = [
-                { role: 'system', content: '당신은 전문가입니다.' },
-                { role: 'system', content: '정확한 정보를 제공하세요.' }
+                { role: 'system' as const, content: '당신은 전문가입니다.' },
+                { role: 'system' as const, content: '정확한 정보를 제공하세요.' }
             ];
 
             const customRobota = new Robota({
@@ -99,7 +99,7 @@ describe('Robota', () => {
 
         it('함수 호출 설정으로 초기화되어야 함', () => {
             const functionCallConfig = {
-                defaultMode: 'auto',
+                defaultMode: 'auto' as const,
                 maxCalls: 5,
                 timeout: 10000,
                 allowedFunctions: ['getWeather']
@@ -229,8 +229,8 @@ describe('Robota', () => {
 
         it('setSystemMessages로 여러 시스템 메시지를 설정할 수 있어야 함', async () => {
             const systemMessages = [
-                { role: 'system', content: '당신은 전문가입니다.' },
-                { role: 'system', content: '정확한 정보를 제공하세요.' }
+                { role: 'system' as const, content: '당신은 전문가입니다.' },
+                { role: 'system' as const, content: '정확한 정보를 제공하세요.' }
             ];
 
             robota.setSystemMessages(systemMessages);

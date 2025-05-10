@@ -1,5 +1,10 @@
 /**
  * 함수 생성 유틸리티
+ * 
+ * @module Function
+ * @description
+ * AI가 호출할 수 있는 함수를 생성하고 관리하는 유틸리티입니다.
+ * zod 라이브러리를 사용하여 함수 매개변수의 유효성 검사를 수행합니다.
  */
 
 import { z } from 'zod';
@@ -57,7 +62,7 @@ function convertZodTypeToJsonSchema(zodType: z.ZodTypeAny, fieldName: string): a
   // 타입에 따라 변환
   if (zodType instanceof z.ZodString) {
     jsonSchema.type = 'string';
-    
+
     // 문자열 제약 조건
     if (zodType._def.checks) {
       for (const check of zodType._def.checks) {
@@ -76,7 +81,7 @@ function convertZodTypeToJsonSchema(zodType: z.ZodTypeAny, fieldName: string): a
     }
   } else if (zodType instanceof z.ZodNumber) {
     jsonSchema.type = 'number';
-    
+
     // 숫자 제약 조건
     if (zodType._def.checks) {
       for (const check of zodType._def.checks) {
@@ -94,7 +99,7 @@ function convertZodTypeToJsonSchema(zodType: z.ZodTypeAny, fieldName: string): a
   } else if (zodType instanceof z.ZodArray) {
     jsonSchema.type = 'array';
     jsonSchema.items = convertZodTypeToJsonSchema(zodType._def.type, `${fieldName}[]`);
-    
+
     // 배열 제약 조건
     if (zodType._def.minLength !== null) {
       jsonSchema.minItems = zodType._def.minLength.value;
@@ -111,7 +116,7 @@ function convertZodTypeToJsonSchema(zodType: z.ZodTypeAny, fieldName: string): a
     jsonSchema.properties = nestedSchema.properties;
     jsonSchema.required = nestedSchema.required;
   } else if (zodType instanceof z.ZodUnion) {
-    jsonSchema.oneOf = zodType._def.options.map((option: z.ZodTypeAny) => 
+    jsonSchema.oneOf = zodType._def.options.map((option: z.ZodTypeAny) =>
       convertZodTypeToJsonSchema(option, fieldName)
     );
   } else if (zodType instanceof z.ZodOptional) {
@@ -157,8 +162,8 @@ function getZodDescription(zodType: z.ZodTypeAny): string | undefined {
  * @returns 옵셔널 여부
  */
 function isOptionalType(zodType: z.ZodTypeAny): boolean {
-  return zodType instanceof z.ZodOptional || 
-         (zodType instanceof z.ZodDefault);
+  return zodType instanceof z.ZodOptional ||
+    (zodType instanceof z.ZodDefault);
 }
 
 /**
@@ -172,8 +177,39 @@ function isNullableType(zodType: z.ZodTypeAny): boolean {
 
 /**
  * 함수 생성
- * @param options 함수 옵션
- * @returns 함수 객체
+ * 
+ * @function createFunction
+ * @description
+ * AI가 호출할 수 있는 함수를 생성합니다.
+ * 함수 이름, 설명, 매개변수 스키마, 실행 로직을 정의할 수 있습니다.
+ * 
+ * @template TParams 함수 매개변수 타입
+ * @template TResult 함수 반환 결과 타입
+ * @param {FunctionOptions<TParams, TResult>} options - 함수 옵션
+ * @param {string} options.name - 함수 이름
+ * @param {string} [options.description] - 함수 설명
+ * @param {z.ZodObject<any> | FunctionSchema['parameters']} options.parameters - 매개변수 스키마
+ * @param {(params: TParams) => Promise<TResult> | TResult} options.execute - 실행 로직
+ * @returns {Function<TParams, TResult>} 생성된 함수 객체
+ * 
+ * @example
+ * ```typescript
+ * import { z } from 'zod';
+ * import { createFunction } from 'robota';
+ * 
+ * const getWeather = createFunction({
+ *   name: 'getWeather',
+ *   description: '특정 위치의 날씨 정보를 조회합니다.',
+ *   parameters: z.object({
+ *     location: z.string().describe('날씨를 조회할 위치 (도시명)'),
+ *     unit: z.enum(['celsius', 'fahrenheit']).optional().describe('온도 단위')
+ *   }),
+ *   execute: async (params) => {
+ *     // 날씨 API 호출 로직
+ *     return { temperature: 25, condition: '맑음' };
+ *   }
+ * });
+ * ```
  */
 export function createFunction<TParams = any, TResult = any>(
   options: FunctionOptions<TParams, TResult>
@@ -184,8 +220,8 @@ export function createFunction<TParams = any, TResult = any>(
   const schema: FunctionSchema = {
     name,
     description,
-    parameters: parameters instanceof z.ZodObject 
-      ? zodToJsonSchema(parameters) 
+    parameters: parameters instanceof z.ZodObject
+      ? zodToJsonSchema(parameters)
       : parameters
   };
 
@@ -202,10 +238,10 @@ export function createFunction<TParams = any, TResult = any>(
     } catch (error) {
       // zod 검증 오류 처리
       if (error instanceof z.ZodError) {
-        const errorMessage = error.errors.map(e => 
+        const errorMessage = error.errors.map(e =>
           `${e.path.join('.')}: ${e.message}`
         ).join(', ');
-        
+
         throw new Error(`Parameter validation failed: ${errorMessage}`);
       }
 
@@ -224,14 +260,35 @@ export function createFunction<TParams = any, TResult = any>(
 }
 
 /**
- * 일반 함수를 Function 객체로 변환
- * @param name 함수 이름
- * @param fn 변환할 함수
- * @param description 함수 설명 (선택 사항)
- * @returns Function 객체
+ * 일반 함수를 호출 가능한 함수로 변환
+ * 
+ * @function functionFromCallback
+ * @description
+ * 일반 JavaScript 함수를 AI가 호출할 수 있는 Function 객체로 변환합니다.
+ * 매개변수 타입은 자동으로 유추됩니다.
+ * 
+ * @param {string} name - 함수 이름
+ * @param {(...args: any[]) => any} fn - 변환할 JavaScript 함수
+ * @param {string} [description] - 함수 설명
+ * @returns {Function} AI가 호출할 수 있는 함수 객체
+ * 
+ * @example
+ * ```typescript
+ * import { functionFromCallback } from 'robota';
+ * 
+ * function add(a: number, b: number): number {
+ *   return a + b;
+ * }
+ * 
+ * const addFunction = functionFromCallback(
+ *   'add',
+ *   add,
+ *   '두 숫자를 더합니다.'
+ * );
+ * ```
  */
 export function functionFromCallback(
-  name: string, 
+  name: string,
   fn: (...args: any[]) => any,
   description?: string
 ): Function {
@@ -247,7 +304,7 @@ export function functionFromCallback(
   const execute = async (params: Record<string, any>) => {
     // 객체 매개변수를 배열로 변환
     const args = Object.values(params);
-    
+
     try {
       return await fn(...args);
     } catch (error) {
