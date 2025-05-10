@@ -219,6 +219,9 @@ importers:
       glob:
         specifier: ^10.3.10
         version: 10.4.5
+      marked:
+        specifier: ^9.1.5
+        version: 9.1.6
       rimraf:
         specifier: ^5.0.5
         version: 5.0.10
@@ -2055,6 +2058,11 @@ packages:
   marked@4.3.0:
     resolution: {integrity: sha512-PRsaiG84bK+AMvxziE/lCFss8juXjNaWzVbN5tXAm4XjeaS9NAHhop+PjQxz2A9h8Q4M/xGmzP8vqNwy6JeK0A==}
     engines: {node: '>= 12'}
+    hasBin: true
+
+  marked@9.1.6:
+    resolution: {integrity: sha512-jcByLnIFkd5gSXZmjNvS1TlmRhCXZjIzHYlaGkPlLIekG55JDR2Z4va9tZwCiP+/RDERiNhMOFu01xd6O5ct1Q==}
+    engines: {node: '>= 16'}
     hasBin: true
 
   math-intrinsics@1.1.0:
@@ -4970,6 +4978,8 @@ snapshots:
   marked@1.2.9: {}
 
   marked@4.3.0: {}
+
+  marked@9.1.6: {}
 
   math-intrinsics@1.1.0: {}
 
