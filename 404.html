@@ -5,11 +5,87 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta charset="UTF-8">
   <title>페이지를 찾을 수 없습니다 - Robota</title>
+  <meta name="description" content="Robota는 AI 애플리케이션을 개발하기 위한 오픈소스 라이브러리입니다.">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify@4/themes/vue.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
-  <script src="/scripts/redirect.js"></script>
+  <style>
+    :root {
+      --theme-color: #42b983;
+      --sidebar-width: 300px;
+    }
+    .sidebar {
+      padding: 20px;
+    }
+    .markdown-section {
+      max-width: 900px;
+    }
+    .markdown-section code {
+      background-color: #f8f8f8;
+    }
+  </style>
+  
 </head>
 <body>
   <div id="app">페이지를 찾을 수 없습니다. <a href="/">홈으로 돌아가기</a></div>
+  <script>
+    window.$docsify = {
+      name: 'Robota',
+      repo: 'https://github.com/robotaio/robota',
+      loadSidebar: true,
+      subMaxLevel: 3,
+      auto2top: true,
+      homepage: 'README.md',
+      search: {
+        maxAge: 86400000,
+        paths: 'auto',
+        placeholder: '검색',
+        noData: '결과 없음',
+        depth: 6
+      },
+      copyCode: {
+        buttonText: '복사',
+        errorText: '오류',
+        successText: '복사됨'
+      },
+      pagination: {
+        previousText: '이전',
+        nextText: '다음',
+        crossChapter: true
+      },
+      notFoundPage: '404.html',
+      routerMode: 'history',
+      alias: {
+        '/api-reference/core': '/api-reference/core/',
+        '/api-reference/openai': '/api-reference/openai/',
+        '/api-reference/anthropic': '/api-reference/anthropic/',
+        '/api-reference/langchain': '/api-reference/langchain/',
+        '/api-reference/replicate': '/api-reference/replicate/',
+        '/api-reference/tools': '/api-reference/tools/'
+      },
+      plugins: [
+        function(hook, vm) {
+          hook.doneEach(function() {
+            document.title = vm.config.name + ' - ' + vm.route.file.split('/').pop().replace('.md', '');
+            
+            const existingMeta = document.querySelector('meta[name="description"]');
+            if (existingMeta) existingMeta.remove();
+            
+            const meta = document.createElement('meta');
+            meta.name = 'description';
+            meta.content = 'Robota ' + vm.route.file.split('/').pop().replace('.md', '') + ' 문서';
+            document.head.appendChild(meta);
+          });
+        }
+      ]
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-typescript.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
 </body>
 </html>
