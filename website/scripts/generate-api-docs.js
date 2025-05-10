@@ -101,12 +101,103 @@ async function generateDocsForCategory(category) {
         console.log(`실행 명령어: ${command}`);
         execSync(command, { stdio: 'inherit' });
 
+        // 링크 경로 수정
+        fixDocumentLinks(categoryDir, name.toLowerCase());
+
         console.log(`✅ ${name} 카테고리 API 문서 생성 완료: ${categoryDir}`);
         return files.length;
     } catch (error) {
         console.error(`⚠️ ${name} 카테고리 API 문서 생성 중 오류 발생:`, error);
         return 0;
     }
+}
+
+// API 문서 내 링크 경로 수정 (상대 경로 -> 절대 경로)
+function fixDocumentLinks(categoryDir, categoryName) {
+    console.log(`🔧 ${categoryName} 카테고리 문서 내 링크 경로 수정 중...`);
+
+    // 해당 카테고리의 모든 마크다운 파일 찾기
+    const mdFiles = globSync(path.join(categoryDir, '**/*.md'));
+
+    for (const mdFile of mdFiles) {
+        try {
+            // 현재 파일의 상대 경로 (루트에서부터)
+            const relativePath = path.relative(DIST_DIR, mdFile);
+            // 현재 파일이 속한 디렉토리 (예: api-reference/core/classes)
+            const fileDir = path.dirname(relativePath);
+            // 현재 파일명 (예: FunctionRegistry.md)
+            const fileName = path.basename(mdFile);
+
+            // 파일 내용 읽기
+            let content = fs.readFileSync(mdFile, 'utf-8');
+
+            // 1. 같은 파일 내에서 자기 자신을 참조하는 링크 수정 (예: [`FunctionRegistry`](FunctionRegistry.md))
+            // 이 링크는 '#' 또는 '#section'으로 변경 (앵커만 남김)
+            const selfRegex = new RegExp(`\\]\\(${fileName}(#[^)]*)?\\)`, 'g');
+            content = content.replace(selfRegex, (match, anchor) => {
+                console.log(`파일 ${fileName}에서 자기 참조 링크 수정: ${match} -> ](${anchor || ''})`);
+                return `](${anchor || ''})`;
+            });
+
+            // 특별히 FunctionRegistry 파일을 위한 추가 처리
+            if (fileName === 'FunctionRegistry.md') {
+                content = content.replace(/\[`FunctionRegistry`\]\(FunctionRegistry\.md\)/g, '[`FunctionRegistry`]()');
+            }
+
+            // 2. ../interfaces/XXX.md -> /api-reference/카테고리명/interfaces/XXX.md (상대 경로를 절대 경로로)
+            content = content.replace(/\]\(\.\.\/interfaces\/([^)]+)\)/g, `](/api-reference/${categoryName}/interfaces/$1)`);
+
+            // 3. ../classes/XXX.md -> /api-reference/카테고리명/classes/XXX.md (상대 경로를 절대 경로로)
+            content = content.replace(/\]\(\.\.\/classes\/([^)]+)\)/g, `](/api-reference/${categoryName}/classes/$1)`);
+
+            // 4. interfaces/XXX.md -> /api-reference/카테고리명/interfaces/XXX.md (디렉토리 내 상대 경로도 절대 경로로)
+            content = content.replace(/\]\(interfaces\/([^)]+)\)/g, `](/api-reference/${categoryName}/interfaces/$1)`);
+
+            // 5. classes/XXX.md -> /api-reference/카테고리명/classes/XXX.md (디렉토리 내 상대 경로도 절대 경로로)
+            content = content.replace(/\]\(classes\/([^)]+)\)/g, `](/api-reference/${categoryName}/classes/$1)`);
+
+            // 6. README.md#XXX -> /api-reference/카테고리명/?id=XXX (README.md 생략, ?id= 형식으로 변환)
+            content = content.replace(/\]\(README\.md(#[^)]+)?\)/g, (match, section) => {
+                if (section) {
+                    // 섹션 ID가 있는 경우: /api-reference/카테고리명/?id=섹션명
+                    return `](/api-reference/${categoryName}/?id=${section.substring(1)})`;
+                } else {
+                    // 섹션 ID가 없는 경우: /api-reference/카테고리명/
+                    return `](/api-reference/${categoryName}/)`;
+                }
+            });
+
+            // 7. 서브 디렉토리에서 상위 디렉토리의 README.md 링크 수정 (../README.md#XXX -> /api-reference/카테고리명/?id=XXX)
+            content = content.replace(/\]\(\.\.\/README\.md(#[^)]+)?\)/g, (match, section) => {
+                if (section) {
+                    // 섹션 ID가 있는 경우: /api-reference/카테고리명/?id=섹션명
+                    return `](/api-reference/${categoryName}/?id=${section.substring(1)})`;
+                } else {
+                    // 섹션 ID가 없는 경우: /api-reference/카테고리명/
+                    return `](/api-reference/${categoryName}/)`;
+                }
+            });
+
+            // 8. ../ -> /api-reference/카테고리명/ (상위 디렉토리 참조도 절대 경로로)
+            content = content.replace(/\]\(\.\.\/(#[^)]+)?\)/g, (match, anchor) => {
+                if (anchor) {
+                    return `](/api-reference/${categoryName}${anchor})`;
+                } else {
+                    return `](/api-reference/${categoryName}/)`;
+                }
+            });
+
+            // 9. ../ 단독 참조 처리
+            content = content.replace(/\]\(\.\.\/()\)/g, `](/api-reference/${categoryName}/)`);
+
+            // 파일 저장
+            fs.writeFileSync(mdFile, content);
+        } catch (error) {
+            console.error(`⚠️ ${mdFile} 파일 링크 수정 중 오류 발생:`, error);
+        }
+    }
+
+    console.log(`✅ ${categoryName} 카테고리 문서 내 링크 경로 수정 완료`);
 }
 
 // SEO를 위한 정적 HTML 페이지 생성
@@ -130,6 +221,29 @@ async function prerenderPages() {
 
             // 마크다운 내용 읽기
             const mdContent = fs.readFileSync(mdFile, 'utf-8');
+
+            // 현재 파일의 카테고리 확인 (예: api-reference/core)
+            const categories = relativePath.split('/');
+            let categoryName = '';
+            if (categories.length >= 2 && categories[0] === 'api-reference') {
+                categoryName = categories[1];
+            }
+
+            // 마크다운 링크를 HTML 링크로 변환
+            let processedContent = mdContent;
+
+            // 자기 참조 링크 처리 (예: FunctionRegistry.md -> FunctionRegistry.html)
+            const currentFileName = path.basename(mdFile);
+            const htmlFileName = currentFileName.replace('.md', '.html');
+            processedContent = processedContent.replace(
+                new RegExp(`\\]\\(${currentFileName.replace('.md', '')}(#[^)]*)?\\)`, 'g'),
+                (match, anchor) => `](${htmlFileName}${anchor || ''})`
+            );
+
+            // .md 링크를 .html 링크로 변환 (상대 경로)
+            processedContent = processedContent.replace(/\]\(([^)]+)\.md(#[^)]*)?/g, (match, filePath, anchor) => {
+                return `](${filePath}.html${anchor || ''}`;
+            });
 
             // 기본 HTML 템플릿
             const htmlTemplate = `<!DOCTYPE html>
@@ -158,7 +272,7 @@ async function prerenderPages() {
 </head>
 <body>
   <div id="content">
-    ${mdContent}
+    ${processedContent}
   </div>
 </body>
 </html>`;

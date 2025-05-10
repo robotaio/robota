@@ -74,7 +74,7 @@ function createIndexHtml() {
         crossChapter: true
       },
       notFoundPage: '404.html',
-      routerMode: 'history',
+      routerMode: 'hash',
       alias: {
         '/api-reference/core': '/api-reference/core/',
         '/api-reference/openai': '/api-reference/openai/',
