@@ -6,6 +6,41 @@ import fs from 'fs';
 import path from 'path';
 import { execSync } from 'child_process';
 import { globSync } from 'glob';
+import { marked } from 'marked';
+
+// HTML 템플릿
+const HTML_TEMPLATE = `<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Robota API 문서</title>
+  <meta name="description" content="Robota API 문서">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    // 페이지 로드 시 Docsify 라우팅으로 리다이렉트
+    window.onload = function() {
+      // history 모드를 위한 리다이렉트 처리
+      const currentPath = window.location.pathname;
+      
+      // HTML 확장자 제거하여 원래 경로로 리다이렉트
+      if (currentPath.endsWith('.html')) {
+        window.location.href = currentPath.replace('.html', '');
+        return;
+      }
+      
+      // 이미 적절한 경로라면 Docsify로 전달
+      window.location.href = '/';
+    };
+  </script>
+</head>
+<body>
+  <div id="content">
+    {{CONTENT}}
+  </div>
+</body>
+</html>`;
 
 // 디렉토리 경로
 const PACKAGES_DIR = path.resolve(process.cwd(), '../packages');
@@ -127,36 +162,23 @@ function fixDocumentLinks(categoryDir, categoryName) {
             const fileDir = path.dirname(relativePath);
             // 현재 파일명 (예: FunctionRegistry.md)
             const fileName = path.basename(mdFile);
+            // 확장자 없는 파일명 (예: FunctionRegistry)
+            const fileNameWithoutExt = fileName.replace('.md', '');
+            // 현재 파일의 절대 경로 (URL 기준)
+            const absolutePath = `/${fileDir}/${fileNameWithoutExt}`;
 
             // 파일 내용 읽기
             let content = fs.readFileSync(mdFile, 'utf-8');
 
+            // 정확한 순서로 처리해야 함
             // 1. 같은 파일 내에서 자기 자신을 참조하는 링크 수정 (예: [`FunctionRegistry`](FunctionRegistry.md))
-            // 이 링크는 '#' 또는 '#section'으로 변경 (앵커만 남김)
-            const selfRegex = new RegExp(`\\]\\(${fileName}(#[^)]*)?\\)`, 'g');
+            // 이 링크는 절대 경로로 변경 (앵커는 그대로 유지)
+            const selfRegex = new RegExp(`\\]\\(${fileNameWithoutExt}\\.md(#[^)]*)?\\)`, 'g');
             content = content.replace(selfRegex, (match, anchor) => {
-                console.log(`파일 ${fileName}에서 자기 참조 링크 수정: ${match} -> ](${anchor || ''})`);
-                return `](${anchor || ''})`;
+                return `](${absolutePath}${anchor || ''})`;
             });
 
-            // 특별히 FunctionRegistry 파일을 위한 추가 처리
-            if (fileName === 'FunctionRegistry.md') {
-                content = content.replace(/\[`FunctionRegistry`\]\(FunctionRegistry\.md\)/g, '[`FunctionRegistry`]()');
-            }
-
-            // 2. ../interfaces/XXX.md -> /api-reference/카테고리명/interfaces/XXX (상대 경로를 절대 경로로)
-            content = content.replace(/\]\(\.\.\/interfaces\/([^)]+)\.md(#[^)]*)?\)/g, `](/api-reference/${categoryName}/interfaces/$1$2)`);
-
-            // 3. ../classes/XXX.md -> /api-reference/카테고리명/classes/XXX (상대 경로를 절대 경로로)
-            content = content.replace(/\]\(\.\.\/classes\/([^)]+)\.md(#[^)]*)?\)/g, `](/api-reference/${categoryName}/classes/$1$2)`);
-
-            // 4. interfaces/XXX.md -> /api-reference/카테고리명/interfaces/XXX (디렉토리 내 상대 경로도 절대 경로로)
-            content = content.replace(/\]\(interfaces\/([^)]+)\.md(#[^)]*)?\)/g, `](/api-reference/${categoryName}/interfaces/$1$2)`);
-
-            // 5. classes/XXX.md -> /api-reference/카테고리명/classes/XXX (디렉토리 내 상대 경로도 절대 경로로)
-            content = content.replace(/\]\(classes\/([^)]+)\.md(#[^)]*)?\)/g, `](/api-reference/${categoryName}/classes/$1$2)`);
-
-            // 6. README.md#XXX -> /api-reference/카테고리명/#XXX (README.md 생략, 앵커 형식으로 변환)
+            // 2. README.md 파일 참조 처리
             content = content.replace(/\]\(README\.md(#[^)]+)?\)/g, (match, section) => {
                 if (section) {
                     // 섹션 ID가 있는 경우: /api-reference/카테고리명/#섹션명
@@ -167,7 +189,7 @@ function fixDocumentLinks(categoryDir, categoryName) {
                 }
             });
 
-            // 7. 서브 디렉토리에서 상위 디렉토리의 README.md 링크 수정 (../README.md#XXX -> /api-reference/카테고리명/#XXX)
+            // 3. 서브 디렉토리에서 상위 디렉토리의 README.md 링크 수정
             content = content.replace(/\]\(\.\.\/README\.md(#[^)]+)?\)/g, (match, section) => {
                 if (section) {
                     // 섹션 ID가 있는 경우: /api-reference/카테고리명/#섹션명
@@ -178,26 +200,53 @@ function fixDocumentLinks(categoryDir, categoryName) {
                 }
             });
 
+            // 4. ../interfaces/XXX.md -> /api-reference/카테고리명/interfaces/XXX (상대 경로를 절대 경로로)
+            content = content.replace(/\]\(\.\.\/interfaces\/([^)]+)\.md(#[^)]*)?\)/g, `](/api-reference/${categoryName}/interfaces/$1$2)`);
+
+            // 5. ../classes/XXX.md -> /api-reference/카테고리명/classes/XXX (상대 경로를 절대 경로로)
+            content = content.replace(/\]\(\.\.\/classes\/([^)]+)\.md(#[^)]*)?\)/g, `](/api-reference/${categoryName}/classes/$1$2)`);
+
+            // 6. interfaces/XXX.md -> /api-reference/카테고리명/interfaces/XXX (디렉토리 내 상대 경로도 절대 경로로)
+            content = content.replace(/\]\(interfaces\/([^)]+)\.md(#[^)]*)?\)/g, `](/api-reference/${categoryName}/interfaces/$1$2)`);
+
+            // 7. classes/XXX.md -> /api-reference/카테고리명/classes/XXX (디렉토리 내 상대 경로도 절대 경로로)
+            content = content.replace(/\]\(classes\/([^)]+)\.md(#[^)]*)?\)/g, `](/api-reference/${categoryName}/classes/$1$2)`);
+
             // 8. ../ -> /api-reference/카테고리명/ (상위 디렉토리 참조도 절대 경로로)
-            content = content.replace(/\]\(\.\.\/(#[^)]+)?\)/g, (match, anchor) => {
+            content = content.replace(/\]\(\.\.\/?(#[^)]+)?\)/g, (match, anchor) => {
                 if (anchor) {
-                    return `](/api-reference/${categoryName}${anchor})`;
+                    return `](/api-reference/${categoryName}/${anchor})`;
                 } else {
                     return `](/api-reference/${categoryName}/)`;
                 }
             });
 
-            // 9. ../ 단독 참조 처리
-            content = content.replace(/\]\(\.\.\/()\)/g, `](/api-reference/${categoryName}/)`);
+            // 8.5. 특수 케이스: .../ 처리
+            content = content.replace(/\]\(\.\.\.\/\)/g, `](/api-reference/${categoryName}/)`);
 
-            // 10. 다른 마크다운 파일을 참조하는 모든 링크에서 .md 확장자 제거
-            content = content.replace(/\]\(([^)]+)\.md(#[^)]*)?\)/g, (match, path, anchor) => {
-                // 이미 처리된 절대 경로는 건너뛰기
-                if (path.startsWith('/api-reference/')) {
-                    return match;
-                }
-                return `](${path}${anchor || ''})`;
+            // 9. 디렉토리 참조 처리 (classes/, interfaces/)
+            content = content.replace(/\]\((classes|interfaces)\/\)/g, (match, dirName) => {
+                return `](/api-reference/${categoryName}/${dirName}/)`;
             });
+
+            // 10. 파일명만 있는 링크(경로가 없는 링크) 처리 - 테스트 케이스 #3, #4에 맞게 수정
+            content = content.replace(
+                /\]\(([^\/\.\)]+)\.md(#[^)]*)?\)/g,
+                (match, linkFileName, anchor) => {
+                    // 자기 자신을 참조하는 경우는 이미 위에서 처리했으므로 건너뜀
+                    if (linkFileName === fileNameWithoutExt) {
+                        return match; // 이미 처리됨
+                    }
+
+                    // README.md는 특별 처리
+                    if (linkFileName.toLowerCase() === 'readme') {
+                        return `](/api-reference/${categoryName}/${anchor || ''})`;
+                    }
+
+                    // 같은 디렉토리의 다른 파일 참조 -> 절대 경로로 변경
+                    return `](/api-reference/${categoryName}/${fileDir.split('/').pop()}/${linkFileName}${anchor || ''})`;
+                }
+            );
 
             // 파일 저장
             fs.writeFileSync(mdFile, content);
@@ -209,93 +258,53 @@ function fixDocumentLinks(categoryDir, categoryName) {
     console.log(`✅ ${categoryName} 카테고리 문서 내 링크 경로 수정 완료`);
 }
 
-// SEO를 위한 정적 HTML 페이지 생성
+// HTML 파일로 미리 렌더링 (SEO 및 초기 로딩 성능 향상)
 async function prerenderPages() {
-    console.log('🔍 정적 HTML 페이지 생성 중...');
+    console.log('🔧 HTML 파일 미리 렌더링 중...');
 
     // 모든 마크다운 파일 찾기
     const mdFiles = globSync(path.join(DIST_DIR, '**/*.md'));
 
-    // 각 마크다운 파일에 대해 정적 HTML 생성
+    // 각 마크다운 파일을 HTML로 렌더링
     for (const mdFile of mdFiles) {
         try {
+            // 파일 상대 경로 (예: api-reference/core/classes/FunctionRegistry.md)
             const relativePath = path.relative(DIST_DIR, mdFile);
-            const htmlPath = path.join(DIST_DIR, relativePath.replace('.md', '.html'));
-            const htmlDir = path.dirname(htmlPath);
+            // HTML 파일 경로 (확장자만 변경, 예: api-reference/core/classes/FunctionRegistry.html)
+            const htmlFile = path.join(DIST_DIR, relativePath.replace('.md', '.html'));
+
+            // 디렉토리 경로
+            const dirPath = path.dirname(htmlFile);
 
             // 필요한 디렉토리 생성
-            if (!fs.existsSync(htmlDir)) {
-                fs.mkdirSync(htmlDir, { recursive: true });
-            }
+            fs.mkdirSync(dirPath, { recursive: true });
 
             // 마크다운 내용 읽기
-            const mdContent = fs.readFileSync(mdFile, 'utf-8');
+            let content = fs.readFileSync(mdFile, 'utf-8');
 
-            // 현재 파일의 카테고리 확인 (예: api-reference/core)
-            const categories = relativePath.split('/');
-            let categoryName = '';
-            if (categories.length >= 2 && categories[0] === 'api-reference') {
-                categoryName = categories[1];
-            }
+            // 마크다운을 HTML로 변환
+            const html = marked.parse(content);
 
-            // 마크다운 링크를 HTML 링크로 변환
-            let processedContent = mdContent;
+            // HTML 템플릿 적용
+            const renderedHtml = HTML_TEMPLATE.replace('{{CONTENT}}', html);
 
-            // .md 확장자 제거 (Docsify history 모드에 맞게)
-            processedContent = processedContent.replace(/\]\(([^)]+)\.md(#[^)]*)?/g, (match, filePath, anchor) => {
-                return `](${filePath}${anchor || ''}`;
+            // 링크 수정 (histroy 모드 대응: href="#xxx" -> href="/path/to/file#xxx")
+            const htmlRelativePath = relativePath.replace('.md', '');
+            let processedHtml = renderedHtml;
+
+            // 페이지 내 앵커 링크 처리 (예: href="#method_hello" -> href="/api-reference/core/classes/FunctionRegistry#method_hello")
+            processedHtml = processedHtml.replace(/href="#([^"]+)"/g, (match, anchor) => {
+                return `href="/${htmlRelativePath}#${anchor}"`;
             });
 
-            // 자기 참조 링크 처리 (앵커만 남기기)
-            const currentFileName = path.basename(mdFile, '.md');
-            processedContent = processedContent.replace(
-                new RegExp(`\\]\\(${currentFileName}(#[^)]*)?\\)`, 'g'),
-                (match, anchor) => `](${anchor || ''})`
-            );
-
-            // 기본 HTML 템플릿
-            const htmlTemplate = `<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Robota 문서</title>
-  <meta name="description" content="Robota API 문서">
-  <link rel="stylesheet" href="/style.css">
-  <script>
-    // 페이지 로드 시 Docsify 라우팅으로 리다이렉트
-    window.onload = function() {
-      // history 모드를 위한 리다이렉트 처리
-      const currentPath = window.location.pathname;
-      
-      // HTML 확장자 제거하여 원래 경로로 리다이렉트
-      if (currentPath.endsWith('.html')) {
-        window.location.href = currentPath.replace('.html', '');
-        return;
-      }
-      
-      // 이미 적절한 경로라면 Docsify로 전달
-      window.location.href = '/';
-    };
-  </script>
-</head>
-<body>
-  <div id="content">
-    ${processedContent}
-  </div>
-</body>
-</html>`;
-
-            // HTML 파일로 저장
-            fs.writeFileSync(htmlPath, htmlTemplate);
-            console.log(`✅ HTML 파일 생성 완료: ${htmlPath}`);
+            // HTML 파일 저장
+            fs.writeFileSync(htmlFile, processedHtml);
         } catch (error) {
-            console.error(`⚠️ HTML 파일 생성 중 오류 발생:`, error);
+            console.error(`⚠️ ${mdFile} 파일 프리렌더링 중 오류 발생:`, error);
         }
     }
 
-    console.log('🎉 정적 HTML 페이지 생성 완료!');
+    console.log('✅ HTML 파일 미리 렌더링 완료');
 }
 
 async function main() {
