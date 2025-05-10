@@ -5,13 +5,14 @@
   "type": "module",
   "scripts": {
     "test": "vitest run --passWithNoTests",
-    "build": "npm run generate-api-docs",
-    "clear": "rimraf docs/api-reference",
-    "serve": "npx docsify-cli serve ../docs",
+    "build": "npm run clear && npm run generate-api-docs && npm run setup-docsify",
+    "clear": "rimraf dist && mkdir -p dist",
+    "serve": "npx serve ./dist",
     "generate-api-docs": "node scripts/generate-api-docs.js",
     "setup-docsify": "node scripts/setup-docsify.js",
-    "preview": "npm run build && npm run setup-docsify && npm run serve",
-    "prepare-deploy": "npm run build && npm run setup-docsify"
+    "preview": "npm run build && npm run serve",
+    "prepare-deploy": "npm run build",
+    "deploy": "gh-pages -d dist -b gh-pages"
   },
   "devDependencies": {
     "docsify-cli": "^4.4.4",

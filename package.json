@@ -16,7 +16,8 @@
     "docs:build": "pnpm --filter website build",
     "docs:preview": "pnpm --filter website preview",
     "lint": "eslint . --ext .ts,.tsx",
-    "lint:fix": "eslint . --ext .ts,.tsx --fix"
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "serve": "npx serve docs"
   },
   "keywords": [
     "ai",
@@ -36,7 +37,13 @@
     "lint-staged": "^15.2.0",
     "prettier": "^3.1.1",
     "typescript": "^5.3.3",
-    "vitest": "^1.6.1"
+    "vitest": "^1.6.1",
+    "docsify-cli": "^4.4.4",
+    "gh-pages": "^6.3.0",
+    "glob": "^10.3.10",
+    "rimraf": "^5.0.5",
+    "typedoc": "^0.25.9",
+    "typedoc-plugin-markdown": "^3.17.1"
   },
   "engines": {
     "node": ">=18.0.0",
