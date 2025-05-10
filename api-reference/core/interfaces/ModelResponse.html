@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Robota API 문서</title>
+  <meta name="description" content="Robota API 문서">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    // 페이지 로드 시 Docsify 라우팅으로 리다이렉트
+    window.onload = function() {
+      // history 모드를 위한 리다이렉트 처리
+      const currentPath = window.location.pathname;
+      
+      // HTML 확장자 제거하여 원래 경로로 리다이렉트
+      if (currentPath.endsWith('.html')) {
+        window.location.href = currentPath.replace('.html', '');
+        return;
+      }
+      
+      // 이미 적절한 경로라면 Docsify로 전달
+      window.location.href = '/';
+    };
+  </script>
+</head>
+<body>
+  <div id="content">
+    <p><a href="/api-reference/core/">Core API - v0.1.0</a> / ModelResponse</p>
+<h1>Interface: ModelResponse</h1>
+<p>모델 응답 인터페이스</p>
+<h2>Table of contents</h2>
+<h3>Properties</h3>
+<ul>
+<li><a href="/api-reference/core/interfaces/ModelResponse#content">content</a></li>
+<li><a href="/api-reference/core/interfaces/ModelResponse#functioncall">functionCall</a></li>
+<li><a href="/api-reference/core/interfaces/ModelResponse#usage">usage</a></li>
+<li><a href="/api-reference/core/interfaces/ModelResponse#metadata">metadata</a></li>
+</ul>
+<h2>Properties</h2>
+<h3><a id="content" name="content"></a> content</h3>
+<p>• <code>Optional</code> <strong>content</strong>: <code>string</code></p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/types.ts#L74">packages/core/src/types.ts:74</a></p>
+<hr>
+<h3><a id="functioncall" name="functioncall"></a> functionCall</h3>
+<p>• <code>Optional</code> <strong>functionCall</strong>: <a href="/api-reference/core/interfaces/FunctionCall"><code>FunctionCall</code></a></p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/types.ts#L75">packages/core/src/types.ts:75</a></p>
+<hr>
+<h3><a id="usage" name="usage"></a> usage</h3>
+<p>• <code>Optional</code> <strong>usage</strong>: <code>Object</code></p>
+<h4>Type declaration</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>promptTokens</code></td>
+<td align="left"><code>number</code></td>
+</tr>
+<tr>
+<td align="left"><code>completionTokens</code></td>
+<td align="left"><code>number</code></td>
+</tr>
+<tr>
+<td align="left"><code>totalTokens</code></td>
+<td align="left"><code>number</code></td>
+</tr>
+</tbody></table>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/types.ts#L76">packages/core/src/types.ts:76</a></p>
+<hr>
+<h3><a id="metadata" name="metadata"></a> metadata</h3>
+<p>• <code>Optional</code> <strong>metadata</strong>: <code>Record</code>&lt;<code>string</code>, <code>any</code>&gt;</p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/types.ts#L81">packages/core/src/types.ts:81</a></p>
+
+  </div>
+</body>
+</html>

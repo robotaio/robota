@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Robota API 문서</title>
+  <meta name="description" content="Robota API 문서">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    // 페이지 로드 시 Docsify 라우팅으로 리다이렉트
+    window.onload = function() {
+      // history 모드를 위한 리다이렉트 처리
+      const currentPath = window.location.pathname;
+      
+      // HTML 확장자 제거하여 원래 경로로 리다이렉트
+      if (currentPath.endsWith('.html')) {
+        window.location.href = currentPath.replace('.html', '');
+        return;
+      }
+      
+      // 이미 적절한 경로라면 Docsify로 전달
+      window.location.href = '/';
+    };
+  </script>
+</head>
+<body>
+  <div id="content">
+    <p><a href="/api-reference/core/">Core API - v0.1.0</a> / ModelContextProtocol</p>
+<h1>Interface: ModelContextProtocol</h1>
+<p>모델 컨텍스트 프로토콜(MCP)</p>
+<p>다양한 AI 모델 제공업체와 통합하기 위한 표준화된 인터페이스</p>
+<h2>Table of contents</h2>
+<h3>Properties</h3>
+<ul>
+<li><a href="/api-reference/core/interfaces/ModelContextProtocol#options">options</a></li>
+</ul>
+<h3>Methods</h3>
+<ul>
+<li><a href="/api-reference/core/interfaces/ModelContextProtocol#chat">chat</a></li>
+<li><a href="/api-reference/core/interfaces/ModelContextProtocol#chatstream">chatStream</a></li>
+<li><a href="/api-reference/core/interfaces/ModelContextProtocol#formatmessages">formatMessages</a></li>
+<li><a href="/api-reference/core/interfaces/ModelContextProtocol#formatfunctions">formatFunctions</a></li>
+<li><a href="/api-reference/core/interfaces/ModelContextProtocol#parseresponse">parseResponse</a></li>
+<li><a href="/api-reference/core/interfaces/ModelContextProtocol#parsestreamingchunk">parseStreamingChunk</a></li>
+<li><a href="/api-reference/core/interfaces/ModelContextProtocol#counttokens">countTokens</a></li>
+</ul>
+<h2>Properties</h2>
+<h3><a id="options" name="options"></a> options</h3>
+<p>• <strong>options</strong>: <a href="/api-reference/core/interfaces/ProviderOptions"><code>ProviderOptions</code></a></p>
+<p>기본 모델 및 설정</p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/model-context-protocol.ts#L20">packages/core/src/model-context-protocol.ts:20</a></p>
+<h2>Methods</h2>
+<h3><a id="chat" name="chat"></a> chat</h3>
+<p>▸ <strong>chat</strong>(<code>context</code>, <code>options?</code>): <code>Promise</code>&lt;<a href="/api-reference/core/interfaces/ModelResponse"><code>ModelResponse</code></a>&gt;</p>
+<p>주어진 컨텍스트로 모델에 요청을 보내고 응답을 받습니다.</p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>context</code></td>
+<td align="left"><a href="/api-reference/core/interfaces/Context"><code>Context</code></a></td>
+<td align="left">요청 컨텍스트 (메시지, 함수 정의 등)</td>
+</tr>
+<tr>
+<td align="left"><code>options?</code></td>
+<td align="left"><code>Object</code></td>
+<td align="left">추가 옵션</td>
+</tr>
+<tr>
+<td align="left"><code>options.temperature?</code></td>
+<td align="left"><code>number</code></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>options.maxTokens?</code></td>
+<td align="left"><code>number</code></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>options.functionCallMode?</code></td>
+<td align="left"><code>&quot;auto&quot;</code> | <code>&quot;force&quot;</code> | <code>&quot;disabled&quot;</code></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>options.forcedFunction?</code></td>
+<td align="left"><code>string</code></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>options.forcedArguments?</code></td>
+<td align="left"><code>Record</code>&lt;<code>string</code>, <code>any</code>&gt;</td>
+<td align="left">-</td>
+</tr>
+</tbody></table>
+<h4>Returns</h4>
+<p><code>Promise</code>&lt;<a href="/api-reference/core/interfaces/ModelResponse"><code>ModelResponse</code></a>&gt;</p>
+<p>모델 응답</p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/model-context-protocol.ts#L29">packages/core/src/model-context-protocol.ts:29</a></p>
+<hr>
+<h3><a id="chatstream" name="chatstream"></a> chatStream</h3>
+<p>▸ <strong>chatStream</strong>(<code>context</code>, <code>options?</code>): <code>AsyncIterable</code>&lt;<a href="/api-reference/core/interfaces/StreamingResponseChunk"><code>StreamingResponseChunk</code></a>, <code>any</code>, <code>any</code>&gt;</p>
+<p>주어진 컨텍스트로 모델에 스트리밍 요청을 보내고 응답 청크를 받습니다.</p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>context</code></td>
+<td align="left"><a href="/api-reference/core/interfaces/Context"><code>Context</code></a></td>
+<td align="left">요청 컨텍스트 (메시지, 함수 정의 등)</td>
+</tr>
+<tr>
+<td align="left"><code>options?</code></td>
+<td align="left"><code>Object</code></td>
+<td align="left">추가 옵션</td>
+</tr>
+<tr>
+<td align="left"><code>options.temperature?</code></td>
+<td align="left"><code>number</code></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>options.maxTokens?</code></td>
+<td align="left"><code>number</code></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>options.functionCallMode?</code></td>
+<td align="left"><code>&quot;auto&quot;</code> | <code>&quot;force&quot;</code> | <code>&quot;disabled&quot;</code></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>options.forcedFunction?</code></td>
+<td align="left"><code>string</code></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>options.forcedArguments?</code></td>
+<td align="left"><code>Record</code>&lt;<code>string</code>, <code>any</code>&gt;</td>
+<td align="left">-</td>
+</tr>
+</tbody></table>
+<h4>Returns</h4>
+<p><code>AsyncIterable</code>&lt;<a href="/api-reference/core/interfaces/StreamingResponseChunk"><code>StreamingResponseChunk</code></a>, <code>any</code>, <code>any</code>&gt;</p>
+<p>스트리밍 응답 AsyncIterable</p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/model-context-protocol.ts#L44">packages/core/src/model-context-protocol.ts:44</a></p>
+<hr>
+<h3><a id="formatmessages" name="formatmessages"></a> formatMessages</h3>
+<p>▸ <strong>formatMessages</strong>(<code>messages</code>): <code>any</code></p>
+<p>메시지를 모델이 이해할 수 있는 형식으로 포맷합니다.</p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>messages</code></td>
+<td align="left"><a href="/api-reference/core/interfaces/Message"><code>Message</code></a>[]</td>
+<td align="left">메시지 배열</td>
+</tr>
+</tbody></table>
+<h4>Returns</h4>
+<p><code>any</code></p>
+<p>포맷된 메시지</p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/model-context-protocol.ts#L58">packages/core/src/model-context-protocol.ts:58</a></p>
+<hr>
+<h3><a id="formatfunctions" name="formatfunctions"></a> formatFunctions</h3>
+<p>▸ <strong>formatFunctions</strong>(<code>functions</code>): <code>any</code></p>
+<p>함수 정의를 모델이 이해할 수 있는 형식으로 포맷합니다.</p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>functions</code></td>
+<td align="left"><a href="/api-reference/core/interfaces/FunctionSchema"><code>FunctionSchema</code></a>[]</td>
+<td align="left">함수 정의 배열</td>
+</tr>
+</tbody></table>
+<h4>Returns</h4>
+<p><code>any</code></p>
+<p>포맷된 함수 정의</p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/model-context-protocol.ts#L66">packages/core/src/model-context-protocol.ts:66</a></p>
+<hr>
+<h3><a id="parseresponse" name="parseresponse"></a> parseResponse</h3>
+<p>▸ <strong>parseResponse</strong>(<code>response</code>): <a href="/api-reference/core/interfaces/ModelResponse"><code>ModelResponse</code></a></p>
+<p>모델 응답을 표준 형식으로 파싱합니다.</p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>response</code></td>
+<td align="left"><code>any</code></td>
+<td align="left">모델의 원시 응답</td>
+</tr>
+</tbody></table>
+<h4>Returns</h4>
+<p><a href="/api-reference/core/interfaces/ModelResponse"><code>ModelResponse</code></a></p>
+<p>표준화된 ModelResponse</p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/model-context-protocol.ts#L74">packages/core/src/model-context-protocol.ts:74</a></p>
+<hr>
+<h3><a id="parsestreamingchunk" name="parsestreamingchunk"></a> parseStreamingChunk</h3>
+<p>▸ <strong>parseStreamingChunk</strong>(<code>chunk</code>): <a href="/api-reference/core/interfaces/StreamingResponseChunk"><code>StreamingResponseChunk</code></a></p>
+<p>스트리밍 응답 청크를 표준 형식으로 파싱합니다.</p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>chunk</code></td>
+<td align="left"><code>any</code></td>
+<td align="left">모델의 원시 응답 청크</td>
+</tr>
+</tbody></table>
+<h4>Returns</h4>
+<p><a href="/api-reference/core/interfaces/StreamingResponseChunk"><code>StreamingResponseChunk</code></a></p>
+<p>표준화된 StreamingResponseChunk</p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/model-context-protocol.ts#L82">packages/core/src/model-context-protocol.ts:82</a></p>
+<hr>
+<h3><a id="counttokens" name="counttokens"></a> countTokens</h3>
+<p>▸ <strong>countTokens</strong>(<code>input</code>): <code>Promise</code>&lt;<code>number</code>&gt;</p>
+<p>모델의 토큰 사용량을 계산합니다.</p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>input</code></td>
+<td align="left"><code>string</code></td>
+<td align="left">입력 텍스트</td>
+</tr>
+</tbody></table>
+<h4>Returns</h4>
+<p><code>Promise</code>&lt;<code>number</code>&gt;</p>
+<p>추정 토큰 수</p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/model-context-protocol.ts#L90">packages/core/src/model-context-protocol.ts:90</a></p>
+
+  </div>
+</body>
+</html>

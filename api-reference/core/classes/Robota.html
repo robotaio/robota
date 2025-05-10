@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Robota API 문서</title>
+  <meta name="description" content="Robota API 문서">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    // 페이지 로드 시 Docsify 라우팅으로 리다이렉트
+    window.onload = function() {
+      // history 모드를 위한 리다이렉트 처리
+      const currentPath = window.location.pathname;
+      
+      // HTML 확장자 제거하여 원래 경로로 리다이렉트
+      if (currentPath.endsWith('.html')) {
+        window.location.href = currentPath.replace('.html', '');
+        return;
+      }
+      
+      // 이미 적절한 경로라면 Docsify로 전달
+      window.location.href = '/';
+    };
+  </script>
+</head>
+<body>
+  <div id="content">
+    <p><a href="/api-reference/core/">Core API - v0.1.0</a> / Robota</p>
+<h1>Class: Robota</h1>
+<p>Robota의 메인 클래스
+에이전트를 초기화하고 실행하는 인터페이스 제공</p>
+<p><strong><code>Example</code></strong></p>
+<pre><code class="language-ts">const robota = new Robota({
+  provider: new OpenAIProvider({
+    model: &#39;gpt-4&#39;,
+    client: openaiClient
+  }),
+  systemPrompt: &#39;당신은 도움이 되는 AI 어시스턴트입니다.&#39;
+});
+
+const response = await robota.run(&#39;안녕하세요!&#39;);
+</code></pre>
+<h2>Table of contents</h2>
+<h3>Constructors</h3>
+<ul>
+<li><a href="/api-reference/core/classes/Robota#constructor">constructor</a></li>
+</ul>
+<h3>Methods</h3>
+<ul>
+<li><a href="/api-reference/core/classes/Robota#setsystemprompt">setSystemPrompt</a></li>
+<li><a href="/api-reference/core/classes/Robota#setsystemmessages">setSystemMessages</a></li>
+<li><a href="/api-reference/core/classes/Robota#addsystemmessage">addSystemMessage</a></li>
+<li><a href="/api-reference/core/classes/Robota#setfunctioncallmode">setFunctionCallMode</a></li>
+<li><a href="/api-reference/core/classes/Robota#configurefunctioncall">configureFunctionCall</a></li>
+<li><a href="/api-reference/core/classes/Robota#registerfunctions">registerFunctions</a></li>
+<li><a href="/api-reference/core/classes/Robota#registerfunction">registerFunction</a></li>
+<li><a href="/api-reference/core/classes/Robota#run">run</a></li>
+<li><a href="/api-reference/core/classes/Robota#chat">chat</a></li>
+<li><a href="/api-reference/core/classes/Robota#runstream">runStream</a></li>
+<li><a href="/api-reference/core/classes/Robota#addresponsetomemory">addResponseToMemory</a></li>
+<li><a href="/api-reference/core/classes/Robota#clearmemory">clearMemory</a></li>
+</ul>
+<h2>Constructors</h2>
+<h3><a id="constructor" name="constructor"></a> constructor</h3>
+<p>• <strong>new Robota</strong>(<code>options</code>): <a href="/api-reference/core/classes/Robota"><code>Robota</code></a></p>
+<p>Robota 인스턴스 생성</p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>options</code></td>
+<td align="left"><a href="/api-reference/core/interfaces/RobotaOptions"><code>RobotaOptions</code></a></td>
+<td align="left">Robota 초기화 옵션</td>
+</tr>
+</tbody></table>
+<h4>Returns</h4>
+<p><a href="/api-reference/core/classes/Robota"><code>Robota</code></a></p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/robota.ts#L51">packages/core/src/robota.ts:51</a></p>
+<h2>Methods</h2>
+<h3><a id="setsystemprompt" name="setsystemprompt"></a> setSystemPrompt</h3>
+<p>▸ <strong>setSystemPrompt</strong>(<code>prompt</code>): <code>void</code></p>
+<p>단일 시스템 프롬프트 설정</p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>prompt</code></td>
+<td align="left"><code>string</code></td>
+<td align="left">시스템 프롬프트 내용</td>
+</tr>
+</tbody></table>
+<h4>Returns</h4>
+<p><code>void</code></p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/robota.ts#L86">packages/core/src/robota.ts:86</a></p>
+<hr>
+<h3><a id="setsystemmessages" name="setsystemmessages"></a> setSystemMessages</h3>
+<p>▸ <strong>setSystemMessages</strong>(<code>messages</code>): <code>void</code></p>
+<p>여러 시스템 메시지 설정</p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>messages</code></td>
+<td align="left"><a href="/api-reference/core/interfaces/Message"><code>Message</code></a>[]</td>
+<td align="left">시스템 메시지 배열</td>
+</tr>
+</tbody></table>
+<h4>Returns</h4>
+<p><code>void</code></p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/robota.ts#L96">packages/core/src/robota.ts:96</a></p>
+<hr>
+<h3><a id="addsystemmessage" name="addsystemmessage"></a> addSystemMessage</h3>
+<p>▸ <strong>addSystemMessage</strong>(<code>content</code>): <code>void</code></p>
+<p>기존 시스템 메시지에 새 시스템 메시지 추가</p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>content</code></td>
+<td align="left"><code>string</code></td>
+<td align="left">추가할 시스템 메시지 내용</td>
+</tr>
+</tbody></table>
+<h4>Returns</h4>
+<p><code>void</code></p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/robota.ts#L106">packages/core/src/robota.ts:106</a></p>
+<hr>
+<h3><a id="setfunctioncallmode" name="setfunctioncallmode"></a> setFunctionCallMode</h3>
+<p>▸ <strong>setFunctionCallMode</strong>(<code>mode</code>): <code>void</code></p>
+<p>함수 호출 모드 설정</p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>mode</code></td>
+<td align="left"><a href="/api-reference/core/#functioncallmode"><code>FunctionCallMode</code></a></td>
+<td align="left">함수 호출 모드 (&#39;auto&#39;, &#39;force&#39;, &#39;disabled&#39;)</td>
+</tr>
+</tbody></table>
+<h4>Returns</h4>
+<p><code>void</code></p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/robota.ts#L138">packages/core/src/robota.ts:138</a></p>
+<hr>
+<h3><a id="configurefunctioncall" name="configurefunctioncall"></a> configureFunctionCall</h3>
+<p>▸ <strong>configureFunctionCall</strong>(<code>config</code>): <code>void</code></p>
+<p>함수 호출 설정 구성</p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>config</code></td>
+<td align="left"><code>Object</code></td>
+<td align="left">함수 호출 구성 옵션</td>
+</tr>
+<tr>
+<td align="left"><code>config.mode?</code></td>
+<td align="left"><a href="/api-reference/core/#functioncallmode"><code>FunctionCallMode</code></a></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>config.maxCalls?</code></td>
+<td align="left"><code>number</code></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>config.timeout?</code></td>
+<td align="left"><code>number</code></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><code>config.allowedFunctions?</code></td>
+<td align="left"><code>string</code>[]</td>
+<td align="left">-</td>
+</tr>
+</tbody></table>
+<h4>Returns</h4>
+<p><code>void</code></p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/robota.ts#L147">packages/core/src/robota.ts:147</a></p>
+<hr>
+<h3><a id="registerfunctions" name="registerfunctions"></a> registerFunctions</h3>
+<p>▸ <strong>registerFunctions</strong>(<code>functions</code>): <code>void</code></p>
+<p>여러 함수 등록</p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>functions</code></td>
+<td align="left"><code>Record</code>&lt;<code>string</code>, <code>Function</code>&gt;</td>
+<td align="left">함수 이름과 구현을 담은 객체</td>
+</tr>
+</tbody></table>
+<h4>Returns</h4>
+<p><code>void</code></p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/robota.ts#L172">packages/core/src/robota.ts:172</a></p>
+<hr>
+<h3><a id="registerfunction" name="registerfunction"></a> registerFunction</h3>
+<p>▸ <strong>registerFunction</strong>(<code>schema</code>, <code>fn</code>): <code>void</code></p>
+<p>단일 함수 등록</p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>schema</code></td>
+<td align="left"><a href="/api-reference/core/interfaces/FunctionSchema"><code>FunctionSchema</code></a></td>
+<td align="left">함수 스키마</td>
+</tr>
+<tr>
+<td align="left"><code>fn</code></td>
+<td align="left"><code>Function</code></td>
+<td align="left">함수 구현</td>
+</tr>
+</tbody></table>
+<h4>Returns</h4>
+<p><code>void</code></p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/robota.ts#L200">packages/core/src/robota.ts:200</a></p>
+<hr>
+<h3><a id="run" name="run"></a> run</h3>
+<p>▸ <strong>run</strong>(<code>prompt</code>, <code>options?</code>): <code>Promise</code>&lt;<code>string</code>&gt;</p>
+<p>텍스트 프롬프트 실행</p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>prompt</code></td>
+<td align="left"><code>string</code></td>
+<td align="left">사용자 프롬프트</td>
+</tr>
+<tr>
+<td align="left"><code>options</code></td>
+<td align="left"><a href="/api-reference/core/interfaces/RunOptions"><code>RunOptions</code></a></td>
+<td align="left">실행 옵션</td>
+</tr>
+</tbody></table>
+<h4>Returns</h4>
+<p><code>Promise</code>&lt;<code>string</code>&gt;</p>
+<p>모델 응답 내용</p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/robota.ts#L223">packages/core/src/robota.ts:223</a></p>
+<hr>
+<h3><a id="chat" name="chat"></a> chat</h3>
+<p>▸ <strong>chat</strong>(<code>message</code>, <code>options?</code>): <code>Promise</code>&lt;<code>string</code>&gt;</p>
+<p>채팅 메시지 처리 및 응답 생성</p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>message</code></td>
+<td align="left"><code>string</code></td>
+<td align="left">사용자 메시지</td>
+</tr>
+<tr>
+<td align="left"><code>options</code></td>
+<td align="left"><a href="/api-reference/core/interfaces/RunOptions"><code>RunOptions</code></a></td>
+<td align="left">실행 옵션</td>
+</tr>
+</tbody></table>
+<h4>Returns</h4>
+<p><code>Promise</code>&lt;<code>string</code>&gt;</p>
+<p>모델 응답 내용</p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/robota.ts#L241">packages/core/src/robota.ts:241</a></p>
+<hr>
+<h3><a id="runstream" name="runstream"></a> runStream</h3>
+<p>▸ <strong>runStream</strong>(<code>prompt</code>, <code>options?</code>): <code>Promise</code>&lt;<code>AsyncIterable</code>&lt;<a href="/api-reference/core/interfaces/StreamingResponseChunk"><code>StreamingResponseChunk</code></a>, <code>any</code>, <code>any</code>&gt;&gt;</p>
+<p>스트리밍 응답 생성</p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>prompt</code></td>
+<td align="left"><code>string</code></td>
+<td align="left">사용자 프롬프트</td>
+</tr>
+<tr>
+<td align="left"><code>options</code></td>
+<td align="left"><a href="/api-reference/core/interfaces/RunOptions"><code>RunOptions</code></a></td>
+<td align="left">실행 옵션</td>
+</tr>
+</tbody></table>
+<h4>Returns</h4>
+<p><code>Promise</code>&lt;<code>AsyncIterable</code>&lt;<a href="/api-reference/core/interfaces/StreamingResponseChunk"><code>StreamingResponseChunk</code></a>, <code>any</code>, <code>any</code>&gt;&gt;</p>
+<p>스트리밍 응답 청크 이터레이터</p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/robota.ts#L272">packages/core/src/robota.ts:272</a></p>
+<hr>
+<h3><a id="addresponsetomemory" name="addresponsetomemory"></a> addResponseToMemory</h3>
+<p>▸ <strong>addResponseToMemory</strong>(<code>response</code>): <code>void</code></p>
+<p>응답 메시지 추가</p>
+<h4>Parameters</h4>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>response</code></td>
+<td align="left"><a href="/api-reference/core/interfaces/ModelResponse"><code>ModelResponse</code></a></td>
+<td align="left">모델 응답</td>
+</tr>
+</tbody></table>
+<h4>Returns</h4>
+<p><code>void</code></p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/robota.ts#L288">packages/core/src/robota.ts:288</a></p>
+<hr>
+<h3><a id="clearmemory" name="clearmemory"></a> clearMemory</h3>
+<p>▸ <strong>clearMemory</strong>(): <code>void</code></p>
+<p>메모리 초기화</p>
+<h4>Returns</h4>
+<p><code>void</code></p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/robota.ts#L299">packages/core/src/robota.ts:299</a></p>
+
+  </div>
+</body>
+</html>

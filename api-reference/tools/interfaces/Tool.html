@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Robota API 문서</title>
+  <meta name="description" content="Robota API 문서">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    // 페이지 로드 시 Docsify 라우팅으로 리다이렉트
+    window.onload = function() {
+      // history 모드를 위한 리다이렉트 처리
+      const currentPath = window.location.pathname;
+      
+      // HTML 확장자 제거하여 원래 경로로 리다이렉트
+      if (currentPath.endsWith('.html')) {
+        window.location.href = currentPath.replace('.html', '');
+        return;
+      }
+      
+      // 이미 적절한 경로라면 Docsify로 전달
+      window.location.href = '/';
+    };
+  </script>
+</head>
+<body>
+  <div id="content">
+    <p><a href="/api-reference/tools/">Tools API - v0.1.0</a> / Tool</p>
+<h1>Interface: Tool&lt;TInput, TOutput&gt;</h1>
+<p>도구 인터페이스</p>
+<h2>Type parameters</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>TInput</code></td>
+<td align="left"><code>any</code></td>
+</tr>
+<tr>
+<td align="left"><code>TOutput</code></td>
+<td align="left"><code>any</code></td>
+</tr>
+</tbody></table>
+<h2>Table of contents</h2>
+<h3>Properties</h3>
+<ul>
+<li><a href="/api-reference/tools/interfaces/Tool#name">name</a></li>
+<li><a href="/api-reference/tools/interfaces/Tool#description">description</a></li>
+<li><a href="/api-reference/tools/interfaces/Tool#parameters">parameters</a></li>
+<li><a href="/api-reference/tools/interfaces/Tool#execute">execute</a></li>
+</ul>
+<h2>Properties</h2>
+<h3><a id="name" name="name"></a> name</h3>
+<p>• <strong>name</strong>: <code>string</code></p>
+<p>도구 이름</p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/tools/src/index.ts#L50">index.ts:50</a></p>
+<hr>
+<h3><a id="description" name="description"></a> description</h3>
+<p>• <code>Optional</code> <strong>description</strong>: <code>string</code></p>
+<p>도구 설명</p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/tools/src/index.ts#L55">index.ts:55</a></p>
+<hr>
+<h3><a id="parameters" name="parameters"></a> parameters</h3>
+<p>• <code>Optional</code> <strong>parameters</strong>: <a href="/api-reference/tools/interfaces/ToolParameter"><code>ToolParameter</code></a>[]</p>
+<p>도구 파라미터 정의</p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/tools/src/index.ts#L60">index.ts:60</a></p>
+<hr>
+<h3><a id="execute" name="execute"></a> execute</h3>
+<p>• <strong>execute</strong>: (<code>input</code>: <code>TInput</code>) =&gt; <code>Promise</code>&lt;<a href="/api-reference/tools/interfaces/ToolResult"><code>ToolResult</code></a>&lt;<code>TOutput</code>&gt;&gt;</p>
+<p>도구 실행 함수</p>
+<h4>Type declaration</h4>
+<p>▸ (<code>input</code>): <code>Promise</code>&lt;<a href="/api-reference/tools/interfaces/ToolResult"><code>ToolResult</code></a>&lt;<code>TOutput</code>&gt;&gt;</p>
+<h5>Parameters</h5>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>input</code></td>
+<td align="left"><code>TInput</code></td>
+<td align="left">도구 입력 파라미터</td>
+</tr>
+</tbody></table>
+<h5>Returns</h5>
+<p><code>Promise</code>&lt;<a href="/api-reference/tools/interfaces/ToolResult"><code>ToolResult</code></a>&lt;<code>TOutput</code>&gt;&gt;</p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/tools/src/index.ts#L68">index.ts:68</a></p>
+
+  </div>
+</body>
+</html>

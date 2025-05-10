@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Robota API 문서</title>
+  <meta name="description" content="Robota API 문서">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    // 페이지 로드 시 Docsify 라우팅으로 리다이렉트
+    window.onload = function() {
+      // history 모드를 위한 리다이렉트 처리
+      const currentPath = window.location.pathname;
+      
+      // HTML 확장자 제거하여 원래 경로로 리다이렉트
+      if (currentPath.endsWith('.html')) {
+        window.location.href = currentPath.replace('.html', '');
+        return;
+      }
+      
+      // 이미 적절한 경로라면 Docsify로 전달
+      window.location.href = '/';
+    };
+  </script>
+</head>
+<body>
+  <div id="content">
+    <p><a href="/api-reference/openai/">OpenAI API - v0.1.0</a> / OpenAIProviderOptions</p>
+<h1>Interface: OpenAIProviderOptions</h1>
+<p>OpenAI 제공업체 옵션</p>
+<h2>Hierarchy</h2>
+<ul>
+<li><p><code>ProviderOptions</code></p>
+<p>↳ <strong><code>OpenAIProviderOptions</code></strong></p>
+</li>
+</ul>
+<h2>Table of contents</h2>
+<h3>Properties</h3>
+<ul>
+<li><a href="/api-reference/openai/interfaces/OpenAIProviderOptions#model">model</a></li>
+<li><a href="/api-reference/openai/interfaces/OpenAIProviderOptions#temperature">temperature</a></li>
+<li><a href="/api-reference/openai/interfaces/OpenAIProviderOptions#maxtokens">maxTokens</a></li>
+<li><a href="/api-reference/openai/interfaces/OpenAIProviderOptions#stopsequences">stopSequences</a></li>
+<li><a href="/api-reference/openai/interfaces/OpenAIProviderOptions#streammode">streamMode</a></li>
+<li><a href="/api-reference/openai/interfaces/OpenAIProviderOptions#apikey">apiKey</a></li>
+</ul>
+<h2>Properties</h2>
+<h3><a id="model" name="model"></a> model</h3>
+<p>• <strong>model</strong>: <code>string</code></p>
+<h4>Inherited from</h4>
+<p>ProviderOptions.model</p>
+<h4>Defined in</h4>
+<p>core/dist/index.d.ts:91</p>
+<hr>
+<h3><a id="temperature" name="temperature"></a> temperature</h3>
+<p>• <code>Optional</code> <strong>temperature</strong>: <code>number</code></p>
+<h4>Inherited from</h4>
+<p>ProviderOptions.temperature</p>
+<h4>Defined in</h4>
+<p>core/dist/index.d.ts:92</p>
+<hr>
+<h3><a id="maxtokens" name="maxtokens"></a> maxTokens</h3>
+<p>• <code>Optional</code> <strong>maxTokens</strong>: <code>number</code></p>
+<h4>Inherited from</h4>
+<p>ProviderOptions.maxTokens</p>
+<h4>Defined in</h4>
+<p>core/dist/index.d.ts:93</p>
+<hr>
+<h3><a id="stopsequences" name="stopsequences"></a> stopSequences</h3>
+<p>• <code>Optional</code> <strong>stopSequences</strong>: <code>string</code>[]</p>
+<h4>Inherited from</h4>
+<p>ProviderOptions.stopSequences</p>
+<h4>Defined in</h4>
+<p>core/dist/index.d.ts:94</p>
+<hr>
+<h3><a id="streammode" name="streammode"></a> streamMode</h3>
+<p>• <code>Optional</code> <strong>streamMode</strong>: <code>boolean</code></p>
+<h4>Inherited from</h4>
+<p>ProviderOptions.streamMode</p>
+<h4>Defined in</h4>
+<p>core/dist/index.d.ts:95</p>
+<hr>
+<h3><a id="apikey" name="apikey"></a> apiKey</h3>
+<p>• <strong>apiKey</strong>: <code>string</code></p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/openai/src/index.ts#L7">openai/src/index.ts:7</a></p>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Robota API 문서</title>
+  <meta name="description" content="Robota API 문서">
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    // 페이지 로드 시 Docsify 라우팅으로 리다이렉트
+    window.onload = function() {
+      // history 모드를 위한 리다이렉트 처리
+      const currentPath = window.location.pathname;
+      
+      // HTML 확장자 제거하여 원래 경로로 리다이렉트
+      if (currentPath.endsWith('.html')) {
+        window.location.href = currentPath.replace('.html', '');
+        return;
+      }
+      
+      // 이미 적절한 경로라면 Docsify로 전달
+      window.location.href = '/';
+    };
+  </script>
+</head>
+<body>
+  <div id="content">
+    <p><a href="/api-reference/core/">Core API - v0.1.0</a> / RobotaOptions</p>
+<h1>Interface: RobotaOptions</h1>
+<p>Robota 설정 인터페이스</p>
+<h2>Table of contents</h2>
+<h3>Properties</h3>
+<ul>
+<li><a href="/api-reference/core/interfaces/RobotaOptions#provider">provider</a></li>
+<li><a href="/api-reference/core/interfaces/RobotaOptions#systemprompt">systemPrompt</a></li>
+<li><a href="/api-reference/core/interfaces/RobotaOptions#systemmessages">systemMessages</a></li>
+<li><a href="/api-reference/core/interfaces/RobotaOptions#memory">memory</a></li>
+<li><a href="/api-reference/core/interfaces/RobotaOptions#functioncallconfig">functionCallConfig</a></li>
+<li><a href="/api-reference/core/interfaces/RobotaOptions#onfunctioncall">onFunctionCall</a></li>
+</ul>
+<h2>Properties</h2>
+<h3><a id="provider" name="provider"></a> provider</h3>
+<p>• <strong>provider</strong>: <code>any</code></p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/types.ts#L135">packages/core/src/types.ts:135</a></p>
+<hr>
+<h3><a id="systemprompt" name="systemprompt"></a> systemPrompt</h3>
+<p>• <code>Optional</code> <strong>systemPrompt</strong>: <code>string</code></p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/types.ts#L136">packages/core/src/types.ts:136</a></p>
+<hr>
+<h3><a id="systemmessages" name="systemmessages"></a> systemMessages</h3>
+<p>• <code>Optional</code> <strong>systemMessages</strong>: <a href="/api-reference/core/interfaces/Message"><code>Message</code></a>[]</p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/types.ts#L137">packages/core/src/types.ts:137</a></p>
+<hr>
+<h3><a id="memory" name="memory"></a> memory</h3>
+<p>• <code>Optional</code> <strong>memory</strong>: <code>any</code></p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/types.ts#L138">packages/core/src/types.ts:138</a></p>
+<hr>
+<h3><a id="functioncallconfig" name="functioncallconfig"></a> functionCallConfig</h3>
+<p>• <code>Optional</code> <strong>functionCallConfig</strong>: <a href="/api-reference/core/interfaces/FunctionCallConfig"><code>FunctionCallConfig</code></a></p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/types.ts#L139">packages/core/src/types.ts:139</a></p>
+<hr>
+<h3><a id="onfunctioncall" name="onfunctioncall"></a> onFunctionCall</h3>
+<p>• <code>Optional</code> <strong>onFunctionCall</strong>: (<code>functionName</code>: <code>string</code>, <code>args</code>: <code>any</code>, <code>result</code>: <code>any</code>) =&gt; <code>void</code></p>
+<h4>Type declaration</h4>
+<p>▸ (<code>functionName</code>, <code>args</code>, <code>result</code>): <code>void</code></p>
+<h5>Parameters</h5>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Type</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>functionName</code></td>
+<td align="left"><code>string</code></td>
+</tr>
+<tr>
+<td align="left"><code>args</code></td>
+<td align="left"><code>any</code></td>
+</tr>
+<tr>
+<td align="left"><code>result</code></td>
+<td align="left"><code>any</code></td>
+</tr>
+</tbody></table>
+<h5>Returns</h5>
+<p><code>void</code></p>
+<h4>Defined in</h4>
+<p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/types.ts#L140">packages/core/src/types.ts:140</a></p>
+
+  </div>
+</body>
+</html>
