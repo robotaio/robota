@@ -1,0 +1,29 @@
+{
+    "$schema": "https://typedoc.org/schema.json",
+    "plugin": [
+        "typedoc-plugin-markdown"
+    ],
+    "entryPoints": [],
+    "readme": "none",
+    "includeVersion": true,
+    "excludeExternals": true,
+    "excludePrivate": true,
+    "excludeProtected": true,
+    "skipErrorChecking": true,
+    "disableSources": false,
+    "hideBreadcrumbs": false,
+    "hideInPageTOC": false,
+    "namedAnchors": true,
+    "sort": [
+        "source-order"
+    ],
+    "categorizeByGroup": true,
+    "searchInComments": true,
+    "cleanOutputDir": true,
+    "gitRevision": "main",
+    "githubPages": false,
+    "navigationLinks": {
+        "GitHub": "https://github.com/jungyoun/robota",
+        "NPM": "https://www.npmjs.com/package/robota"
+    }
+}
