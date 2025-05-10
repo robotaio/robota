@@ -9,7 +9,9 @@
     "clear": "rimraf docs/api-reference",
     "serve": "npx docsify-cli serve ../docs",
     "generate-api-docs": "node scripts/generate-api-docs.js",
-    "deploy": "npm run build && npx gh-pages -d ../docs"
+    "setup-docsify": "node scripts/setup-docsify.js",
+    "preview": "npm run build && npm run setup-docsify && npm run serve",
+    "prepare-deploy": "npm run build && npm run setup-docsify"
   },
   "devDependencies": {
     "docsify-cli": "^4.4.4",
