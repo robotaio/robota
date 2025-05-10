@@ -12,7 +12,8 @@
     "setup-docsify": "node scripts/setup-docsify.js",
     "preview": "npm run build && npm run serve",
     "prepare-deploy": "npm run build",
-    "deploy": "gh-pages -d dist -b gh-pages"
+    "deploy": "gh-pages -d dist -b gh-pages",
+    "test:links": "node scripts/tests/run-link-tests.js"
   },
   "devDependencies": {
     "docsify-cli": "^4.4.4",
