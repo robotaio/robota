@@ -1,4 +1,4 @@
-[Core API - v0.1.0](../README.md) / FunctionCallConfig
+[Core API - v0.1.0](/api-reference/core/) / FunctionCallConfig
 
 # Interface: FunctionCallConfig
 
@@ -8,16 +8,16 @@
 
 ### Properties
 
-- [defaultMode](FunctionCallConfig.md#defaultmode)
-- [maxCalls](FunctionCallConfig.md#maxcalls)
-- [timeout](FunctionCallConfig.md#timeout)
-- [allowedFunctions](FunctionCallConfig.md#allowedfunctions)
+- [defaultMode](#defaultmode)
+- [maxCalls](#maxcalls)
+- [timeout](#timeout)
+- [allowedFunctions](#allowedfunctions)
 
 ## Properties
 
 ### <a id="defaultmode" name="defaultmode"></a> defaultMode
 
-• `Optional` **defaultMode**: [`FunctionCallMode`](../README.md#functioncallmode)
+• `Optional` **defaultMode**: [`FunctionCallMode`](/api-reference/core/?id=functioncallmode)
 
 #### Defined in
 

@@ -1,4 +1,4 @@
-[Core API - v0.1.0](../README.md) / FunctionRegistry
+[Core API - v0.1.0](/api-reference/core/) / FunctionRegistry
 
 # Class: FunctionRegistry
 
@@ -8,24 +8,24 @@
 
 ### Constructors
 
-- [constructor](FunctionRegistry.md#constructor)
+- [constructor](#constructor)
 
 ### Methods
 
-- [register](FunctionRegistry.md#register)
-- [getAllDefinitions](FunctionRegistry.md#getalldefinitions)
-- [getDefinition](FunctionRegistry.md#getdefinition)
-- [execute](FunctionRegistry.md#execute)
+- [register](#register)
+- [getAllDefinitions](#getalldefinitions)
+- [getDefinition](#getdefinition)
+- [execute](#execute)
 
 ## Constructors
 
 ### <a id="constructor" name="constructor"></a> constructor
 
-• **new FunctionRegistry**(): [`FunctionRegistry`](FunctionRegistry.md)
+• **new FunctionRegistry**(): [`FunctionRegistry`]()
 
 #### Returns
 
-[`FunctionRegistry`](FunctionRegistry.md)
+[`FunctionRegistry`]()
 
 ## Methods
 
@@ -39,8 +39,8 @@
 
 | Name | Type |
 | :------ | :------ |
-| `definition` | [`FunctionDefinition`](../interfaces/FunctionDefinition.md) |
-| `handler` | [`FunctionHandler`](../README.md#functionhandler) |
+| `definition` | [`FunctionDefinition`](/api-reference/core/interfaces/FunctionDefinition.md) |
+| `handler` | [`FunctionHandler`](/api-reference/core/?id=functionhandler) |
 
 #### Returns
 
@@ -54,13 +54,13 @@ ___
 
 ### <a id="getalldefinitions" name="getalldefinitions"></a> getAllDefinitions
 
-▸ **getAllDefinitions**(): [`FunctionDefinition`](../interfaces/FunctionDefinition.md)[]
+▸ **getAllDefinitions**(): [`FunctionDefinition`](/api-reference/core/interfaces/FunctionDefinition.md)[]
 
 등록된 모든 함수 정의를 반환합니다
 
 #### Returns
 
-[`FunctionDefinition`](../interfaces/FunctionDefinition.md)[]
+[`FunctionDefinition`](/api-reference/core/interfaces/FunctionDefinition.md)[]
 
 #### Defined in
 
@@ -70,7 +70,7 @@ ___
 
 ### <a id="getdefinition" name="getdefinition"></a> getDefinition
 
-▸ **getDefinition**(`name`): `undefined` \| [`FunctionDefinition`](../interfaces/FunctionDefinition.md)
+▸ **getDefinition**(`name`): `undefined` \| [`FunctionDefinition`](/api-reference/core/interfaces/FunctionDefinition.md)
 
 함수 이름으로 함수 정의를 가져옵니다
 
@@ -82,7 +82,7 @@ ___
 
 #### Returns
 
-`undefined` \| [`FunctionDefinition`](../interfaces/FunctionDefinition.md)
+`undefined` \| [`FunctionDefinition`](/api-reference/core/interfaces/FunctionDefinition.md)
 
 #### Defined in
 
@@ -92,7 +92,7 @@ ___
 
 ### <a id="execute" name="execute"></a> execute
 
-▸ **execute**(`functionCall`, `context?`): `Promise`\<[`FunctionCallResult`](../interfaces/FunctionCallResult.md)\>
+▸ **execute**(`functionCall`, `context?`): `Promise`\<[`FunctionCallResult`](/api-reference/core/interfaces/FunctionCallResult.md)\>
 
 함수 호출을 실행합니다
 
@@ -100,12 +100,12 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `functionCall` | [`FunctionCall`](../interfaces/FunctionCall.md) |
+| `functionCall` | [`FunctionCall`](/api-reference/core/interfaces/FunctionCall.md) |
 | `context?` | `any` |
 
 #### Returns
 
-`Promise`\<[`FunctionCallResult`](../interfaces/FunctionCallResult.md)\>
+`Promise`\<[`FunctionCallResult`](/api-reference/core/interfaces/FunctionCallResult.md)\>
 
 #### Defined in
 

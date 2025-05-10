@@ -1,4 +1,4 @@
-[Core API - v0.1.0](../README.md) / StreamingResponseChunk
+[Core API - v0.1.0](/api-reference/core/) / StreamingResponseChunk
 
 # Interface: StreamingResponseChunk
 
@@ -8,9 +8,9 @@
 
 ### Properties
 
-- [content](StreamingResponseChunk.md#content)
-- [functionCall](StreamingResponseChunk.md#functioncall)
-- [isComplete](StreamingResponseChunk.md#iscomplete)
+- [content](#content)
+- [functionCall](#functioncall)
+- [isComplete](#iscomplete)
 
 ## Properties
 

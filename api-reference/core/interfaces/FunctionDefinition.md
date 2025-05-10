@@ -1,4 +1,4 @@
-[Core API - v0.1.0](../README.md) / FunctionDefinition
+[Core API - v0.1.0](/api-reference/core/) / FunctionDefinition
 
 # Interface: FunctionDefinition
 
@@ -8,9 +8,9 @@
 
 ### Properties
 
-- [name](FunctionDefinition.md#name)
-- [description](FunctionDefinition.md#description)
-- [parameters](FunctionDefinition.md#parameters)
+- [name](#name)
+- [description](#description)
+- [parameters](#parameters)
 
 ## Properties
 

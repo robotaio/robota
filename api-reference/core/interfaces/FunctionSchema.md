@@ -1,4 +1,4 @@
-[Core API - v0.1.0](../README.md) / FunctionSchema
+[Core API - v0.1.0](/api-reference/core/) / FunctionSchema
 
 # Interface: FunctionSchema
 
@@ -8,9 +8,9 @@
 
 ### Properties
 
-- [name](FunctionSchema.md#name)
-- [description](FunctionSchema.md#description)
-- [parameters](FunctionSchema.md#parameters)
+- [name](#name)
+- [description](#description)
+- [parameters](#parameters)
 
 ## Properties
 

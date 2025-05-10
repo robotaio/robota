@@ -1,4 +1,4 @@
-[Tools API - v0.1.0](../README.md) / Tool
+[Tools API - v0.1.0](/api-reference/tools/) / Tool
 
 # Interface: Tool\<TInput, TOutput\>
 
@@ -15,10 +15,10 @@
 
 ### Properties
 
-- [name](Tool.md#name)
-- [description](Tool.md#description)
-- [parameters](Tool.md#parameters)
-- [execute](Tool.md#execute)
+- [name](#name)
+- [description](#description)
+- [parameters](#parameters)
+- [execute](#execute)
 
 ## Properties
 

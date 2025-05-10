@@ -1,4 +1,4 @@
-[Core API - v0.1.0](../README.md) / ProviderOptions
+[Core API - v0.1.0](/api-reference/core/) / ProviderOptions
 
 # Interface: ProviderOptions
 
@@ -8,11 +8,11 @@
 
 ### Properties
 
-- [model](ProviderOptions.md#model)
-- [temperature](ProviderOptions.md#temperature)
-- [maxTokens](ProviderOptions.md#maxtokens)
-- [stopSequences](ProviderOptions.md#stopsequences)
-- [streamMode](ProviderOptions.md#streammode)
+- [model](#model)
+- [temperature](#temperature)
+- [maxTokens](#maxtokens)
+- [stopSequences](#stopsequences)
+- [streamMode](#streammode)
 
 ## Properties
 

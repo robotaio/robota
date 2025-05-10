@@ -1,4 +1,4 @@
-[LangChain API - v0.1.0](../README.md) / LangChainProvider
+[LangChain API - v0.1.0](/api-reference/langchain/) / LangChainProvider
 
 # Class: LangChainProvider
 
@@ -8,23 +8,23 @@ LangChain 제공업체 클래스
 
 ### Constructors
 
-- [constructor](LangChainProvider.md#constructor)
+- [constructor](#constructor)
 
 ## Constructors
 
 ### <a id="constructor" name="constructor"></a> constructor
 
-• **new LangChainProvider**(`options`): [`LangChainProvider`](LangChainProvider.md)
+• **new LangChainProvider**(`options`): [`LangChainProvider`]()
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [`LangChainProviderOptions`](../interfaces/LangChainProviderOptions.md) |
+| `options` | [`LangChainProviderOptions`](/api-reference/langchain/interfaces/LangChainProviderOptions.md) |
 
 #### Returns
 
-[`LangChainProvider`](LangChainProvider.md)
+[`LangChainProvider`]()
 
 #### Defined in
 

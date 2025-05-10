@@ -1,4 +1,4 @@
-[Core API - v0.1.0](../README.md) / Context
+[Core API - v0.1.0](/api-reference/core/) / Context
 
 # Interface: Context
 
@@ -8,11 +8,11 @@
 
 ### Properties
 
-- [messages](Context.md#messages)
-- [functions](Context.md#functions)
-- [systemPrompt](Context.md#systemprompt)
-- [systemMessages](Context.md#systemmessages)
-- [metadata](Context.md#metadata)
+- [messages](#messages)
+- [functions](#functions)
+- [systemPrompt](#systemprompt)
+- [systemMessages](#systemmessages)
+- [metadata](#metadata)
 
 ## Properties
 

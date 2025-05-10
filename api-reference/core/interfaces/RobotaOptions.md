@@ -1,4 +1,4 @@
-[Core API - v0.1.0](../README.md) / RobotaOptions
+[Core API - v0.1.0](/api-reference/core/) / RobotaOptions
 
 # Interface: RobotaOptions
 
@@ -8,12 +8,12 @@ Robota 설정 인터페이스
 
 ### Properties
 
-- [provider](RobotaOptions.md#provider)
-- [systemPrompt](RobotaOptions.md#systemprompt)
-- [systemMessages](RobotaOptions.md#systemmessages)
-- [memory](RobotaOptions.md#memory)
-- [functionCallConfig](RobotaOptions.md#functioncallconfig)
-- [onFunctionCall](RobotaOptions.md#onfunctioncall)
+- [provider](#provider)
+- [systemPrompt](#systemprompt)
+- [systemMessages](#systemmessages)
+- [memory](#memory)
+- [functionCallConfig](#functioncallconfig)
+- [onFunctionCall](#onfunctioncall)
 
 ## Properties
 

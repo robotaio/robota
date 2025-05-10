@@ -17,7 +17,7 @@ Tools API
 
 ### Functions
 
-- [createTool](/api-reference/tools/README.md#createtool)
+- [createTool](#createtool)
 
 ## Functions
 

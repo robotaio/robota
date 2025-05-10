@@ -1,4 +1,4 @@
-[Core API - v0.1.0](../README.md) / ModelContextProtocol
+[Core API - v0.1.0](/api-reference/core/) / ModelContextProtocol
 
 # Interface: ModelContextProtocol
 
@@ -10,17 +10,17 @@
 
 ### Properties
 
-- [options](ModelContextProtocol.md#options)
+- [options](#options)
 
 ### Methods
 
-- [chat](ModelContextProtocol.md#chat)
-- [chatStream](ModelContextProtocol.md#chatstream)
-- [formatMessages](ModelContextProtocol.md#formatmessages)
-- [formatFunctions](ModelContextProtocol.md#formatfunctions)
-- [parseResponse](ModelContextProtocol.md#parseresponse)
-- [parseStreamingChunk](ModelContextProtocol.md#parsestreamingchunk)
-- [countTokens](ModelContextProtocol.md#counttokens)
+- [chat](#chat)
+- [chatStream](#chatstream)
+- [formatMessages](#formatmessages)
+- [formatFunctions](#formatfunctions)
+- [parseResponse](#parseresponse)
+- [parseStreamingChunk](#parsestreamingchunk)
+- [countTokens](#counttokens)
 
 ## Properties
 

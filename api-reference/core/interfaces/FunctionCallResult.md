@@ -1,4 +1,4 @@
-[Core API - v0.1.0](../README.md) / FunctionCallResult
+[Core API - v0.1.0](/api-reference/core/) / FunctionCallResult
 
 # Interface: FunctionCallResult
 
@@ -8,9 +8,9 @@
 
 ### Properties
 
-- [name](FunctionCallResult.md#name)
-- [result](FunctionCallResult.md#result)
-- [error](FunctionCallResult.md#error)
+- [name](#name)
+- [result](#result)
+- [error](#error)
 
 ## Properties
 

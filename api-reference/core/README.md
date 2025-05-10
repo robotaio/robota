@@ -34,19 +34,19 @@ Core API
 
 ### Type Aliases
 
-- [FunctionHandler](/api-reference/core/README.md#functionhandler)
-- [MessageRole](/api-reference/core/README.md#messagerole)
-- [FunctionCallMode](/api-reference/core/README.md#functioncallmode)
+- [FunctionHandler](#functionhandler)
+- [MessageRole](#messagerole)
+- [FunctionCallMode](#functioncallmode)
 
 ### Functions
 
-- [createFunctionSchema](/api-reference/core/README.md#createfunctionschema)
-- [splitTextIntoChunks](/api-reference/core/README.md#splittextintochunks)
-- [removeUndefined](/api-reference/core/README.md#removeundefined)
-- [isJSON](/api-reference/core/README.md#isjson)
-- [delay](/api-reference/core/README.md#delay)
-- [estimateTokenCount](/api-reference/core/README.md#estimatetokencount)
-- [extractJSONObjects](/api-reference/core/README.md#extractjsonobjects)
+- [createFunctionSchema](#createfunctionschema)
+- [splitTextIntoChunks](#splittextintochunks)
+- [removeUndefined](#removeundefined)
+- [isJSON](#isjson)
+- [delay](#delay)
+- [estimateTokenCount](#estimatetokencount)
+- [extractJSONObjects](#extractjsonobjects)
 
 ## Type Aliases
 

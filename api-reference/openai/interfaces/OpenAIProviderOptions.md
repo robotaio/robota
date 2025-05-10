@@ -1,4 +1,4 @@
-[OpenAI API - v0.1.0](../README.md) / OpenAIProviderOptions
+[OpenAI API - v0.1.0](/api-reference/openai/) / OpenAIProviderOptions
 
 # Interface: OpenAIProviderOptions
 
@@ -14,12 +14,12 @@ OpenAI 제공업체 옵션
 
 ### Properties
 
-- [model](OpenAIProviderOptions.md#model)
-- [temperature](OpenAIProviderOptions.md#temperature)
-- [maxTokens](OpenAIProviderOptions.md#maxtokens)
-- [stopSequences](OpenAIProviderOptions.md#stopsequences)
-- [streamMode](OpenAIProviderOptions.md#streammode)
-- [apiKey](OpenAIProviderOptions.md#apikey)
+- [model](#model)
+- [temperature](#temperature)
+- [maxTokens](#maxtokens)
+- [stopSequences](#stopsequences)
+- [streamMode](#streammode)
+- [apiKey](#apikey)
 
 ## Properties
 
