@@ -1,0 +1,133 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/robota/_next/static/css/825b8367eaa548fa.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/robota/_next/static/chunks/webpack-f7c690cec3dbc8bc.js"/><script src="/robota/_next/static/chunks/e6a554b1-7e926ff24b9ebb31.js" async=""></script><script src="/robota/_next/static/chunks/337-e4ec3d6b74b79afe.js" async=""></script><script src="/robota/_next/static/chunks/main-app-dffc93bf5727af9e.js" async=""></script><script src="/robota/_next/static/chunks/696-d43650737205c45a.js" async=""></script><script src="/robota/_next/static/chunks/app/docs/layout-1f8ff14ac451f43d.js" async=""></script><script src="/robota/_next/static/chunks/app/page-718fde6e5e1a891e.js" async=""></script><title>langchain - Robota</title><meta name="description" content="Robota 문서 및 API 참조"/><script src="/robota/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body><main class="container mx-auto px-4 py-8"><header class="bg-white border-b border-gray-200 py-4 sticky top-0 z-10"><div class="container mx-auto px-4 flex justify-between items-center"><a class="text-2xl font-bold text-blue-600" href="/robota/">Robota</a><nav><ul class="flex space-x-6"><li><a class="font-semibold text-blue-600" href="/robota/docs/">문서</a></li><li><a href="https://github.com/jungyoun/robota" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-blue-600">GitHub</a></li></ul></nav></div></header><div class="container mx-auto px-4 py-8 flex"><div class="w-64 pr-8"><nav class="sticky top-8"><ul class="space-y-2"><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/">홈</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/getting-started/">시작하기</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/core-concepts/">핵심 개념</a></div></li><li><div class="flex items-center mb-2"><button class="mr-1 w-5 text-gray-500 hover:text-gray-700" aria-label="펼치기">▶</button><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/api-reference/">API 참조</a></div></li><li><div class="flex items-center mb-2"><button class="mr-1 w-5 text-gray-500 hover:text-gray-700" aria-label="접기">▼</button><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/providers/">AI 제공자</a></div><ul class="pl-4 mb-2 border-l border-gray-200"><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/providers/openai/">OpenAI</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/providers/anthropic/">Anthropic</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/providers/replicate/">Replicate</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/providers/langchain/">LangChain</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/providers/custom/">커스텀 제공자</a></div></li></ul></li><li><div class="flex items-center mb-2"><button class="mr-1 w-5 text-gray-500 hover:text-gray-700" aria-label="펼치기">▶</button><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/protocols/">프로토콜</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/function-calling/">함수 호출</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/system-messages/">시스템 메시지</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/code-improvements/">코드 개선사항</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/openapi-integration/">OpenAPI 통합</a></div></li></ul></nav></div><div class="flex-1 min-w-0"><div class="markdown-content"><article class="markdown-content"><h1 id="langchain-제공자"><a href="#langchain-제공자">LangChain 제공자</a></h1>
+<p>LangChain 프레임워크와 통합하기 위한 제공자로, 다양한 LangChain 모델과 체인을 Robota에서 활용할 수 있습니다.</p>
+<h2 id="특징"><a href="#특징">특징</a></h2>
+<ul>
+<li>LangChain 모델, 체인, 에이전트 통합</li>
+<li>기존 LangChain 프로젝트와 Robota의 쉬운 통합</li>
+<li>LangChain의 다양한 유틸리티와 도구 활용 가능</li>
+</ul>
+<h2 id="설치"><a href="#설치">설치</a></h2>
+<pre><code class="language-bash">npm install @robota/langchain langchain
+</code></pre>
+<h2 id="사용법"><a href="#사용법">사용법</a></h2>
+<h3 id="기본-모델-사용"><a href="#기본-모델-사용">기본 모델 사용</a></h3>
+<pre><code class="language-typescript">import { Robota, LangChainProvider } from &#x27;robota&#x27;;
+import { ChatOpenAI } from &#x27;langchain/chat_models/openai&#x27;;
+
+// LangChain 모델 생성
+const model = new ChatOpenAI({
+  openAIApiKey: process.env.OPENAI_API_KEY,
+  modelName: &#x27;gpt-4&#x27;,
+  temperature: 0.7
+});
+
+// LangChain 제공자 초기화
+const provider = new LangChainProvider({
+  model: model
+});
+
+// Robota 인스턴스에 제공자 연결
+const robota = new Robota({ provider });
+
+// 실행
+const result = await robota.run(&#x27;안녕하세요! 오늘 날씨가 어때요?&#x27;);
+console.log(result);
+</code></pre>
+<h3 id="체인-사용"><a href="#체인-사용">체인 사용</a></h3>
+<pre><code class="language-typescript">import { Robota, LangChainProvider } from &#x27;robota&#x27;;
+import { ChatOpenAI } from &#x27;langchain/chat_models/openai&#x27;;
+import { ConversationChain } from &#x27;langchain/chains&#x27;;
+import { BufferMemory } from &#x27;langchain/memory&#x27;;
+
+// LangChain 모델 생성
+const model = new ChatOpenAI({
+  openAIApiKey: process.env.OPENAI_API_KEY,
+  modelName: &#x27;gpt-4&#x27;
+});
+
+// 메모리와 체인 설정
+const memory = new BufferMemory();
+const chain = new ConversationChain({ llm: model, memory });
+
+// LangChain 제공자 초기화 (체인 사용)
+const provider = new LangChainProvider({
+  chain: chain
+});
+
+// Robota 인스턴스에 제공자 연결
+const robota = new Robota({ provider });
+
+// 실행
+const result1 = await robota.run(&#x27;내 이름은 김철수야.&#x27;);
+console.log(result1);
+
+const result2 = await robota.run(&#x27;내 이름이 뭐지?&#x27;);
+console.log(result2); // 메모리 기능으로 이전 대화 기억
+</code></pre>
+<h3 id="에이전트-사용"><a href="#에이전트-사용">에이전트 사용</a></h3>
+<pre><code class="language-typescript">import { Robota, LangChainProvider } from &#x27;robota&#x27;;
+import { ChatOpenAI } from &#x27;langchain/chat_models/openai&#x27;;
+import { initializeAgentExecutorWithOptions } from &#x27;langchain/agents&#x27;;
+import { Calculator } from &#x27;langchain/tools/calculator&#x27;;
+import { WebBrowser } from &#x27;langchain/tools/webbrowser&#x27;;
+
+// LangChain 모델 생성
+const model = new ChatOpenAI({
+  openAIApiKey: process.env.OPENAI_API_KEY,
+  modelName: &#x27;gpt-4&#x27;,
+  temperature: 0
+});
+
+// 도구 설정
+const tools = [
+  new Calculator(),
+  new WebBrowser()
+];
+
+// 에이전트 생성
+const executor = await initializeAgentExecutorWithOptions(
+  tools,
+  model,
+  {
+    agentType: &#x27;chat-conversational-react-description&#x27;,
+    verbose: true,
+  }
+);
+
+// LangChain 제공자 초기화 (에이전트 사용)
+const provider = new LangChainProvider({
+  agent: executor
+});
+
+// Robota 인스턴스에 제공자 연결
+const robota = new Robota({ provider });
+
+// 실행
+const result = await robota.run(&#x27;123 * 456은 얼마야?&#x27;);
+console.log(result);
+</code></pre>
+<h2 id="제공자-옵션"><a href="#제공자-옵션">제공자 옵션</a></h2>
+<p>LangChain 제공자는 다음과 같은 옵션을 지원합니다:</p>
+<pre><code class="language-typescript">interface LangChainProviderOptions extends ProviderOptions {
+  // 다음 중 하나는 반드시 제공해야 함
+  model?: BaseChatModel | BaseLLM; // LangChain 모델
+  chain?: Chain;                   // LangChain 체인
+  agent?: AgentExecutor;           // LangChain 에이전트
+
+  // 선택적 옵션
+  memory?: BaseChatMemory;         // LangChain 메모리 (model 사용 시)
+  verbose?: boolean;               // 상세 로깅 활성화
+}
+</code></pre>
+<h2 id="langchain과-robota-통합의-이점"><a href="#langchain과-robota-통합의-이점">LangChain과 Robota 통합의 이점</a></h2>
+<ol>
+<li><strong>기능 확장</strong>: LangChain의 다양한 도구와 유틸리티를 Robota의 UI/UX와 함께 사용할 수 있습니다.</li>
+<li><strong>기존 투자 보호</strong>: 이미 LangChain으로 구축한 프로젝트를 Robota로 쉽게 마이그레이션할 수 있습니다.</li>
+<li><strong>유연성</strong>: 특정 작업은 LangChain의 특화된 기능을 활용하고, 나머지는 Robota의 기능을 사용할 수 있습니다.</li>
+</ol>
+<h2 id="주의사항"><a href="#주의사항">주의사항</a></h2>
+<ul>
+<li>LangChain 제공자를 사용할 때는 <code>model</code>, <code>chain</code>, <code>agent</code> 중 하나를 반드시 제공해야 합니다.</li>
+<li>LangChain의 메모리 시스템과 Robota의 메모리 시스템은 별도로 관리됩니다. 필요에 따라 적절한 시스템을 선택하세요.</li>
+<li>스트리밍은 LangChain 모델이 이를 지원하는 경우에만 작동합니다.</li>
+</ul></article></div></div></div></main><script src="/robota/_next/static/chunks/webpack-f7c690cec3dbc8bc.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0]);self.__next_f.push([2,null])</script><script>self.__next_f.push([1,"1:HL[\"/robota/_next/static/css/825b8367eaa548fa.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"2:I[8993,[],\"\"]\n5:I[8822,[],\"\"]\n7:I[7424,[],\"\"]\n8:I[9373,[\"696\",\"static/chunks/696-d43650737205c45a.js\",\"998\",\"static/chunks/app/docs/layout-1f8ff14ac451f43d.js\"],\"default\"]\n9:I[6519,[\"696\",\"static/chunks/696-d43650737205c45a.js\",\"998\",\"static/chunks/app/docs/layout-1f8ff14ac451f43d.js\"],\"default\"]\na:I[4575,[\"696\",\"static/chunks/696-d43650737205c45a.js\",\"931\",\"static/chunks/app/page-718fde6e5e1a891e.js\"],\"\"]\nc:I[5077,[],\"\"]\n6:[\"slug\",\"providers/langchain\",\"c\"]\nd:[]\n"])</script><script>self.__next_f.push([1,"0:[\"$\",\"$L2\",null,{\"buildId\":\"ju3gDD0nlM9BF5Sbz0ofl\",\"assetPrefix\":\"/robota\",\"urlParts\":[\"\",\"docs\",\"providers\",\"langchain\",\"\"],\"initialTree\":[\"\",{\"children\":[\"docs\",{\"children\":[[\"slug\",\"providers/langchain\",\"c\"],{\"children\":[\"__PAGE__?{\\\"slug\\\":[\\\"providers\\\",\\\"langchain\\\"]}\",{}]}]}]},\"$undefined\",\"$undefined\",true],\"initialSeedData\":[\"\",{\"children\":[\"docs\",{\"children\":[[\"slug\",\"providers/langchain\",\"c\"],{\"children\":[\"__PAGE__\",{},[[\"$L3\",\"$L4\",null],null],null]},[null,[\"$\",\"$L5\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"docs\",\"children\",\"$6\",\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L7\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\"}]],null]},[[null,[[\"$\",\"$L8\",null,{}],[\"$\",\"div\",null,{\"className\":\"container mx-auto px-4 py-8 flex\",\"children\":[[\"$\",\"$L9\",null,{}],[\"$\",\"div\",null,{\"className\":\"flex-1 min-w-0\",\"children\":[\"$\",\"div\",null,{\"className\":\"markdown-content\",\"children\":[\"$\",\"$L5\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"docs\",\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L7\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\"}]}]}]]}]]],null],null]},[[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/robota/_next/static/css/825b8367eaa548fa.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"ko\",\"children\":[\"$\",\"body\",null,{\"children\":[\"$\",\"main\",null,{\"className\":\"container mx-auto px-4 py-8\",\"children\":[\"$\",\"$L5\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L7\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"$L8\",null,{}],[\"$\",\"div\",null,{\"className\":\"container mx-auto px-4 py-16 text-center\",\"children\":[[\"$\",\"h1\",null,{\"className\":\"text-5xl font-bold mb-6\",\"children\":\"404\"}],[\"$\",\"p\",null,{\"className\":\"text-xl mb-8\",\"children\":\"페이지를 찾을 수 없습니다.\"}],[\"$\",\"$La\",null,{\"href\":\"/\",\"className\":\"bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors\",\"children\":\"홈으로 돌아가기\"}]]}]],\"notFoundStyles\":[]}]}]}]}]],null],null],\"couldBeIntercepted\":false,\"initialHead\":[null,\"$Lb\"],\"globalErrorComponent\":\"$c\",\"missingSlots\":\"$Wd\"}]\n"])</script><script>self.__next_f.push([1,"4:[\"$\",\"article\",null,{\"className\":\"markdown-content\",\"children\":[false,[[\"$\",\"h1\",null,{\"id\":\"langchain-제공자\",\"children\":[\"$\",\"a\",null,{\"href\":\"#langchain-제공자\",\"children\":\"LangChain 제공자\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"LangChain 프레임워크와 통합하기 위한 제공자로, 다양한 LangChain 모델과 체인을 Robota에서 활용할 수 있습니다.\"}],\"\\n\",[\"$\",\"h2\",null,{\"id\":\"특징\",\"children\":[\"$\",\"a\",null,{\"href\":\"#특징\",\"children\":\"특징\"}]}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"LangChain 모델, 체인, 에이전트 통합\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"기존 LangChain 프로젝트와 Robota의 쉬운 통합\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"LangChain의 다양한 유틸리티와 도구 활용 가능\"}],\"\\n\"]}],\"\\n\",[\"$\",\"h2\",null,{\"id\":\"설치\",\"children\":[\"$\",\"a\",null,{\"href\":\"#설치\",\"children\":\"설치\"}]}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"npm install @robota/langchain langchain\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"id\":\"사용법\",\"children\":[\"$\",\"a\",null,{\"href\":\"#사용법\",\"children\":\"사용법\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"id\":\"기본-모델-사용\",\"children\":[\"$\",\"a\",null,{\"href\":\"#기본-모델-사용\",\"children\":\"기본 모델 사용\"}]}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-typescript\",\"children\":\"import { Robota, LangChainProvider } from 'robota';\\nimport { ChatOpenAI } from 'langchain/chat_models/openai';\\n\\n// LangChain 모델 생성\\nconst model = new ChatOpenAI({\\n  openAIApiKey: process.env.OPENAI_API_KEY,\\n  modelName: 'gpt-4',\\n  temperature: 0.7\\n});\\n\\n// LangChain 제공자 초기화\\nconst provider = new LangChainProvider({\\n  model: model\\n});\\n\\n// Robota 인스턴스에 제공자 연결\\nconst robota = new Robota({ provider });\\n\\n// 실행\\nconst result = await robota.run('안녕하세요! 오늘 날씨가 어때요?');\\nconsole.log(result);\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"id\":\"체인-사용\",\"children\":[\"$\",\"a\",null,{\"href\":\"#체인-사용\",\"children\":\"체인 사용\"}]}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-typescript\",\"children\":\"import { Robota, LangChainProvider } from 'robota';\\nimport { ChatOpenAI } from 'langchain/chat_models/openai';\\nimport { ConversationChain } from 'langchain/chains';\\nimport { BufferMemory } from 'langchain/memory';\\n\\n// LangChain 모델 생성\\nconst model = new ChatOpenAI({\\n  openAIApiKey: process.env.OPENAI_API_KEY,\\n  modelName: 'gpt-4'\\n});\\n\\n// 메모리와 체인 설정\\nconst memory = new BufferMemory();\\nconst chain = new ConversationChain({ llm: model, memory });\\n\\n// LangChain 제공자 초기화 (체인 사용)\\nconst provider = new LangChainProvider({\\n  chain: chain\\n});\\n\\n// Robota 인스턴스에 제공자 연결\\nconst robota = new Robota({ provider });\\n\\n// 실행\\nconst result1 = await robota.run('내 이름은 김철수야.');\\nconsole.log(result1);\\n\\nconst result2 = await robota.run('내 이름이 뭐지?');\\nconsole.log(result2); // 메모리 기능으로 이전 대화 기억\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"id\":\"에이전트-사용\",\"children\":[\"$\",\"a\",null,{\"href\":\"#에이전트-사용\",\"children\":\"에이전트 사용\"}]}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-typescript\",\"children\":\"import { Robota, LangChainProvider } from 'robota';\\nimport { ChatOpenAI } from 'langchain/chat_models/openai';\\nimport { initializeAgentExecutorWithOptions } from 'langchain/agents';\\nimport { Calculator } from 'langchain/tools/calculator';\\nimport { WebBrowser } from 'langchain/tools/webbrowser';\\n\\n// LangChain 모델 생성\\nconst model = new ChatOpenAI({\\n  openAIApiKey: process.env.OPENAI_API_KEY,\\n  modelName: 'gpt-4',\\n  temperature: 0\\n});\\n\\n// 도구 설정\\nconst tools = [\\n  new Calculator(),\\n  new WebBrowser()\\n];\\n\\n// 에이전트 생성\\nconst executor = await initializeAgentExecutorWithOptions(\\n  tools,\\n  model,\\n  {\\n    agentType: 'chat-conversational-react-description',\\n    verbose: true,\\n  }\\n);\\n\\n// LangChain 제공자 초기화 (에이전트 사용)\\nconst provider = new LangChainProvider({\\n  agent: executor\\n});\\n\\n// Robota 인스턴스에 제공자 연결\\nconst robota = new Robota({ provider });\\n\\n// 실행\\nconst result = await robota.run('123 * 456은 얼마야?');\\nconsole.log(result);\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"id\":\"제공자-옵션\",\"children\":[\"$\",\"a\",null,{\"href\":\"#제공자-옵션\",\"children\":\"제공자 옵션\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"LangChain 제공자는 다음과 같은 옵션을 지원합니다:\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-typescript\",\"children\":\"interface LangChainProviderOptions extends ProviderOptions {\\n  // 다음 중 하나는 반드시 제공해야 함\\n  model?: BaseChatModel | BaseLLM; // LangChain 모델\\n  chain?: Chain;                   // LangChain 체인\\n  agent?: AgentExecutor;           // LangChain 에이전트\\n\\n  // 선택적 옵션\\n  memory?: BaseChatMemory;         // LangChain 메모리 (model 사용 시)\\n  verbose?: boolean;               // 상세 로깅 활성화\\n}\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"id\":\"langchain과-robota-통합의-이점\",\"children\":[\"$\",\"a\",null,{\"href\":\"#langchain과-robota-통합의-이점\",\"children\":\"LangChain과 Robota 통합의 이점\"}]}],\"\\n\",[\"$\",\"ol\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"기능 확장\"}],\": LangChain의 다양한 도구와 유틸리티를 Robota의 UI/UX와 함께 사용할 수 있습니다.\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"기존 투자 보호\"}],\": 이미 LangChain으로 구축한 프로젝트를 Robota로 쉽게 마이그레이션할 수 있습니다.\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"유연성\"}],\": 특정 작업은 LangChain의 특화된 기능을 활용하고, 나머지는 Robota의 기능을 사용할 수 있습니다.\"]}],\"\\n\"]}],\"\\n\",[\"$\",\"h2\",null,{\"id\":\"주의사항\",\"children\":[\"$\",\"a\",null,{\"href\":\"#주의사항\",\"children\":\"주의사항\"}]}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[\"LangChain 제공자를 사용할 때는 \",[\"$\",\"code\",null,{\"children\":\"model\"}],\", \",[\"$\",\"code\",null,{\"children\":\"chain\"}],\", \",[\"$\",\"code\",null,{\"children\":\"agent\"}],\" 중 하나를 반드시 제공해야 합니다.\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"LangChain의 메모리 시스템과 Robota의 메모리 시스템은 별도로 관리됩니다. 필요에 따라 적절한 시스템을 선택하세요.\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"스트리밍은 LangChain 모델이 이를 지원하는 경우에만 작동합니다.\"}],\"\\n\"]}]]]}]\n"])</script><script>self.__next_f.push([1,"b:[[\"$\",\"meta\",\"0\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"meta\",\"1\",{\"charSet\":\"utf-8\"}],[\"$\",\"title\",\"2\",{\"children\":\"langchain - Robota\"}],[\"$\",\"meta\",\"3\",{\"name\":\"description\",\"content\":\"Robota 문서 및 API 참조\"}]]\n3:null\n"])</script></body></html>
