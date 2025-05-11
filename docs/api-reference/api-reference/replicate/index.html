@@ -1,11 +1,302 @@
-<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="/robota/_next/static/css/825b8367eaa548fa.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/robota/_next/static/chunks/webpack-f7c690cec3dbc8bc.js"/><script src="/robota/_next/static/chunks/e6a554b1-7e926ff24b9ebb31.js" async=""></script><script src="/robota/_next/static/chunks/337-e4ec3d6b74b79afe.js" async=""></script><script src="/robota/_next/static/chunks/main-app-dffc93bf5727af9e.js" async=""></script><script src="/robota/_next/static/chunks/696-d43650737205c45a.js" async=""></script><script src="/robota/_next/static/chunks/app/docs/layout-1f8ff14ac451f43d.js" async=""></script><script src="/robota/_next/static/chunks/app/page-718fde6e5e1a891e.js" async=""></script><title>replicate - Robota</title><meta name="description" content="Robota 문서 및 API 참조"/><script src="/robota/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body><main class="container mx-auto px-4 py-8"><header class="bg-white border-b border-gray-200 py-4 sticky top-0 z-10"><div class="container mx-auto px-4 flex justify-between items-center"><a class="text-2xl font-bold text-blue-600" href="/robota/">Robota</a><nav><ul class="flex space-x-6"><li><a class="font-semibold text-blue-600" href="/robota/docs/">문서</a></li><li><a href="https://github.com/jungyoun/robota" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-blue-600">GitHub</a></li></ul></nav></div></header><div class="container mx-auto px-4 py-8 flex"><div class="w-64 pr-8"><nav class="sticky top-8"><ul class="space-y-2"><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/">홈</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/getting-started/">시작하기</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/core-concepts/">핵심 개념</a></div></li><li><div class="flex items-center mb-2"><button class="mr-1 w-5 text-gray-500 hover:text-gray-700" aria-label="접기">▼</button><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/api-reference/">API 참조</a></div><ul class="pl-4 mb-2 border-l border-gray-200"><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/api-reference/core/">Core</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/api-reference/openai/">OpenAI</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/api-reference/anthropic/">Anthropic</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/api-reference/langchain/">LangChain</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/api-reference/replicate/">Replicate</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/api-reference/tools/">Tools</a></div></li></ul></li><li><div class="flex items-center mb-2"><button class="mr-1 w-5 text-gray-500 hover:text-gray-700" aria-label="펼치기">▶</button><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/providers/">AI 제공자</a></div></li><li><div class="flex items-center mb-2"><button class="mr-1 w-5 text-gray-500 hover:text-gray-700" aria-label="펼치기">▶</button><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/protocols/">프로토콜</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/function-calling/">함수 호출</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/system-messages/">시스템 메시지</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/code-improvements/">코드 개선사항</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/openapi-integration/">OpenAPI 통합</a></div></li></ul></nav></div><div class="flex-1 min-w-0"><div class="markdown-content"><article class="markdown-content"><p>Replicate API</p>
-<h1 id="replicate-api---v010"><a href="#replicate-api---v010">Replicate API - v0.1.0</a></h1>
-<h2 id="table-of-contents"><a href="#table-of-contents">Table of contents</a></h2>
-<h3 id="classes"><a href="#classes">Classes</a></h3>
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="preload" as="image" href="https://img.shields.io/npm/v/robota.svg"/><link rel="preload" as="image" href="https://img.shields.io/badge/License-MIT-yellow.svg"/><link rel="preload" as="image" href="https://img.shields.io/badge/TypeScript-4.9%2B-blue"/><link rel="preload" as="image" href="https://img.shields.io/badge/Node.js-18%2B-green"/><link rel="preload" as="image" href="https://codecov.io/gh/username/robota/branch/main/graph/badge.svg"/><link rel="preload" as="image" href="https://img.shields.io/badge/docs-online-brightgreen.svg"/><link rel="preload" as="image" href="https://robota.io/logo.png"/><link rel="stylesheet" href="/robota/_next/static/css/825b8367eaa548fa.css" data-precedence="next"/><link rel="preload" as="script" fetchPriority="low" href="/robota/_next/static/chunks/webpack-f7c690cec3dbc8bc.js"/><script src="/robota/_next/static/chunks/e6a554b1-7e926ff24b9ebb31.js" async=""></script><script src="/robota/_next/static/chunks/337-e4ec3d6b74b79afe.js" async=""></script><script src="/robota/_next/static/chunks/main-app-dffc93bf5727af9e.js" async=""></script><script src="/robota/_next/static/chunks/696-d43650737205c45a.js" async=""></script><script src="/robota/_next/static/chunks/app/docs/layout-1f8ff14ac451f43d.js" async=""></script><script src="/robota/_next/static/chunks/app/page-718fde6e5e1a891e.js" async=""></script><title>replicate - Robota</title><meta name="description" content="Robota 문서 및 API 참조"/><script src="/robota/_next/static/chunks/polyfills-42372ed130431b0a.js" noModule=""></script></head><body><main class="container mx-auto px-4 py-8"><header class="bg-white border-b border-gray-200 py-4 sticky top-0 z-10"><div class="container mx-auto px-4 flex justify-between items-center"><a class="text-2xl font-bold text-blue-600" href="/robota/">Robota</a><nav><ul class="flex space-x-6"><li><a class="font-semibold text-blue-600" href="/robota/docs/">문서</a></li><li><a href="https://github.com/jungyoun/robota" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-blue-600">GitHub</a></li></ul></nav></div></header><div class="container mx-auto px-4 py-8 flex"><div class="w-64 pr-8"><nav class="sticky top-8"><ul class="space-y-2"><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/">홈</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/getting-started/">시작하기</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/core-concepts/">핵심 개념</a></div></li><li><div class="flex items-center mb-2"><button class="mr-1 w-5 text-gray-500 hover:text-gray-700" aria-label="접기">▼</button><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/api-reference/">API 참조</a></div><ul class="pl-4 mb-2 border-l border-gray-200"><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/api-reference/core/">Core</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/api-reference/openai/">OpenAI</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/api-reference/anthropic/">Anthropic</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/api-reference/langchain/">LangChain</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/api-reference/replicate/">Replicate</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/api-reference/tools/">Tools</a></div></li></ul></li><li><div class="flex items-center mb-2"><button class="mr-1 w-5 text-gray-500 hover:text-gray-700" aria-label="펼치기">▶</button><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/providers/">AI 제공자</a></div></li><li><div class="flex items-center mb-2"><button class="mr-1 w-5 text-gray-500 hover:text-gray-700" aria-label="펼치기">▶</button><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/protocols/">프로토콜</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/function-calling/">함수 호출</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/system-messages/">시스템 메시지</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/code-improvements/">코드 개선사항</a></div></li><li><div class="flex items-center mb-2"><a class="text-gray-700 hover:text-blue-600" href="/robota/docs/openapi-integration/">OpenAPI 통합</a></div></li></ul></nav></div><div class="flex-1 min-w-0"><div class="markdown-content"><article class="markdown-content"><p>Replicate API / <a href="modules">Exports</a></p>
+<h1 id="robota"><a href="#robota">Robota</a></h1>
+<p>쉽게 Agentic AI를 만들 수 있는 JavaScript 라이브러리</p>
+<p><a href="https://www.npmjs.com/package/robota"><img src="https://img.shields.io/npm/v/robota.svg" alt="NPM Version"/></a>
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"/></a>
+<a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-4.9%2B-blue" alt="TypeScript"/></a>
+<a href="https://nodejs.org/"><img src="https://img.shields.io/badge/Node.js-18%2B-green" alt="Node.js"/></a>
+<a href="https://codecov.io/gh/username/robota"><img src="https://codecov.io/gh/username/robota/branch/main/graph/badge.svg" alt="codecov"/></a>
+<a href="https://robotaio.github.io/robota/"><img src="https://img.shields.io/badge/docs-online-brightgreen.svg" alt="Docs"/></a></p>
+<p align="center"><img src="https://robota.io/logo.png" alt="Robota Logo" width="200"/></p>
+<h2 id="-소개"><a href="#-소개">🚀 소개</a></h2>
+<p>Robota는 AI 에이전트를 쉽게, 직관적으로, 그리고 유연하게 구축할 수 있는 타입스크립트 라이브러리입니다. 다양한 AI 제공업체 (OpenAI, Anthropic 등)를 지원하며, 함수 호출, 도구 통합, 대화 관리 등 에이전트 구축에 필요한 모든 기능을 제공합니다.</p>
+<p>Robota는 다음과 같은 환경에서 사용할 수 있습니다:</p>
 <ul>
-<li><a href="classes/ReplicateProvider">ReplicateProvider</a></li>
+<li>Node.js 애플리케이션</li>
+<li>브라우저 기반 웹 애플리케이션</li>
+<li>서버리스 함수</li>
+<li>Edge 런타임</li>
 </ul>
-<h3 id="interfaces"><a href="#interfaces">Interfaces</a></h3>
+<h2 id="-주요-특징"><a href="#-주요-특징">✨ 주요 특징</a></h2>
 <ul>
-<li><a href="interfaces/ReplicateProviderOptions">ReplicateProviderOptions</a></li>
-</ul></article></div></div></div></main><script src="/robota/_next/static/chunks/webpack-f7c690cec3dbc8bc.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0]);self.__next_f.push([2,null])</script><script>self.__next_f.push([1,"1:HL[\"/robota/_next/static/css/825b8367eaa548fa.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"2:I[8993,[],\"\"]\n5:I[8822,[],\"\"]\n7:I[7424,[],\"\"]\n8:I[9373,[\"696\",\"static/chunks/696-d43650737205c45a.js\",\"998\",\"static/chunks/app/docs/layout-1f8ff14ac451f43d.js\"],\"default\"]\n9:I[6519,[\"696\",\"static/chunks/696-d43650737205c45a.js\",\"998\",\"static/chunks/app/docs/layout-1f8ff14ac451f43d.js\"],\"default\"]\na:I[4575,[\"696\",\"static/chunks/696-d43650737205c45a.js\",\"931\",\"static/chunks/app/page-718fde6e5e1a891e.js\"],\"\"]\nc:I[5077,[],\"\"]\n6:[\"slug\",\"api-reference/api-reference/replicate\",\"c\"]\nd:[]\n"])</script><script>self.__next_f.push([1,"0:[\"$\",\"$L2\",null,{\"buildId\":\"l157ZBUUta2l3zROtBX-J\",\"assetPrefix\":\"/robota\",\"urlParts\":[\"\",\"docs\",\"api-reference\",\"api-reference\",\"replicate\",\"\"],\"initialTree\":[\"\",{\"children\":[\"docs\",{\"children\":[[\"slug\",\"api-reference/api-reference/replicate\",\"c\"],{\"children\":[\"__PAGE__?{\\\"slug\\\":[\\\"api-reference\\\",\\\"api-reference\\\",\\\"replicate\\\"]}\",{}]}]}]},\"$undefined\",\"$undefined\",true],\"initialSeedData\":[\"\",{\"children\":[\"docs\",{\"children\":[[\"slug\",\"api-reference/api-reference/replicate\",\"c\"],{\"children\":[\"__PAGE__\",{},[[\"$L3\",\"$L4\",null],null],null]},[null,[\"$\",\"$L5\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"docs\",\"children\",\"$6\",\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L7\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\"}]],null]},[[null,[[\"$\",\"$L8\",null,{}],[\"$\",\"div\",null,{\"className\":\"container mx-auto px-4 py-8 flex\",\"children\":[[\"$\",\"$L9\",null,{}],[\"$\",\"div\",null,{\"className\":\"flex-1 min-w-0\",\"children\":[\"$\",\"div\",null,{\"className\":\"markdown-content\",\"children\":[\"$\",\"$L5\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"docs\",\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L7\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\"}]}]}]]}]]],null],null]},[[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/robota/_next/static/css/825b8367eaa548fa.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"ko\",\"children\":[\"$\",\"body\",null,{\"children\":[\"$\",\"main\",null,{\"className\":\"container mx-auto px-4 py-8\",\"children\":[\"$\",\"$L5\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L7\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"$L8\",null,{}],[\"$\",\"div\",null,{\"className\":\"container mx-auto px-4 py-16 text-center\",\"children\":[[\"$\",\"h1\",null,{\"className\":\"text-5xl font-bold mb-6\",\"children\":\"404\"}],[\"$\",\"p\",null,{\"className\":\"text-xl mb-8\",\"children\":\"페이지를 찾을 수 없습니다.\"}],[\"$\",\"$La\",null,{\"href\":\"/\",\"className\":\"bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors\",\"children\":\"홈으로 돌아가기\"}]]}]],\"notFoundStyles\":[]}]}]}]}]],null],null],\"couldBeIntercepted\":false,\"initialHead\":[null,\"$Lb\"],\"globalErrorComponent\":\"$c\",\"missingSlots\":\"$Wd\"}]\n"])</script><script>self.__next_f.push([1,"4:[\"$\",\"article\",null,{\"className\":\"markdown-content\",\"children\":[false,[[\"$\",\"p\",null,{\"children\":\"Replicate API\"}],\"\\n\",[\"$\",\"h1\",null,{\"id\":\"replicate-api---v010\",\"children\":[\"$\",\"a\",null,{\"href\":\"#replicate-api---v010\",\"children\":\"Replicate API - v0.1.0\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"id\":\"table-of-contents\",\"children\":[\"$\",\"a\",null,{\"href\":\"#table-of-contents\",\"children\":\"Table of contents\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"id\":\"classes\",\"children\":[\"$\",\"a\",null,{\"href\":\"#classes\",\"children\":\"Classes\"}]}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[\"$\",\"a\",null,{\"href\":\"classes/ReplicateProvider\",\"children\":\"ReplicateProvider\"}]}],\"\\n\"]}],\"\\n\",[\"$\",\"h3\",null,{\"id\":\"interfaces\",\"children\":[\"$\",\"a\",null,{\"href\":\"#interfaces\",\"children\":\"Interfaces\"}]}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[\"$\",\"a\",null,{\"href\":\"interfaces/ReplicateProviderOptions\",\"children\":\"ReplicateProviderOptions\"}]}],\"\\n\"]}]]]}]\nb:[[\"$\",\"meta\",\"0\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"meta\",\"1\",{\"charSet\":\"utf-8\"}],[\"$\",\"title\",\"2\",{\"children\":\"replicate - Robota\"}],[\"$\",\"meta\",\"3\",{\"name\":\"description\",\"content\":\"Robota 문서 및 API 참조\"}]]\n3:null\n"])</script></body></html>
+<li><strong>다양한 AI 제공업체 지원</strong>
+<ul>
+<li>OpenAI (GPT-3.5, GPT-4)</li>
+<li>Anthropic (Claude)</li>
+<li>LangChain 통합</li>
+<li>Replicate 모델</li>
+<li>Model Context Protocol을 통한 통합 확장성</li>
+</ul>
+</li>
+<li><strong>강력한 함수 호출 기능</strong>
+<ul>
+<li>다양한 모드 지원 (auto, force, disabled)</li>
+<li>함수 체이닝 및 컨텍스트 보존</li>
+<li>타입 안전한 함수 인터페이스</li>
+</ul>
+</li>
+<li><strong>스마트 메모리 관리</strong>
+<ul>
+<li>다양한 메모리 전략 (simple, persistent, windowed)</li>
+<li>메모리 컨텍스트 제한 및 최적화</li>
+</ul>
+</li>
+<li><strong>강력한 도구 시스템</strong>
+<ul>
+<li>선언적 도구 정의</li>
+<li>도구 레지스트리</li>
+<li>에러 핸들링 및 결과 검증</li>
+</ul>
+</li>
+<li><strong>OpenAPI 통합</strong>
+<ul>
+<li>OpenAPI/Swagger 스펙에서 자동 도구 생성</li>
+<li>API 인증 관리</li>
+</ul>
+</li>
+<li><strong>타입 안전성</strong>
+<ul>
+<li>전체 TypeScript 지원</li>
+<li>엄격한 타입 검사</li>
+<li>IDE 자동완성 최적화</li>
+</ul>
+</li>
+</ul>
+<h2 id="-설치"><a href="#-설치">📦 설치</a></h2>
+<h3 id="핵심-패키지-설치"><a href="#핵심-패키지-설치">핵심 패키지 설치</a></h3>
+<pre><code class="language-bash"># npm 사용
+npm install @robota/core
+
+# pnpm 사용
+pnpm add @robota/core
+
+# yarn 사용
+yarn add @robota/core
+</code></pre>
+<h3 id="필요한-제공업체-설치"><a href="#필요한-제공업체-설치">필요한 제공업체 설치</a></h3>
+<pre><code class="language-bash"># OpenAI 제공업체
+npm install @robota/openai openai
+
+# Anthropic 제공업체
+npm install @robota/anthropic @anthropic-ai/sdk
+
+# LangChain 통합
+npm install @robota/langchain langchain
+
+# Replicate 통합
+npm install @robota/replicate replicate
+</code></pre>
+<h2 id="-간단한-사용-예시"><a href="#-간단한-사용-예시">🔍 간단한 사용 예시</a></h2>
+<h3 id="기본-대화-에이전트"><a href="#기본-대화-에이전트">기본 대화 에이전트</a></h3>
+<pre><code class="language-typescript">import { Robota } from &#x27;@robota/core&#x27;;
+import { OpenAIProvider } from &#x27;@robota/openai&#x27;;
+import OpenAI from &#x27;openai&#x27;;
+
+// OpenAI 클라이언트 생성
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
+});
+
+// Robota 인스턴스 생성
+const robota = new Robota({
+  provider: new OpenAIProvider({
+    client: openai,
+    model: &#x27;gpt-4&#x27;
+  }),
+  systemPrompt: &#x27;당신은 유용한 AI 어시스턴트입니다. 질문에 정확하고 간결하게 대답하세요.&#x27;
+});
+
+// 실행
+async function main() {
+  const result = await robota.run(&#x27;타입스크립트란 무엇인가요?&#x27;);
+  console.log(result);
+}
+
+main().catch(console.error);
+</code></pre>
+<h3 id="함수-호출-사용"><a href="#함수-호출-사용">함수 호출 사용</a></h3>
+<pre><code class="language-typescript">import { Robota } from &#x27;@robota/core&#x27;;
+import { OpenAIProvider } from &#x27;@robota/openai&#x27;;
+import OpenAI from &#x27;openai&#x27;;
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
+});
+
+const robota = new Robota({
+  provider: new OpenAIProvider({
+    client: openai,
+    model: &#x27;gpt-4&#x27;
+  })
+});
+
+// 함수 등록
+robota.registerFunction(
+  {
+    name: &#x27;getWeather&#x27;,
+    description: &#x27;특정 위치의 날씨 정보를 가져옵니다&#x27;,
+    parameters: {
+      type: &#x27;object&#x27;,
+      properties: {
+        location: {
+          type: &#x27;string&#x27;,
+          description: &#x27;위치 (도시명)&#x27;
+        }
+      },
+      required: [&#x27;location&#x27;]
+    }
+  },
+  async ({ location }) =&gt; {
+    // 실제로는 날씨 API를 호출합니다
+    return {
+      temperature: 25,
+      humidity: 60,
+      conditions: &#x27;맑음&#x27;
+    };
+  }
+);
+
+async function main() {
+  const result = await robota.run(&#x27;서울의 날씨는 어떤가요?&#x27;);
+  console.log(result);
+}
+
+main().catch(console.error);
+</code></pre>
+<h3 id="도구-사용"><a href="#도구-사용">도구 사용</a></h3>
+<pre><code class="language-typescript">import { Robota } from &#x27;@robota/core&#x27;;
+import { OpenAIProvider } from &#x27;@robota/openai&#x27;;
+import { createTool, ToolRegistry } from &#x27;@robota/tools&#x27;;
+import OpenAI from &#x27;openai&#x27;;
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
+});
+
+// 도구 생성
+const calculatorTool = createTool({
+  name: &#x27;calculator&#x27;,
+  description: &#x27;수학 계산을 수행합니다&#x27;,
+  parameters: [
+    { name: &#x27;expression&#x27;, type: &#x27;string&#x27;, description: &#x27;계산할 수식&#x27;, required: true }
+  ],
+  execute: async ({ expression }) =&gt; {
+    return { result: eval(expression) };
+  }
+});
+
+// 도구 레지스트리 생성
+const toolRegistry = new ToolRegistry();
+toolRegistry.register(calculatorTool);
+
+// Robota 인스턴스 생성
+const robota = new Robota({
+  provider: new OpenAIProvider({
+    client: openai,
+    model: &#x27;gpt-4&#x27;
+  })
+});
+
+// 도구를 함수로 등록
+robota.registerFunction(
+  {
+    name: &#x27;useCalculator&#x27;,
+    description: &#x27;계산기를 사용합니다&#x27;,
+    parameters: {
+      type: &#x27;object&#x27;,
+      properties: {
+        expression: {
+          type: &#x27;string&#x27;,
+          description: &#x27;계산할 수식&#x27;
+        }
+      },
+      required: [&#x27;expression&#x27;]
+    }
+  },
+  async ({ expression }) =&gt; {
+    return await toolRegistry.executeTool(&#x27;calculator&#x27;, { expression });
+  }
+);
+
+async function main() {
+  const result = await robota.run(&#x27;123 곱하기 456은 얼마인가요?&#x27;);
+  console.log(result);
+}
+
+main().catch(console.error);
+</code></pre>
+<h2 id="-문서"><a href="#-문서">📚 문서</a></h2>
+<p>전체 문서는 <a href="https://robotaio.github.io/robota/">공식 사이트</a>에서 확인할 수 있습니다.</p>
+<ul>
+<li><a href="https://robotaio.github.io/robota/docs/getting-started">시작하기 가이드</a></li>
+<li><a href="https://robotaio.github.io/robota/docs/core-concepts">핵심 개념</a></li>
+<li><a href="https://robotaio.github.io/robota/docs/providers">제공업체 가이드</a></li>
+<li><a href="https://robotaio.github.io/robota/docs/function-calling">함수 호출</a></li>
+<li><a href="https://robotaio.github.io/robota/docs/tools">도구 사용하기</a></li>
+<li><a href="https://robotaio.github.io/robota/docs/api-reference">API 참조</a></li>
+</ul>
+<h2 id="-자세한-예제"><a href="#-자세한-예제">📝 자세한 예제</a></h2>
+<p>더 많은 예제는 <a href="./examples">examples</a> 디렉토리에서 확인할 수 있습니다:</p>
+<ul>
+<li><a href="./examples/basic-chat">기본 대화형 챗봇</a></li>
+<li><a href="./examples/function-calling">함수 호출 활용 예제</a></li>
+<li><a href="./examples/weather-agent">날씨 조회 에이전트</a></li>
+<li><a href="./examples/web-search">웹 검색 에이전트</a></li>
+<li><a href="./examples/database-integration">데이터베이스 통합 예제</a></li>
+<li><a href="./examples/openapi-integration">OpenAPI 통합 데모</a></li>
+<li><a href="./examples/multimodal">멀티모달 에이전트</a></li>
+</ul>
+<h2 id="️-프로젝트-구조"><a href="#️-프로젝트-구조">🏗️ 프로젝트 구조</a></h2>
+<p>Robota는 모노레포로 구성되어 있으며, 각 패키지는 특정 기능을 담당합니다:</p>
+<pre><code>packages/
+├── core/               - 핵심 라이브러리
+├── openai/             - OpenAI 제공업체
+├── anthropic/          - Anthropic 제공업체
+├── langchain/          - LangChain 통합
+├── replicate/          - Replicate 모델 통합
+├── tools/              - 도구 라이브러리
+└── mcp/                - Model Context Protocol
+</code></pre>
+<h2 id="-테스트"><a href="#-테스트">🧪 테스트</a></h2>
+<p>Robota는 철저한 테스트를 통해 코드 품질을 보장합니다:</p>
+<pre><code class="language-bash"># 전체 테스트 실행
+pnpm test
+
+# 특정 패키지 테스트
+pnpm --filter @robota/core test
+
+# 테스트 감시 모드
+pnpm test:watch
+
+# 테스트 커버리지 보고서
+pnpm test:coverage
+</code></pre>
+<h2 id="-확장하기"><a href="#-확장하기">🧩 확장하기</a></h2>
+<p>Robota는 확장을 위한 다양한 인터페이스를 제공합니다:</p>
+<ol>
+<li><strong>새로운 제공업체 구현</strong>: <code>ModelContextProtocol</code> 인터페이스를 구현하여 새로운 AI 모델 추가</li>
+<li><strong>커스텀 도구 생성</strong>: <code>createTool</code> 함수로 도메인 특화 도구 개발</li>
+<li><strong>메모리 시스템 확장</strong>: <code>Memory</code> 인터페이스로 커스텀 메모리 전략 구현</li>
+<li><strong>사용자 정의 에이전트</strong>: 기본 클래스를 확장하여 특화된 에이전트 개발</li>
+</ol>
+<h2 id="-로드맵"><a href="#-로드맵">🔄 로드맵</a></h2>
+<p>Robota의 향후 개발 계획:</p>
+<ul>
+<li>✅ 핵심 기능 구현 완료</li>
+<li>✅ 단위 테스트 작성</li>
+<li>✅ 예제 코드 추가</li>
+<li>✅ CI/CD 파이프라인 설정</li>
+<li>✅ npm 배포 설정</li>
+<li>✅ GitHub Pages 배포 구성</li>
+<li>🔜 문서화 개선</li>
+<li>🔜 추가 제공업체 지원 (Google, Mistral AI, Cohere)</li>
+<li>🔜 보안 기능 강화</li>
+<li>🔜 성능 최적화</li>
+<li>🔜 브라우저 번들 사이즈 최적화</li>
+<li>🔜 서버리스 환경 최적화</li>
+<li>🔜 WebAssembly 지원</li>
+</ul>
+<h2 id="-기여하기"><a href="#-기여하기">👥 기여하기</a></h2>
+<p>기여는 언제나 환영합니다! <a href="CONTRIBUTING">CONTRIBUTING.md</a>에서 기여 가이드라인을 확인할 수 있습니다.</p>
+<h2 id="-라이선스"><a href="#-라이선스">📄 라이선스</a></h2>
+<p>이 프로젝트는 <a href="LICENSE">MIT 라이선스</a>를 따릅니다.</p></article></div></div></div></main><script src="/robota/_next/static/chunks/webpack-f7c690cec3dbc8bc.js" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0]);self.__next_f.push([2,null])</script><script>self.__next_f.push([1,"1:HL[\"/robota/_next/static/css/825b8367eaa548fa.css\",\"style\"]\n"])</script><script>self.__next_f.push([1,"2:I[8993,[],\"\"]\n5:I[8822,[],\"\"]\n7:I[7424,[],\"\"]\n8:I[9373,[\"696\",\"static/chunks/696-d43650737205c45a.js\",\"998\",\"static/chunks/app/docs/layout-1f8ff14ac451f43d.js\"],\"default\"]\n9:I[6519,[\"696\",\"static/chunks/696-d43650737205c45a.js\",\"998\",\"static/chunks/app/docs/layout-1f8ff14ac451f43d.js\"],\"default\"]\na:I[4575,[\"696\",\"static/chunks/696-d43650737205c45a.js\",\"931\",\"static/chunks/app/page-718fde6e5e1a891e.js\"],\"\"]\nc:I[5077,[],\"\"]\n6:[\"slug\",\"api-reference/api-reference/replicate\",\"c\"]\nd:[]\n"])</script><script>self.__next_f.push([1,"0:[\"$\",\"$L2\",null,{\"buildId\":\"5SCm78VlBgL1i9PmG5jlJ\",\"assetPrefix\":\"/robota\",\"urlParts\":[\"\",\"docs\",\"api-reference\",\"api-reference\",\"replicate\",\"\"],\"initialTree\":[\"\",{\"children\":[\"docs\",{\"children\":[[\"slug\",\"api-reference/api-reference/replicate\",\"c\"],{\"children\":[\"__PAGE__?{\\\"slug\\\":[\\\"api-reference\\\",\\\"api-reference\\\",\\\"replicate\\\"]}\",{}]}]}]},\"$undefined\",\"$undefined\",true],\"initialSeedData\":[\"\",{\"children\":[\"docs\",{\"children\":[[\"slug\",\"api-reference/api-reference/replicate\",\"c\"],{\"children\":[\"__PAGE__\",{},[[\"$L3\",\"$L4\",null],null],null]},[null,[\"$\",\"$L5\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"docs\",\"children\",\"$6\",\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L7\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\"}]],null]},[[null,[[\"$\",\"$L8\",null,{}],[\"$\",\"div\",null,{\"className\":\"container mx-auto px-4 py-8 flex\",\"children\":[[\"$\",\"$L9\",null,{}],[\"$\",\"div\",null,{\"className\":\"flex-1 min-w-0\",\"children\":[\"$\",\"div\",null,{\"className\":\"markdown-content\",\"children\":[\"$\",\"$L5\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"docs\",\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L7\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\"}]}]}]]}]]],null],null]},[[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/robota/_next/static/css/825b8367eaa548fa.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"ko\",\"children\":[\"$\",\"body\",null,{\"children\":[\"$\",\"main\",null,{\"className\":\"container mx-auto px-4 py-8\",\"children\":[\"$\",\"$L5\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\"],\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L7\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"$L8\",null,{}],[\"$\",\"div\",null,{\"className\":\"container mx-auto px-4 py-16 text-center\",\"children\":[[\"$\",\"h1\",null,{\"className\":\"text-5xl font-bold mb-6\",\"children\":\"404\"}],[\"$\",\"p\",null,{\"className\":\"text-xl mb-8\",\"children\":\"페이지를 찾을 수 없습니다.\"}],[\"$\",\"$La\",null,{\"href\":\"/\",\"className\":\"bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors\",\"children\":\"홈으로 돌아가기\"}]]}]],\"notFoundStyles\":[]}]}]}]}]],null],null],\"couldBeIntercepted\":false,\"initialHead\":[null,\"$Lb\"],\"globalErrorComponent\":\"$c\",\"missingSlots\":\"$Wd\"}]\n"])</script><script>self.__next_f.push([1,"e:T5a0,import { Robota } from '@robota/core';\nimport { OpenAIProvider } from '@robota/openai';\nimport { createTool, ToolRegistry } from '@robota/tools';\nimport OpenAI from 'openai';\n\nconst openai = new OpenAI({\n  apiKey: process.env.OPENAI_API_KEY\n});\n\n// 도구 생성\nconst calculatorTool = createTool({\n  name: 'calculator',\n  description: '수학 계산을 수행합니다',\n  parameters: [\n    { name: 'expression', type: 'string', description: '계산할 수식', required: true }\n  ],\n  execute: async ({ expression }) =\u003e {\n    return { result: eval(expression) };\n  }\n});\n\n// 도구 레지스트리 생성\nconst toolRegistry = new ToolRegistry();\ntoolRegistry.register(calculatorTool);\n\n// Robota 인스턴스 생성\nconst robota = new Robota({\n  provider: new OpenAIProvider({\n    client: openai,\n    model: 'gpt-4'\n  })\n});\n\n// 도구를 함수로 등록\nrobota.registerFunction(\n  {\n    name: 'useCalculator',\n    description: '계산기를 사용합니다',\n    parameters: {\n      type: 'object',\n      properties: {\n        expression: {\n          type: 'string',\n          description: '계산할 수식'\n        }\n      },\n      required: ['expression']\n    }\n  },\n  async ({ expression }) =\u003e {\n    return await toolRegistry.executeTool('calculator', { expression });\n  }\n);\n\nasync function main() {\n  const result = await robota.run('123 곱하기 456은 얼마인가요?');\n  console.log(result);\n}\n\nmain().catch(console.error);\n"])</script><script>self.__next_f.push([1,"4:[\"$\",\"article\",null,{\"className\":\"markdown-content\",\"children\":[false,[[\"$\",\"p\",null,{\"children\":[\"Replicate API / \",[\"$\",\"a\",null,{\"href\":\"modules\",\"children\":\"Exports\"}]]}],\"\\n\",[\"$\",\"h1\",null,{\"id\":\"robota\",\"children\":[\"$\",\"a\",null,{\"href\":\"#robota\",\"children\":\"Robota\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"쉽게 Agentic AI를 만들 수 있는 JavaScript 라이브러리\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":[[\"$\",\"a\",null,{\"href\":\"https://www.npmjs.com/package/robota\",\"children\":[\"$\",\"img\",null,{\"src\":\"https://img.shields.io/npm/v/robota.svg\",\"alt\":\"NPM Version\"}]}],\"\\n\",[\"$\",\"a\",null,{\"href\":\"https://opensource.org/licenses/MIT\",\"children\":[\"$\",\"img\",null,{\"src\":\"https://img.shields.io/badge/License-MIT-yellow.svg\",\"alt\":\"License: MIT\"}]}],\"\\n\",[\"$\",\"a\",null,{\"href\":\"https://www.typescriptlang.org/\",\"children\":[\"$\",\"img\",null,{\"src\":\"https://img.shields.io/badge/TypeScript-4.9%2B-blue\",\"alt\":\"TypeScript\"}]}],\"\\n\",[\"$\",\"a\",null,{\"href\":\"https://nodejs.org/\",\"children\":[\"$\",\"img\",null,{\"src\":\"https://img.shields.io/badge/Node.js-18%2B-green\",\"alt\":\"Node.js\"}]}],\"\\n\",[\"$\",\"a\",null,{\"href\":\"https://codecov.io/gh/username/robota\",\"children\":[\"$\",\"img\",null,{\"src\":\"https://codecov.io/gh/username/robota/branch/main/graph/badge.svg\",\"alt\":\"codecov\"}]}],\"\\n\",[\"$\",\"a\",null,{\"href\":\"https://robotaio.github.io/robota/\",\"children\":[\"$\",\"img\",null,{\"src\":\"https://img.shields.io/badge/docs-online-brightgreen.svg\",\"alt\":\"Docs\"}]}]]}],\"\\n\",[\"$\",\"p\",null,{\"align\":\"center\",\"children\":[\"$\",\"img\",null,{\"src\":\"https://robota.io/logo.png\",\"alt\":\"Robota Logo\",\"width\":\"200\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"id\":\"-소개\",\"children\":[\"$\",\"a\",null,{\"href\":\"#-소개\",\"children\":\"🚀 소개\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"Robota는 AI 에이전트를 쉽게, 직관적으로, 그리고 유연하게 구축할 수 있는 타입스크립트 라이브러리입니다. 다양한 AI 제공업체 (OpenAI, Anthropic 등)를 지원하며, 함수 호출, 도구 통합, 대화 관리 등 에이전트 구축에 필요한 모든 기능을 제공합니다.\"}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"Robota는 다음과 같은 환경에서 사용할 수 있습니다:\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"Node.js 애플리케이션\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"브라우저 기반 웹 애플리케이션\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"서버리스 함수\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Edge 런타임\"}],\"\\n\"]}],\"\\n\",[\"$\",\"h2\",null,{\"id\":\"-주요-특징\",\"children\":[\"$\",\"a\",null,{\"href\":\"#-주요-특징\",\"children\":\"✨ 주요 특징\"}]}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"다양한 AI 제공업체 지원\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"OpenAI (GPT-3.5, GPT-4)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Anthropic (Claude)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"LangChain 통합\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Replicate 모델\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"Model Context Protocol을 통한 통합 확장성\"}],\"\\n\"]}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"강력한 함수 호출 기능\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"다양한 모드 지원 (auto, force, disabled)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"함수 체이닝 및 컨텍스트 보존\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"타입 안전한 함수 인터페이스\"}],\"\\n\"]}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"스마트 메모리 관리\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"다양한 메모리 전략 (simple, persistent, windowed)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"메모리 컨텍스트 제한 및 최적화\"}],\"\\n\"]}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"강력한 도구 시스템\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"선언적 도구 정의\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"도구 레지스트리\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"에러 핸들링 및 결과 검증\"}],\"\\n\"]}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"OpenAPI 통합\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"OpenAPI/Swagger 스펙에서 자동 도구 생성\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"API 인증 관리\"}],\"\\n\"]}],\"\\n\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"타입 안전성\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"전체 TypeScript 지원\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"엄격한 타입 검사\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"IDE 자동완성 최적화\"}],\"\\n\"]}],\"\\n\"]}],\"\\n\"]}],\"\\n\",[\"$\",\"h2\",null,{\"id\":\"-설치\",\"children\":[\"$\",\"a\",null,{\"href\":\"#-설치\",\"children\":\"📦 설치\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"id\":\"핵심-패키지-설치\",\"children\":[\"$\",\"a\",null,{\"href\":\"#핵심-패키지-설치\",\"children\":\"핵심 패키지 설치\"}]}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"# npm 사용\\nnpm install @robota/core\\n\\n# pnpm 사용\\npnpm add @robota/core\\n\\n# yarn 사용\\nyarn add @robota/core\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"id\":\"필요한-제공업체-설치\",\"children\":[\"$\",\"a\",null,{\"href\":\"#필요한-제공업체-설치\",\"children\":\"필요한 제공업체 설치\"}]}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"# OpenAI 제공업체\\nnpm install @robota/openai openai\\n\\n# Anthropic 제공업체\\nnpm install @robota/anthropic @anthropic-ai/sdk\\n\\n# LangChain 통합\\nnpm install @robota/langchain langchain\\n\\n# Replicate 통합\\nnpm install @robota/replicate replicate\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"id\":\"-간단한-사용-예시\",\"children\":[\"$\",\"a\",null,{\"href\":\"#-간단한-사용-예시\",\"children\":\"🔍 간단한 사용 예시\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"id\":\"기본-대화-에이전트\",\"children\":[\"$\",\"a\",null,{\"href\":\"#기본-대화-에이전트\",\"children\":\"기본 대화 에이전트\"}]}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-typescript\",\"children\":\"import { Robota } from '@robota/core';\\nimport { OpenAIProvider } from '@robota/openai';\\nimport OpenAI from 'openai';\\n\\n// OpenAI 클라이언트 생성\\nconst openai = new OpenAI({\\n  apiKey: process.env.OPENAI_API_KEY\\n});\\n\\n// Robota 인스턴스 생성\\nconst robota = new Robota({\\n  provider: new OpenAIProvider({\\n    client: openai,\\n    model: 'gpt-4'\\n  }),\\n  systemPrompt: '당신은 유용한 AI 어시스턴트입니다. 질문에 정확하고 간결하게 대답하세요.'\\n});\\n\\n// 실행\\nasync function main() {\\n  const result = await robota.run('타입스크립트란 무엇인가요?');\\n  console.log(result);\\n}\\n\\nmain().catch(console.error);\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"id\":\"함수-호출-사용\",\"children\":[\"$\",\"a\",null,{\"href\":\"#함수-호출-사용\",\"children\":\"함수 호출 사용\"}]}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-typescript\",\"children\":\"import { Robota } from '@robota/core';\\nimport { OpenAIProvider } from '@robota/openai';\\nimport OpenAI from 'openai';\\n\\nconst openai = new OpenAI({\\n  apiKey: process.env.OPENAI_API_KEY\\n});\\n\\nconst robota = new Robota({\\n  provider: new OpenAIProvider({\\n    client: openai,\\n    model: 'gpt-4'\\n  })\\n});\\n\\n// 함수 등록\\nrobota.registerFunction(\\n  {\\n    name: 'getWeather',\\n    description: '특정 위치의 날씨 정보를 가져옵니다',\\n    parameters: {\\n      type: 'object',\\n      properties: {\\n        location: {\\n          type: 'string',\\n          description: '위치 (도시명)'\\n        }\\n      },\\n      required: ['location']\\n    }\\n  },\\n  async ({ location }) =\u003e {\\n    // 실제로는 날씨 API를 호출합니다\\n    return {\\n      temperature: 25,\\n      humidity: 60,\\n      conditions: '맑음'\\n    };\\n  }\\n);\\n\\nasync function main() {\\n  const result = await robota.run('서울의 날씨는 어떤가요?');\\n  console.log(result);\\n}\\n\\nmain().catch(console.error);\\n\"}]}],\"\\n\",[\"$\",\"h3\",null,{\"id\":\"도구-사용\",\"children\":[\"$\",\"a\",null,{\"href\":\"#도구-사용\",\"children\":\"도구 사용\"}]}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-typescript\",\"children\":\"$e\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"id\":\"-문서\",\"children\":[\"$\",\"a\",null,{\"href\":\"#-문서\",\"children\":\"📚 문서\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":[\"전체 문서는 \",[\"$\",\"a\",null,{\"href\":\"https://robotaio.github.io/robota/\",\"children\":\"공식 사이트\"}],\"에서 확인할 수 있습니다.\"]}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[\"$\",\"a\",null,{\"href\":\"https://robotaio.github.io/robota/docs/getting-started\",\"children\":\"시작하기 가이드\"}]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"$\",\"a\",null,{\"href\":\"https://robotaio.github.io/robota/docs/core-concepts\",\"children\":\"핵심 개념\"}]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"$\",\"a\",null,{\"href\":\"https://robotaio.github.io/robota/docs/providers\",\"children\":\"제공업체 가이드\"}]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"$\",\"a\",null,{\"href\":\"https://robotaio.github.io/robota/docs/function-calling\",\"children\":\"함수 호출\"}]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"$\",\"a\",null,{\"href\":\"https://robotaio.github.io/robota/docs/tools\",\"children\":\"도구 사용하기\"}]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"$\",\"a\",null,{\"href\":\"https://robotaio.github.io/robota/docs/api-reference\",\"children\":\"API 참조\"}]}],\"\\n\"]}],\"\\n\",[\"$\",\"h2\",null,{\"id\":\"-자세한-예제\",\"children\":[\"$\",\"a\",null,{\"href\":\"#-자세한-예제\",\"children\":\"📝 자세한 예제\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":[\"더 많은 예제는 \",[\"$\",\"a\",null,{\"href\":\"./examples\",\"children\":\"examples\"}],\" 디렉토리에서 확인할 수 있습니다:\"]}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[\"$\",\"a\",null,{\"href\":\"./examples/basic-chat\",\"children\":\"기본 대화형 챗봇\"}]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"$\",\"a\",null,{\"href\":\"./examples/function-calling\",\"children\":\"함수 호출 활용 예제\"}]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"$\",\"a\",null,{\"href\":\"./examples/weather-agent\",\"children\":\"날씨 조회 에이전트\"}]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"$\",\"a\",null,{\"href\":\"./examples/web-search\",\"children\":\"웹 검색 에이전트\"}]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"$\",\"a\",null,{\"href\":\"./examples/database-integration\",\"children\":\"데이터베이스 통합 예제\"}]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"$\",\"a\",null,{\"href\":\"./examples/openapi-integration\",\"children\":\"OpenAPI 통합 데모\"}]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[\"$\",\"a\",null,{\"href\":\"./examples/multimodal\",\"children\":\"멀티모달 에이전트\"}]}],\"\\n\"]}],\"\\n\",[\"$\",\"h2\",null,{\"id\":\"️-프로젝트-구조\",\"children\":[\"$\",\"a\",null,{\"href\":\"#️-프로젝트-구조\",\"children\":\"🏗️ 프로젝트 구조\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"Robota는 모노레포로 구성되어 있으며, 각 패키지는 특정 기능을 담당합니다:\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"children\":\"packages/\\n├── core/               - 핵심 라이브러리\\n├── openai/             - OpenAI 제공업체\\n├── anthropic/          - Anthropic 제공업체\\n├── langchain/          - LangChain 통합\\n├── replicate/          - Replicate 모델 통합\\n├── tools/              - 도구 라이브러리\\n└── mcp/                - Model Context Protocol\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"id\":\"-테스트\",\"children\":[\"$\",\"a\",null,{\"href\":\"#-테스트\",\"children\":\"🧪 테스트\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"Robota는 철저한 테스트를 통해 코드 품질을 보장합니다:\"}],\"\\n\",[\"$\",\"pre\",null,{\"children\":[\"$\",\"code\",null,{\"className\":\"language-bash\",\"children\":\"# 전체 테스트 실행\\npnpm test\\n\\n# 특정 패키지 테스트\\npnpm --filter @robota/core test\\n\\n# 테스트 감시 모드\\npnpm test:watch\\n\\n# 테스트 커버리지 보고서\\npnpm test:coverage\\n\"}]}],\"\\n\",[\"$\",\"h2\",null,{\"id\":\"-확장하기\",\"children\":[\"$\",\"a\",null,{\"href\":\"#-확장하기\",\"children\":\"🧩 확장하기\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"Robota는 확장을 위한 다양한 인터페이스를 제공합니다:\"}],\"\\n\",[\"$\",\"ol\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"새로운 제공업체 구현\"}],\": \",[\"$\",\"code\",null,{\"children\":\"ModelContextProtocol\"}],\" 인터페이스를 구현하여 새로운 AI 모델 추가\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"커스텀 도구 생성\"}],\": \",[\"$\",\"code\",null,{\"children\":\"createTool\"}],\" 함수로 도메인 특화 도구 개발\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"메모리 시스템 확장\"}],\": \",[\"$\",\"code\",null,{\"children\":\"Memory\"}],\" 인터페이스로 커스텀 메모리 전략 구현\"]}],\"\\n\",[\"$\",\"li\",null,{\"children\":[[\"$\",\"strong\",null,{\"children\":\"사용자 정의 에이전트\"}],\": 기본 클래스를 확장하여 특화된 에이전트 개발\"]}],\"\\n\"]}],\"\\n\",[\"$\",\"h2\",null,{\"id\":\"-로드맵\",\"children\":[\"$\",\"a\",null,{\"href\":\"#-로드맵\",\"children\":\"🔄 로드맵\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":\"Robota의 향후 개발 계획:\"}],\"\\n\",[\"$\",\"ul\",null,{\"children\":[\"\\n\",[\"$\",\"li\",null,{\"children\":\"✅ 핵심 기능 구현 완료\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"✅ 단위 테스트 작성\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"✅ 예제 코드 추가\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"✅ CI/CD 파이프라인 설정\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"✅ npm 배포 설정\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"✅ GitHub Pages 배포 구성\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"🔜 문서화 개선\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"🔜 추가 제공업체 지원 (Google, Mistral AI, Cohere)\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"🔜 보안 기능 강화\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"🔜 성능 최적화\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"🔜 브라우저 번들 사이즈 최적화\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"🔜 서버리스 환경 최적화\"}],\"\\n\",[\"$\",\"li\",null,{\"children\":\"🔜 WebAssembly 지원\"}],\"\\n\"]}],\"\\n\",[\"$\",\"h2\",null,{\"id\":\"-기여하기\",\"children\":[\"$\",\"a\",null,{\"href\":\"#-기여하기\",\"children\":\"👥 기여하기\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":[\"기여는 언제나 환영합니다! \",[\"$\",\"a\",null,{\"href\":\"CONTRIBUTING\",\"children\":\"CONTRIBUTING.md\"}],\"에서 기여 가이드라인을 확인할 수 있습니다.\"]}],\"\\n\",[\"$\",\"h2\",null,{\"id\":\"-라이선스\",\"children\":[\"$\",\"a\",null,{\"href\":\"#-라이선스\",\"children\":\"📄 라이선스\"}]}],\"\\n\",[\"$\",\"p\",null,{\"children\":[\"이 프로젝트는 \",[\"$\",\"a\",null,{\"href\":\"LICENSE\",\"children\":\"MIT 라이선스\"}],\"를 따릅니다.\"]}]]]}]\n"])</script><script>self.__next_f.push([1,"b:[[\"$\",\"meta\",\"0\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"meta\",\"1\",{\"charSet\":\"utf-8\"}],[\"$\",\"title\",\"2\",{\"children\":\"replicate - Robota\"}],[\"$\",\"meta\",\"3\",{\"name\":\"description\",\"content\":\"Robota 문서 및 API 참조\"}]]\n3:null\n"])</script></body></html>
