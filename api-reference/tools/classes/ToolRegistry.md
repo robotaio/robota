@@ -1,4 +1,4 @@
-[Tools API - v0.1.0](/api-reference/tools/) / ToolRegistry
+[Tools API - v0.1.0](/robota/api-reference/tools/) / ToolRegistry
 
 # Class: ToolRegistry
 
@@ -10,31 +10,31 @@
 
 ### Constructors
 
-- [constructor](/api-reference/tools/classes/ToolRegistry#constructor)
+- [constructor](/robota/api-reference/tools/classes/ToolRegistry#constructor)
 
 ### Methods
 
-- [register](/api-reference/tools/classes/ToolRegistry#register)
-- [registerMany](/api-reference/tools/classes/ToolRegistry#registermany)
-- [getTool](/api-reference/tools/classes/ToolRegistry#gettool)
-- [getAllTools](/api-reference/tools/classes/ToolRegistry#getalltools)
-- [executeTool](/api-reference/tools/classes/ToolRegistry#executetool)
+- [register](/robota/api-reference/tools/classes/ToolRegistry#register)
+- [registerMany](/robota/api-reference/tools/classes/ToolRegistry#registermany)
+- [getTool](/robota/api-reference/tools/classes/ToolRegistry#gettool)
+- [getAllTools](/robota/api-reference/tools/classes/ToolRegistry#getalltools)
+- [executeTool](/robota/api-reference/tools/classes/ToolRegistry#executetool)
 
 ## Constructors
 
 ### <a id="constructor" name="constructor"></a> constructor
 
-• **new ToolRegistry**(): [`ToolRegistry`](/api-reference/tools/classes/ToolRegistry)
+• **new ToolRegistry**(): [`ToolRegistry`](/robota/api-reference/tools/classes/ToolRegistry)
 
 #### Returns
 
-[`ToolRegistry`](/api-reference/tools/classes/ToolRegistry)
+[`ToolRegistry`](/robota/api-reference/tools/classes/ToolRegistry)
 
 ## Methods
 
 ### <a id="register" name="register"></a> register
 
-▸ **register**(`tool`): [`ToolRegistry`](/api-reference/tools/classes/ToolRegistry)
+▸ **register**(`tool`): [`ToolRegistry`](/robota/api-reference/tools/classes/ToolRegistry)
 
 도구 등록
 
@@ -42,11 +42,11 @@
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `tool` | [`Tool`](/api-reference/tools/interfaces/Tool)\<`any`, `any`\> | 등록할 도구 |
+| `tool` | [`Tool`](/robota/api-reference/tools/interfaces/Tool)\<`any`, `any`\> | 등록할 도구 |
 
 #### Returns
 
-[`ToolRegistry`](/api-reference/tools/classes/ToolRegistry)
+[`ToolRegistry`](/robota/api-reference/tools/classes/ToolRegistry)
 
 #### Defined in
 
@@ -56,7 +56,7 @@ ___
 
 ### <a id="registermany" name="registermany"></a> registerMany
 
-▸ **registerMany**(`tools`): [`ToolRegistry`](/api-reference/tools/classes/ToolRegistry)
+▸ **registerMany**(`tools`): [`ToolRegistry`](/robota/api-reference/tools/classes/ToolRegistry)
 
 여러 도구 등록
 
@@ -64,11 +64,11 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `tools` | [`Tool`](/api-reference/tools/interfaces/Tool)\<`any`, `any`\>[] | 등록할 도구 배열 |
+| `tools` | [`Tool`](/robota/api-reference/tools/interfaces/Tool)\<`any`, `any`\>[] | 등록할 도구 배열 |
 
 #### Returns
 
-[`ToolRegistry`](/api-reference/tools/classes/ToolRegistry)
+[`ToolRegistry`](/robota/api-reference/tools/classes/ToolRegistry)
 
 #### Defined in
 
@@ -78,7 +78,7 @@ ___
 
 ### <a id="gettool" name="gettool"></a> getTool
 
-▸ **getTool**(`name`): `undefined` \| [`Tool`](/api-reference/tools/interfaces/Tool)\<`any`, `any`\>
+▸ **getTool**(`name`): `undefined` \| [`Tool`](/robota/api-reference/tools/interfaces/Tool)\<`any`, `any`\>
 
 도구 가져오기
 
@@ -90,7 +90,7 @@ ___
 
 #### Returns
 
-`undefined` \| [`Tool`](/api-reference/tools/interfaces/Tool)\<`any`, `any`\>
+`undefined` \| [`Tool`](/robota/api-reference/tools/interfaces/Tool)\<`any`, `any`\>
 
 도구 또는 undefined
 
@@ -102,13 +102,13 @@ ___
 
 ### <a id="getalltools" name="getalltools"></a> getAllTools
 
-▸ **getAllTools**(): [`Tool`](/api-reference/tools/interfaces/Tool)\<`any`, `any`\>[]
+▸ **getAllTools**(): [`Tool`](/robota/api-reference/tools/interfaces/Tool)\<`any`, `any`\>[]
 
 모든 도구 가져오기
 
 #### Returns
 
-[`Tool`](/api-reference/tools/interfaces/Tool)\<`any`, `any`\>[]
+[`Tool`](/robota/api-reference/tools/interfaces/Tool)\<`any`, `any`\>[]
 
 모든 등록된 도구 배열
 
@@ -120,7 +120,7 @@ ___
 
 ### <a id="executetool" name="executetool"></a> executeTool
 
-▸ **executeTool**\<`TInput`, `TOutput`\>(`name`, `input`): `Promise`\<[`ToolResult`](/api-reference/tools/interfaces/ToolResult)\<`TOutput`\>\>
+▸ **executeTool**\<`TInput`, `TOutput`\>(`name`, `input`): `Promise`\<[`ToolResult`](/robota/api-reference/tools/interfaces/ToolResult)\<`TOutput`\>\>
 
 도구 실행
 
@@ -140,7 +140,7 @@ ___
 
 #### Returns
 
-`Promise`\<[`ToolResult`](/api-reference/tools/interfaces/ToolResult)\<`TOutput`\>\>
+`Promise`\<[`ToolResult`](/robota/api-reference/tools/interfaces/ToolResult)\<`TOutput`\>\>
 
 도구 실행 결과
 

@@ -6,51 +6,35 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Robota API 문서</title>
   <meta name="description" content="Robota API 문서">
-  <link rel="stylesheet" href="/style.css">
-  <script>
-    // 페이지 로드 시 Docsify 라우팅으로 리다이렉트
-    window.onload = function() {
-      // history 모드를 위한 리다이렉트 처리
-      const currentPath = window.location.pathname;
-      
-      // HTML 확장자 제거하여 원래 경로로 리다이렉트
-      if (currentPath.endsWith('.html')) {
-        window.location.href = currentPath.replace('.html', '');
-        return;
-      }
-      
-      // 이미 적절한 경로라면 Docsify로 전달
-      window.location.href = '/';
-    };
-  </script>
+  <link rel="stylesheet" href="/robota/style.css">
 </head>
 <body>
   <div id="content">
-    <p><a href="/api-reference/tools/">Tools API - v0.1.0</a> / ToolRegistry</p>
+    <p><a href="/robota/api-reference/tools/">Tools API - v0.1.0</a> / ToolRegistry</p>
 <h1>Class: ToolRegistry</h1>
 <p>도구 레지스트리 클래스</p>
 <p>여러 도구를 등록하고 관리하는 클래스</p>
 <h2>Table of contents</h2>
 <h3>Constructors</h3>
 <ul>
-<li><a href="/api-reference/tools/classes/ToolRegistry#constructor">constructor</a></li>
+<li><a href="/robota/api-reference/tools/classes/ToolRegistry#constructor">constructor</a></li>
 </ul>
 <h3>Methods</h3>
 <ul>
-<li><a href="/api-reference/tools/classes/ToolRegistry#register">register</a></li>
-<li><a href="/api-reference/tools/classes/ToolRegistry#registermany">registerMany</a></li>
-<li><a href="/api-reference/tools/classes/ToolRegistry#gettool">getTool</a></li>
-<li><a href="/api-reference/tools/classes/ToolRegistry#getalltools">getAllTools</a></li>
-<li><a href="/api-reference/tools/classes/ToolRegistry#executetool">executeTool</a></li>
+<li><a href="/robota/api-reference/tools/classes/ToolRegistry#register">register</a></li>
+<li><a href="/robota/api-reference/tools/classes/ToolRegistry#registermany">registerMany</a></li>
+<li><a href="/robota/api-reference/tools/classes/ToolRegistry#gettool">getTool</a></li>
+<li><a href="/robota/api-reference/tools/classes/ToolRegistry#getalltools">getAllTools</a></li>
+<li><a href="/robota/api-reference/tools/classes/ToolRegistry#executetool">executeTool</a></li>
 </ul>
 <h2>Constructors</h2>
 <h3><a id="constructor" name="constructor"></a> constructor</h3>
-<p>• <strong>new ToolRegistry</strong>(): <a href="/api-reference/tools/classes/ToolRegistry"><code>ToolRegistry</code></a></p>
+<p>• <strong>new ToolRegistry</strong>(): <a href="/robota/api-reference/tools/classes/ToolRegistry"><code>ToolRegistry</code></a></p>
 <h4>Returns</h4>
-<p><a href="/api-reference/tools/classes/ToolRegistry"><code>ToolRegistry</code></a></p>
+<p><a href="/robota/api-reference/tools/classes/ToolRegistry"><code>ToolRegistry</code></a></p>
 <h2>Methods</h2>
 <h3><a id="register" name="register"></a> register</h3>
-<p>▸ <strong>register</strong>(<code>tool</code>): <a href="/api-reference/tools/classes/ToolRegistry"><code>ToolRegistry</code></a></p>
+<p>▸ <strong>register</strong>(<code>tool</code>): <a href="/robota/api-reference/tools/classes/ToolRegistry"><code>ToolRegistry</code></a></p>
 <p>도구 등록</p>
 <h4>Parameters</h4>
 <table>
@@ -63,17 +47,17 @@
 </thead>
 <tbody><tr>
 <td align="left"><code>tool</code></td>
-<td align="left"><a href="/api-reference/tools/interfaces/Tool"><code>Tool</code></a>&lt;<code>any</code>, <code>any</code>&gt;</td>
+<td align="left"><a href="/robota/api-reference/tools/interfaces/Tool"><code>Tool</code></a>&lt;<code>any</code>, <code>any</code>&gt;</td>
 <td align="left">등록할 도구</td>
 </tr>
 </tbody></table>
 <h4>Returns</h4>
-<p><a href="/api-reference/tools/classes/ToolRegistry"><code>ToolRegistry</code></a></p>
+<p><a href="/robota/api-reference/tools/classes/ToolRegistry"><code>ToolRegistry</code></a></p>
 <h4>Defined in</h4>
 <p><a href="https://github.com/robotaio/robota/blob/main/packages/tools/src/index.ts#L161">index.ts:161</a></p>
 <hr>
 <h3><a id="registermany" name="registermany"></a> registerMany</h3>
-<p>▸ <strong>registerMany</strong>(<code>tools</code>): <a href="/api-reference/tools/classes/ToolRegistry"><code>ToolRegistry</code></a></p>
+<p>▸ <strong>registerMany</strong>(<code>tools</code>): <a href="/robota/api-reference/tools/classes/ToolRegistry"><code>ToolRegistry</code></a></p>
 <p>여러 도구 등록</p>
 <h4>Parameters</h4>
 <table>
@@ -86,17 +70,17 @@
 </thead>
 <tbody><tr>
 <td align="left"><code>tools</code></td>
-<td align="left"><a href="/api-reference/tools/interfaces/Tool"><code>Tool</code></a>&lt;<code>any</code>, <code>any</code>&gt;[]</td>
+<td align="left"><a href="/robota/api-reference/tools/interfaces/Tool"><code>Tool</code></a>&lt;<code>any</code>, <code>any</code>&gt;[]</td>
 <td align="left">등록할 도구 배열</td>
 </tr>
 </tbody></table>
 <h4>Returns</h4>
-<p><a href="/api-reference/tools/classes/ToolRegistry"><code>ToolRegistry</code></a></p>
+<p><a href="/robota/api-reference/tools/classes/ToolRegistry"><code>ToolRegistry</code></a></p>
 <h4>Defined in</h4>
 <p><a href="https://github.com/robotaio/robota/blob/main/packages/tools/src/index.ts#L171">index.ts:171</a></p>
 <hr>
 <h3><a id="gettool" name="gettool"></a> getTool</h3>
-<p>▸ <strong>getTool</strong>(<code>name</code>): <code>undefined</code> | <a href="/api-reference/tools/interfaces/Tool"><code>Tool</code></a>&lt;<code>any</code>, <code>any</code>&gt;</p>
+<p>▸ <strong>getTool</strong>(<code>name</code>): <code>undefined</code> | <a href="/robota/api-reference/tools/interfaces/Tool"><code>Tool</code></a>&lt;<code>any</code>, <code>any</code>&gt;</p>
 <p>도구 가져오기</p>
 <h4>Parameters</h4>
 <table>
@@ -114,22 +98,22 @@
 </tr>
 </tbody></table>
 <h4>Returns</h4>
-<p><code>undefined</code> | <a href="/api-reference/tools/interfaces/Tool"><code>Tool</code></a>&lt;<code>any</code>, <code>any</code>&gt;</p>
+<p><code>undefined</code> | <a href="/robota/api-reference/tools/interfaces/Tool"><code>Tool</code></a>&lt;<code>any</code>, <code>any</code>&gt;</p>
 <p>도구 또는 undefined</p>
 <h4>Defined in</h4>
 <p><a href="https://github.com/robotaio/robota/blob/main/packages/tools/src/index.ts#L184">index.ts:184</a></p>
 <hr>
 <h3><a id="getalltools" name="getalltools"></a> getAllTools</h3>
-<p>▸ <strong>getAllTools</strong>(): <a href="/api-reference/tools/interfaces/Tool"><code>Tool</code></a>&lt;<code>any</code>, <code>any</code>&gt;[]</p>
+<p>▸ <strong>getAllTools</strong>(): <a href="/robota/api-reference/tools/interfaces/Tool"><code>Tool</code></a>&lt;<code>any</code>, <code>any</code>&gt;[]</p>
 <p>모든 도구 가져오기</p>
 <h4>Returns</h4>
-<p><a href="/api-reference/tools/interfaces/Tool"><code>Tool</code></a>&lt;<code>any</code>, <code>any</code>&gt;[]</p>
+<p><a href="/robota/api-reference/tools/interfaces/Tool"><code>Tool</code></a>&lt;<code>any</code>, <code>any</code>&gt;[]</p>
 <p>모든 등록된 도구 배열</p>
 <h4>Defined in</h4>
 <p><a href="https://github.com/robotaio/robota/blob/main/packages/tools/src/index.ts#L193">index.ts:193</a></p>
 <hr>
 <h3><a id="executetool" name="executetool"></a> executeTool</h3>
-<p>▸ <strong>executeTool</strong>&lt;<code>TInput</code>, <code>TOutput</code>&gt;(<code>name</code>, <code>input</code>): <code>Promise</code>&lt;<a href="/api-reference/tools/interfaces/ToolResult"><code>ToolResult</code></a>&lt;<code>TOutput</code>&gt;&gt;</p>
+<p>▸ <strong>executeTool</strong>&lt;<code>TInput</code>, <code>TOutput</code>&gt;(<code>name</code>, <code>input</code>): <code>Promise</code>&lt;<a href="/robota/api-reference/tools/interfaces/ToolResult"><code>ToolResult</code></a>&lt;<code>TOutput</code>&gt;&gt;</p>
 <p>도구 실행</p>
 <h4>Type parameters</h4>
 <table>
@@ -169,11 +153,23 @@
 </tr>
 </tbody></table>
 <h4>Returns</h4>
-<p><code>Promise</code>&lt;<a href="/api-reference/tools/interfaces/ToolResult"><code>ToolResult</code></a>&lt;<code>TOutput</code>&gt;&gt;</p>
+<p><code>Promise</code>&lt;<a href="/robota/api-reference/tools/interfaces/ToolResult"><code>ToolResult</code></a>&lt;<code>TOutput</code>&gt;&gt;</p>
 <p>도구 실행 결과</p>
 <h4>Defined in</h4>
 <p><a href="https://github.com/robotaio/robota/blob/main/packages/tools/src/index.ts#L204">index.ts:204</a></p>
 
   </div>
+  <script>
+    // 페이지가 로드되면 Docsify로 리다이렉션
+    window.addEventListener('DOMContentLoaded', function() {
+      // 현재 경로에서 .html 확장자 제거
+      const currentPath = window.location.pathname;
+      if (currentPath.endsWith('.html')) {
+        // history 모드를 위한 리다이렉션
+        const newPath = currentPath.replace('.html', '');
+        window.location.replace(newPath);
+      }
+    });
+  </script>
 </body>
 </html>

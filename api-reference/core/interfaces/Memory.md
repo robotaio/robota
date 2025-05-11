@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / Memory
+[Core API - v0.1.0](/robota/api-reference/core/) / Memory
 
 # Interface: Memory
 
@@ -8,16 +8,16 @@
 
 ## Implemented by
 
-- [`PersistentSystemMemory`](/api-reference/core/classes/PersistentSystemMemory)
-- [`SimpleMemory`](/api-reference/core/classes/SimpleMemory)
+- [`PersistentSystemMemory`](/robota/api-reference/core/classes/PersistentSystemMemory)
+- [`SimpleMemory`](/robota/api-reference/core/classes/SimpleMemory)
 
 ## Table of contents
 
 ### Methods
 
-- [addMessage](/api-reference/core/interfaces/Memory#addmessage)
-- [getMessages](/api-reference/core/interfaces/Memory#getmessages)
-- [clear](/api-reference/core/interfaces/Memory#clear)
+- [addMessage](/robota/api-reference/core/interfaces/Memory#addmessage)
+- [getMessages](/robota/api-reference/core/interfaces/Memory#getmessages)
+- [clear](/robota/api-reference/core/interfaces/Memory#clear)
 
 ## Methods
 
@@ -31,7 +31,7 @@
 
 | Name | Type |
 | :------ | :------ |
-| `message` | [`Message`](/api-reference/core/interfaces/Message) |
+| `message` | [`Message`](/robota/api-reference/core/interfaces/Message) |
 
 #### Returns
 
@@ -45,13 +45,13 @@ ___
 
 ### <a id="getmessages" name="getmessages"></a> getMessages
 
-▸ **getMessages**(): [`Message`](/api-reference/core/interfaces/Message)[]
+▸ **getMessages**(): [`Message`](/robota/api-reference/core/interfaces/Message)[]
 
 저장된 모든 메시지를 가져옵니다.
 
 #### Returns
 
-[`Message`](/api-reference/core/interfaces/Message)[]
+[`Message`](/robota/api-reference/core/interfaces/Message)[]
 
 #### Defined in
 

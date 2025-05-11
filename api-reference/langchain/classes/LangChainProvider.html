@@ -6,37 +6,21 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Robota API 문서</title>
   <meta name="description" content="Robota API 문서">
-  <link rel="stylesheet" href="/style.css">
-  <script>
-    // 페이지 로드 시 Docsify 라우팅으로 리다이렉트
-    window.onload = function() {
-      // history 모드를 위한 리다이렉트 처리
-      const currentPath = window.location.pathname;
-      
-      // HTML 확장자 제거하여 원래 경로로 리다이렉트
-      if (currentPath.endsWith('.html')) {
-        window.location.href = currentPath.replace('.html', '');
-        return;
-      }
-      
-      // 이미 적절한 경로라면 Docsify로 전달
-      window.location.href = '/';
-    };
-  </script>
+  <link rel="stylesheet" href="/robota/style.css">
 </head>
 <body>
   <div id="content">
-    <p><a href="/api-reference/langchain/">LangChain API - v0.1.0</a> / LangChainProvider</p>
+    <p><a href="/robota/api-reference/langchain/">LangChain API - v0.1.0</a> / LangChainProvider</p>
 <h1>Class: LangChainProvider</h1>
 <p>LangChain 제공업체 클래스</p>
 <h2>Table of contents</h2>
 <h3>Constructors</h3>
 <ul>
-<li><a href="/api-reference/langchain/classes/LangChainProvider#constructor">constructor</a></li>
+<li><a href="/robota/api-reference/langchain/classes/LangChainProvider#constructor">constructor</a></li>
 </ul>
 <h2>Constructors</h2>
 <h3><a id="constructor" name="constructor"></a> constructor</h3>
-<p>• <strong>new LangChainProvider</strong>(<code>options</code>): <a href="/api-reference/langchain/classes/LangChainProvider"><code>LangChainProvider</code></a></p>
+<p>• <strong>new LangChainProvider</strong>(<code>options</code>): <a href="/robota/api-reference/langchain/classes/LangChainProvider"><code>LangChainProvider</code></a></p>
 <h4>Parameters</h4>
 <table>
 <thead>
@@ -47,14 +31,26 @@
 </thead>
 <tbody><tr>
 <td align="left"><code>options</code></td>
-<td align="left"><a href="/api-reference/langchain/interfaces/LangChainProviderOptions"><code>LangChainProviderOptions</code></a></td>
+<td align="left"><a href="/robota/api-reference/langchain/interfaces/LangChainProviderOptions"><code>LangChainProviderOptions</code></a></td>
 </tr>
 </tbody></table>
 <h4>Returns</h4>
-<p><a href="/api-reference/langchain/classes/LangChainProvider"><code>LangChainProvider</code></a></p>
+<p><a href="/robota/api-reference/langchain/classes/LangChainProvider"><code>LangChainProvider</code></a></p>
 <h4>Defined in</h4>
 <p><a href="https://github.com/robotaio/robota/blob/main/packages/langchain/src/index.ts#L14">langchain/src/index.ts:14</a></p>
 
   </div>
+  <script>
+    // 페이지가 로드되면 Docsify로 리다이렉션
+    window.addEventListener('DOMContentLoaded', function() {
+      // 현재 경로에서 .html 확장자 제거
+      const currentPath = window.location.pathname;
+      if (currentPath.endsWith('.html')) {
+        // history 모드를 위한 리다이렉션
+        const newPath = currentPath.replace('.html', '');
+        window.location.replace(newPath);
+      }
+    });
+  </script>
 </body>
 </html>

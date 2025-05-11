@@ -6,8 +6,8 @@ LangChain API
 
 ### Classes
 
-- [LangChainProvider](/api-reference/langchain/classes/LangChainProvider)
+- [LangChainProvider](/robota/api-reference/langchain/classes/LangChainProvider)
 
 ### Interfaces
 
-- [LangChainProviderOptions](/api-reference/langchain/interfaces/LangChainProviderOptions)
+- [LangChainProviderOptions](/robota/api-reference/langchain/interfaces/LangChainProviderOptions)

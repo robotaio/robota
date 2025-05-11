@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / Tool
+[Core API - v0.1.0](/robota/api-reference/core/) / Tool
 
 # Interface: Tool
 
@@ -6,20 +6,20 @@
 
 ## Implemented by
 
-- [`SimpleTool`](/api-reference/core/classes/SimpleTool)
+- [`SimpleTool`](/robota/api-reference/core/classes/SimpleTool)
 
 ## Table of contents
 
 ### Properties
 
-- [name](/api-reference/core/interfaces/Tool#name)
-- [description](/api-reference/core/interfaces/Tool#description)
-- [schema](/api-reference/core/interfaces/Tool#schema)
-- [execute](/api-reference/core/interfaces/Tool#execute)
+- [name](/robota/api-reference/core/interfaces/Tool#name)
+- [description](/robota/api-reference/core/interfaces/Tool#description)
+- [schema](/robota/api-reference/core/interfaces/Tool#schema)
+- [execute](/robota/api-reference/core/interfaces/Tool#execute)
 
 ### Methods
 
-- [toFunctionDefinition](/api-reference/core/interfaces/Tool#tofunctiondefinition)
+- [toFunctionDefinition](/robota/api-reference/core/interfaces/Tool#tofunctiondefinition)
 
 ## Properties
 
@@ -87,13 +87,13 @@ ___
 
 ### <a id="tofunctiondefinition" name="tofunctiondefinition"></a> toFunctionDefinition
 
-▸ **toFunctionDefinition**(): [`FunctionDefinition`](/api-reference/core/interfaces/FunctionDefinition)
+▸ **toFunctionDefinition**(): [`FunctionDefinition`](/robota/api-reference/core/interfaces/FunctionDefinition)
 
 함수 정의로 변환
 
 #### Returns
 
-[`FunctionDefinition`](/api-reference/core/interfaces/FunctionDefinition)
+[`FunctionDefinition`](/robota/api-reference/core/interfaces/FunctionDefinition)
 
 #### Defined in
 

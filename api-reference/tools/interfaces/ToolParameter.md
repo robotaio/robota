@@ -1,4 +1,4 @@
-[Tools API - v0.1.0](/api-reference/tools/) / ToolParameter
+[Tools API - v0.1.0](/robota/api-reference/tools/) / ToolParameter
 
 # Interface: ToolParameter
 
@@ -8,11 +8,11 @@
 
 ### Properties
 
-- [name](/api-reference/tools/interfaces/ToolParameter#name)
-- [type](/api-reference/tools/interfaces/ToolParameter#type)
-- [description](/api-reference/tools/interfaces/ToolParameter#description)
-- [required](/api-reference/tools/interfaces/ToolParameter#required)
-- [defaultValue](/api-reference/tools/interfaces/ToolParameter#defaultvalue)
+- [name](/robota/api-reference/tools/interfaces/ToolParameter#name)
+- [type](/robota/api-reference/tools/interfaces/ToolParameter#type)
+- [description](/robota/api-reference/tools/interfaces/ToolParameter#description)
+- [required](/robota/api-reference/tools/interfaces/ToolParameter#required)
+- [defaultValue](/robota/api-reference/tools/interfaces/ToolParameter#defaultvalue)
 
 ## Properties
 

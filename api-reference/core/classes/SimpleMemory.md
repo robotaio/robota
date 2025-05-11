@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / SimpleMemory
+[Core API - v0.1.0](/robota/api-reference/core/) / SimpleMemory
 
 # Class: SimpleMemory
 
@@ -6,25 +6,25 @@
 
 ## Implements
 
-- [`Memory`](/api-reference/core/interfaces/Memory)
+- [`Memory`](/robota/api-reference/core/interfaces/Memory)
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](/api-reference/core/classes/SimpleMemory#constructor)
+- [constructor](/robota/api-reference/core/classes/SimpleMemory#constructor)
 
 ### Methods
 
-- [addMessage](/api-reference/core/classes/SimpleMemory#addmessage)
-- [getMessages](/api-reference/core/classes/SimpleMemory#getmessages)
-- [clear](/api-reference/core/classes/SimpleMemory#clear)
+- [addMessage](/robota/api-reference/core/classes/SimpleMemory#addmessage)
+- [getMessages](/robota/api-reference/core/classes/SimpleMemory#getmessages)
+- [clear](/robota/api-reference/core/classes/SimpleMemory#clear)
 
 ## Constructors
 
 ### <a id="constructor" name="constructor"></a> constructor
 
-• **new SimpleMemory**(`options?`): [`SimpleMemory`](/api-reference/core/classes/SimpleMemory)
+• **new SimpleMemory**(`options?`): [`SimpleMemory`](/robota/api-reference/core/classes/SimpleMemory)
 
 #### Parameters
 
@@ -35,7 +35,7 @@
 
 #### Returns
 
-[`SimpleMemory`](/api-reference/core/classes/SimpleMemory)
+[`SimpleMemory`](/robota/api-reference/core/classes/SimpleMemory)
 
 #### Defined in
 
@@ -53,7 +53,7 @@
 
 | Name | Type |
 | :------ | :------ |
-| `message` | [`Message`](/api-reference/core/interfaces/Message) |
+| `message` | [`Message`](/robota/api-reference/core/interfaces/Message) |
 
 #### Returns
 
@@ -61,7 +61,7 @@
 
 #### Implementation of
 
-[Memory](/api-reference/core/interfaces/Memory).[addMessage](/api-reference/core/interfaces/Memory#addmessage)
+[Memory](/robota/api-reference/core/interfaces/Memory).[addMessage](/robota/api-reference/core/interfaces/Memory#addmessage)
 
 #### Defined in
 
@@ -71,17 +71,17 @@ ___
 
 ### <a id="getmessages" name="getmessages"></a> getMessages
 
-▸ **getMessages**(): [`Message`](/api-reference/core/interfaces/Message)[]
+▸ **getMessages**(): [`Message`](/robota/api-reference/core/interfaces/Message)[]
 
 저장된 모든 메시지를 가져옵니다.
 
 #### Returns
 
-[`Message`](/api-reference/core/interfaces/Message)[]
+[`Message`](/robota/api-reference/core/interfaces/Message)[]
 
 #### Implementation of
 
-[Memory](/api-reference/core/interfaces/Memory).[getMessages](/api-reference/core/interfaces/Memory#getmessages)
+[Memory](/robota/api-reference/core/interfaces/Memory).[getMessages](/robota/api-reference/core/interfaces/Memory#getmessages)
 
 #### Defined in
 
@@ -101,7 +101,7 @@ ___
 
 #### Implementation of
 
-[Memory](/api-reference/core/interfaces/Memory).[clear](/api-reference/core/interfaces/Memory#clear)
+[Memory](/robota/api-reference/core/interfaces/Memory).[clear](/robota/api-reference/core/interfaces/Memory#clear)
 
 #### Defined in
 

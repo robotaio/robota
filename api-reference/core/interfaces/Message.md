@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / Message
+[Core API - v0.1.0](/robota/api-reference/core/) / Message
 
 # Interface: Message
 
@@ -8,17 +8,17 @@
 
 ### Properties
 
-- [role](/api-reference/core/interfaces/Message#role)
-- [content](/api-reference/core/interfaces/Message#content)
-- [name](/api-reference/core/interfaces/Message#name)
-- [functionCall](/api-reference/core/interfaces/Message#functioncall)
-- [functionResult](/api-reference/core/interfaces/Message#functionresult)
+- [role](/robota/api-reference/core/interfaces/Message#role)
+- [content](/robota/api-reference/core/interfaces/Message#content)
+- [name](/robota/api-reference/core/interfaces/Message#name)
+- [functionCall](/robota/api-reference/core/interfaces/Message#functioncall)
+- [functionResult](/robota/api-reference/core/interfaces/Message#functionresult)
 
 ## Properties
 
 ### <a id="role" name="role"></a> role
 
-• **role**: [`MessageRole`](/api-reference/core/#messagerole)
+• **role**: [`MessageRole`](/robota/api-reference/core/#messagerole)
 
 #### Defined in
 
@@ -48,7 +48,7 @@ ___
 
 ### <a id="functioncall" name="functioncall"></a> functionCall
 
-• `Optional` **functionCall**: [`FunctionCall`](/api-reference/core/interfaces/FunctionCall)
+• `Optional` **functionCall**: [`FunctionCall`](/robota/api-reference/core/interfaces/FunctionCall)
 
 #### Defined in
 

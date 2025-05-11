@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / StreamingResponseChunk
+[Core API - v0.1.0](/robota/api-reference/core/) / StreamingResponseChunk
 
 # Interface: StreamingResponseChunk
 
@@ -8,9 +8,9 @@
 
 ### Properties
 
-- [content](/api-reference/core/interfaces/StreamingResponseChunk#content)
-- [functionCall](/api-reference/core/interfaces/StreamingResponseChunk#functioncall)
-- [isComplete](/api-reference/core/interfaces/StreamingResponseChunk#iscomplete)
+- [content](/robota/api-reference/core/interfaces/StreamingResponseChunk#content)
+- [functionCall](/robota/api-reference/core/interfaces/StreamingResponseChunk#functioncall)
+- [isComplete](/robota/api-reference/core/interfaces/StreamingResponseChunk#iscomplete)
 
 ## Properties
 
@@ -26,7 +26,7 @@ ___
 
 ### <a id="functioncall" name="functioncall"></a> functionCall
 
-• `Optional` **functionCall**: `Partial`\<[`FunctionCall`](/api-reference/core/interfaces/FunctionCall)\>
+• `Optional` **functionCall**: `Partial`\<[`FunctionCall`](/robota/api-reference/core/interfaces/FunctionCall)\>
 
 #### Defined in
 

@@ -1,4 +1,4 @@
-[OpenAI API - v0.1.0](/api-reference/openai/) / OpenAIProviderOptions
+[OpenAI API - v0.1.0](/robota/api-reference/openai/) / OpenAIProviderOptions
 
 # Interface: OpenAIProviderOptions
 
@@ -14,12 +14,12 @@ OpenAI 제공업체 옵션
 
 ### Properties
 
-- [model](/api-reference/openai/interfaces/OpenAIProviderOptions#model)
-- [temperature](/api-reference/openai/interfaces/OpenAIProviderOptions#temperature)
-- [maxTokens](/api-reference/openai/interfaces/OpenAIProviderOptions#maxtokens)
-- [stopSequences](/api-reference/openai/interfaces/OpenAIProviderOptions#stopsequences)
-- [streamMode](/api-reference/openai/interfaces/OpenAIProviderOptions#streammode)
-- [apiKey](/api-reference/openai/interfaces/OpenAIProviderOptions#apikey)
+- [model](/robota/api-reference/openai/interfaces/OpenAIProviderOptions#model)
+- [temperature](/robota/api-reference/openai/interfaces/OpenAIProviderOptions#temperature)
+- [maxTokens](/robota/api-reference/openai/interfaces/OpenAIProviderOptions#maxtokens)
+- [stopSequences](/robota/api-reference/openai/interfaces/OpenAIProviderOptions#stopsequences)
+- [streamMode](/robota/api-reference/openai/interfaces/OpenAIProviderOptions#streammode)
+- [apiKey](/robota/api-reference/openai/interfaces/OpenAIProviderOptions#apikey)
 
 ## Properties
 

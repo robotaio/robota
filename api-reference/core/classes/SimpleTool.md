@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / SimpleTool
+[Core API - v0.1.0](/robota/api-reference/core/) / SimpleTool
 
 # Class: SimpleTool
 
@@ -6,40 +6,40 @@
 
 ## Implements
 
-- [`Tool`](/api-reference/core/interfaces/Tool)
+- [`Tool`](/robota/api-reference/core/interfaces/Tool)
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](/api-reference/core/classes/SimpleTool#constructor)
+- [constructor](/robota/api-reference/core/classes/SimpleTool#constructor)
 
 ### Properties
 
-- [name](/api-reference/core/classes/SimpleTool#name)
-- [description](/api-reference/core/classes/SimpleTool#description)
-- [schema](/api-reference/core/classes/SimpleTool#schema)
-- [execute](/api-reference/core/classes/SimpleTool#execute)
+- [name](/robota/api-reference/core/classes/SimpleTool#name)
+- [description](/robota/api-reference/core/classes/SimpleTool#description)
+- [schema](/robota/api-reference/core/classes/SimpleTool#schema)
+- [execute](/robota/api-reference/core/classes/SimpleTool#execute)
 
 ### Methods
 
-- [toFunctionDefinition](/api-reference/core/classes/SimpleTool#tofunctiondefinition)
+- [toFunctionDefinition](/robota/api-reference/core/classes/SimpleTool#tofunctiondefinition)
 
 ## Constructors
 
 ### <a id="constructor" name="constructor"></a> constructor
 
-• **new SimpleTool**(`options`): [`SimpleTool`](/api-reference/core/classes/SimpleTool)
+• **new SimpleTool**(`options`): [`SimpleTool`](/robota/api-reference/core/classes/SimpleTool)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [`ToolOptions`](/api-reference/core/interfaces/ToolOptions) |
+| `options` | [`ToolOptions`](/robota/api-reference/core/interfaces/ToolOptions) |
 
 #### Returns
 
-[`SimpleTool`](/api-reference/core/classes/SimpleTool)
+[`SimpleTool`](/robota/api-reference/core/classes/SimpleTool)
 
 #### Defined in
 
@@ -55,7 +55,7 @@
 
 #### Implementation of
 
-[Tool](/api-reference/core/interfaces/Tool).[name](/api-reference/core/interfaces/Tool#name)
+[Tool](/robota/api-reference/core/interfaces/Tool).[name](/robota/api-reference/core/interfaces/Tool#name)
 
 #### Defined in
 
@@ -71,7 +71,7 @@ ___
 
 #### Implementation of
 
-[Tool](/api-reference/core/interfaces/Tool).[description](/api-reference/core/interfaces/Tool#description)
+[Tool](/robota/api-reference/core/interfaces/Tool).[description](/robota/api-reference/core/interfaces/Tool#description)
 
 #### Defined in
 
@@ -87,7 +87,7 @@ ___
 
 #### Implementation of
 
-[Tool](/api-reference/core/interfaces/Tool).[schema](/api-reference/core/interfaces/Tool#schema)
+[Tool](/robota/api-reference/core/interfaces/Tool).[schema](/robota/api-reference/core/interfaces/Tool#schema)
 
 #### Defined in
 
@@ -117,7 +117,7 @@ ___
 
 #### Implementation of
 
-[Tool](/api-reference/core/interfaces/Tool).[execute](/api-reference/core/interfaces/Tool#execute)
+[Tool](/robota/api-reference/core/interfaces/Tool).[execute](/robota/api-reference/core/interfaces/Tool#execute)
 
 #### Defined in
 
@@ -127,17 +127,17 @@ ___
 
 ### <a id="tofunctiondefinition" name="tofunctiondefinition"></a> toFunctionDefinition
 
-▸ **toFunctionDefinition**(): [`FunctionDefinition`](/api-reference/core/interfaces/FunctionDefinition)
+▸ **toFunctionDefinition**(): [`FunctionDefinition`](/robota/api-reference/core/interfaces/FunctionDefinition)
 
 함수 정의로 변환
 
 #### Returns
 
-[`FunctionDefinition`](/api-reference/core/interfaces/FunctionDefinition)
+[`FunctionDefinition`](/robota/api-reference/core/interfaces/FunctionDefinition)
 
 #### Implementation of
 
-[Tool](/api-reference/core/interfaces/Tool).[toFunctionDefinition](/api-reference/core/interfaces/Tool#tofunctiondefinition)
+[Tool](/robota/api-reference/core/interfaces/Tool).[toFunctionDefinition](/robota/api-reference/core/interfaces/Tool#tofunctiondefinition)
 
 #### Defined in
 

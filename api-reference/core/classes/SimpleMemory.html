@@ -6,47 +6,31 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Robota API 문서</title>
   <meta name="description" content="Robota API 문서">
-  <link rel="stylesheet" href="/style.css">
-  <script>
-    // 페이지 로드 시 Docsify 라우팅으로 리다이렉트
-    window.onload = function() {
-      // history 모드를 위한 리다이렉트 처리
-      const currentPath = window.location.pathname;
-      
-      // HTML 확장자 제거하여 원래 경로로 리다이렉트
-      if (currentPath.endsWith('.html')) {
-        window.location.href = currentPath.replace('.html', '');
-        return;
-      }
-      
-      // 이미 적절한 경로라면 Docsify로 전달
-      window.location.href = '/';
-    };
-  </script>
+  <link rel="stylesheet" href="/robota/style.css">
 </head>
 <body>
   <div id="content">
-    <p><a href="/api-reference/core/">Core API - v0.1.0</a> / SimpleMemory</p>
+    <p><a href="/robota/api-reference/core/">Core API - v0.1.0</a> / SimpleMemory</p>
 <h1>Class: SimpleMemory</h1>
 <p>기본 인메모리 구현</p>
 <h2>Implements</h2>
 <ul>
-<li><a href="/api-reference/core/interfaces/Memory"><code>Memory</code></a></li>
+<li><a href="/robota/api-reference/core/interfaces/Memory"><code>Memory</code></a></li>
 </ul>
 <h2>Table of contents</h2>
 <h3>Constructors</h3>
 <ul>
-<li><a href="/api-reference/core/classes/SimpleMemory#constructor">constructor</a></li>
+<li><a href="/robota/api-reference/core/classes/SimpleMemory#constructor">constructor</a></li>
 </ul>
 <h3>Methods</h3>
 <ul>
-<li><a href="/api-reference/core/classes/SimpleMemory#addmessage">addMessage</a></li>
-<li><a href="/api-reference/core/classes/SimpleMemory#getmessages">getMessages</a></li>
-<li><a href="/api-reference/core/classes/SimpleMemory#clear">clear</a></li>
+<li><a href="/robota/api-reference/core/classes/SimpleMemory#addmessage">addMessage</a></li>
+<li><a href="/robota/api-reference/core/classes/SimpleMemory#getmessages">getMessages</a></li>
+<li><a href="/robota/api-reference/core/classes/SimpleMemory#clear">clear</a></li>
 </ul>
 <h2>Constructors</h2>
 <h3><a id="constructor" name="constructor"></a> constructor</h3>
-<p>• <strong>new SimpleMemory</strong>(<code>options?</code>): <a href="/api-reference/core/classes/SimpleMemory"><code>SimpleMemory</code></a></p>
+<p>• <strong>new SimpleMemory</strong>(<code>options?</code>): <a href="/robota/api-reference/core/classes/SimpleMemory"><code>SimpleMemory</code></a></p>
 <h4>Parameters</h4>
 <table>
 <thead>
@@ -65,7 +49,7 @@
 </tr>
 </tbody></table>
 <h4>Returns</h4>
-<p><a href="/api-reference/core/classes/SimpleMemory"><code>SimpleMemory</code></a></p>
+<p><a href="/robota/api-reference/core/classes/SimpleMemory"><code>SimpleMemory</code></a></p>
 <h4>Defined in</h4>
 <p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/memory.ts#L36">packages/core/src/memory.ts:36</a></p>
 <h2>Methods</h2>
@@ -82,23 +66,23 @@
 </thead>
 <tbody><tr>
 <td align="left"><code>message</code></td>
-<td align="left"><a href="/api-reference/core/interfaces/Message"><code>Message</code></a></td>
+<td align="left"><a href="/robota/api-reference/core/interfaces/Message"><code>Message</code></a></td>
 </tr>
 </tbody></table>
 <h4>Returns</h4>
 <p><code>void</code></p>
 <h4>Implementation of</h4>
-<p><a href="/api-reference/core/interfaces/Memory">Memory</a>.<a href="/api-reference/core/interfaces/Memory#addmessage">addMessage</a></p>
+<p><a href="/robota/api-reference/core/interfaces/Memory">Memory</a>.<a href="/robota/api-reference/core/interfaces/Memory#addmessage">addMessage</a></p>
 <h4>Defined in</h4>
 <p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/memory.ts#L40">packages/core/src/memory.ts:40</a></p>
 <hr>
 <h3><a id="getmessages" name="getmessages"></a> getMessages</h3>
-<p>▸ <strong>getMessages</strong>(): <a href="/api-reference/core/interfaces/Message"><code>Message</code></a>[]</p>
+<p>▸ <strong>getMessages</strong>(): <a href="/robota/api-reference/core/interfaces/Message"><code>Message</code></a>[]</p>
 <p>저장된 모든 메시지를 가져옵니다.</p>
 <h4>Returns</h4>
-<p><a href="/api-reference/core/interfaces/Message"><code>Message</code></a>[]</p>
+<p><a href="/robota/api-reference/core/interfaces/Message"><code>Message</code></a>[]</p>
 <h4>Implementation of</h4>
-<p><a href="/api-reference/core/interfaces/Memory">Memory</a>.<a href="/api-reference/core/interfaces/Memory#getmessages">getMessages</a></p>
+<p><a href="/robota/api-reference/core/interfaces/Memory">Memory</a>.<a href="/robota/api-reference/core/interfaces/Memory#getmessages">getMessages</a></p>
 <h4>Defined in</h4>
 <p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/memory.ts#L58">packages/core/src/memory.ts:58</a></p>
 <hr>
@@ -108,10 +92,22 @@
 <h4>Returns</h4>
 <p><code>void</code></p>
 <h4>Implementation of</h4>
-<p><a href="/api-reference/core/interfaces/Memory">Memory</a>.<a href="/api-reference/core/interfaces/Memory#clear">clear</a></p>
+<p><a href="/robota/api-reference/core/interfaces/Memory">Memory</a>.<a href="/robota/api-reference/core/interfaces/Memory#clear">clear</a></p>
 <h4>Defined in</h4>
 <p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/memory.ts#L62">packages/core/src/memory.ts:62</a></p>
 
   </div>
+  <script>
+    // 페이지가 로드되면 Docsify로 리다이렉션
+    window.addEventListener('DOMContentLoaded', function() {
+      // 현재 경로에서 .html 확장자 제거
+      const currentPath = window.location.pathname;
+      if (currentPath.endsWith('.html')) {
+        // history 모드를 위한 리다이렉션
+        const newPath = currentPath.replace('.html', '');
+        window.location.replace(newPath);
+      }
+    });
+  </script>
 </body>
 </html>

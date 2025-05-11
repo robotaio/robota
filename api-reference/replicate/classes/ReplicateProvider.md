@@ -1,4 +1,4 @@
-[Replicate API - v0.1.0](/api-reference/replicate/) / ReplicateProvider
+[Replicate API - v0.1.0](/robota/api-reference/replicate/) / ReplicateProvider
 
 # Class: ReplicateProvider
 
@@ -8,23 +8,23 @@ Replicate 제공업체 클래스
 
 ### Constructors
 
-- [constructor](/api-reference/replicate/classes/ReplicateProvider#constructor)
+- [constructor](/robota/api-reference/replicate/classes/ReplicateProvider#constructor)
 
 ## Constructors
 
 ### <a id="constructor" name="constructor"></a> constructor
 
-• **new ReplicateProvider**(`options`): [`ReplicateProvider`](/api-reference/replicate/classes/ReplicateProvider)
+• **new ReplicateProvider**(`options`): [`ReplicateProvider`](/robota/api-reference/replicate/classes/ReplicateProvider)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [`ReplicateProviderOptions`](/api-reference/replicate/interfaces/ReplicateProviderOptions) |
+| `options` | [`ReplicateProviderOptions`](/robota/api-reference/replicate/interfaces/ReplicateProviderOptions) |
 
 #### Returns
 
-[`ReplicateProvider`](/api-reference/replicate/classes/ReplicateProvider)
+[`ReplicateProvider`](/robota/api-reference/replicate/classes/ReplicateProvider)
 
 #### Defined in
 

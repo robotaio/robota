@@ -6,23 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Robota API 문서</title>
   <meta name="description" content="Robota API 문서">
-  <link rel="stylesheet" href="/style.css">
-  <script>
-    // 페이지 로드 시 Docsify 라우팅으로 리다이렉트
-    window.onload = function() {
-      // history 모드를 위한 리다이렉트 처리
-      const currentPath = window.location.pathname;
-      
-      // HTML 확장자 제거하여 원래 경로로 리다이렉트
-      if (currentPath.endsWith('.html')) {
-        window.location.href = currentPath.replace('.html', '');
-        return;
-      }
-      
-      // 이미 적절한 경로라면 Docsify로 전달
-      window.location.href = '/';
-    };
-  </script>
+  <link rel="stylesheet" href="/robota/style.css">
 </head>
 <body>
   <div id="content">
@@ -31,47 +15,47 @@
 <h2>Table of contents</h2>
 <h3>Classes</h3>
 <ul>
-<li><a href="/api-reference/core/classes/FunctionRegistry">FunctionRegistry</a></li>
-<li><a href="/api-reference/core/classes/SimpleMemory">SimpleMemory</a></li>
-<li><a href="/api-reference/core/classes/PersistentSystemMemory">PersistentSystemMemory</a></li>
-<li><a href="/api-reference/core/classes/Robota">Robota</a></li>
-<li><a href="/api-reference/core/classes/SimpleTool">SimpleTool</a></li>
-<li><a href="/api-reference/core/classes/ToolRegistry">ToolRegistry</a></li>
+<li><a href="/robota/api-reference/core/classes/FunctionRegistry">FunctionRegistry</a></li>
+<li><a href="/robota/api-reference/core/classes/SimpleMemory">SimpleMemory</a></li>
+<li><a href="/robota/api-reference/core/classes/PersistentSystemMemory">PersistentSystemMemory</a></li>
+<li><a href="/robota/api-reference/core/classes/Robota">Robota</a></li>
+<li><a href="/robota/api-reference/core/classes/SimpleTool">SimpleTool</a></li>
+<li><a href="/robota/api-reference/core/classes/ToolRegistry">ToolRegistry</a></li>
 </ul>
 <h3>Interfaces</h3>
 <ul>
-<li><a href="/api-reference/core/interfaces/Memory">Memory</a></li>
-<li><a href="/api-reference/core/interfaces/ModelContextProtocol">ModelContextProtocol</a></li>
-<li><a href="/api-reference/core/interfaces/Tool">Tool</a></li>
-<li><a href="/api-reference/core/interfaces/ToolOptions">ToolOptions</a></li>
-<li><a href="/api-reference/core/interfaces/Message">Message</a></li>
-<li><a href="/api-reference/core/interfaces/FunctionCall">FunctionCall</a></li>
-<li><a href="/api-reference/core/interfaces/FunctionCallResult">FunctionCallResult</a></li>
-<li><a href="/api-reference/core/interfaces/FunctionDefinition">FunctionDefinition</a></li>
-<li><a href="/api-reference/core/interfaces/FunctionSchema">FunctionSchema</a></li>
-<li><a href="/api-reference/core/interfaces/ModelResponse">ModelResponse</a></li>
-<li><a href="/api-reference/core/interfaces/StreamingResponseChunk">StreamingResponseChunk</a></li>
-<li><a href="/api-reference/core/interfaces/ProviderOptions">ProviderOptions</a></li>
-<li><a href="/api-reference/core/interfaces/RunOptions">RunOptions</a></li>
-<li><a href="/api-reference/core/interfaces/FunctionCallConfig">FunctionCallConfig</a></li>
-<li><a href="/api-reference/core/interfaces/RobotaOptions">RobotaOptions</a></li>
-<li><a href="/api-reference/core/interfaces/Context">Context</a></li>
+<li><a href="/robota/api-reference/core/interfaces/Memory">Memory</a></li>
+<li><a href="/robota/api-reference/core/interfaces/ModelContextProtocol">ModelContextProtocol</a></li>
+<li><a href="/robota/api-reference/core/interfaces/Tool">Tool</a></li>
+<li><a href="/robota/api-reference/core/interfaces/ToolOptions">ToolOptions</a></li>
+<li><a href="/robota/api-reference/core/interfaces/Message">Message</a></li>
+<li><a href="/robota/api-reference/core/interfaces/FunctionCall">FunctionCall</a></li>
+<li><a href="/robota/api-reference/core/interfaces/FunctionCallResult">FunctionCallResult</a></li>
+<li><a href="/robota/api-reference/core/interfaces/FunctionDefinition">FunctionDefinition</a></li>
+<li><a href="/robota/api-reference/core/interfaces/FunctionSchema">FunctionSchema</a></li>
+<li><a href="/robota/api-reference/core/interfaces/ModelResponse">ModelResponse</a></li>
+<li><a href="/robota/api-reference/core/interfaces/StreamingResponseChunk">StreamingResponseChunk</a></li>
+<li><a href="/robota/api-reference/core/interfaces/ProviderOptions">ProviderOptions</a></li>
+<li><a href="/robota/api-reference/core/interfaces/RunOptions">RunOptions</a></li>
+<li><a href="/robota/api-reference/core/interfaces/FunctionCallConfig">FunctionCallConfig</a></li>
+<li><a href="/robota/api-reference/core/interfaces/RobotaOptions">RobotaOptions</a></li>
+<li><a href="/robota/api-reference/core/interfaces/Context">Context</a></li>
 </ul>
 <h3>Type Aliases</h3>
 <ul>
-<li><a href="/api-reference/core/README#functionhandler">FunctionHandler</a></li>
-<li><a href="/api-reference/core/README#messagerole">MessageRole</a></li>
-<li><a href="/api-reference/core/README#functioncallmode">FunctionCallMode</a></li>
+<li><a href="/robota/api-reference/core/README#functionhandler">FunctionHandler</a></li>
+<li><a href="/robota/api-reference/core/README#messagerole">MessageRole</a></li>
+<li><a href="/robota/api-reference/core/README#functioncallmode">FunctionCallMode</a></li>
 </ul>
 <h3>Functions</h3>
 <ul>
-<li><a href="/api-reference/core/README#createfunctionschema">createFunctionSchema</a></li>
-<li><a href="/api-reference/core/README#splittextintochunks">splitTextIntoChunks</a></li>
-<li><a href="/api-reference/core/README#removeundefined">removeUndefined</a></li>
-<li><a href="/api-reference/core/README#isjson">isJSON</a></li>
-<li><a href="/api-reference/core/README#delay">delay</a></li>
-<li><a href="/api-reference/core/README#estimatetokencount">estimateTokenCount</a></li>
-<li><a href="/api-reference/core/README#extractjsonobjects">extractJSONObjects</a></li>
+<li><a href="/robota/api-reference/core/README#createfunctionschema">createFunctionSchema</a></li>
+<li><a href="/robota/api-reference/core/README#splittextintochunks">splitTextIntoChunks</a></li>
+<li><a href="/robota/api-reference/core/README#removeundefined">removeUndefined</a></li>
+<li><a href="/robota/api-reference/core/README#isjson">isJSON</a></li>
+<li><a href="/robota/api-reference/core/README#delay">delay</a></li>
+<li><a href="/robota/api-reference/core/README#estimatetokencount">estimateTokenCount</a></li>
+<li><a href="/robota/api-reference/core/README#extractjsonobjects">extractJSONObjects</a></li>
 </ul>
 <h2>Type Aliases</h2>
 <h3><a id="functionhandler" name="functionhandler"></a> FunctionHandler</h3>
@@ -126,7 +110,7 @@
 </thead>
 <tbody><tr>
 <td align="left"><code>definition</code></td>
-<td align="left"><a href="/api-reference/core/interfaces/FunctionDefinition"><code>FunctionDefinition</code></a></td>
+<td align="left"><a href="/robota/api-reference/core/interfaces/FunctionDefinition"><code>FunctionDefinition</code></a></td>
 </tr>
 </tbody></table>
 <h4>Returns</h4>
@@ -313,5 +297,17 @@
 <p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/utils.ts#L96">packages/core/src/utils.ts:96</a></p>
 
   </div>
+  <script>
+    // 페이지가 로드되면 Docsify로 리다이렉션
+    window.addEventListener('DOMContentLoaded', function() {
+      // 현재 경로에서 .html 확장자 제거
+      const currentPath = window.location.pathname;
+      if (currentPath.endsWith('.html')) {
+        // history 모드를 위한 리다이렉션
+        const newPath = currentPath.replace('.html', '');
+        window.location.replace(newPath);
+      }
+    });
+  </script>
 </body>
 </html>

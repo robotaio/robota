@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / FunctionRegistry
+[Core API - v0.1.0](/robota/api-reference/core/) / FunctionRegistry
 
 # Class: FunctionRegistry
 
@@ -8,24 +8,24 @@
 
 ### Constructors
 
-- [constructor](/api-reference/core/classes/FunctionRegistry#constructor)
+- [constructor](/robota/api-reference/core/classes/FunctionRegistry#constructor)
 
 ### Methods
 
-- [register](/api-reference/core/classes/FunctionRegistry#register)
-- [getAllDefinitions](/api-reference/core/classes/FunctionRegistry#getalldefinitions)
-- [getDefinition](/api-reference/core/classes/FunctionRegistry#getdefinition)
-- [execute](/api-reference/core/classes/FunctionRegistry#execute)
+- [register](/robota/api-reference/core/classes/FunctionRegistry#register)
+- [getAllDefinitions](/robota/api-reference/core/classes/FunctionRegistry#getalldefinitions)
+- [getDefinition](/robota/api-reference/core/classes/FunctionRegistry#getdefinition)
+- [execute](/robota/api-reference/core/classes/FunctionRegistry#execute)
 
 ## Constructors
 
 ### <a id="constructor" name="constructor"></a> constructor
 
-• **new FunctionRegistry**(): [`FunctionRegistry`](/api-reference/core/classes/FunctionRegistry)
+• **new FunctionRegistry**(): [`FunctionRegistry`](/robota/api-reference/core/classes/FunctionRegistry)
 
 #### Returns
 
-[`FunctionRegistry`](/api-reference/core/classes/FunctionRegistry)
+[`FunctionRegistry`](/robota/api-reference/core/classes/FunctionRegistry)
 
 ## Methods
 
@@ -39,8 +39,8 @@
 
 | Name | Type |
 | :------ | :------ |
-| `definition` | [`FunctionDefinition`](/api-reference/core/interfaces/FunctionDefinition) |
-| `handler` | [`FunctionHandler`](/api-reference/core/#functionhandler) |
+| `definition` | [`FunctionDefinition`](/robota/api-reference/core/interfaces/FunctionDefinition) |
+| `handler` | [`FunctionHandler`](/robota/api-reference/core/#functionhandler) |
 
 #### Returns
 
@@ -54,13 +54,13 @@ ___
 
 ### <a id="getalldefinitions" name="getalldefinitions"></a> getAllDefinitions
 
-▸ **getAllDefinitions**(): [`FunctionDefinition`](/api-reference/core/interfaces/FunctionDefinition)[]
+▸ **getAllDefinitions**(): [`FunctionDefinition`](/robota/api-reference/core/interfaces/FunctionDefinition)[]
 
 등록된 모든 함수 정의를 반환합니다
 
 #### Returns
 
-[`FunctionDefinition`](/api-reference/core/interfaces/FunctionDefinition)[]
+[`FunctionDefinition`](/robota/api-reference/core/interfaces/FunctionDefinition)[]
 
 #### Defined in
 
@@ -70,7 +70,7 @@ ___
 
 ### <a id="getdefinition" name="getdefinition"></a> getDefinition
 
-▸ **getDefinition**(`name`): `undefined` \| [`FunctionDefinition`](/api-reference/core/interfaces/FunctionDefinition)
+▸ **getDefinition**(`name`): `undefined` \| [`FunctionDefinition`](/robota/api-reference/core/interfaces/FunctionDefinition)
 
 함수 이름으로 함수 정의를 가져옵니다
 
@@ -82,7 +82,7 @@ ___
 
 #### Returns
 
-`undefined` \| [`FunctionDefinition`](/api-reference/core/interfaces/FunctionDefinition)
+`undefined` \| [`FunctionDefinition`](/robota/api-reference/core/interfaces/FunctionDefinition)
 
 #### Defined in
 
@@ -92,7 +92,7 @@ ___
 
 ### <a id="execute" name="execute"></a> execute
 
-▸ **execute**(`functionCall`, `context?`): `Promise`\<[`FunctionCallResult`](/api-reference/core/interfaces/FunctionCallResult)\>
+▸ **execute**(`functionCall`, `context?`): `Promise`\<[`FunctionCallResult`](/robota/api-reference/core/interfaces/FunctionCallResult)\>
 
 함수 호출을 실행합니다
 
@@ -100,12 +100,12 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `functionCall` | [`FunctionCall`](/api-reference/core/interfaces/FunctionCall) |
+| `functionCall` | [`FunctionCall`](/robota/api-reference/core/interfaces/FunctionCall) |
 | `context?` | `any` |
 
 #### Returns
 
-`Promise`\<[`FunctionCallResult`](/api-reference/core/interfaces/FunctionCallResult)\>
+`Promise`\<[`FunctionCallResult`](/robota/api-reference/core/interfaces/FunctionCallResult)\>
 
 #### Defined in
 

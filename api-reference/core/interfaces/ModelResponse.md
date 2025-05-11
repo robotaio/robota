@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / ModelResponse
+[Core API - v0.1.0](/robota/api-reference/core/) / ModelResponse
 
 # Interface: ModelResponse
 
@@ -8,10 +8,10 @@
 
 ### Properties
 
-- [content](/api-reference/core/interfaces/ModelResponse#content)
-- [functionCall](/api-reference/core/interfaces/ModelResponse#functioncall)
-- [usage](/api-reference/core/interfaces/ModelResponse#usage)
-- [metadata](/api-reference/core/interfaces/ModelResponse#metadata)
+- [content](/robota/api-reference/core/interfaces/ModelResponse#content)
+- [functionCall](/robota/api-reference/core/interfaces/ModelResponse#functioncall)
+- [usage](/robota/api-reference/core/interfaces/ModelResponse#usage)
+- [metadata](/robota/api-reference/core/interfaces/ModelResponse#metadata)
 
 ## Properties
 
@@ -27,7 +27,7 @@ ___
 
 ### <a id="functioncall" name="functioncall"></a> functionCall
 
-• `Optional` **functionCall**: [`FunctionCall`](/api-reference/core/interfaces/FunctionCall)
+• `Optional` **functionCall**: [`FunctionCall`](/robota/api-reference/core/interfaces/FunctionCall)
 
 #### Defined in
 

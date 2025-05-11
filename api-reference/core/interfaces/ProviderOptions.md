@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / ProviderOptions
+[Core API - v0.1.0](/robota/api-reference/core/) / ProviderOptions
 
 # Interface: ProviderOptions
 
@@ -8,11 +8,11 @@
 
 ### Properties
 
-- [model](/api-reference/core/interfaces/ProviderOptions#model)
-- [temperature](/api-reference/core/interfaces/ProviderOptions#temperature)
-- [maxTokens](/api-reference/core/interfaces/ProviderOptions#maxtokens)
-- [stopSequences](/api-reference/core/interfaces/ProviderOptions#stopsequences)
-- [streamMode](/api-reference/core/interfaces/ProviderOptions#streammode)
+- [model](/robota/api-reference/core/interfaces/ProviderOptions#model)
+- [temperature](/robota/api-reference/core/interfaces/ProviderOptions#temperature)
+- [maxTokens](/robota/api-reference/core/interfaces/ProviderOptions#maxtokens)
+- [stopSequences](/robota/api-reference/core/interfaces/ProviderOptions#stopsequences)
+- [streamMode](/robota/api-reference/core/interfaces/ProviderOptions#streammode)
 
 ## Properties
 

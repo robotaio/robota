@@ -6,8 +6,8 @@ Replicate API
 
 ### Classes
 
-- [ReplicateProvider](/api-reference/replicate/classes/ReplicateProvider)
+- [ReplicateProvider](/robota/api-reference/replicate/classes/ReplicateProvider)
 
 ### Interfaces
 
-- [ReplicateProviderOptions](/api-reference/replicate/interfaces/ReplicateProviderOptions)
+- [ReplicateProviderOptions](/robota/api-reference/replicate/interfaces/ReplicateProviderOptions)

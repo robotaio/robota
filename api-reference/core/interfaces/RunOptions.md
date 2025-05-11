@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / RunOptions
+[Core API - v0.1.0](/robota/api-reference/core/) / RunOptions
 
 # Interface: RunOptions
 
@@ -8,12 +8,12 @@
 
 ### Properties
 
-- [systemPrompt](/api-reference/core/interfaces/RunOptions#systemprompt)
-- [functionCallMode](/api-reference/core/interfaces/RunOptions#functioncallmode)
-- [forcedFunction](/api-reference/core/interfaces/RunOptions#forcedfunction)
-- [forcedArguments](/api-reference/core/interfaces/RunOptions#forcedarguments)
-- [temperature](/api-reference/core/interfaces/RunOptions#temperature)
-- [maxTokens](/api-reference/core/interfaces/RunOptions#maxtokens)
+- [systemPrompt](/robota/api-reference/core/interfaces/RunOptions#systemprompt)
+- [functionCallMode](/robota/api-reference/core/interfaces/RunOptions#functioncallmode)
+- [forcedFunction](/robota/api-reference/core/interfaces/RunOptions#forcedfunction)
+- [forcedArguments](/robota/api-reference/core/interfaces/RunOptions#forcedarguments)
+- [temperature](/robota/api-reference/core/interfaces/RunOptions#temperature)
+- [maxTokens](/robota/api-reference/core/interfaces/RunOptions#maxtokens)
 
 ## Properties
 
@@ -29,7 +29,7 @@ ___
 
 ### <a id="functioncallmode" name="functioncallmode"></a> functionCallMode
 
-• `Optional` **functionCallMode**: [`FunctionCallMode`](/api-reference/core/#functioncallmode)
+• `Optional` **functionCallMode**: [`FunctionCallMode`](/robota/api-reference/core/#functioncallmode)
 
 #### Defined in
 

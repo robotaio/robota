@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / PersistentSystemMemory
+[Core API - v0.1.0](/robota/api-reference/core/) / PersistentSystemMemory
 
 # Class: PersistentSystemMemory
 
@@ -6,26 +6,26 @@
 
 ## Implements
 
-- [`Memory`](/api-reference/core/interfaces/Memory)
+- [`Memory`](/robota/api-reference/core/interfaces/Memory)
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](/api-reference/core/classes/PersistentSystemMemory#constructor)
+- [constructor](/robota/api-reference/core/classes/PersistentSystemMemory#constructor)
 
 ### Methods
 
-- [addMessage](/api-reference/core/classes/PersistentSystemMemory#addmessage)
-- [getMessages](/api-reference/core/classes/PersistentSystemMemory#getmessages)
-- [clear](/api-reference/core/classes/PersistentSystemMemory#clear)
-- [updateSystemPrompt](/api-reference/core/classes/PersistentSystemMemory#updatesystemprompt)
+- [addMessage](/robota/api-reference/core/classes/PersistentSystemMemory#addmessage)
+- [getMessages](/robota/api-reference/core/classes/PersistentSystemMemory#getmessages)
+- [clear](/robota/api-reference/core/classes/PersistentSystemMemory#clear)
+- [updateSystemPrompt](/robota/api-reference/core/classes/PersistentSystemMemory#updatesystemprompt)
 
 ## Constructors
 
 ### <a id="constructor" name="constructor"></a> constructor
 
-• **new PersistentSystemMemory**(`systemPrompt`, `options?`): [`PersistentSystemMemory`](/api-reference/core/classes/PersistentSystemMemory)
+• **new PersistentSystemMemory**(`systemPrompt`, `options?`): [`PersistentSystemMemory`](/robota/api-reference/core/classes/PersistentSystemMemory)
 
 #### Parameters
 
@@ -37,7 +37,7 @@
 
 #### Returns
 
-[`PersistentSystemMemory`](/api-reference/core/classes/PersistentSystemMemory)
+[`PersistentSystemMemory`](/robota/api-reference/core/classes/PersistentSystemMemory)
 
 #### Defined in
 
@@ -55,7 +55,7 @@
 
 | Name | Type |
 | :------ | :------ |
-| `message` | [`Message`](/api-reference/core/interfaces/Message) |
+| `message` | [`Message`](/robota/api-reference/core/interfaces/Message) |
 
 #### Returns
 
@@ -63,7 +63,7 @@
 
 #### Implementation of
 
-[Memory](/api-reference/core/interfaces/Memory).[addMessage](/api-reference/core/interfaces/Memory#addmessage)
+[Memory](/robota/api-reference/core/interfaces/Memory).[addMessage](/robota/api-reference/core/interfaces/Memory#addmessage)
 
 #### Defined in
 
@@ -73,17 +73,17 @@ ___
 
 ### <a id="getmessages" name="getmessages"></a> getMessages
 
-▸ **getMessages**(): [`Message`](/api-reference/core/interfaces/Message)[]
+▸ **getMessages**(): [`Message`](/robota/api-reference/core/interfaces/Message)[]
 
 저장된 모든 메시지를 가져옵니다.
 
 #### Returns
 
-[`Message`](/api-reference/core/interfaces/Message)[]
+[`Message`](/robota/api-reference/core/interfaces/Message)[]
 
 #### Implementation of
 
-[Memory](/api-reference/core/interfaces/Memory).[getMessages](/api-reference/core/interfaces/Memory#getmessages)
+[Memory](/robota/api-reference/core/interfaces/Memory).[getMessages](/robota/api-reference/core/interfaces/Memory#getmessages)
 
 #### Defined in
 
@@ -103,7 +103,7 @@ ___
 
 #### Implementation of
 
-[Memory](/api-reference/core/interfaces/Memory).[clear](/api-reference/core/interfaces/Memory#clear)
+[Memory](/robota/api-reference/core/interfaces/Memory).[clear](/robota/api-reference/core/interfaces/Memory#clear)
 
 #### Defined in
 

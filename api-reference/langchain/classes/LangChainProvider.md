@@ -1,4 +1,4 @@
-[LangChain API - v0.1.0](/api-reference/langchain/) / LangChainProvider
+[LangChain API - v0.1.0](/robota/api-reference/langchain/) / LangChainProvider
 
 # Class: LangChainProvider
 
@@ -8,23 +8,23 @@ LangChain 제공업체 클래스
 
 ### Constructors
 
-- [constructor](/api-reference/langchain/classes/LangChainProvider#constructor)
+- [constructor](/robota/api-reference/langchain/classes/LangChainProvider#constructor)
 
 ## Constructors
 
 ### <a id="constructor" name="constructor"></a> constructor
 
-• **new LangChainProvider**(`options`): [`LangChainProvider`](/api-reference/langchain/classes/LangChainProvider)
+• **new LangChainProvider**(`options`): [`LangChainProvider`](/robota/api-reference/langchain/classes/LangChainProvider)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [`LangChainProviderOptions`](/api-reference/langchain/interfaces/LangChainProviderOptions) |
+| `options` | [`LangChainProviderOptions`](/robota/api-reference/langchain/interfaces/LangChainProviderOptions) |
 
 #### Returns
 
-[`LangChainProvider`](/api-reference/langchain/classes/LangChainProvider)
+[`LangChainProvider`](/robota/api-reference/langchain/classes/LangChainProvider)
 
 #### Defined in
 

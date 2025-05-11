@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / RobotaOptions
+[Core API - v0.1.0](/robota/api-reference/core/) / RobotaOptions
 
 # Interface: RobotaOptions
 
@@ -8,12 +8,12 @@ Robota 설정 인터페이스
 
 ### Properties
 
-- [provider](/api-reference/core/interfaces/RobotaOptions#provider)
-- [systemPrompt](/api-reference/core/interfaces/RobotaOptions#systemprompt)
-- [systemMessages](/api-reference/core/interfaces/RobotaOptions#systemmessages)
-- [memory](/api-reference/core/interfaces/RobotaOptions#memory)
-- [functionCallConfig](/api-reference/core/interfaces/RobotaOptions#functioncallconfig)
-- [onFunctionCall](/api-reference/core/interfaces/RobotaOptions#onfunctioncall)
+- [provider](/robota/api-reference/core/interfaces/RobotaOptions#provider)
+- [systemPrompt](/robota/api-reference/core/interfaces/RobotaOptions#systemprompt)
+- [systemMessages](/robota/api-reference/core/interfaces/RobotaOptions#systemmessages)
+- [memory](/robota/api-reference/core/interfaces/RobotaOptions#memory)
+- [functionCallConfig](/robota/api-reference/core/interfaces/RobotaOptions#functioncallconfig)
+- [onFunctionCall](/robota/api-reference/core/interfaces/RobotaOptions#onfunctioncall)
 
 ## Properties
 
@@ -39,7 +39,7 @@ ___
 
 ### <a id="systemmessages" name="systemmessages"></a> systemMessages
 
-• `Optional` **systemMessages**: [`Message`](/api-reference/core/interfaces/Message)[]
+• `Optional` **systemMessages**: [`Message`](/robota/api-reference/core/interfaces/Message)[]
 
 #### Defined in
 
@@ -59,7 +59,7 @@ ___
 
 ### <a id="functioncallconfig" name="functioncallconfig"></a> functionCallConfig
 
-• `Optional` **functionCallConfig**: [`FunctionCallConfig`](/api-reference/core/interfaces/FunctionCallConfig)
+• `Optional` **functionCallConfig**: [`FunctionCallConfig`](/robota/api-reference/core/interfaces/FunctionCallConfig)
 
 #### Defined in
 

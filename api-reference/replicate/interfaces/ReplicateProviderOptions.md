@@ -1,4 +1,4 @@
-[Replicate API - v0.1.0](/api-reference/replicate/) / ReplicateProviderOptions
+[Replicate API - v0.1.0](/robota/api-reference/replicate/) / ReplicateProviderOptions
 
 # Interface: ReplicateProviderOptions
 
@@ -14,12 +14,12 @@ Replicate 제공업체 옵션
 
 ### Properties
 
-- [model](/api-reference/replicate/interfaces/ReplicateProviderOptions#model)
-- [temperature](/api-reference/replicate/interfaces/ReplicateProviderOptions#temperature)
-- [maxTokens](/api-reference/replicate/interfaces/ReplicateProviderOptions#maxtokens)
-- [stopSequences](/api-reference/replicate/interfaces/ReplicateProviderOptions#stopsequences)
-- [streamMode](/api-reference/replicate/interfaces/ReplicateProviderOptions#streammode)
-- [apiToken](/api-reference/replicate/interfaces/ReplicateProviderOptions#apitoken)
+- [model](/robota/api-reference/replicate/interfaces/ReplicateProviderOptions#model)
+- [temperature](/robota/api-reference/replicate/interfaces/ReplicateProviderOptions#temperature)
+- [maxTokens](/robota/api-reference/replicate/interfaces/ReplicateProviderOptions#maxtokens)
+- [stopSequences](/robota/api-reference/replicate/interfaces/ReplicateProviderOptions#stopsequences)
+- [streamMode](/robota/api-reference/replicate/interfaces/ReplicateProviderOptions#streammode)
+- [apiToken](/robota/api-reference/replicate/interfaces/ReplicateProviderOptions#apitoken)
 
 ## Properties
 

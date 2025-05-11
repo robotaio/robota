@@ -6,47 +6,47 @@ Core API
 
 ### Classes
 
-- [FunctionRegistry](/api-reference/core/classes/FunctionRegistry)
-- [SimpleMemory](/api-reference/core/classes/SimpleMemory)
-- [PersistentSystemMemory](/api-reference/core/classes/PersistentSystemMemory)
-- [Robota](/api-reference/core/classes/Robota)
-- [SimpleTool](/api-reference/core/classes/SimpleTool)
-- [ToolRegistry](/api-reference/core/classes/ToolRegistry)
+- [FunctionRegistry](/robota/api-reference/core/classes/FunctionRegistry)
+- [SimpleMemory](/robota/api-reference/core/classes/SimpleMemory)
+- [PersistentSystemMemory](/robota/api-reference/core/classes/PersistentSystemMemory)
+- [Robota](/robota/api-reference/core/classes/Robota)
+- [SimpleTool](/robota/api-reference/core/classes/SimpleTool)
+- [ToolRegistry](/robota/api-reference/core/classes/ToolRegistry)
 
 ### Interfaces
 
-- [Memory](/api-reference/core/interfaces/Memory)
-- [ModelContextProtocol](/api-reference/core/interfaces/ModelContextProtocol)
-- [Tool](/api-reference/core/interfaces/Tool)
-- [ToolOptions](/api-reference/core/interfaces/ToolOptions)
-- [Message](/api-reference/core/interfaces/Message)
-- [FunctionCall](/api-reference/core/interfaces/FunctionCall)
-- [FunctionCallResult](/api-reference/core/interfaces/FunctionCallResult)
-- [FunctionDefinition](/api-reference/core/interfaces/FunctionDefinition)
-- [FunctionSchema](/api-reference/core/interfaces/FunctionSchema)
-- [ModelResponse](/api-reference/core/interfaces/ModelResponse)
-- [StreamingResponseChunk](/api-reference/core/interfaces/StreamingResponseChunk)
-- [ProviderOptions](/api-reference/core/interfaces/ProviderOptions)
-- [RunOptions](/api-reference/core/interfaces/RunOptions)
-- [FunctionCallConfig](/api-reference/core/interfaces/FunctionCallConfig)
-- [RobotaOptions](/api-reference/core/interfaces/RobotaOptions)
-- [Context](/api-reference/core/interfaces/Context)
+- [Memory](/robota/api-reference/core/interfaces/Memory)
+- [ModelContextProtocol](/robota/api-reference/core/interfaces/ModelContextProtocol)
+- [Tool](/robota/api-reference/core/interfaces/Tool)
+- [ToolOptions](/robota/api-reference/core/interfaces/ToolOptions)
+- [Message](/robota/api-reference/core/interfaces/Message)
+- [FunctionCall](/robota/api-reference/core/interfaces/FunctionCall)
+- [FunctionCallResult](/robota/api-reference/core/interfaces/FunctionCallResult)
+- [FunctionDefinition](/robota/api-reference/core/interfaces/FunctionDefinition)
+- [FunctionSchema](/robota/api-reference/core/interfaces/FunctionSchema)
+- [ModelResponse](/robota/api-reference/core/interfaces/ModelResponse)
+- [StreamingResponseChunk](/robota/api-reference/core/interfaces/StreamingResponseChunk)
+- [ProviderOptions](/robota/api-reference/core/interfaces/ProviderOptions)
+- [RunOptions](/robota/api-reference/core/interfaces/RunOptions)
+- [FunctionCallConfig](/robota/api-reference/core/interfaces/FunctionCallConfig)
+- [RobotaOptions](/robota/api-reference/core/interfaces/RobotaOptions)
+- [Context](/robota/api-reference/core/interfaces/Context)
 
 ### Type Aliases
 
-- [FunctionHandler](/api-reference/core/README#functionhandler)
-- [MessageRole](/api-reference/core/README#messagerole)
-- [FunctionCallMode](/api-reference/core/README#functioncallmode)
+- [FunctionHandler](/robota/api-reference/core/README#functionhandler)
+- [MessageRole](/robota/api-reference/core/README#messagerole)
+- [FunctionCallMode](/robota/api-reference/core/README#functioncallmode)
 
 ### Functions
 
-- [createFunctionSchema](/api-reference/core/README#createfunctionschema)
-- [splitTextIntoChunks](/api-reference/core/README#splittextintochunks)
-- [removeUndefined](/api-reference/core/README#removeundefined)
-- [isJSON](/api-reference/core/README#isjson)
-- [delay](/api-reference/core/README#delay)
-- [estimateTokenCount](/api-reference/core/README#estimatetokencount)
-- [extractJSONObjects](/api-reference/core/README#extractjsonobjects)
+- [createFunctionSchema](/robota/api-reference/core/README#createfunctionschema)
+- [splitTextIntoChunks](/robota/api-reference/core/README#splittextintochunks)
+- [removeUndefined](/robota/api-reference/core/README#removeundefined)
+- [isJSON](/robota/api-reference/core/README#isjson)
+- [delay](/robota/api-reference/core/README#delay)
+- [estimateTokenCount](/robota/api-reference/core/README#estimatetokencount)
+- [extractJSONObjects](/robota/api-reference/core/README#extractjsonobjects)
 
 ## Type Aliases
 
@@ -111,7 +111,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `definition` | [`FunctionDefinition`](/api-reference/core/interfaces/FunctionDefinition) |
+| `definition` | [`FunctionDefinition`](/robota/api-reference/core/interfaces/FunctionDefinition) |
 
 #### Returns
 

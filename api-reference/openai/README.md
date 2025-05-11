@@ -6,8 +6,8 @@ OpenAI API
 
 ### Classes
 
-- [OpenAIProvider](/api-reference/openai/classes/OpenAIProvider)
+- [OpenAIProvider](/robota/api-reference/openai/classes/OpenAIProvider)
 
 ### Interfaces
 
-- [OpenAIProviderOptions](/api-reference/openai/interfaces/OpenAIProviderOptions)
+- [OpenAIProviderOptions](/robota/api-reference/openai/interfaces/OpenAIProviderOptions)

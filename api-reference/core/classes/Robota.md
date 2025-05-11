@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / Robota
+[Core API - v0.1.0](/robota/api-reference/core/) / Robota
 
 # Class: Robota
 
@@ -23,28 +23,28 @@ const response = await robota.run('안녕하세요!');
 
 ### Constructors
 
-- [constructor](/api-reference/core/classes/Robota#constructor)
+- [constructor](/robota/api-reference/core/classes/Robota#constructor)
 
 ### Methods
 
-- [setSystemPrompt](/api-reference/core/classes/Robota#setsystemprompt)
-- [setSystemMessages](/api-reference/core/classes/Robota#setsystemmessages)
-- [addSystemMessage](/api-reference/core/classes/Robota#addsystemmessage)
-- [setFunctionCallMode](/api-reference/core/classes/Robota#setfunctioncallmode)
-- [configureFunctionCall](/api-reference/core/classes/Robota#configurefunctioncall)
-- [registerFunctions](/api-reference/core/classes/Robota#registerfunctions)
-- [registerFunction](/api-reference/core/classes/Robota#registerfunction)
-- [run](/api-reference/core/classes/Robota#run)
-- [chat](/api-reference/core/classes/Robota#chat)
-- [runStream](/api-reference/core/classes/Robota#runstream)
-- [addResponseToMemory](/api-reference/core/classes/Robota#addresponsetomemory)
-- [clearMemory](/api-reference/core/classes/Robota#clearmemory)
+- [setSystemPrompt](/robota/api-reference/core/classes/Robota#setsystemprompt)
+- [setSystemMessages](/robota/api-reference/core/classes/Robota#setsystemmessages)
+- [addSystemMessage](/robota/api-reference/core/classes/Robota#addsystemmessage)
+- [setFunctionCallMode](/robota/api-reference/core/classes/Robota#setfunctioncallmode)
+- [configureFunctionCall](/robota/api-reference/core/classes/Robota#configurefunctioncall)
+- [registerFunctions](/robota/api-reference/core/classes/Robota#registerfunctions)
+- [registerFunction](/robota/api-reference/core/classes/Robota#registerfunction)
+- [run](/robota/api-reference/core/classes/Robota#run)
+- [chat](/robota/api-reference/core/classes/Robota#chat)
+- [runStream](/robota/api-reference/core/classes/Robota#runstream)
+- [addResponseToMemory](/robota/api-reference/core/classes/Robota#addresponsetomemory)
+- [clearMemory](/robota/api-reference/core/classes/Robota#clearmemory)
 
 ## Constructors
 
 ### <a id="constructor" name="constructor"></a> constructor
 
-• **new Robota**(`options`): [`Robota`](/api-reference/core/classes/Robota)
+• **new Robota**(`options`): [`Robota`](/robota/api-reference/core/classes/Robota)
 
 Robota 인스턴스 생성
 
@@ -52,11 +52,11 @@ Robota 인스턴스 생성
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `options` | [`RobotaOptions`](/api-reference/core/interfaces/RobotaOptions) | Robota 초기화 옵션 |
+| `options` | [`RobotaOptions`](/robota/api-reference/core/interfaces/RobotaOptions) | Robota 초기화 옵션 |
 
 #### Returns
 
-[`Robota`](/api-reference/core/classes/Robota)
+[`Robota`](/robota/api-reference/core/classes/Robota)
 
 #### Defined in
 
@@ -96,7 +96,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `messages` | [`Message`](/api-reference/core/interfaces/Message)[] | 시스템 메시지 배열 |
+| `messages` | [`Message`](/robota/api-reference/core/interfaces/Message)[] | 시스템 메시지 배열 |
 
 #### Returns
 
@@ -140,7 +140,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `mode` | [`FunctionCallMode`](/api-reference/core/#functioncallmode) | 함수 호출 모드 ('auto', 'force', 'disabled') |
+| `mode` | [`FunctionCallMode`](/robota/api-reference/core/#functioncallmode) | 함수 호출 모드 ('auto', 'force', 'disabled') |
 
 #### Returns
 
@@ -163,7 +163,7 @@ ___
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `config` | `Object` | 함수 호출 구성 옵션 |
-| `config.mode?` | [`FunctionCallMode`](/api-reference/core/#functioncallmode) | - |
+| `config.mode?` | [`FunctionCallMode`](/robota/api-reference/core/#functioncallmode) | - |
 | `config.maxCalls?` | `number` | - |
 | `config.timeout?` | `number` | - |
 | `config.allowedFunctions?` | `string`[] | - |
@@ -210,7 +210,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `schema` | [`FunctionSchema`](/api-reference/core/interfaces/FunctionSchema) | 함수 스키마 |
+| `schema` | [`FunctionSchema`](/robota/api-reference/core/interfaces/FunctionSchema) | 함수 스키마 |
 | `fn` | `Function` | 함수 구현 |
 
 #### Returns
@@ -234,7 +234,7 @@ ___
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `prompt` | `string` | 사용자 프롬프트 |
-| `options` | [`RunOptions`](/api-reference/core/interfaces/RunOptions) | 실행 옵션 |
+| `options` | [`RunOptions`](/robota/api-reference/core/interfaces/RunOptions) | 실행 옵션 |
 
 #### Returns
 
@@ -259,7 +259,7 @@ ___
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `message` | `string` | 사용자 메시지 |
-| `options` | [`RunOptions`](/api-reference/core/interfaces/RunOptions) | 실행 옵션 |
+| `options` | [`RunOptions`](/robota/api-reference/core/interfaces/RunOptions) | 실행 옵션 |
 
 #### Returns
 
@@ -275,7 +275,7 @@ ___
 
 ### <a id="runstream" name="runstream"></a> runStream
 
-▸ **runStream**(`prompt`, `options?`): `Promise`\<`AsyncIterable`\<[`StreamingResponseChunk`](/api-reference/core/interfaces/StreamingResponseChunk), `any`, `any`\>\>
+▸ **runStream**(`prompt`, `options?`): `Promise`\<`AsyncIterable`\<[`StreamingResponseChunk`](/robota/api-reference/core/interfaces/StreamingResponseChunk), `any`, `any`\>\>
 
 스트리밍 응답 생성
 
@@ -284,11 +284,11 @@ ___
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `prompt` | `string` | 사용자 프롬프트 |
-| `options` | [`RunOptions`](/api-reference/core/interfaces/RunOptions) | 실행 옵션 |
+| `options` | [`RunOptions`](/robota/api-reference/core/interfaces/RunOptions) | 실행 옵션 |
 
 #### Returns
 
-`Promise`\<`AsyncIterable`\<[`StreamingResponseChunk`](/api-reference/core/interfaces/StreamingResponseChunk), `any`, `any`\>\>
+`Promise`\<`AsyncIterable`\<[`StreamingResponseChunk`](/robota/api-reference/core/interfaces/StreamingResponseChunk), `any`, `any`\>\>
 
 스트리밍 응답 청크 이터레이터
 
@@ -308,7 +308,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `response` | [`ModelResponse`](/api-reference/core/interfaces/ModelResponse) | 모델 응답 |
+| `response` | [`ModelResponse`](/robota/api-reference/core/interfaces/ModelResponse) | 모델 응답 |
 
 #### Returns
 

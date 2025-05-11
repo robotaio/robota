@@ -6,52 +6,36 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Robota API 문서</title>
   <meta name="description" content="Robota API 문서">
-  <link rel="stylesheet" href="/style.css">
-  <script>
-    // 페이지 로드 시 Docsify 라우팅으로 리다이렉트
-    window.onload = function() {
-      // history 모드를 위한 리다이렉트 처리
-      const currentPath = window.location.pathname;
-      
-      // HTML 확장자 제거하여 원래 경로로 리다이렉트
-      if (currentPath.endsWith('.html')) {
-        window.location.href = currentPath.replace('.html', '');
-        return;
-      }
-      
-      // 이미 적절한 경로라면 Docsify로 전달
-      window.location.href = '/';
-    };
-  </script>
+  <link rel="stylesheet" href="/robota/style.css">
 </head>
 <body>
   <div id="content">
-    <p><a href="/api-reference/core/">Core API - v0.1.0</a> / SimpleTool</p>
+    <p><a href="/robota/api-reference/core/">Core API - v0.1.0</a> / SimpleTool</p>
 <h1>Class: SimpleTool</h1>
 <p>도구 클래스</p>
 <h2>Implements</h2>
 <ul>
-<li><a href="/api-reference/core/interfaces/Tool"><code>Tool</code></a></li>
+<li><a href="/robota/api-reference/core/interfaces/Tool"><code>Tool</code></a></li>
 </ul>
 <h2>Table of contents</h2>
 <h3>Constructors</h3>
 <ul>
-<li><a href="/api-reference/core/classes/SimpleTool#constructor">constructor</a></li>
+<li><a href="/robota/api-reference/core/classes/SimpleTool#constructor">constructor</a></li>
 </ul>
 <h3>Properties</h3>
 <ul>
-<li><a href="/api-reference/core/classes/SimpleTool#name">name</a></li>
-<li><a href="/api-reference/core/classes/SimpleTool#description">description</a></li>
-<li><a href="/api-reference/core/classes/SimpleTool#schema">schema</a></li>
-<li><a href="/api-reference/core/classes/SimpleTool#execute">execute</a></li>
+<li><a href="/robota/api-reference/core/classes/SimpleTool#name">name</a></li>
+<li><a href="/robota/api-reference/core/classes/SimpleTool#description">description</a></li>
+<li><a href="/robota/api-reference/core/classes/SimpleTool#schema">schema</a></li>
+<li><a href="/robota/api-reference/core/classes/SimpleTool#execute">execute</a></li>
 </ul>
 <h3>Methods</h3>
 <ul>
-<li><a href="/api-reference/core/classes/SimpleTool#tofunctiondefinition">toFunctionDefinition</a></li>
+<li><a href="/robota/api-reference/core/classes/SimpleTool#tofunctiondefinition">toFunctionDefinition</a></li>
 </ul>
 <h2>Constructors</h2>
 <h3><a id="constructor" name="constructor"></a> constructor</h3>
-<p>• <strong>new SimpleTool</strong>(<code>options</code>): <a href="/api-reference/core/classes/SimpleTool"><code>SimpleTool</code></a></p>
+<p>• <strong>new SimpleTool</strong>(<code>options</code>): <a href="/robota/api-reference/core/classes/SimpleTool"><code>SimpleTool</code></a></p>
 <h4>Parameters</h4>
 <table>
 <thead>
@@ -62,11 +46,11 @@
 </thead>
 <tbody><tr>
 <td align="left"><code>options</code></td>
-<td align="left"><a href="/api-reference/core/interfaces/ToolOptions"><code>ToolOptions</code></a></td>
+<td align="left"><a href="/robota/api-reference/core/interfaces/ToolOptions"><code>ToolOptions</code></a></td>
 </tr>
 </tbody></table>
 <h4>Returns</h4>
-<p><a href="/api-reference/core/classes/SimpleTool"><code>SimpleTool</code></a></p>
+<p><a href="/robota/api-reference/core/classes/SimpleTool"><code>SimpleTool</code></a></p>
 <h4>Defined in</h4>
 <p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/tools.ts#L53">packages/core/src/tools.ts:53</a></p>
 <h2>Properties</h2>
@@ -74,7 +58,7 @@
 <p>• <strong>name</strong>: <code>string</code></p>
 <p>도구 이름</p>
 <h4>Implementation of</h4>
-<p><a href="/api-reference/core/interfaces/Tool">Tool</a>.<a href="/api-reference/core/interfaces/Tool#name">name</a></p>
+<p><a href="/robota/api-reference/core/interfaces/Tool">Tool</a>.<a href="/robota/api-reference/core/interfaces/Tool#name">name</a></p>
 <h4>Defined in</h4>
 <p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/tools.ts#L48">packages/core/src/tools.ts:48</a></p>
 <hr>
@@ -82,7 +66,7 @@
 <p>• <code>Optional</code> <strong>description</strong>: <code>string</code></p>
 <p>도구 설명</p>
 <h4>Implementation of</h4>
-<p><a href="/api-reference/core/interfaces/Tool">Tool</a>.<a href="/api-reference/core/interfaces/Tool#description">description</a></p>
+<p><a href="/robota/api-reference/core/interfaces/Tool">Tool</a>.<a href="/robota/api-reference/core/interfaces/Tool#description">description</a></p>
 <h4>Defined in</h4>
 <p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/tools.ts#L49">packages/core/src/tools.ts:49</a></p>
 <hr>
@@ -90,7 +74,7 @@
 <p>• <strong>schema</strong>: <code>ZodObject</code>&lt;<code>any</code>, <code>UnknownKeysParam</code>, <code>ZodTypeAny</code>, {}, {}&gt;</p>
 <p>도구 매개변수 스키마</p>
 <h4>Implementation of</h4>
-<p><a href="/api-reference/core/interfaces/Tool">Tool</a>.<a href="/api-reference/core/interfaces/Tool#schema">schema</a></p>
+<p><a href="/robota/api-reference/core/interfaces/Tool">Tool</a>.<a href="/robota/api-reference/core/interfaces/Tool#schema">schema</a></p>
 <h4>Defined in</h4>
 <p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/tools.ts#L50">packages/core/src/tools.ts:50</a></p>
 <hr>
@@ -115,20 +99,32 @@
 <h5>Returns</h5>
 <p><code>Promise</code>&lt;<code>any</code>&gt;</p>
 <h4>Implementation of</h4>
-<p><a href="/api-reference/core/interfaces/Tool">Tool</a>.<a href="/api-reference/core/interfaces/Tool#execute">execute</a></p>
+<p><a href="/robota/api-reference/core/interfaces/Tool">Tool</a>.<a href="/robota/api-reference/core/interfaces/Tool#execute">execute</a></p>
 <h4>Defined in</h4>
 <p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/tools.ts#L51">packages/core/src/tools.ts:51</a></p>
 <h2>Methods</h2>
 <h3><a id="tofunctiondefinition" name="tofunctiondefinition"></a> toFunctionDefinition</h3>
-<p>▸ <strong>toFunctionDefinition</strong>(): <a href="/api-reference/core/interfaces/FunctionDefinition"><code>FunctionDefinition</code></a></p>
+<p>▸ <strong>toFunctionDefinition</strong>(): <a href="/robota/api-reference/core/interfaces/FunctionDefinition"><code>FunctionDefinition</code></a></p>
 <p>함수 정의로 변환</p>
 <h4>Returns</h4>
-<p><a href="/api-reference/core/interfaces/FunctionDefinition"><code>FunctionDefinition</code></a></p>
+<p><a href="/robota/api-reference/core/interfaces/FunctionDefinition"><code>FunctionDefinition</code></a></p>
 <h4>Implementation of</h4>
-<p><a href="/api-reference/core/interfaces/Tool">Tool</a>.<a href="/api-reference/core/interfaces/Tool#tofunctiondefinition">toFunctionDefinition</a></p>
+<p><a href="/robota/api-reference/core/interfaces/Tool">Tool</a>.<a href="/robota/api-reference/core/interfaces/Tool#tofunctiondefinition">toFunctionDefinition</a></p>
 <h4>Defined in</h4>
 <p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/tools.ts#L63">packages/core/src/tools.ts:63</a></p>
 
   </div>
+  <script>
+    // 페이지가 로드되면 Docsify로 리다이렉션
+    window.addEventListener('DOMContentLoaded', function() {
+      // 현재 경로에서 .html 확장자 제거
+      const currentPath = window.location.pathname;
+      if (currentPath.endsWith('.html')) {
+        // history 모드를 위한 리다이렉션
+        const newPath = currentPath.replace('.html', '');
+        window.location.replace(newPath);
+      }
+    });
+  </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-[Tools API - v0.1.0](/api-reference/tools/) / ToolResult
+[Tools API - v0.1.0](/robota/api-reference/tools/) / ToolResult
 
 # Interface: ToolResult\<T\>
 
@@ -14,10 +14,10 @@
 
 ### Properties
 
-- [success](/api-reference/tools/interfaces/ToolResult#success)
-- [data](/api-reference/tools/interfaces/ToolResult#data)
-- [error](/api-reference/tools/interfaces/ToolResult#error)
-- [metadata](/api-reference/tools/interfaces/ToolResult#metadata)
+- [success](/robota/api-reference/tools/interfaces/ToolResult#success)
+- [data](/robota/api-reference/tools/interfaces/ToolResult#data)
+- [error](/robota/api-reference/tools/interfaces/ToolResult#error)
+- [metadata](/robota/api-reference/tools/interfaces/ToolResult#metadata)
 
 ## Properties
 

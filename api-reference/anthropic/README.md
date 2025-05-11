@@ -6,8 +6,8 @@ Anthropic API
 
 ### Classes
 
-- [AnthropicProvider](/api-reference/anthropic/classes/AnthropicProvider)
+- [AnthropicProvider](/robota/api-reference/anthropic/classes/AnthropicProvider)
 
 ### Interfaces
 
-- [AnthropicProviderOptions](/api-reference/anthropic/interfaces/AnthropicProviderOptions)
+- [AnthropicProviderOptions](/robota/api-reference/anthropic/interfaces/AnthropicProviderOptions)

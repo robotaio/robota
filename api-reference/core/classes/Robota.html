@@ -6,27 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Robota API 문서</title>
   <meta name="description" content="Robota API 문서">
-  <link rel="stylesheet" href="/style.css">
-  <script>
-    // 페이지 로드 시 Docsify 라우팅으로 리다이렉트
-    window.onload = function() {
-      // history 모드를 위한 리다이렉트 처리
-      const currentPath = window.location.pathname;
-      
-      // HTML 확장자 제거하여 원래 경로로 리다이렉트
-      if (currentPath.endsWith('.html')) {
-        window.location.href = currentPath.replace('.html', '');
-        return;
-      }
-      
-      // 이미 적절한 경로라면 Docsify로 전달
-      window.location.href = '/';
-    };
-  </script>
+  <link rel="stylesheet" href="/robota/style.css">
 </head>
 <body>
   <div id="content">
-    <p><a href="/api-reference/core/">Core API - v0.1.0</a> / Robota</p>
+    <p><a href="/robota/api-reference/core/">Core API - v0.1.0</a> / Robota</p>
 <h1>Class: Robota</h1>
 <p>Robota의 메인 클래스
 에이전트를 초기화하고 실행하는 인터페이스 제공</p>
@@ -44,26 +28,26 @@ const response = await robota.run(&#39;안녕하세요!&#39;);
 <h2>Table of contents</h2>
 <h3>Constructors</h3>
 <ul>
-<li><a href="/api-reference/core/classes/Robota#constructor">constructor</a></li>
+<li><a href="/robota/api-reference/core/classes/Robota#constructor">constructor</a></li>
 </ul>
 <h3>Methods</h3>
 <ul>
-<li><a href="/api-reference/core/classes/Robota#setsystemprompt">setSystemPrompt</a></li>
-<li><a href="/api-reference/core/classes/Robota#setsystemmessages">setSystemMessages</a></li>
-<li><a href="/api-reference/core/classes/Robota#addsystemmessage">addSystemMessage</a></li>
-<li><a href="/api-reference/core/classes/Robota#setfunctioncallmode">setFunctionCallMode</a></li>
-<li><a href="/api-reference/core/classes/Robota#configurefunctioncall">configureFunctionCall</a></li>
-<li><a href="/api-reference/core/classes/Robota#registerfunctions">registerFunctions</a></li>
-<li><a href="/api-reference/core/classes/Robota#registerfunction">registerFunction</a></li>
-<li><a href="/api-reference/core/classes/Robota#run">run</a></li>
-<li><a href="/api-reference/core/classes/Robota#chat">chat</a></li>
-<li><a href="/api-reference/core/classes/Robota#runstream">runStream</a></li>
-<li><a href="/api-reference/core/classes/Robota#addresponsetomemory">addResponseToMemory</a></li>
-<li><a href="/api-reference/core/classes/Robota#clearmemory">clearMemory</a></li>
+<li><a href="/robota/api-reference/core/classes/Robota#setsystemprompt">setSystemPrompt</a></li>
+<li><a href="/robota/api-reference/core/classes/Robota#setsystemmessages">setSystemMessages</a></li>
+<li><a href="/robota/api-reference/core/classes/Robota#addsystemmessage">addSystemMessage</a></li>
+<li><a href="/robota/api-reference/core/classes/Robota#setfunctioncallmode">setFunctionCallMode</a></li>
+<li><a href="/robota/api-reference/core/classes/Robota#configurefunctioncall">configureFunctionCall</a></li>
+<li><a href="/robota/api-reference/core/classes/Robota#registerfunctions">registerFunctions</a></li>
+<li><a href="/robota/api-reference/core/classes/Robota#registerfunction">registerFunction</a></li>
+<li><a href="/robota/api-reference/core/classes/Robota#run">run</a></li>
+<li><a href="/robota/api-reference/core/classes/Robota#chat">chat</a></li>
+<li><a href="/robota/api-reference/core/classes/Robota#runstream">runStream</a></li>
+<li><a href="/robota/api-reference/core/classes/Robota#addresponsetomemory">addResponseToMemory</a></li>
+<li><a href="/robota/api-reference/core/classes/Robota#clearmemory">clearMemory</a></li>
 </ul>
 <h2>Constructors</h2>
 <h3><a id="constructor" name="constructor"></a> constructor</h3>
-<p>• <strong>new Robota</strong>(<code>options</code>): <a href="/api-reference/core/classes/Robota"><code>Robota</code></a></p>
+<p>• <strong>new Robota</strong>(<code>options</code>): <a href="/robota/api-reference/core/classes/Robota"><code>Robota</code></a></p>
 <p>Robota 인스턴스 생성</p>
 <h4>Parameters</h4>
 <table>
@@ -76,12 +60,12 @@ const response = await robota.run(&#39;안녕하세요!&#39;);
 </thead>
 <tbody><tr>
 <td align="left"><code>options</code></td>
-<td align="left"><a href="/api-reference/core/interfaces/RobotaOptions"><code>RobotaOptions</code></a></td>
+<td align="left"><a href="/robota/api-reference/core/interfaces/RobotaOptions"><code>RobotaOptions</code></a></td>
 <td align="left">Robota 초기화 옵션</td>
 </tr>
 </tbody></table>
 <h4>Returns</h4>
-<p><a href="/api-reference/core/classes/Robota"><code>Robota</code></a></p>
+<p><a href="/robota/api-reference/core/classes/Robota"><code>Robota</code></a></p>
 <h4>Defined in</h4>
 <p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/robota.ts#L51">packages/core/src/robota.ts:51</a></p>
 <h2>Methods</h2>
@@ -122,7 +106,7 @@ const response = await robota.run(&#39;안녕하세요!&#39;);
 </thead>
 <tbody><tr>
 <td align="left"><code>messages</code></td>
-<td align="left"><a href="/api-reference/core/interfaces/Message"><code>Message</code></a>[]</td>
+<td align="left"><a href="/robota/api-reference/core/interfaces/Message"><code>Message</code></a>[]</td>
 <td align="left">시스템 메시지 배열</td>
 </tr>
 </tbody></table>
@@ -168,7 +152,7 @@ const response = await robota.run(&#39;안녕하세요!&#39;);
 </thead>
 <tbody><tr>
 <td align="left"><code>mode</code></td>
-<td align="left"><a href="/api-reference/core/#functioncallmode"><code>FunctionCallMode</code></a></td>
+<td align="left"><a href="/robota/api-reference/core/#functioncallmode"><code>FunctionCallMode</code></a></td>
 <td align="left">함수 호출 모드 (&#39;auto&#39;, &#39;force&#39;, &#39;disabled&#39;)</td>
 </tr>
 </tbody></table>
@@ -196,7 +180,7 @@ const response = await robota.run(&#39;안녕하세요!&#39;);
 </tr>
 <tr>
 <td align="left"><code>config.mode?</code></td>
-<td align="left"><a href="/api-reference/core/#functioncallmode"><code>FunctionCallMode</code></a></td>
+<td align="left"><a href="/robota/api-reference/core/#functioncallmode"><code>FunctionCallMode</code></a></td>
 <td align="left">-</td>
 </tr>
 <tr>
@@ -257,7 +241,7 @@ const response = await robota.run(&#39;안녕하세요!&#39;);
 </thead>
 <tbody><tr>
 <td align="left"><code>schema</code></td>
-<td align="left"><a href="/api-reference/core/interfaces/FunctionSchema"><code>FunctionSchema</code></a></td>
+<td align="left"><a href="/robota/api-reference/core/interfaces/FunctionSchema"><code>FunctionSchema</code></a></td>
 <td align="left">함수 스키마</td>
 </tr>
 <tr>
@@ -290,7 +274,7 @@ const response = await robota.run(&#39;안녕하세요!&#39;);
 </tr>
 <tr>
 <td align="left"><code>options</code></td>
-<td align="left"><a href="/api-reference/core/interfaces/RunOptions"><code>RunOptions</code></a></td>
+<td align="left"><a href="/robota/api-reference/core/interfaces/RunOptions"><code>RunOptions</code></a></td>
 <td align="left">실행 옵션</td>
 </tr>
 </tbody></table>
@@ -319,7 +303,7 @@ const response = await robota.run(&#39;안녕하세요!&#39;);
 </tr>
 <tr>
 <td align="left"><code>options</code></td>
-<td align="left"><a href="/api-reference/core/interfaces/RunOptions"><code>RunOptions</code></a></td>
+<td align="left"><a href="/robota/api-reference/core/interfaces/RunOptions"><code>RunOptions</code></a></td>
 <td align="left">실행 옵션</td>
 </tr>
 </tbody></table>
@@ -330,7 +314,7 @@ const response = await robota.run(&#39;안녕하세요!&#39;);
 <p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/robota.ts#L241">packages/core/src/robota.ts:241</a></p>
 <hr>
 <h3><a id="runstream" name="runstream"></a> runStream</h3>
-<p>▸ <strong>runStream</strong>(<code>prompt</code>, <code>options?</code>): <code>Promise</code>&lt;<code>AsyncIterable</code>&lt;<a href="/api-reference/core/interfaces/StreamingResponseChunk"><code>StreamingResponseChunk</code></a>, <code>any</code>, <code>any</code>&gt;&gt;</p>
+<p>▸ <strong>runStream</strong>(<code>prompt</code>, <code>options?</code>): <code>Promise</code>&lt;<code>AsyncIterable</code>&lt;<a href="/robota/api-reference/core/interfaces/StreamingResponseChunk"><code>StreamingResponseChunk</code></a>, <code>any</code>, <code>any</code>&gt;&gt;</p>
 <p>스트리밍 응답 생성</p>
 <h4>Parameters</h4>
 <table>
@@ -348,12 +332,12 @@ const response = await robota.run(&#39;안녕하세요!&#39;);
 </tr>
 <tr>
 <td align="left"><code>options</code></td>
-<td align="left"><a href="/api-reference/core/interfaces/RunOptions"><code>RunOptions</code></a></td>
+<td align="left"><a href="/robota/api-reference/core/interfaces/RunOptions"><code>RunOptions</code></a></td>
 <td align="left">실행 옵션</td>
 </tr>
 </tbody></table>
 <h4>Returns</h4>
-<p><code>Promise</code>&lt;<code>AsyncIterable</code>&lt;<a href="/api-reference/core/interfaces/StreamingResponseChunk"><code>StreamingResponseChunk</code></a>, <code>any</code>, <code>any</code>&gt;&gt;</p>
+<p><code>Promise</code>&lt;<code>AsyncIterable</code>&lt;<a href="/robota/api-reference/core/interfaces/StreamingResponseChunk"><code>StreamingResponseChunk</code></a>, <code>any</code>, <code>any</code>&gt;&gt;</p>
 <p>스트리밍 응답 청크 이터레이터</p>
 <h4>Defined in</h4>
 <p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/robota.ts#L272">packages/core/src/robota.ts:272</a></p>
@@ -372,7 +356,7 @@ const response = await robota.run(&#39;안녕하세요!&#39;);
 </thead>
 <tbody><tr>
 <td align="left"><code>response</code></td>
-<td align="left"><a href="/api-reference/core/interfaces/ModelResponse"><code>ModelResponse</code></a></td>
+<td align="left"><a href="/robota/api-reference/core/interfaces/ModelResponse"><code>ModelResponse</code></a></td>
 <td align="left">모델 응답</td>
 </tr>
 </tbody></table>
@@ -390,5 +374,17 @@ const response = await robota.run(&#39;안녕하세요!&#39;);
 <p><a href="https://github.com/robotaio/robota/blob/main/packages/core/src/robota.ts#L299">packages/core/src/robota.ts:299</a></p>
 
   </div>
+  <script>
+    // 페이지가 로드되면 Docsify로 리다이렉션
+    window.addEventListener('DOMContentLoaded', function() {
+      // 현재 경로에서 .html 확장자 제거
+      const currentPath = window.location.pathname;
+      if (currentPath.endsWith('.html')) {
+        // history 모드를 위한 리다이렉션
+        const newPath = currentPath.replace('.html', '');
+        window.location.replace(newPath);
+      }
+    });
+  </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / FunctionSchema
+[Core API - v0.1.0](/robota/api-reference/core/) / FunctionSchema
 
 # Interface: FunctionSchema
 
@@ -8,9 +8,9 @@
 
 ### Properties
 
-- [name](/api-reference/core/interfaces/FunctionSchema#name)
-- [description](/api-reference/core/interfaces/FunctionSchema#description)
-- [parameters](/api-reference/core/interfaces/FunctionSchema#parameters)
+- [name](/robota/api-reference/core/interfaces/FunctionSchema#name)
+- [description](/robota/api-reference/core/interfaces/FunctionSchema#description)
+- [parameters](/robota/api-reference/core/interfaces/FunctionSchema#parameters)
 
 ## Properties
 

@@ -1,4 +1,4 @@
-[LangChain API - v0.1.0](/api-reference/langchain/) / LangChainProviderOptions
+[LangChain API - v0.1.0](/robota/api-reference/langchain/) / LangChainProviderOptions
 
 # Interface: LangChainProviderOptions
 
@@ -14,11 +14,11 @@ LangChain 제공업체 옵션
 
 ### Properties
 
-- [model](/api-reference/langchain/interfaces/LangChainProviderOptions#model)
-- [temperature](/api-reference/langchain/interfaces/LangChainProviderOptions#temperature)
-- [maxTokens](/api-reference/langchain/interfaces/LangChainProviderOptions#maxtokens)
-- [stopSequences](/api-reference/langchain/interfaces/LangChainProviderOptions#stopsequences)
-- [streamMode](/api-reference/langchain/interfaces/LangChainProviderOptions#streammode)
+- [model](/robota/api-reference/langchain/interfaces/LangChainProviderOptions#model)
+- [temperature](/robota/api-reference/langchain/interfaces/LangChainProviderOptions#temperature)
+- [maxTokens](/robota/api-reference/langchain/interfaces/LangChainProviderOptions#maxtokens)
+- [stopSequences](/robota/api-reference/langchain/interfaces/LangChainProviderOptions#stopsequences)
+- [streamMode](/robota/api-reference/langchain/interfaces/LangChainProviderOptions#streammode)
 
 ## Properties
 

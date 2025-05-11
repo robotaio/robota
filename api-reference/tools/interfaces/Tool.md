@@ -1,4 +1,4 @@
-[Tools API - v0.1.0](/api-reference/tools/) / Tool
+[Tools API - v0.1.0](/robota/api-reference/tools/) / Tool
 
 # Interface: Tool\<TInput, TOutput\>
 
@@ -15,10 +15,10 @@
 
 ### Properties
 
-- [name](/api-reference/tools/interfaces/Tool#name)
-- [description](/api-reference/tools/interfaces/Tool#description)
-- [parameters](/api-reference/tools/interfaces/Tool#parameters)
-- [execute](/api-reference/tools/interfaces/Tool#execute)
+- [name](/robota/api-reference/tools/interfaces/Tool#name)
+- [description](/robota/api-reference/tools/interfaces/Tool#description)
+- [parameters](/robota/api-reference/tools/interfaces/Tool#parameters)
+- [execute](/robota/api-reference/tools/interfaces/Tool#execute)
 
 ## Properties
 
@@ -48,7 +48,7 @@ ___
 
 ### <a id="parameters" name="parameters"></a> parameters
 
-• `Optional` **parameters**: [`ToolParameter`](/api-reference/tools/interfaces/ToolParameter)[]
+• `Optional` **parameters**: [`ToolParameter`](/robota/api-reference/tools/interfaces/ToolParameter)[]
 
 도구 파라미터 정의
 
@@ -60,13 +60,13 @@ ___
 
 ### <a id="execute" name="execute"></a> execute
 
-• **execute**: (`input`: `TInput`) => `Promise`\<[`ToolResult`](/api-reference/tools/interfaces/ToolResult)\<`TOutput`\>\>
+• **execute**: (`input`: `TInput`) => `Promise`\<[`ToolResult`](/robota/api-reference/tools/interfaces/ToolResult)\<`TOutput`\>\>
 
 도구 실행 함수
 
 #### Type declaration
 
-▸ (`input`): `Promise`\<[`ToolResult`](/api-reference/tools/interfaces/ToolResult)\<`TOutput`\>\>
+▸ (`input`): `Promise`\<[`ToolResult`](/robota/api-reference/tools/interfaces/ToolResult)\<`TOutput`\>\>
 
 ##### Parameters
 
@@ -76,7 +76,7 @@ ___
 
 ##### Returns
 
-`Promise`\<[`ToolResult`](/api-reference/tools/interfaces/ToolResult)\<`TOutput`\>\>
+`Promise`\<[`ToolResult`](/robota/api-reference/tools/interfaces/ToolResult)\<`TOutput`\>\>
 
 #### Defined in
 

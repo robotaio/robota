@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / FunctionCallConfig
+[Core API - v0.1.0](/robota/api-reference/core/) / FunctionCallConfig
 
 # Interface: FunctionCallConfig
 
@@ -8,16 +8,16 @@
 
 ### Properties
 
-- [defaultMode](/api-reference/core/interfaces/FunctionCallConfig#defaultmode)
-- [maxCalls](/api-reference/core/interfaces/FunctionCallConfig#maxcalls)
-- [timeout](/api-reference/core/interfaces/FunctionCallConfig#timeout)
-- [allowedFunctions](/api-reference/core/interfaces/FunctionCallConfig#allowedfunctions)
+- [defaultMode](/robota/api-reference/core/interfaces/FunctionCallConfig#defaultmode)
+- [maxCalls](/robota/api-reference/core/interfaces/FunctionCallConfig#maxcalls)
+- [timeout](/robota/api-reference/core/interfaces/FunctionCallConfig#timeout)
+- [allowedFunctions](/robota/api-reference/core/interfaces/FunctionCallConfig#allowedfunctions)
 
 ## Properties
 
 ### <a id="defaultmode" name="defaultmode"></a> defaultMode
 
-• `Optional` **defaultMode**: [`FunctionCallMode`](/api-reference/core/#functioncallmode)
+• `Optional` **defaultMode**: [`FunctionCallMode`](/robota/api-reference/core/#functioncallmode)
 
 #### Defined in
 

@@ -6,24 +6,24 @@ Tools API
 
 ### Classes
 
-- [ToolRegistry](/api-reference/tools/classes/ToolRegistry)
+- [ToolRegistry](/robota/api-reference/tools/classes/ToolRegistry)
 
 ### Interfaces
 
-- [ToolResult](/api-reference/tools/interfaces/ToolResult)
-- [ToolParameter](/api-reference/tools/interfaces/ToolParameter)
-- [Tool](/api-reference/tools/interfaces/Tool)
-- [CreateToolOptions](/api-reference/tools/interfaces/CreateToolOptions)
+- [ToolResult](/robota/api-reference/tools/interfaces/ToolResult)
+- [ToolParameter](/robota/api-reference/tools/interfaces/ToolParameter)
+- [Tool](/robota/api-reference/tools/interfaces/Tool)
+- [CreateToolOptions](/robota/api-reference/tools/interfaces/CreateToolOptions)
 
 ### Functions
 
-- [createTool](/api-reference/tools/README#createtool)
+- [createTool](/robota/api-reference/tools/README#createtool)
 
 ## Functions
 
 ### <a id="createtool" name="createtool"></a> createTool
 
-▸ **createTool**\<`TInput`, `TOutput`\>(`options`): [`Tool`](/api-reference/tools/interfaces/Tool)\<`TInput`, `TOutput`\>
+▸ **createTool**\<`TInput`, `TOutput`\>(`options`): [`Tool`](/robota/api-reference/tools/interfaces/Tool)\<`TInput`, `TOutput`\>
 
 도구 생성 함수
 
@@ -38,11 +38,11 @@ Tools API
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `options` | [`CreateToolOptions`](/api-reference/tools/interfaces/CreateToolOptions)\<`TInput`, `TOutput`\> | 도구 생성 옵션 |
+| `options` | [`CreateToolOptions`](/robota/api-reference/tools/interfaces/CreateToolOptions)\<`TInput`, `TOutput`\> | 도구 생성 옵션 |
 
 #### Returns
 
-[`Tool`](/api-reference/tools/interfaces/Tool)\<`TInput`, `TOutput`\>
+[`Tool`](/robota/api-reference/tools/interfaces/Tool)\<`TInput`, `TOutput`\>
 
 생성된 도구
 

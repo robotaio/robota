@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / ModelContextProtocol
+[Core API - v0.1.0](/robota/api-reference/core/) / ModelContextProtocol
 
 # Interface: ModelContextProtocol
 
@@ -10,23 +10,23 @@
 
 ### Properties
 
-- [options](/api-reference/core/interfaces/ModelContextProtocol#options)
+- [options](/robota/api-reference/core/interfaces/ModelContextProtocol#options)
 
 ### Methods
 
-- [chat](/api-reference/core/interfaces/ModelContextProtocol#chat)
-- [chatStream](/api-reference/core/interfaces/ModelContextProtocol#chatstream)
-- [formatMessages](/api-reference/core/interfaces/ModelContextProtocol#formatmessages)
-- [formatFunctions](/api-reference/core/interfaces/ModelContextProtocol#formatfunctions)
-- [parseResponse](/api-reference/core/interfaces/ModelContextProtocol#parseresponse)
-- [parseStreamingChunk](/api-reference/core/interfaces/ModelContextProtocol#parsestreamingchunk)
-- [countTokens](/api-reference/core/interfaces/ModelContextProtocol#counttokens)
+- [chat](/robota/api-reference/core/interfaces/ModelContextProtocol#chat)
+- [chatStream](/robota/api-reference/core/interfaces/ModelContextProtocol#chatstream)
+- [formatMessages](/robota/api-reference/core/interfaces/ModelContextProtocol#formatmessages)
+- [formatFunctions](/robota/api-reference/core/interfaces/ModelContextProtocol#formatfunctions)
+- [parseResponse](/robota/api-reference/core/interfaces/ModelContextProtocol#parseresponse)
+- [parseStreamingChunk](/robota/api-reference/core/interfaces/ModelContextProtocol#parsestreamingchunk)
+- [countTokens](/robota/api-reference/core/interfaces/ModelContextProtocol#counttokens)
 
 ## Properties
 
 ### <a id="options" name="options"></a> options
 
-• **options**: [`ProviderOptions`](/api-reference/core/interfaces/ProviderOptions)
+• **options**: [`ProviderOptions`](/robota/api-reference/core/interfaces/ProviderOptions)
 
 기본 모델 및 설정
 
@@ -38,7 +38,7 @@
 
 ### <a id="chat" name="chat"></a> chat
 
-▸ **chat**(`context`, `options?`): `Promise`\<[`ModelResponse`](/api-reference/core/interfaces/ModelResponse)\>
+▸ **chat**(`context`, `options?`): `Promise`\<[`ModelResponse`](/robota/api-reference/core/interfaces/ModelResponse)\>
 
 주어진 컨텍스트로 모델에 요청을 보내고 응답을 받습니다.
 
@@ -46,7 +46,7 @@
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `context` | [`Context`](/api-reference/core/interfaces/Context) | 요청 컨텍스트 (메시지, 함수 정의 등) |
+| `context` | [`Context`](/robota/api-reference/core/interfaces/Context) | 요청 컨텍스트 (메시지, 함수 정의 등) |
 | `options?` | `Object` | 추가 옵션 |
 | `options.temperature?` | `number` | - |
 | `options.maxTokens?` | `number` | - |
@@ -56,7 +56,7 @@
 
 #### Returns
 
-`Promise`\<[`ModelResponse`](/api-reference/core/interfaces/ModelResponse)\>
+`Promise`\<[`ModelResponse`](/robota/api-reference/core/interfaces/ModelResponse)\>
 
 모델 응답
 
@@ -68,7 +68,7 @@ ___
 
 ### <a id="chatstream" name="chatstream"></a> chatStream
 
-▸ **chatStream**(`context`, `options?`): `AsyncIterable`\<[`StreamingResponseChunk`](/api-reference/core/interfaces/StreamingResponseChunk), `any`, `any`\>
+▸ **chatStream**(`context`, `options?`): `AsyncIterable`\<[`StreamingResponseChunk`](/robota/api-reference/core/interfaces/StreamingResponseChunk), `any`, `any`\>
 
 주어진 컨텍스트로 모델에 스트리밍 요청을 보내고 응답 청크를 받습니다.
 
@@ -76,7 +76,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `context` | [`Context`](/api-reference/core/interfaces/Context) | 요청 컨텍스트 (메시지, 함수 정의 등) |
+| `context` | [`Context`](/robota/api-reference/core/interfaces/Context) | 요청 컨텍스트 (메시지, 함수 정의 등) |
 | `options?` | `Object` | 추가 옵션 |
 | `options.temperature?` | `number` | - |
 | `options.maxTokens?` | `number` | - |
@@ -86,7 +86,7 @@ ___
 
 #### Returns
 
-`AsyncIterable`\<[`StreamingResponseChunk`](/api-reference/core/interfaces/StreamingResponseChunk), `any`, `any`\>
+`AsyncIterable`\<[`StreamingResponseChunk`](/robota/api-reference/core/interfaces/StreamingResponseChunk), `any`, `any`\>
 
 스트리밍 응답 AsyncIterable
 
@@ -106,7 +106,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `messages` | [`Message`](/api-reference/core/interfaces/Message)[] | 메시지 배열 |
+| `messages` | [`Message`](/robota/api-reference/core/interfaces/Message)[] | 메시지 배열 |
 
 #### Returns
 
@@ -130,7 +130,7 @@ ___
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `functions` | [`FunctionSchema`](/api-reference/core/interfaces/FunctionSchema)[] | 함수 정의 배열 |
+| `functions` | [`FunctionSchema`](/robota/api-reference/core/interfaces/FunctionSchema)[] | 함수 정의 배열 |
 
 #### Returns
 
@@ -146,7 +146,7 @@ ___
 
 ### <a id="parseresponse" name="parseresponse"></a> parseResponse
 
-▸ **parseResponse**(`response`): [`ModelResponse`](/api-reference/core/interfaces/ModelResponse)
+▸ **parseResponse**(`response`): [`ModelResponse`](/robota/api-reference/core/interfaces/ModelResponse)
 
 모델 응답을 표준 형식으로 파싱합니다.
 
@@ -158,7 +158,7 @@ ___
 
 #### Returns
 
-[`ModelResponse`](/api-reference/core/interfaces/ModelResponse)
+[`ModelResponse`](/robota/api-reference/core/interfaces/ModelResponse)
 
 표준화된 ModelResponse
 
@@ -170,7 +170,7 @@ ___
 
 ### <a id="parsestreamingchunk" name="parsestreamingchunk"></a> parseStreamingChunk
 
-▸ **parseStreamingChunk**(`chunk`): [`StreamingResponseChunk`](/api-reference/core/interfaces/StreamingResponseChunk)
+▸ **parseStreamingChunk**(`chunk`): [`StreamingResponseChunk`](/robota/api-reference/core/interfaces/StreamingResponseChunk)
 
 스트리밍 응답 청크를 표준 형식으로 파싱합니다.
 
@@ -182,7 +182,7 @@ ___
 
 #### Returns
 
-[`StreamingResponseChunk`](/api-reference/core/interfaces/StreamingResponseChunk)
+[`StreamingResponseChunk`](/robota/api-reference/core/interfaces/StreamingResponseChunk)
 
 표준화된 StreamingResponseChunk
 

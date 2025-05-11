@@ -1,4 +1,4 @@
-[Anthropic API - v0.1.0](/api-reference/anthropic/) / AnthropicProviderOptions
+[Anthropic API - v0.1.0](/robota/api-reference/anthropic/) / AnthropicProviderOptions
 
 # Interface: AnthropicProviderOptions
 
@@ -14,12 +14,12 @@ Anthropic 제공업체 옵션
 
 ### Properties
 
-- [apiKey](/api-reference/anthropic/interfaces/AnthropicProviderOptions#apikey)
-- [model](/api-reference/anthropic/interfaces/AnthropicProviderOptions#model)
-- [temperature](/api-reference/anthropic/interfaces/AnthropicProviderOptions#temperature)
-- [maxTokens](/api-reference/anthropic/interfaces/AnthropicProviderOptions#maxtokens)
-- [stopSequences](/api-reference/anthropic/interfaces/AnthropicProviderOptions#stopsequences)
-- [streamMode](/api-reference/anthropic/interfaces/AnthropicProviderOptions#streammode)
+- [apiKey](/robota/api-reference/anthropic/interfaces/AnthropicProviderOptions#apikey)
+- [model](/robota/api-reference/anthropic/interfaces/AnthropicProviderOptions#model)
+- [temperature](/robota/api-reference/anthropic/interfaces/AnthropicProviderOptions#temperature)
+- [maxTokens](/robota/api-reference/anthropic/interfaces/AnthropicProviderOptions#maxtokens)
+- [stopSequences](/robota/api-reference/anthropic/interfaces/AnthropicProviderOptions#stopsequences)
+- [streamMode](/robota/api-reference/anthropic/interfaces/AnthropicProviderOptions#streammode)
 
 ## Properties
 

@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / FunctionCallResult
+[Core API - v0.1.0](/robota/api-reference/core/) / FunctionCallResult
 
 # Interface: FunctionCallResult
 
@@ -8,9 +8,9 @@
 
 ### Properties
 
-- [name](/api-reference/core/interfaces/FunctionCallResult#name)
-- [result](/api-reference/core/interfaces/FunctionCallResult#result)
-- [error](/api-reference/core/interfaces/FunctionCallResult#error)
+- [name](/robota/api-reference/core/interfaces/FunctionCallResult#name)
+- [result](/robota/api-reference/core/interfaces/FunctionCallResult#result)
+- [error](/robota/api-reference/core/interfaces/FunctionCallResult#error)
 
 ## Properties
 

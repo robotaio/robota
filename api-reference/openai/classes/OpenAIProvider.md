@@ -1,4 +1,4 @@
-[OpenAI API - v0.1.0](/api-reference/openai/) / OpenAIProvider
+[OpenAI API - v0.1.0](/robota/api-reference/openai/) / OpenAIProvider
 
 # Class: OpenAIProvider
 
@@ -8,23 +8,23 @@ OpenAI 제공업체 클래스
 
 ### Constructors
 
-- [constructor](/api-reference/openai/classes/OpenAIProvider#constructor)
+- [constructor](/robota/api-reference/openai/classes/OpenAIProvider#constructor)
 
 ## Constructors
 
 ### <a id="constructor" name="constructor"></a> constructor
 
-• **new OpenAIProvider**(`options`): [`OpenAIProvider`](/api-reference/openai/classes/OpenAIProvider)
+• **new OpenAIProvider**(`options`): [`OpenAIProvider`](/robota/api-reference/openai/classes/OpenAIProvider)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `options` | [`OpenAIProviderOptions`](/api-reference/openai/interfaces/OpenAIProviderOptions) |
+| `options` | [`OpenAIProviderOptions`](/robota/api-reference/openai/interfaces/OpenAIProviderOptions) |
 
 #### Returns
 
-[`OpenAIProvider`](/api-reference/openai/classes/OpenAIProvider)
+[`OpenAIProvider`](/robota/api-reference/openai/classes/OpenAIProvider)
 
 #### Defined in
 

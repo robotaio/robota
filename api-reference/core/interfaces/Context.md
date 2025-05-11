@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / Context
+[Core API - v0.1.0](/robota/api-reference/core/) / Context
 
 # Interface: Context
 
@@ -8,17 +8,17 @@
 
 ### Properties
 
-- [messages](/api-reference/core/interfaces/Context#messages)
-- [functions](/api-reference/core/interfaces/Context#functions)
-- [systemPrompt](/api-reference/core/interfaces/Context#systemprompt)
-- [systemMessages](/api-reference/core/interfaces/Context#systemmessages)
-- [metadata](/api-reference/core/interfaces/Context#metadata)
+- [messages](/robota/api-reference/core/interfaces/Context#messages)
+- [functions](/robota/api-reference/core/interfaces/Context#functions)
+- [systemPrompt](/robota/api-reference/core/interfaces/Context#systemprompt)
+- [systemMessages](/robota/api-reference/core/interfaces/Context#systemmessages)
+- [metadata](/robota/api-reference/core/interfaces/Context#metadata)
 
 ## Properties
 
 ### <a id="messages" name="messages"></a> messages
 
-• **messages**: [`Message`](/api-reference/core/interfaces/Message)[]
+• **messages**: [`Message`](/robota/api-reference/core/interfaces/Message)[]
 
 #### Defined in
 
@@ -28,7 +28,7 @@ ___
 
 ### <a id="functions" name="functions"></a> functions
 
-• `Optional` **functions**: [`FunctionSchema`](/api-reference/core/interfaces/FunctionSchema)[]
+• `Optional` **functions**: [`FunctionSchema`](/robota/api-reference/core/interfaces/FunctionSchema)[]
 
 #### Defined in
 
@@ -48,7 +48,7 @@ ___
 
 ### <a id="systemmessages" name="systemmessages"></a> systemMessages
 
-• `Optional` **systemMessages**: [`Message`](/api-reference/core/interfaces/Message)[]
+• `Optional` **systemMessages**: [`Message`](/robota/api-reference/core/interfaces/Message)[]
 
 #### Defined in
 

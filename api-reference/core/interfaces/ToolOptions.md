@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / ToolOptions
+[Core API - v0.1.0](/robota/api-reference/core/) / ToolOptions
 
 # Interface: ToolOptions
 
@@ -8,10 +8,10 @@
 
 ### Properties
 
-- [name](/api-reference/core/interfaces/ToolOptions#name)
-- [description](/api-reference/core/interfaces/ToolOptions#description)
-- [schema](/api-reference/core/interfaces/ToolOptions#schema)
-- [execute](/api-reference/core/interfaces/ToolOptions#execute)
+- [name](/robota/api-reference/core/interfaces/ToolOptions#name)
+- [description](/robota/api-reference/core/interfaces/ToolOptions#description)
+- [schema](/robota/api-reference/core/interfaces/ToolOptions#schema)
+- [execute](/robota/api-reference/core/interfaces/ToolOptions#execute)
 
 ## Properties
 

@@ -1,4 +1,4 @@
-[Core API - v0.1.0](/api-reference/core/) / FunctionCall
+[Core API - v0.1.0](/robota/api-reference/core/) / FunctionCall
 
 # Interface: FunctionCall
 
@@ -8,8 +8,8 @@
 
 ### Properties
 
-- [name](/api-reference/core/interfaces/FunctionCall#name)
-- [arguments](/api-reference/core/interfaces/FunctionCall#arguments)
+- [name](/robota/api-reference/core/interfaces/FunctionCall#name)
+- [arguments](/robota/api-reference/core/interfaces/FunctionCall#arguments)
 
 ## Properties
 

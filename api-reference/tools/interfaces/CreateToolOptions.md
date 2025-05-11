@@ -1,4 +1,4 @@
-[Tools API - v0.1.0](/api-reference/tools/) / CreateToolOptions
+[Tools API - v0.1.0](/robota/api-reference/tools/) / CreateToolOptions
 
 # Interface: CreateToolOptions\<TInput, TOutput\>
 
@@ -15,10 +15,10 @@
 
 ### Properties
 
-- [name](/api-reference/tools/interfaces/CreateToolOptions#name)
-- [description](/api-reference/tools/interfaces/CreateToolOptions#description)
-- [parameters](/api-reference/tools/interfaces/CreateToolOptions#parameters)
-- [execute](/api-reference/tools/interfaces/CreateToolOptions#execute)
+- [name](/robota/api-reference/tools/interfaces/CreateToolOptions#name)
+- [description](/robota/api-reference/tools/interfaces/CreateToolOptions#description)
+- [parameters](/robota/api-reference/tools/interfaces/CreateToolOptions#parameters)
+- [execute](/robota/api-reference/tools/interfaces/CreateToolOptions#execute)
 
 ## Properties
 
@@ -48,7 +48,7 @@ ___
 
 ### <a id="parameters" name="parameters"></a> parameters
 
-• `Optional` **parameters**: [`ToolParameter`](/api-reference/tools/interfaces/ToolParameter)[]
+• `Optional` **parameters**: [`ToolParameter`](/robota/api-reference/tools/interfaces/ToolParameter)[]
 
 도구 파라미터 정의
 
@@ -60,13 +60,13 @@ ___
 
 ### <a id="execute" name="execute"></a> execute
 
-• **execute**: (`input`: `TInput`) => `Promise`\<`TOutput` \| [`ToolResult`](/api-reference/tools/interfaces/ToolResult)\<`TOutput`\>\>
+• **execute**: (`input`: `TInput`) => `Promise`\<`TOutput` \| [`ToolResult`](/robota/api-reference/tools/interfaces/ToolResult)\<`TOutput`\>\>
 
 도구 실행 함수
 
 #### Type declaration
 
-▸ (`input`): `Promise`\<`TOutput` \| [`ToolResult`](/api-reference/tools/interfaces/ToolResult)\<`TOutput`\>\>
+▸ (`input`): `Promise`\<`TOutput` \| [`ToolResult`](/robota/api-reference/tools/interfaces/ToolResult)\<`TOutput`\>\>
 
 ##### Parameters
 
@@ -76,7 +76,7 @@ ___
 
 ##### Returns
 
-`Promise`\<`TOutput` \| [`ToolResult`](/api-reference/tools/interfaces/ToolResult)\<`TOutput`\>\>
+`Promise`\<`TOutput` \| [`ToolResult`](/robota/api-reference/tools/interfaces/ToolResult)\<`TOutput`\>\>
 
 #### Defined in
 
