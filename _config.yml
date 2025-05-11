@@ -1,0 +1,14 @@
+# Jekyll 설정
+baseurl: /robota
+permalink: pretty
+includes_dir: .
+
+# SPA 라우팅을 위한 설정
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+# 404 페이지 설정
+page_not_found_path: /404.html
