@@ -9,6 +9,7 @@
     "build:deps": "pnpm --filter @robota/core build && pnpm --filter @robota/tools build && pnpm --filter \"@robota/!(core|tools)\" build",
     "test": "pnpm run -r test",
     "typecheck": "pnpm --filter @robota/core typecheck && pnpm --filter @robota/tools typecheck && pnpm --filter @robota/openai typecheck",
+    "lint": "pnpm run -r lint",
     "dev": "pnpm run -r dev",
     "clean": "pnpm run -r clean",
     "prepare": "husky install",

@@ -15,7 +15,8 @@
     "clean": "rimraf dist",
     "typecheck": "tsc --noEmit",
     "test": "vitest run --passWithNoTests",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "lint": "eslint src --ext .ts,.tsx"
   },
   "keywords": [
     "ai",
