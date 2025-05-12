@@ -110,7 +110,7 @@ for await (const chunk of stream) {
 ## 다음 단계
 
 - [핵심 개념](./core-concepts.md)을 읽고 Robota의 구성 요소를 이해하세요.
-- [예제 가이드](./examples.md)를 통해 다양한 예제 코드를 확인하세요.
+- [예제 가이드](./examples.md)를 통해 다양한 예제 코드를 확인하세요. 모든 예제는 `apps/examples` 디렉토리에 있습니다.
 - 다양한 [제공업체](./providers.md)에 대해 알아보세요.
 - [함수 호출](./function-calling.md)에 대한 자세한 내용을 확인하세요.
 - 복잡한 [에이전트 구축](./building-agents.md) 방법을 배워보세요. 

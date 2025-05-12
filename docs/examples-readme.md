@@ -25,38 +25,52 @@ WEATHER_API_KEY=your_weather_api_key_here  # 옵션: 날씨 예제에 사용
 
 ### 기본 예제
 
-- [`basic/simple-conversation.ts`](../examples/basic/simple-conversation.ts): 기본적인 대화 및 스트리밍 응답 사용법
-- [`basic/simple-features.ts`](../examples/basic/simple-features.ts): Robota의 간단한 사용 예제와 기본 도구 사용법
-- [`basic/basic-features.ts`](../examples/basic/basic-features.ts): Robota의 기본적인 함수 호출 예제 
-- [`basic/advanced-features.ts`](../examples/basic/advanced-features.ts): 다양한 함수 호출과 스트리밍 응답을 활용한 여행 계획 도우미
+- [`basic/simple-conversation.ts`](../apps/examples/basic/simple-conversation.ts): 기본적인 대화 및 스트리밍 응답 사용법
+- [`basic/simple-features.ts`](../apps/examples/basic/simple-features.ts): Robota의 간단한 사용 예제와 기본 도구 사용법
+- [`basic/basic-features.ts`](../apps/examples/basic/basic-features.ts): Robota의 기본적인 함수 호출 예제 
+- [`basic/advanced-features.ts`](../apps/examples/basic/advanced-features.ts): 다양한 함수 호출과 스트리밍 응답을 활용한 여행 계획 도우미
 
 ### 함수 호출 예제
 
-- [`function-calling/weather-calculator.ts`](../examples/function-calling/weather-calculator.ts): 날씨 정보 조회 및 계산기 기능 구현
+- [`function-calling/weather-calculator.ts`](../apps/examples/function-calling/weather-calculator.ts): 날씨 정보 조회 및 계산기 기능 구현
 
 ### 도구 사용 예제
 
-- [`tools/tool-examples.ts`](../examples/tools/tool-examples.ts): zod를 사용한 도구 정의 및 사용 방법
+- [`tools/tool-examples.ts`](../apps/examples/tools/tool-examples.ts): zod를 사용한 도구 정의 및 사용 방법
 
 ### 에이전트 예제
 
-- [`agents/research-agent.ts`](../examples/agents/research-agent.ts): 검색, 요약, 번역 기능을 갖춘 리서치 에이전트
+- [`agents/research-agent.ts`](../apps/examples/agents/research-agent.ts): 검색, 요약, 번역 기능을 갖춘 리서치 에이전트
 
 ### 시스템 메시지 예제
 
-- [`system-messages/system-messages.ts`](../examples/system-messages/system-messages.ts): 다양한 시스템 메시지 템플릿 활용 예제
+- [`system-messages/system-messages.ts`](../apps/examples/system-messages/system-messages.ts): 다양한 시스템 메시지 템플릿 활용 예제
 
 ## 예제 실행 방법
 
 각 예제는 다음 명령으로 실행할 수 있습니다:
 
 ```bash
-# TypeScript 직접 실행 (ts-node 필요)
-npx ts-node examples/basic/simple-conversation.ts
+# 루트 디렉토리에서 실행
+pnpm run example:basic
+pnpm run example:function-calling
+pnpm run example:tools
+pnpm run example:agents
+pnpm run example:system-messages
+pnpm run example:all
 
-# 또는 컴파일 후 실행
-pnpm build
-node dist/examples/basic/simple-conversation.js
+# 또는 apps/examples 디렉토리에서 직접 실행
+cd apps/examples
+pnpm run start:basic
+pnpm run start:function-calling
+pnpm run start:tools
+pnpm run start:agents
+pnpm run start:system-messages
+pnpm run start:all
+
+# 코드 lint 검사
+pnpm run lint
+pnpm run lint:fix
 ```
 
 ## 예제 확장하기

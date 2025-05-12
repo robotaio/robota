@@ -5,12 +5,11 @@
  */
 
 import { Robota } from '@robota/core';
-import { Tool } from '@robota/tools';
 import { OpenAIProvider } from '@robota/openai';
+import { SimpleTool } from '@robota/core';
 import { z } from 'zod';
 import OpenAI from 'openai';
 import dotenv from 'dotenv';
-import axios from 'axios';
 
 // 환경 변수 로드
 dotenv.config();
@@ -28,10 +27,10 @@ async function main() {
     });
 
     // 날씨 검색 도구 생성
-    const weatherTool = new Tool({
+    const weatherTool = new SimpleTool({
         name: 'getWeather',
         description: '특정 위치의 현재 날씨 정보를 가져옵니다',
-        parameters: z.object({
+        schema: z.object({
             location: z.string().describe('날씨를 확인할 도시 이름'),
             unit: z.enum(['celsius', 'fahrenheit']).optional().describe('온도 단위')
         }),
@@ -49,10 +48,10 @@ async function main() {
     });
 
     // 수학 계산 도구 생성
-    const calculatorTool = new Tool({
+    const calculatorTool = new SimpleTool({
         name: 'calculate',
         description: '수학 계산을 수행합니다',
-        parameters: z.object({
+        schema: z.object({
             expression: z.string().describe('계산할 수식')
         }),
         execute: async ({ expression }) => {
@@ -72,10 +71,10 @@ async function main() {
     });
 
     // 이메일 전송 도구 생성
-    const emailTool = new Tool({
+    const emailTool = new SimpleTool({
         name: 'sendEmail',
         description: '이메일을 전송합니다',
-        parameters: z.object({
+        schema: z.object({
             to: z.string().email('유효한 이메일 주소가 필요합니다').describe('수신자 이메일 주소'),
             subject: z.string().min(1, '제목은 비어있을 수 없습니다').describe('이메일 제목'),
             body: z.string().describe('이메일 내용'),
@@ -96,10 +95,10 @@ async function main() {
     });
 
     // 검색 도구 생성
-    const searchTool = new Tool({
+    const searchTool = new SimpleTool({
         name: 'searchWeb',
         description: '웹에서 정보를 검색합니다',
-        parameters: z.object({
+        schema: z.object({
             query: z.string().describe('검색어'),
             limit: z.number().int().min(1).max(10).optional().describe('결과 제한 수')
         }),
@@ -128,8 +127,15 @@ async function main() {
 정확하고 유용한 정보를 제공하기 위해 적절한 도구를 선택하세요.`
     });
 
-    // 도구 등록
-    robota.registerTools([weatherTool, calculatorTool, emailTool, searchTool]);
+    // 도구를 함수로 등록
+    const toolFunctions = {
+        getWeather: weatherTool.execute,
+        calculate: calculatorTool.execute,
+        sendEmail: emailTool.execute,
+        searchWeb: searchTool.execute
+    };
+
+    robota.registerFunctions(toolFunctions);
 
     // 도구 사용 예제 실행
     console.log('===== 도구 사용 예제 =====');

@@ -3,9 +3,13 @@
  */
 
 import OpenAI from 'openai';
-import { Robota, OpenAIProvider, createFunction } from '../src';
-import type { MessageRole } from '../src/types/model-context-protocol';
-import { z } from 'zod';
+import { Robota } from '@robota/core';
+import { OpenAIProvider } from '@robota/openai';
+import type { MessageRole } from '@robota/core';
+import dotenv from 'dotenv';
+
+// 환경 변수 로드
+dotenv.config();
 
 // OpenAI 클라이언트 생성
 const client = new OpenAI({
@@ -13,48 +17,32 @@ const client = new OpenAI({
 });
 
 // 함수 정의
-const getWeather = createFunction({
-    name: 'getWeather',
-    description: '특정 위치의 현재 날씨 정보를 가져옵니다',
-    parameters: z.object({
-        location: z.string().describe('날씨를 확인할 도시 이름 (예: 서울, 부산)'),
-        unit: z.enum(['celsius', 'fahrenheit']).optional().describe('온도 단위')
-    }),
-    execute: async (params) => {
-        console.log(`날씨 검색: ${params.location}`);
+const getWeather = async (params: { location: string, unit?: 'celsius' | 'fahrenheit' }) => {
+    console.log(`날씨 검색: ${params.location}`);
 
-        // 실제 API 호출 대신 가상 데이터 반환
-        return {
-            location: params.location,
-            temperature: 23,
-            condition: '맑음',
-            humidity: 60,
-            unit: params.unit || 'celsius'
-        };
-    }
-});
+    // 실제 API 호출 대신 가상 데이터 반환
+    return {
+        location: params.location,
+        temperature: 23,
+        condition: '맑음',
+        humidity: 60,
+        unit: params.unit || 'celsius'
+    };
+};
 
-const searchDatabase = createFunction({
-    name: 'searchDatabase',
-    description: '키워드로 데이터베이스를 검색합니다',
-    parameters: z.object({
-        query: z.string().describe('검색 키워드'),
-        limit: z.number().min(1).max(10).optional().describe('결과 개수 제한')
-    }),
-    execute: async (params) => {
-        console.log(`데이터베이스 검색: ${params.query}`);
+const searchDatabase = async (params: { query: string, limit?: number }) => {
+    console.log(`데이터베이스 검색: ${params.query}`);
 
-        // 가상 데이터 반환
-        return {
-            results: [
-                { id: 1, title: `${params.query}에 관한 문서 1` },
-                { id: 2, title: `${params.query}에 관한 문서 2` },
-                { id: 3, title: `${params.query}에 관한 문서 3` }
-            ],
-            count: 3
-        };
-    }
-});
+    // 가상 데이터 반환
+    return {
+        results: [
+            { id: 1, title: `${params.query}에 관한 문서 1` },
+            { id: 2, title: `${params.query}에 관한 문서 2` },
+            { id: 3, title: `${params.query}에 관한 문서 3` }
+        ],
+        count: 3
+    };
+};
 
 // 서로 다른 예제를 실행합니다
 async function runExamples() {

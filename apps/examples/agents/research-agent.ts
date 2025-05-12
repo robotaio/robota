@@ -5,7 +5,7 @@
  * 리서치 에이전트를 구현하는 방법을 보여줍니다.
  */
 
-import { Robota, Tool } from '@robota/core';
+import { Robota, SimpleTool } from '@robota/core';
 import { OpenAIProvider } from '@robota/openai';
 import { z } from 'zod';
 import OpenAI from 'openai';
@@ -27,10 +27,10 @@ async function main() {
     });
 
     // 검색 도구 생성 (가상 구현)
-    const searchTool = new Tool({
+    const searchTool = new SimpleTool({
         name: 'searchWeb',
         description: '웹에서 정보를 검색합니다',
-        parameters: z.object({
+        schema: z.object({
             query: z.string().describe('검색어')
         }),
         execute: async ({ query }) => {
@@ -48,10 +48,10 @@ async function main() {
     });
 
     // 텍스트 요약 도구
-    const summarizeTool = new Tool({
+    const summarizeTool = new SimpleTool({
         name: 'summarizeText',
         description: '긴 텍스트를 간결하게 요약합니다',
-        parameters: z.object({
+        schema: z.object({
             text: z.string().describe('요약할 텍스트')
         }),
         execute: async ({ text }) => {
@@ -68,10 +68,10 @@ async function main() {
     });
 
     // 번역 도구
-    const translateTool = new Tool({
+    const translateTool = new SimpleTool({
         name: 'translateText',
         description: '텍스트를 다른 언어로 번역합니다',
-        parameters: z.object({
+        schema: z.object({
             text: z.string().describe('번역할 텍스트'),
             targetLanguage: z.string().describe('목표 언어 (예: "ko", "en", "ja")')
         }),
@@ -94,7 +94,6 @@ async function main() {
             model: 'gpt-4',
             client: openaiClient
         }),
-        tools: [searchTool, summarizeTool, translateTool],
         systemPrompt: `당신은 리서치 에이전트입니다.
 사용자의 질문에 대해 다음과 같은 단계로 정보를 수집하고 제공하세요:
 
@@ -107,6 +106,15 @@ async function main() {
 각 단계에서 어떤 도구를 사용하는지와 왜 사용하는지 명확하게 설명하세요.
 최종 응답은 사용자가 이해하기 쉽도록 구조화된 형태로 제공하세요.`
     });
+
+    // 도구를 함수로 등록
+    const toolFunctions = {
+        searchWeb: searchTool.execute,
+        summarizeText: summarizeTool.execute,
+        translateText: translateTool.execute
+    };
+
+    researchAgent.registerFunctions(toolFunctions);
 
     // 에이전트 실행
     console.log('===== 리서치 에이전트 예제 =====\n');

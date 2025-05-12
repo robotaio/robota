@@ -17,6 +17,7 @@
     "example:function-calling": "pnpm --filter robota-examples run start:function-calling",
     "example:tools": "pnpm --filter robota-examples run start:tools",
     "example:agents": "pnpm --filter robota-examples run start:agents",
+    "example:system-messages": "pnpm --filter robota-examples run start:system-messages",
     "example:all": "pnpm --filter robota-examples run start:all"
   },
   "keywords": [

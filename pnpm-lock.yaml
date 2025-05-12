@@ -36,6 +36,55 @@ importers:
         specifier: ^1.6.1
         version: 1.6.1(@types/node@20.17.46)
 
+  apps/examples:
+    dependencies:
+      '@robota/anthropic':
+        specifier: workspace:*
+        version: link:../../packages/anthropic
+      '@robota/core':
+        specifier: workspace:*
+        version: link:../../packages/core
+      '@robota/openai':
+        specifier: workspace:*
+        version: link:../../packages/openai
+      '@robota/tools':
+        specifier: workspace:*
+        version: link:../../packages/tools
+      axios:
+        specifier: ^1.9.0
+        version: 1.9.0
+      chalk:
+        specifier: ^5.4.1
+        version: 5.4.1
+      dotenv:
+        specifier: ^16.5.0
+        version: 16.5.0
+      openai:
+        specifier: ^4.98.0
+        version: 4.98.0(zod@3.24.4)
+      zod:
+        specifier: ^3.22.0
+        version: 3.24.4
+    devDependencies:
+      '@types/dotenv':
+        specifier: ^8.2.3
+        version: 8.2.3
+      '@typescript-eslint/eslint-plugin':
+        specifier: ^6.18.0
+        version: 6.21.0(@typescript-eslint/parser@6.21.0)(eslint@8.57.1)(typescript@5.8.3)
+      '@typescript-eslint/parser':
+        specifier: ^6.18.0
+        version: 6.21.0(eslint@8.57.1)(typescript@5.8.3)
+      eslint:
+        specifier: ^8.56.0
+        version: 8.57.1
+      tsx:
+        specifier: ^4.0.0
+        version: 4.19.4
+      typescript:
+        specifier: ^5.0.0
+        version: 5.8.3
+
   apps/web:
     dependencies:
       '@mdx-js/loader':
@@ -120,21 +169,6 @@ importers:
       typescript:
         specifier: ^5.3.3
         version: 5.8.3
-
-  examples:
-    dependencies:
-      '@robota/core':
-        specifier: workspace:*
-        version: link:../packages/core
-      '@robota/openai':
-        specifier: workspace:*
-        version: link:../packages/openai
-      dotenv:
-        specifier: ^16.0.0
-        version: 16.5.0
-      openai:
-        specifier: ^4.0.0
-        version: 4.98.0(zod@3.24.4)
 
   packages/anthropic:
     dependencies:
@@ -320,34 +354,6 @@ importers:
       vitest:
         specifier: ^1.1.0
         version: 1.6.1(@types/node@20.17.46)
-
-  src/examples:
-    dependencies:
-      '@robota/core':
-        specifier: workspace:*
-        version: link:../../packages/core
-      '@robota/openai':
-        specifier: workspace:*
-        version: link:../../packages/openai
-      '@robota/tools':
-        specifier: workspace:*
-        version: link:../../packages/tools
-      axios:
-        specifier: ^1.6.7
-        version: 1.9.0
-      dotenv:
-        specifier: ^16.4.5
-        version: 16.5.0
-      openai:
-        specifier: ^4.31.0
-        version: 4.98.0(zod@3.24.4)
-      zod:
-        specifier: ^3.22.4
-        version: 3.24.4
-    devDependencies:
-      typescript:
-        specifier: ^5.4.2
-        version: 5.8.3
 
 packages:
 
@@ -1651,6 +1657,13 @@ packages:
       '@types/ms': 2.1.0
     dev: false
 
+  /@types/dotenv@8.2.3:
+    resolution: {integrity: sha512-g2FXjlDX/cYuc5CiQvyU/6kkbP1JtmGzh0obW50zD7OKeILVL0NSpPWLXVfqoAGQjom2/SLLx9zHq0KXvD6mbw==}
+    deprecated: This is a stub types definition. dotenv provides its own type definitions, so you do not need this installed.
+    dependencies:
+      dotenv: 16.5.0
+    dev: true
+
   /@types/estree-jsx@1.0.5:
     resolution: {integrity: sha512-52CcUVNFyfb1A2ALocQw/Dd1BQFNmSdkuC3BkZ6iqhdMfQz7JWOFRuJFloOzjk+6WijU56m9oKXFAXc7o3Towg==}
     dependencies:
@@ -2618,7 +2631,6 @@ packages:
   /chalk@5.4.1:
     resolution: {integrity: sha512-zgVZuo2WcZgfUEmsn6eO3kINexW8RAE4maiQ8QNs8CtpPCSyMiYsULR3HQYkm3w8FIA3SberyMJMSldGsW+U3w==}
     engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
-    dev: true
 
   /character-entities-html4@2.1.0:
     resolution: {integrity: sha512-1v7fgQRj6hnSwFpq1Eu0ynr/CDEw0rXo2B61qXrLNdHZmPKgb7fqS1a2JwF0rISo9q77jDI8VMEHoApn8qDoZA==}
@@ -3029,7 +3041,6 @@ packages:
   /dotenv@16.5.0:
     resolution: {integrity: sha512-m/C+AwOAr9/W1UOIZUo232ejMNnJAJtYQjUbHoNTBNTJSvqzzDh7vnrei3o3r3m9blf6ZoDkvcw0VmozNRFJxg==}
     engines: {node: '>=12'}
-    dev: false
 
   /dunder-proto@1.0.1:
     resolution: {integrity: sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A==}
@@ -8167,6 +8178,17 @@ packages:
       - supports-color
       - tsx
       - yaml
+    dev: true
+
+  /tsx@4.19.4:
+    resolution: {integrity: sha512-gK5GVzDkJK1SI1zwHf32Mqxf2tSJkNx+eYcNly5+nHvWqXUJYUkWBQtKauoESz3ymezAI++ZwT855x5p5eop+Q==}
+    engines: {node: '>=18.0.0'}
+    hasBin: true
+    dependencies:
+      esbuild: 0.25.4
+      get-tsconfig: 4.10.0
+    optionalDependencies:
+      fsevents: 2.3.3
     dev: true
 
   /type-check@0.4.0:

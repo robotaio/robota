@@ -40,17 +40,25 @@ pnpm run example:tools
 
 # 에이전트 예제만 실행
 pnpm run example:agents
+
+# 시스템 메시지 예제만 실행
+pnpm run example:system-messages
 ```
 
-직접 TypeScript 파일을 실행하려면:
+직접 apps/examples 디렉토리에서 실행하려면:
 
 ```bash
-# TypeScript 직접 실행 (ts-node 필요)
-npx ts-node examples/basic/simple-conversation.ts
+# apps/examples 디렉토리로 이동
+cd apps/examples
 
-# 또는 컴파일 후 실행
-pnpm build
-node dist/examples/basic/simple-conversation.js
+# TypeScript 직접 실행 (tsx 사용)
+pnpm run start:basic
+pnpm run start:function-calling
+# 기타 예제들...
+
+# 또는 lint 검사 실행
+pnpm run lint
+pnpm run lint:fix
 ```
 
 ## 예제 카테고리
@@ -61,7 +69,7 @@ Robota 예제는 다음 카테고리로 구분됩니다:
 
 기본 예제는 Robota의 가장 기본적인 기능을 보여줍니다.
 
-- **[simple-conversation.ts](../examples/basic/simple-conversation.ts)**: 간단한 대화 및 스트리밍 응답 사용법
+- **[simple-conversation.ts](../apps/examples/basic/simple-conversation.ts)**: 간단한 대화 및 스트리밍 응답 사용법
   - 기본적인 Robota 설정 방법
   - 간단한 대화형 메시지 처리
   - 스트리밍 응답 처리
@@ -85,7 +93,7 @@ const response = await robota.run('안녕하세요! 타입스크립트에 대해
 
 함수 호출 예제는 Robota에서 외부 함수를 호출하는 방법을 보여줍니다.
 
-- **[weather-calculator.ts](../examples/function-calling/weather-calculator.ts)**: 날씨 정보 조회 및 계산기 기능
+- **[weather-calculator.ts](../apps/examples/function-calling/weather-calculator.ts)**: 날씨 정보 조회 및 계산기 기능
   - 함수 정의 및 등록 방법
   - 자동 함수 호출 모드 사용법
   - 강제 함수 호출 모드 사용법
@@ -117,7 +125,7 @@ const response = await robota.run('서울의 현재 날씨가 어떤지 알려�
 
 도구 사용 예제는 Robota에서 Zod를 사용한 도구 정의 및 사용 방법을 보여줍니다.
 
-- **[tool-examples.ts](../examples/tools/tool-examples.ts)**: Zod를 사용한 도구 정의 및 사용
+- **[tool-examples.ts](../apps/examples/tools/tool-examples.ts)**: Zod를 사용한 도구 정의 및 사용
   - 도구 스키마 정의
   - 도구 등록 및 실행
   - 여러 도구 조합 사용
@@ -147,7 +155,7 @@ robota.registerTools([weatherTool, calculatorTool, emailTool, searchTool]);
 
 에이전트 예제는 Robota를 사용한 복잡한 에이전트 구현 방법을 보여줍니다.
 
-- **[research-agent.ts](../examples/agents/research-agent.ts)**: 검색, 요약, 번역 기능을 갖춘 리서치 에이전트
+- **[research-agent.ts](../apps/examples/agents/research-agent.ts)**: 검색, 요약, 번역 기능을 갖춘 리서치 에이전트
   - 에이전트 구성 방법
   - 여러 도구를 결합한 복잡한 작업 처리
   - 다단계 작업 흐름 구현
@@ -175,6 +183,13 @@ const researchAgent = new Robota({
 // 에이전트 실행
 const result = await researchAgent.run('인공지능의 역사와 발전 과정에 대해 알아보고 싶습니다.');
 ```
+
+### 5. 시스템 메시지 예제
+
+- **[system-messages.ts](../apps/examples/system-messages/system-messages.ts)**: 다양한 시스템 메시지 템플릿 활용 예제
+  - 다양한 시스템 메시지 유형
+  - 메시지 템플릿 사용법
+  - 컨텍스트 조정
 
 ## 예제 확장하기
 
