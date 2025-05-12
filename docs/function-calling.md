@@ -8,12 +8,18 @@ Robota에서 함수를 정의하고 등록하는 방법은 다음과 같습니�
 
 ```typescript
 import { Robota, OpenAIProvider } from 'robota';
+import OpenAI from 'openai';
+
+// OpenAI 클라이언트 생성
+const openaiClient = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
+});
 
 // Robota 인스턴스 생성
 const robota = new Robota({
   provider: new OpenAIProvider({
-    apiKey: process.env.OPENAI_API_KEY,
-    model: 'gpt-4'
+    model: 'gpt-4',
+    client: openaiClient
   })
 });
 
@@ -129,9 +135,13 @@ Robota는 다양한 함수 호출 모드를 지원합니다:
 AI가 필요에 따라 함수를 자동으로 호출합니다:
 
 ```typescript
+// 개별 호출에서 설정
 const result = await robota.run('내일 서울의 날씨가 어떤지 알려줘', {
   functionCallMode: 'auto' // 기본값이므로 생략 가능
 });
+
+// 전역 설정
+robota.setFunctionCallMode('auto');
 ```
 
 ### 강제 모드
@@ -139,10 +149,18 @@ const result = await robota.run('내일 서울의 날씨가 어떤지 알려줘'
 특정 함수를 강제로 호출하도록 지시합니다:
 
 ```typescript
+// 개별 호출에서 설정
 const result = await robota.run('내일 서울의 날씨가 어떤지 알려줘', {
   functionCallMode: 'force',
   forcedFunction: 'getWeather',
   forcedArguments: { location: '서울', unit: 'celsius' }
+});
+
+// 전역 설정 + 개별 호출에서 함수 지정
+robota.setFunctionCallMode('force');
+const result = await robota.run('아무 내용', {
+  forcedFunction: 'getWeather',
+  forcedArguments: { location: '서울' }
 });
 ```
 
@@ -151,9 +169,13 @@ const result = await robota.run('내일 서울의 날씨가 어떤지 알려줘'
 함수 호출을 완전히 비활성화합니다:
 
 ```typescript
+// 개별 호출에서 설정
 const result = await robota.run('안녕하세요!', {
   functionCallMode: 'disabled'
 });
+
+// 전역 설정
+robota.setFunctionCallMode('disabled');
 ```
 
 ## 함수 호출 추적 및 로깅
@@ -162,7 +184,10 @@ const result = await robota.run('안녕하세요!', {
 
 ```typescript
 const robota = new Robota({
-  provider: new OpenAIProvider({ /* 설정 */ }),
+  provider: new OpenAIProvider({
+    model: 'gpt-4',
+    client: openaiClient
+  }),
   onFunctionCall: (functionName, args, result) => {
     console.log(`함수 호출: ${functionName}`);
     console.log('인자:', args);
@@ -171,17 +196,36 @@ const robota = new Robota({
 });
 ```
 
-## 함수 호출 제한 및 안전성
+## 함수 호출 설정 관리
 
-보안과 안전성을 위해 함수 호출에 제한을 둘 수 있습니다:
+보안과 안전성을 위해 함수 호출에 전역 설정을 적용할 수 있습니다:
 
 ```typescript
+// 초기화 시 설정
 const robota = new Robota({
-  provider: new OpenAIProvider({ /* 설정 */ }),
+  provider: new OpenAIProvider({
+    model: 'gpt-4',
+    client: openaiClient
+  }),
   functionCallConfig: {
     maxCalls: 5, // 최대 함수 호출 횟수
     timeout: 10000, // 함수 호출 타임아웃 (ms)
-    allowedFunctions: ['getWeather', 'calculate'] // 허용된 함수 목록
+    allowedFunctions: ['getWeather', 'calculate'], // 허용된 함수 목록
+    defaultMode: 'auto' // 기본 함수 호출 모드
   }
 });
+
+// 나중에 설정 변경
+robota.configureFunctionCall({
+  mode: 'auto',
+  maxCalls: 10,
+  timeout: 15000,
+  allowedFunctions: ['getWeather', 'calculate', 'searchDatabase']
+});
+```
+
+함수 호출 모드만 변경할 수도 있습니다:
+
+```typescript
+robota.setFunctionCallMode('auto'); // 'auto', 'disabled', 'force' 중 하나 선택
 ``` 

@@ -1,0 +1,43 @@
+[Core API](../../) / [Exports](../modules) / FunctionCallResult
+
+# Interface: FunctionCallResult
+
+함수 호출 결과 인터페이스
+
+## Table of contents
+
+### Properties
+
+- [error](FunctionCallResult#error)
+- [name](FunctionCallResult#name)
+- [result](FunctionCallResult#result)
+
+## Properties
+
+### error
+
+• `Optional` **error**: `string`
+
+#### Defined in
+
+[packages/core/src/types.ts:31](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/types.ts#L31)
+
+___
+
+### name
+
+• **name**: `string`
+
+#### Defined in
+
+[packages/core/src/types.ts:29](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/types.ts#L29)
+
+___
+
+### result
+
+• `Optional` **result**: `any`
+
+#### Defined in
+
+[packages/core/src/types.ts:30](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/types.ts#L30)

@@ -49,6 +49,7 @@ lerna-debug.log*
 
 # 빌드 산출물
 dist/
+website/dist/
 
 # 에디터 설정
 .vscode/*

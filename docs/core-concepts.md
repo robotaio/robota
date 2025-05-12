@@ -10,8 +10,27 @@ Robota 라이브러리는 다음과 같은 핵심 개념을 기반으로 합니�
 
 ```typescript
 const robota = new Robota({
-  provider: new OpenAIProvider({ /* 설정 */ }),
+  provider: new OpenAIProvider({
+    model: 'gpt-4',
+    client: openaiClient
+  }),
+  systemPrompt: '당신은 도움이 되는 AI 어시스턴트입니다.',
   // 추가 설정
+});
+```
+
+시스템 메시지를 여러 개 설정할 수도 있습니다:
+
+```typescript
+const robota = new Robota({
+  provider: new OpenAIProvider({
+    model: 'gpt-4',
+    client: openaiClient
+  }),
+  systemMessages: [
+    { role: 'system', content: '당신은 날씨에 대한 전문가입니다.' },
+    { role: 'system', content: '항상 정확한 정보를 제공하려고 노력하세요.' }
+  ]
 });
 ```
 
@@ -20,15 +39,22 @@ const robota = new Robota({
 다양한 AI 서비스를 사용할 수 있도록 하는 추상화 계층입니다. 각 제공업체는 특정 LLM API(OpenAI, Anthropic 등)와 통신하는 방법을 제공합니다.
 
 ```typescript
+import OpenAI from 'openai';
+
+// OpenAI 클라이언트 생성
+const openaiClient = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
+});
+
 // OpenAI 제공업체
 const openaiProvider = new OpenAIProvider({
-  apiKey: process.env.OPENAI_API_KEY,
+  client: openaiClient,
   model: 'gpt-4'
 });
 
 // Anthropic 제공업체
 const anthropicProvider = new AnthropicProvider({
-  apiKey: process.env.ANTHROPIC_API_KEY,
+  client: anthropicClient,
   model: 'claude-3-opus'
 });
 ```
@@ -48,6 +74,9 @@ const functions = {
 
 // 함수 등록
 robota.registerFunctions(functions);
+
+// 함수 호출 모드 설정
+robota.setFunctionCallMode('auto'); // 'auto', 'disabled', 'force' 중 선택
 ```
 
 ### 4. 도구 (Tools)
@@ -74,7 +103,7 @@ robota.registerTools([calculator]);
 에이전트는 목표를 달성하기 위해 도구를 사용하고 추론하는 AI 시스템입니다. Robota는 다양한 에이전트 패턴을 구현할 수 있습니다.
 
 ```typescript
-const researchAgent = new Agent({
+const researchAgent = new Robota({
   name: '리서치 에이전트',
   description: '웹에서 정보를 검색하고 요약하는 에이전트',
   tools: [webSearch, summarize],

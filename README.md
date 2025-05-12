@@ -1,90 +1,115 @@
-# Robota
+# Robota - AI 에이전트 프레임워크
 
-쉽게 Agentic AI를 만들 수 있는 JavaScript 라이브러리
+Robota는 JavaScript/TypeScript로 작성된 AI 에이전트 프레임워크입니다. 이 프로젝트는 pnpm 모노레포로 구성되어 있으며, 필요에 따라 bun을 사용하여 예제를 실행할 수 있습니다.
 
-[![NPM Version](https://img.shields.io/npm/v/robota.svg)](https://www.npmjs.com/package/robota)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+## 프로젝트 구조
 
-## 소개
+```
+robota/
+├── src/
+│   ├── packages/         # 라이브러리 패키지
+│   │   ├── core/         # 핵심 기능
+│   │   ├── tools/        # 도구 모듈
+│   │   └── openai/       # OpenAI 통합 모듈
+│   └── examples/         # 예제 코드
+│       ├── basic/        # 기본 대화 예제
+│       ├── function-calling/ # 함수 호출 예제
+│       ├── tools/        # 도구 사용 예제
+│       └── agents/       # 에이전트 예제
+├── pnpm-workspace.yaml   # 워크스페이스 설정
+└── package.json          # 루트 패키지 설정
+```
 
-Robota는 AI 에이전트를 쉽게, 직관적으로, 그리고 유연하게 구축할 수 있는 타입스크립트 라이브러리입니다. 다양한 AI 제공업체 (OpenAI, Anthropic 등)를 지원하며, 함수 호출, 도구 통합, 대화 관리 등 에이전트 구축에 필요한 모든 기능을 제공합니다.
+## 설치 방법
 
-## 특징
+### 요구 사항
 
-- **다양한 AI 제공업체 지원**: OpenAI, Anthropic, LangChain, Replicate 등을 통합하여 사용할 수 있습니다.
-- **강력한 함수 호출 기능**: AI가 함수를 직접 호출하여 외부 API, 데이터베이스 등과 상호작용할 수 있습니다.
-- **모듈식 설계**: 필요한 기능만 가져와 사용할 수 있는 모듈식 설계로 가볍고 유연한 구현이 가능합니다.
-- **OpenAPI 통합**: OpenAPI 스펙에서 자동으로 AI 도구를 생성하여 기존 API를 쉽게 AI에 연결할 수 있습니다.
-- **타입 안정성**: TypeScript로 작성되어 타입 안정성을 보장하고 IDE의 자동 완성 기능을 활용할 수 있습니다.
+- Node.js 18 이상
+- pnpm 8 이상
+- bun 1 이상 (선택 사항)
 
-## 설치
-
-npm을 사용하여 핵심 패키지 설치:
+### 설치
 
 ```bash
-npm install @robota/core
+# pnpm 설치 (아직 설치하지 않은 경우)
+npm install -g pnpm
+
+# bun 설치 (아직 설치하지 않은 경우)
+curl -fsSL https://bun.sh/install | bash
+
+# 의존성 설치
+pnpm install
 ```
 
-필요한 제공업체 패키지 설치:
+## 예제 실행
+
+### pnpm으로 실행
 
 ```bash
-# OpenAI 제공업체
-npm install @robota/openai
+# 기본 대화 예제
+pnpm example:basic
 
-# Anthropic 제공업체
-npm install @robota/anthropic
+# 함수 호출 예제
+pnpm example:function-calling
+
+# 도구 사용 예제
+pnpm example:tools
+
+# 에이전트 예제
+pnpm example:agents
+
+# 모든 예제 실행
+pnpm example:all
 ```
 
-또는 pnpm 사용:
+### bun으로 직접 실행
 
 ```bash
-pnpm add @robota/core @robota/openai
+# 예제 디렉토리로 이동
+cd src/examples
+
+# 기본 대화 예제
+bun run basic/simple-conversation.ts
+
+# 함수 호출 예제
+bun run function-calling/weather-calculator.ts
+
+# 도구 사용 예제
+bun run tools/tool-examples.ts
+
+# 에이전트 예제
+bun run agents/research-agent.ts
 ```
 
-## 기본 사용법
+## 개발
 
-```typescript
-import { Robota } from '@robota/core';
-import { OpenAIProvider } from '@robota/openai';
+### 패키지 빌드
 
-// Robota 인스턴스 생성
-const robota = new Robota({
-  provider: new OpenAIProvider({
-    apiKey: process.env.OPENAI_API_KEY,
-    model: 'gpt-4'
-  })
-});
+```bash
+# 모든 패키지 빌드
+pnpm build
 
-// 실행
-const result = await robota.run('타입스크립트란 무엇인가요?');
-console.log(result);
+# 핵심 의존성 먼저 빌드
+pnpm build:deps
 ```
 
-## 문서
+### 타입 체크
 
-자세한 문서는 [공식 사이트](https://robota.io)에서 확인하세요.
+```bash
+pnpm typecheck
+```
 
-## 예제
+## 환경 변수
 
-더 많은 예제는 [examples](./examples) 디렉토리에서 확인할 수 있습니다.
+예제를 실행하기 위해서는 `.env` 파일을 생성하고 필요한 환경 변수를 설정해야 합니다:
 
-## 개발 상태
+```
+# OpenAI API 키 (필수)
+OPENAI_API_KEY=your_api_key_here
 
-현재 프로젝트는 적극적으로 개발 중입니다:
-
-- ✅ 핵심 기능 구현 완료
-- ✅ 단위 테스트 작성
-- ✅ 예제 코드 추가
-- ✅ CI/CD 파이프라인 설정
-- ✅ npm 배포 설정
-- ✅ GitHub Pages 배포 구성
-- ⏳ 문서화 진행 중
-- ⏳ 추가 제공업체 지원 작업 중
-- ⏳ 성능 최적화 작업 중
-
-## 기여하기
-
-기여는 언제나 환영합니다! 자세한 내용은 [CONTRIBUTING.md](CONTRIBUTING.md)를 참조하세요.
+# 날씨 API 키 (선택 사항)
+WEATHER_API_KEY=your_weather_api_key_here
+```
 
 ## 라이선스
 

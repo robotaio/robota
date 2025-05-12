@@ -1,0 +1,39 @@
+{
+    "name": "@robota/docs-generator",
+    "version": "1.0.0",
+    "description": "Robota API 문서 생성 도구",
+    "type": "module",
+    "main": "dist/index.js",
+    "files": [
+        "dist",
+        "src"
+    ],
+    "scripts": {
+        "build": "tsup",
+        "dev": "tsup --watch",
+        "clean": "rimraf dist",
+        "generate": "node dist/index.js",
+        "generate-api-docs": "node dist/index.js"
+    },
+    "keywords": [
+        "docs",
+        "generator",
+        "api",
+        "robota"
+    ],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "glob": "^10.3.10",
+        "marked": "^9.1.5",
+        "typedoc": "^0.25.9",
+        "typedoc-plugin-markdown": "^3.17.1"
+    },
+    "devDependencies": {
+        "@types/marked": "^6.0.0",
+        "@types/node": "^20.10.5",
+        "rimraf": "^5.0.5",
+        "tsup": "^8.0.2",
+        "typescript": "^5.3.3"
+    }
+}

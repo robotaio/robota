@@ -122,6 +122,7 @@ export interface RunOptions {
  * 함수 호출 설정 인터페이스
  */
 export interface FunctionCallConfig {
+  defaultMode?: FunctionCallMode;
   maxCalls?: number;
   timeout?: number;
   allowedFunctions?: string[];
@@ -133,6 +134,7 @@ export interface FunctionCallConfig {
 export interface RobotaOptions {
   provider: any; // 제공업체 인터페이스는 각 패키지에서 정의됨
   systemPrompt?: string;
+  systemMessages?: Message[];
   memory?: any; // 메모리 인터페이스는 별도로 정의됨
   functionCallConfig?: FunctionCallConfig;
   onFunctionCall?: (functionName: string, args: any, result: any) => void;
@@ -145,5 +147,6 @@ export interface Context {
   messages: Message[];
   functions?: FunctionSchema[];
   systemPrompt?: string;
+  systemMessages?: Message[];
   metadata?: Record<string, any>;
 }

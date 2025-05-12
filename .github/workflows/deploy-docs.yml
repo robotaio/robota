@@ -4,44 +4,62 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'docs/**'
+      - 'packages/**'
+      - 'apps/web/**'
+      - '.github/workflows/deploy-docs.yml'
   workflow_dispatch:
+
+# 수동으로 워크플로우를 실행할 수 있게 함
 
 # 저장소에 쓰기 권한 허용
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+# 동시에 하나의 배포만 허용
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
 
 jobs:
-  deploy-docs:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
           version: 8
-      
+          run_install: false
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
           cache: 'pnpm'
-      
-      - name: Install dependencies
+
+      - name: Install Dependencies
         run: pnpm install
-      
-      - name: Build Nextra docs
+
+      - name: Build Web
         run: |
-          cd website
-          npm install
-          npm run build
-          
+          cd apps/web
+          pnpm run build
+
+      # 빌드 결과물에 .nojekyll 파일 추가 (GitHub Pages에서 Jekyll 처리 방지)
       - name: Add .nojekyll file
-        run: |
-          touch website/out/.nojekyll
-      
+        run: touch apps/web/out/.nojekyll
+
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./website/out 
+          folder: ./apps/web/out
+          branch: gh-pages
+          clean: true

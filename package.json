@@ -8,15 +8,15 @@
     "build": "pnpm run -r build",
     "build:deps": "pnpm --filter @robota/core build && pnpm --filter @robota/tools build && pnpm --filter \"@robota/!(core|tools)\" build",
     "test": "pnpm run -r test",
-    "typecheck": "pnpm --filter @robota/core typecheck && pnpm --filter @robota/tools typecheck && pnpm --filter @robota/langchain typecheck && pnpm --filter @robota/replicate typecheck && pnpm --filter @robota/anthropic typecheck && pnpm --filter @robota/openai typecheck",
+    "typecheck": "pnpm --filter @robota/core typecheck && pnpm --filter @robota/tools typecheck && pnpm --filter @robota/openai typecheck",
     "dev": "pnpm run -r dev",
     "clean": "pnpm run -r clean",
     "prepare": "husky install",
-    "docs:dev": "pnpm --filter website dev",
-    "docs:build": "pnpm --filter website build",
-    "docs:preview": "pnpm --filter website preview",
-    "lint": "eslint . --ext .ts,.tsx",
-    "lint:fix": "eslint . --ext .ts,.tsx --fix"
+    "example:basic": "pnpm --filter robota-examples run start:basic",
+    "example:function-calling": "pnpm --filter robota-examples run start:function-calling",
+    "example:tools": "pnpm --filter robota-examples run start:tools",
+    "example:agents": "pnpm --filter robota-examples run start:agents",
+    "example:all": "pnpm --filter robota-examples run start:all"
   },
   "keywords": [
     "ai",
@@ -29,16 +29,19 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.10.6",
-    "eslint": "^8.56.0",
     "@typescript-eslint/eslint-plugin": "^6.18.0",
     "@typescript-eslint/parser": "^6.18.0",
+    "eslint": "^8.56.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
     "prettier": "^3.1.1",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vitest": "^1.6.1"
   },
   "engines": {
     "node": ">=18.0.0",
-    "pnpm": ">=8.0.0"
-  }
+    "pnpm": ">=8.0.0",
+    "bun": ">=1.0.0"
+  },
+  "packageManager": "pnpm@8.15.4"
 }

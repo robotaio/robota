@@ -5,7 +5,7 @@
 
 import { randomUUID } from 'crypto';
 import type { Provider, ProviderOptions, ProviderResponse, ProviderResponseStream } from '../types/provider';
-import type { ModelContext, FunctionSchema, ModelContextProtocol } from '../types/model-context-protocol';
+import type { ModelContext, FunctionSchema, ModelContextProtocol, FunctionCallMode } from '../types/model-context-protocol';
 
 /**
  * 기본 제공업체 구현
@@ -15,12 +15,12 @@ export abstract class BaseProvider implements Provider, Partial<ModelContextProt
    * 제공업체 ID
    */
   public readonly id: string;
-  
+
   /**
    * 제공업체 옵션
    */
   public readonly options: ProviderOptions;
-  
+
   /**
    * 생성자
    * @param options 제공업체 옵션
@@ -32,10 +32,11 @@ export abstract class BaseProvider implements Provider, Partial<ModelContextProt
       temperature: options.temperature ?? 0.7,
       maxTokens: options.maxTokens,
       stopSequences: options.stopSequences,
-      streamMode: options.streamMode ?? false
+      streamMode: options.streamMode ?? false,
+      functionCallMode: options.functionCallMode ?? 'auto'
     };
   }
-  
+
   /**
    * 텍스트 완성 생성 (추상 메서드)
    * @param context 모델 컨텍스트
@@ -45,7 +46,7 @@ export abstract class BaseProvider implements Provider, Partial<ModelContextProt
     context: ModelContext,
     options?: Partial<ProviderOptions>
   ): Promise<ProviderResponse>;
-  
+
   /**
    * 스트리밍 텍스트 완성 생성 (추상 메서드)
    * @param context 모델 컨텍스트
@@ -55,7 +56,7 @@ export abstract class BaseProvider implements Provider, Partial<ModelContextProt
     context: ModelContext,
     options?: Partial<ProviderOptions>
   ): Promise<ProviderResponseStream>;
-  
+
   /**
    * 함수 스키마 변환
    * @param functions 함수 스키마 배열
@@ -66,7 +67,7 @@ export abstract class BaseProvider implements Provider, Partial<ModelContextProt
     // 각 제공업체 클래스에서 재정의
     return functions;
   }
-  
+
   /**
    * 제공업체가 특정 기능을 지원하는지 확인
    * @param feature 확인할 기능 이름
@@ -77,7 +78,7 @@ export abstract class BaseProvider implements Provider, Partial<ModelContextProt
     // 각 제공업체 클래스에서 재정의
     return false;
   }
-  
+
   /**
    * MCP 컨텍스트를 모델 고유 형식으로 변환
    * @param context MCP 컨텍스트
@@ -88,7 +89,7 @@ export abstract class BaseProvider implements Provider, Partial<ModelContextProt
     // 각 제공업체 클래스에서 재정의
     return context;
   }
-  
+
   /**
    * 모델 응답을 MCP 형식으로 변환
    * @param modelResponse 모델 응답
@@ -99,7 +100,7 @@ export abstract class BaseProvider implements Provider, Partial<ModelContextProt
     // 각 제공업체 클래스에서 재정의
     return modelResponse as ProviderResponse;
   }
-  
+
   /**
    * 제공업체 옵션 병합
    * @param additionalOptions 추가 옵션
@@ -111,7 +112,7 @@ export abstract class BaseProvider implements Provider, Partial<ModelContextProt
       ...additionalOptions
     };
   }
-  
+
   /**
    * 제공업체 정보 문자열 반환
    * @returns 제공업체 정보 문자열

@@ -3,10 +3,14 @@
  */
 
 // 코어 클래스 및 인터페이스
-export { Robota } from './core/robota';
-export { Agent } from './core/agent';
+export { RobotaCore } from './core/robota';
+export { Robota } from './core/agent';
 export { Tool } from './core/tool';
-export type { RobotaOptions, RunOptions } from './core/robota';
+export type { RobotaCoreOptions, RunOptions } from './core/robota';
+export type { RobotaOptions } from './core/agent';
+
+// 에이전트
+export { ReActRobota } from './agents/react-agent';
 
 // 제공업체
 export { BaseProvider } from './providers/base-provider';

@@ -1,4 +1,4 @@
-# OpenAPI/Swagger 통합
+# OpenAPI 통합
 
 Robota는 OpenAPI(이전의 Swagger) 스펙을 자동으로 AI 에이전트의 도구와 함수로 변환하는 기능을 제공합니다. 이를 통해 기존 API를 쉽게 AI 에이전트에 연결하고 활용할 수 있습니다.
 
