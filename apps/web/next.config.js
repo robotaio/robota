@@ -2,11 +2,11 @@ const withMDX = require('@next/mdx')({
     extension: /\.mdx?$/,
     options: {
         remarkPlugins: [
-            require('remark-gfm'),
+            ['remark-gfm'],
         ],
         rehypePlugins: [
-            require('rehype-slug'),
-            require('rehype-autolink-headings'),
+            ['rehype-slug'],
+            ['rehype-autolink-headings'],
         ],
     },
 });
