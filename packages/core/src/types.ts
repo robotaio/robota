@@ -136,7 +136,7 @@ export interface MCPClient {
   chat: (options: any) => Promise<any>;
   stream?: (options: any) => AsyncIterable<any>;
   listTools: () => Promise<{ tools: any[] }>;
-  callTool: (toolName: string, params: any) => Promise<any>;
+  callTool: (params: { name: string, arguments: any }) => Promise<any>;
   getResource?: (uri: string) => Promise<any>;
   close?: () => Promise<void>;
 }

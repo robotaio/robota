@@ -159,7 +159,10 @@ export class Robota {
 
     try {
       // 도구 호출
-      const result = await this.mcpClient.callTool(toolName, params);
+      const result = await this.mcpClient.callTool({
+        name: toolName,
+        arguments: params
+      });
 
       // 콜백 실행 (설정된 경우)
       if (this.onToolCall) {
@@ -606,9 +609,9 @@ export class Robota {
         function: {
           name: tool.name,
           description: tool.description || '',
-          parameters: tool.parameters || {
+          parameters: tool.inputSchema || {
             type: 'object',
-            properties: {}
+            properties: {},
           }
         }
       }));
@@ -625,7 +628,7 @@ export class Robota {
       if (this.aiClient) {
         // OpenAI 클라이언트인 경우
         if (this.aiClient.type === 'openai') {
-          console.log('OpenAI 클라이언트로 MCP 요청 실행:', JSON.stringify(requestOptions, null, 2));
+          // console.log('OpenAI 클라이언트로 MCP 요청 실행:', JSON.stringify(requestOptions, null, 2));
 
           const openaiResponse = await this.aiClient.instance.chat.completions.create(requestOptions);
 
@@ -636,7 +639,7 @@ export class Robota {
             usage: openaiResponse.usage
           };
 
-          console.log('OpenAI 응답:', JSON.stringify(response, null, 2));
+          // console.log('OpenAI 응답:', JSON.stringify(response, null, 2));
 
           // 응답 파싱
           const modelResponse: ModelResponse = {
@@ -663,7 +666,10 @@ export class Robota {
               console.log(`MCP 도구 '${toolName}' 자동 호출 실행:`, params);
 
               // MCP 도구 호출
-              const toolResult = await this.mcpClient.callTool(toolName, params);
+              const toolResult = await this.mcpClient.callTool({
+                name: toolName,
+                arguments: params
+              });
 
               console.log(`MCP 도구 '${toolName}' 호출 결과:`, toolResult);
 
