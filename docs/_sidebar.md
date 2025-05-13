@@ -23,5 +23,6 @@
 * [함수 호출](function-calling.md)
 * [시스템 메시지](system-messages.md)
 * [코드 개선사항](code-improvements.md)
+* [개발 가이드라인](development-guidelines.md)
 * [OpenAPI 통합](openapi-integration.md)
 * [로드맵](roadmap.md)

@@ -15,7 +15,8 @@ robota/
 │       ├── basic/        # 기본 대화 예제
 │       ├── function-calling/ # 함수 호출 예제
 │       ├── tools/        # 도구 사용 예제
-│       └── agents/       # 에이전트 예제
+│       ├── agents/       # 에이전트 예제
+│       └── mcp/          # MCP 통합 예제
 ├── pnpm-workspace.yaml   # 워크스페이스 설정
 └── package.json          # 루트 패키지 설정
 ```
@@ -58,6 +59,12 @@ pnpm example:tools
 # 에이전트 예제
 pnpm example:agents
 
+# 시스템 메시지 예제
+pnpm example:system-messages
+
+# MCP 통합 예제
+pnpm example:mcp
+
 # 모든 예제 실행
 pnpm example:all
 ```
@@ -79,6 +86,9 @@ bun run tools/tool-examples.ts
 
 # 에이전트 예제
 bun run agents/research-agent.ts
+
+# MCP 통합 예제
+bun run mcp/mcp-example.ts
 ```
 
 ## 개발
@@ -109,6 +119,38 @@ OPENAI_API_KEY=your_api_key_here
 
 # 날씨 API 키 (선택 사항)
 WEATHER_API_KEY=your_weather_api_key_here
+
+# MCP API 키 (MCP 예제 실행 시 필요)
+MCP_API_KEY=your_mcp_api_key_here
+```
+
+## 주요 기능
+
+### Model Context Protocol (MCP) 지원
+
+Robota는 이제 Model Context Protocol을 지원합니다. MCP를 통해 다양한 AI 모델 제공자와 표준화된 방식으로 통신할 수 있습니다:
+
+```typescript
+import { Robota, MCPProvider } from 'robota';
+import { Client, StdioClientTransport } from '@modelcontextprotocol/sdk';
+
+// MCP 클라이언트 생성
+const transport = new StdioClientTransport(/* 설정 */);
+const mcpClient = new Client(transport);
+
+// MCP 제공자 초기화
+const provider = new MCPProvider({
+  type: 'client',
+  client: mcpClient,
+  model: 'model-name', // 사용할 모델 이름
+  temperature: 0.7
+});
+
+// Robota 인스턴스에 제공자 연결
+const robota = new Robota({ provider });
+
+// 실행
+const result = await robota.run('안녕하세요! MCP를 통해 연결된 AI 모델과 대화 중입니다.');
 ```
 
 ## 라이선스

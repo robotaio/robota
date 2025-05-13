@@ -18,6 +18,7 @@
     "example:tools": "pnpm --filter robota-examples run start:tools",
     "example:agents": "pnpm --filter robota-examples run start:agents",
     "example:system-messages": "pnpm --filter robota-examples run start:system-messages",
+    "example:mcp": "pnpm --filter robota-examples run start:mcp",
     "example:all": "pnpm --filter robota-examples run start:all"
   },
   "keywords": [
@@ -45,5 +46,8 @@
     "pnpm": ">=8.0.0",
     "bun": ">=1.0.0"
   },
-  "packageManager": "pnpm@8.15.4"
+  "packageManager": "pnpm@8.15.4",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.11.2"
+  }
 }

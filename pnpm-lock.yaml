@@ -7,6 +7,10 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@modelcontextprotocol/sdk':
+        specifier: ^1.11.2
+        version: 1.11.2
     devDependencies:
       '@types/node':
         specifier: ^20.10.6
@@ -38,12 +42,18 @@ importers:
 
   apps/examples:
     dependencies:
+      '@modelcontextprotocol/sdk':
+        specifier: ^1.11.2
+        version: 1.11.2
       '@robota/anthropic':
         specifier: workspace:*
         version: link:../../packages/anthropic
       '@robota/core':
         specifier: workspace:*
         version: link:../../packages/core
+      '@robota/mcp':
+        specifier: workspace:*
+        version: link:../../packages/mcp
       '@robota/openai':
         specifier: workspace:*
         version: link:../../packages/openai

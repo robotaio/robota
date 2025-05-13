@@ -129,15 +129,46 @@ export interface FunctionCallConfig {
 }
 
 /**
+ * MCP 클라이언트 인터페이스
+ */
+export interface MCPClient {
+  connect: (transport: any) => Promise<void>;
+  chat: (options: any) => Promise<any>;
+  stream?: (options: any) => AsyncIterable<any>;
+  listTools: () => Promise<{ tools: any[] }>;
+  callTool: (toolName: string, params: any) => Promise<any>;
+  getResource?: (uri: string) => Promise<any>;
+  close?: () => Promise<void>;
+}
+
+/**
+ * AI 제공업체 클라이언트 타입
+ */
+export type AIClientType = 'openai' | 'anthropic' | 'google' | 'cohere' | string;
+
+/**
+ * AI 제공업체 클라이언트 인터페이스
+ */
+export interface AIClient {
+  type: AIClientType; // 클라이언트 타입
+  instance: any; // 클라이언트 인스턴스
+}
+
+/**
  * Robota 설정 인터페이스
  */
 export interface RobotaOptions {
-  provider: any; // 제공업체 인터페이스는 각 패키지에서 정의됨
+  provider?: any; // 제공업체 인터페이스는 각 패키지에서 정의됨 (선택 사항)
+  mcpClient?: MCPClient; // MCP 클라이언트 직접 사용 (선택 사항)
+  aiClient?: AIClient; // AI 제공업체 클라이언트 (선택 사항)
+  model?: string; // mcpClient를 사용할 때의 모델명 (선택 사항)
+  temperature?: number; // 모델 온도 (선택 사항)
   systemPrompt?: string;
   systemMessages?: Message[];
   memory?: any; // 메모리 인터페이스는 별도로 정의됨
   functionCallConfig?: FunctionCallConfig;
   onFunctionCall?: (functionName: string, args: any, result: any) => void;
+  onToolCall?: (toolName: string, params: any, result: any) => void; // MCP 도구 호출 콜백
 }
 
 /**

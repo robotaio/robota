@@ -15,13 +15,16 @@
         "start:tools": "tsx tools/tool-examples.ts",
         "start:agents": "tsx agents/research-agent.ts",
         "start:system-messages": "tsx system-messages/system-messages.ts",
-        "start:all": "echo '모든 예제를 순차적으로 실행합니다' && pnpm start:basic && pnpm start:function-calling && pnpm start:tools && pnpm start:agents && pnpm start:system-messages"
+        "start:mcp": "tsx mcp/mcp-agent-example.ts",
+        "start:all": "echo '모든 예제를 순차적으로 실행합니다' && pnpm start:basic && pnpm start:function-calling && pnpm start:tools && pnpm start:agents && pnpm start:system-messages && pnpm start:mcp"
     },
     "dependencies": {
         "@robota/anthropic": "workspace:*",
         "@robota/core": "workspace:*",
+        "@robota/mcp": "workspace:*",
         "@robota/openai": "workspace:*",
         "@robota/tools": "workspace:*",
+        "@modelcontextprotocol/sdk": "^1.11.2",
         "axios": "^1.9.0",
         "chalk": "^5.4.1",
         "dotenv": "^16.5.0",

@@ -49,7 +49,7 @@
 
 - [ ] TypeScript 클래스 프로토콜 지원 강화
 - [ ] Swagger/OpenAPI 문서 프로토콜 개선
-- [ ] MCP(Model Context Protocol) 서버 지원
+- [x] MCP(Model Context Protocol) 서버 지원
 
 ### 도구 및 유틸리티 확장
 

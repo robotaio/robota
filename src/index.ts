@@ -19,6 +19,7 @@ export { AnthropicProvider } from './providers/anthropic-provider';
 export { LangchainProvider } from './providers/langchain-provider';
 export { ReplicateProvider } from './providers/replicate-provider';
 export { ProviderRouter } from './providers/provider-router';
+export { MCPProvider } from './core/mcp-provider';
 
 // 함수 호출 및 도구
 export { createFunction } from './core/function';
@@ -56,6 +57,8 @@ export type {
   FunctionOptions,
   FunctionResult
 } from './types/function';
+
+export * from './types/mcp';
 
 // 버전 정보
 export const VERSION = '0.1.0'; 
