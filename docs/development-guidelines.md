@@ -112,4 +112,19 @@ const result = await mockClient.run(context);
 
 - 명확한 오류 메시지
 - 로깅 및 디버깅 지원
-- 다양한 사용자 시나리오 지원 
+- 다양한 사용자 시나리오 지원
+
+## 콘솔 출력 및 로깅 규칙
+
+- **console.log 직접 사용 금지**: `./packages/` 내의 모든 TypeScript(.ts) 파일에서는 `console.log`를 직접 호출할 수 없습니다.
+- **logger 유틸리티 사용**: 로그가 필요한 경우 반드시 제공되는 `logger` 유틸리티(`info`, `warn`, `error` 메서드)를 사용해야 합니다.
+- **예외 경로**: `./apps/examples/` 및 `./scripts/` 경로 내의 코드에서는 `console.log` 사용이 허용됩니다.
+- **문서화 및 예제**: 위 규칙을 위반하는 코드는 PR 리뷰 시 반드시 수정되어야 하며, 예제 및 스크립트 외의 모든 로그는 logger를 통해 출력되어야 합니다.
+- **logger 예시**:
+
+```typescript
+import { logger } from '@robota/core/src/utils';
+logger.info('정보 메시지');
+logger.warn('경고 메시지');
+logger.error('에러 메시지');
+``` 

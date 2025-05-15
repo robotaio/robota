@@ -11,6 +11,7 @@ import { z } from 'zod';
 import { createFunction } from './function';
 import type { Tool as ToolInterface, ToolOptions, ToolResult } from '../types/tool';
 import type { FunctionSchema } from '../types/model-context-protocol';
+import { logger } from '../../packages/core/src/utils';
 
 /**
  * 도구 클래스
@@ -199,7 +200,7 @@ export class Tool<TParams = any, TResult = any> implements ToolInterface<TParams
    * @example
    * ```typescript
    * const result = await weatherTool.execute({ location: '서울' });
-   * console.log(result);
+   * logger.info(result);
    * // {
    * //   status: 'success',
    * //   data: { temperature: 25, condition: '맑음' }

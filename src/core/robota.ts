@@ -26,7 +26,7 @@
  * 
  * // 함수 실행
  * const response = await robota.run('오늘 날씨가 어때?');
- * console.log(response);
+ * logger.info(response);
  * ```
  */
 
@@ -35,6 +35,7 @@ import type { Message, ModelContext, FunctionSchema, FunctionCallMode, MessageRo
 import type { Function, FunctionResult } from '../types/function';
 import type { Tool } from '../types/tool';
 import { ConversationMemory } from '../utils/conversation-memory';
+import { logger } from '../../packages/core/src/utils';
 
 /**
  * RobotaCore 옵션 인터페이스
@@ -405,7 +406,7 @@ export class RobotaCore {
    * @example
    * ```typescript
    * const response = await robota.run('오늘 서울의 날씨가 어때?');
-   * console.log(response); // '서울의 현재 기온은 25도이며, 맑은 상태입니다.'
+   * logger.info(response); // '서울의 현재 기온은 25도이며, 맑은 상태입니다.'
    * ```
    */
   async run(prompt: string, options: RunOptions = {}): Promise<string> {

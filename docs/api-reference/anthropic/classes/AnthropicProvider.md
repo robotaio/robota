@@ -28,4 +28,4 @@ Anthropic 제공업체 클래스
 
 #### Defined in
 
-[anthropic/src/index.ts:14](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/anthropic/src/index.ts#L14)
+[anthropic/src/index.ts:14](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/anthropic/src/index.ts#L14)

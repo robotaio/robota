@@ -34,7 +34,7 @@ OpenAPI 스키마 기반 MCP 제공업체 옵션
 
 #### Defined in
 
-[mcp/src/types.ts:42](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/mcp/src/types.ts#L42)
+[mcp/src/types.ts:42](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/mcp/src/types.ts#L42)
 
 ___
 
@@ -46,7 +46,7 @@ API 요청 헤더
 
 #### Defined in
 
-[mcp/src/types.ts:47](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/mcp/src/types.ts#L47)
+[mcp/src/types.ts:47](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/mcp/src/types.ts#L47)
 
 ___
 
@@ -87,7 +87,7 @@ JSON 객체 또는 스키마의 URL
 
 #### Defined in
 
-[mcp/src/types.ts:37](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/mcp/src/types.ts#L37)
+[mcp/src/types.ts:37](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/mcp/src/types.ts#L37)
 
 ___
 
@@ -141,4 +141,4 @@ ___
 
 #### Defined in
 
-[mcp/src/types.ts:52](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/mcp/src/types.ts#L52)
+[mcp/src/types.ts:52](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/mcp/src/types.ts#L52)

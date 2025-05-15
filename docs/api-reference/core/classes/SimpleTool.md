@@ -43,7 +43,7 @@
 
 #### Defined in
 
-[packages/core/src/tools.ts:53](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/tools.ts#L53)
+[packages/core/src/tools.ts:53](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/tools.ts#L53)
 
 ## Properties
 
@@ -59,7 +59,7 @@
 
 #### Defined in
 
-[packages/core/src/tools.ts:49](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/tools.ts#L49)
+[packages/core/src/tools.ts:49](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/tools.ts#L49)
 
 ___
 
@@ -89,7 +89,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/tools.ts:51](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/tools.ts#L51)
+[packages/core/src/tools.ts:51](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/tools.ts#L51)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/tools.ts:48](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/tools.ts#L48)
+[packages/core/src/tools.ts:48](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/tools.ts#L48)
 
 ___
 
@@ -121,7 +121,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/tools.ts:50](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/tools.ts#L50)
+[packages/core/src/tools.ts:50](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/tools.ts#L50)
 
 ## Methods
 
@@ -141,4 +141,4 @@ ___
 
 #### Defined in
 
-[packages/core/src/tools.ts:63](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/tools.ts#L63)
+[packages/core/src/tools.ts:63](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/tools.ts#L63)

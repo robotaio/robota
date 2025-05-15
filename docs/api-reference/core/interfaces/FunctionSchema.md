@@ -20,7 +20,7 @@
 
 #### Defined in
 
-[packages/core/src/types.ts:57](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/types.ts#L57)
+[packages/core/src/types.ts:57](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/types.ts#L57)
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/types.ts:56](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/types.ts#L56)
+[packages/core/src/types.ts:56](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/types.ts#L56)
 
 ___
 
@@ -48,4 +48,4 @@ ___
 
 #### Defined in
 
-[packages/core/src/types.ts:58](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/types.ts#L58)
+[packages/core/src/types.ts:58](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/types.ts#L58)

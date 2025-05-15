@@ -65,7 +65,7 @@ Robota 인스턴스 생성
 
 #### Defined in
 
-[packages/core/src/robota.ts:60](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L60)
+[packages/core/src/robota.ts:61](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/robota.ts#L61)
 
 ## Methods
 
@@ -87,7 +87,7 @@ Robota 인스턴스 생성
 
 #### Defined in
 
-[packages/core/src/robota.ts:433](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L433)
+[packages/core/src/robota.ts:434](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/robota.ts#L434)
 
 ___
 
@@ -109,7 +109,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/robota.ts:257](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L257)
+[packages/core/src/robota.ts:258](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/robota.ts#L258)
 
 ___
 
@@ -134,7 +134,7 @@ MCP 도구 호출
 
 #### Defined in
 
-[packages/core/src/robota.ts:155](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L155)
+[packages/core/src/robota.ts:156](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/robota.ts#L156)
 
 ___
 
@@ -159,7 +159,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/robota.ts:392](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L392)
+[packages/core/src/robota.ts:393](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/robota.ts#L393)
 
 ___
 
@@ -175,7 +175,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/robota.ts:444](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L444)
+[packages/core/src/robota.ts:445](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/robota.ts#L445)
 
 ___
 
@@ -191,7 +191,7 @@ MCP 클라이언트 회기 종료
 
 #### Defined in
 
-[packages/core/src/robota.ts:938](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L938)
+[packages/core/src/robota.ts:939](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/robota.ts#L939)
 
 ___
 
@@ -217,7 +217,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/robota.ts:298](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L298)
+[packages/core/src/robota.ts:299](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/robota.ts#L299)
 
 ___
 
@@ -241,7 +241,7 @@ MCP 리소스 가져오기
 
 #### Defined in
 
-[packages/core/src/robota.ts:185](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L185)
+[packages/core/src/robota.ts:186](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/robota.ts#L186)
 
 ___
 
@@ -259,7 +259,7 @@ MCP 도구 목록
 
 #### Defined in
 
-[packages/core/src/robota.ts:130](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L130)
+[packages/core/src/robota.ts:131](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/robota.ts#L131)
 
 ___
 
@@ -282,7 +282,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/robota.ts:351](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L351)
+[packages/core/src/robota.ts:352](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/robota.ts#L352)
 
 ___
 
@@ -304,7 +304,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/robota.ts:323](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L323)
+[packages/core/src/robota.ts:324](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/robota.ts#L324)
 
 ___
 
@@ -329,7 +329,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/robota.ts:374](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L374)
+[packages/core/src/robota.ts:375](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/robota.ts#L375)
 
 ___
 
@@ -354,7 +354,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/robota.ts:423](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L423)
+[packages/core/src/robota.ts:424](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/robota.ts#L424)
 
 ___
 
@@ -380,7 +380,7 @@ MCP 도구를 사용하여 작업 실행
 
 #### Defined in
 
-[packages/core/src/robota.ts:207](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L207)
+[packages/core/src/robota.ts:208](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/robota.ts#L208)
 
 ___
 
@@ -402,7 +402,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/robota.ts:289](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L289)
+[packages/core/src/robota.ts:290](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/robota.ts#L290)
 
 ___
 
@@ -424,7 +424,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/robota.ts:247](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L247)
+[packages/core/src/robota.ts:248](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/robota.ts#L248)
 
 ___
 
@@ -446,4 +446,4 @@ ___
 
 #### Defined in
 
-[packages/core/src/robota.ts:237](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L237)
+[packages/core/src/robota.ts:238](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/robota.ts#L238)

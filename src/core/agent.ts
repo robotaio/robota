@@ -12,6 +12,7 @@ import type { Message } from '../types/model-context-protocol';
 import { ConversationMemory } from '../utils/conversation-memory';
 import { Tool } from './tool';
 import { RobotaCore } from './robota';
+import { logger } from '../../packages/core/src/utils';
 
 /**
  * Robota 옵션 인터페이스
@@ -97,7 +98,7 @@ export class Robota {
      * @returns 에이전트 응답
      */
     async run(input: string): Promise<string> {
-        console.log(`[${this.name}] 입력 받음: ${input}`);
+        logger.info(`[${this.name}] 입력 받음: ${input}`);
         return await this.robota.run(input);
     }
 

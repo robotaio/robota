@@ -28,4 +28,4 @@ MCP 제공업체 옵션 통합 타입
 
 #### Defined in
 
-[mcp/src/types.ts:58](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/mcp/src/types.ts#L58)
+[mcp/src/types.ts:58](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/mcp/src/types.ts#L58)

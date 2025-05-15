@@ -41,6 +41,10 @@
 - [FunctionHandler](modules#functionhandler)
 - [MessageRole](modules#messagerole)
 
+### Variables
+
+- [logger](modules#logger)
+
 ### Functions
 
 - [createFunctionSchema](modules#createfunctionschema)
@@ -61,7 +65,7 @@ AI 제공업체 클라이언트 타입
 
 #### Defined in
 
-[packages/core/src/types.ts:147](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/types.ts#L147)
+[packages/core/src/types.ts:147](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/types.ts#L147)
 
 ___
 
@@ -73,7 +77,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/types.ts:107](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/types.ts#L107)
+[packages/core/src/types.ts:107](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/types.ts#L107)
 
 ___
 
@@ -100,7 +104,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/function-calling.ts:40](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/function-calling.ts#L40)
+[packages/core/src/function-calling.ts:40](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/function-calling.ts#L40)
 
 ___
 
@@ -112,7 +116,27 @@ ___
 
 #### Defined in
 
-[packages/core/src/types.ts:4](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/types.ts#L4)
+[packages/core/src/types.ts:4](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/types.ts#L4)
+
+## Variables
+
+### logger
+
+• `Const` **logger**: `Object`
+
+logger 유틸리티 (console.log 대체)
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `error` | (...`args`: `any`[]) => `void` |
+| `info` | (...`args`: `any`[]) => `void` |
+| `warn` | (...`args`: `any`[]) => `void` |
+
+#### Defined in
+
+[packages/core/src/utils.ts:128](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/utils.ts#L128)
 
 ## Functions
 
@@ -134,7 +158,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/function-calling.ts:7](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/function-calling.ts#L7)
+[packages/core/src/function-calling.ts:7](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/function-calling.ts#L7)
 
 ___
 
@@ -158,7 +182,7 @@ Promise
 
 #### Defined in
 
-[packages/core/src/utils.ts:63](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/utils.ts#L63)
+[packages/core/src/utils.ts:63](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/utils.ts#L63)
 
 ___
 
@@ -182,7 +206,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/utils.ts:73](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/utils.ts#L73)
+[packages/core/src/utils.ts:73](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/utils.ts#L73)
 
 ___
 
@@ -211,7 +235,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/utils.ts:96](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/utils.ts#L96)
+[packages/core/src/utils.ts:96](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/utils.ts#L96)
 
 ___
 
@@ -235,7 +259,7 @@ JSON 여부
 
 #### Defined in
 
-[packages/core/src/utils.ts:48](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/utils.ts#L48)
+[packages/core/src/utils.ts:48](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/utils.ts#L48)
 
 ___
 
@@ -265,7 +289,7 @@ undefined 값이 제거된 객체
 
 #### Defined in
 
-[packages/core/src/utils.ts:28](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/utils.ts#L28)
+[packages/core/src/utils.ts:28](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/utils.ts#L28)
 
 ___
 
@@ -290,4 +314,4 @@ ___
 
 #### Defined in
 
-[packages/core/src/utils.ts:12](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/utils.ts#L12)
+[packages/core/src/utils.ts:12](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/utils.ts#L12)
