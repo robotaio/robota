@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[packages/core/src/model-context-protocol.ts:20](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/model-context-protocol.ts#L20)
+[packages/core/src/model-context-protocol.ts:20](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/model-context-protocol.ts#L20)
 
 ## Methods
 
@@ -62,7 +62,7 @@
 
 #### Defined in
 
-[packages/core/src/model-context-protocol.ts:29](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/model-context-protocol.ts#L29)
+[packages/core/src/model-context-protocol.ts:29](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/model-context-protocol.ts#L29)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/model-context-protocol.ts:44](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/model-context-protocol.ts#L44)
+[packages/core/src/model-context-protocol.ts:44](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/model-context-protocol.ts#L44)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/model-context-protocol.ts:90](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/model-context-protocol.ts#L90)
+[packages/core/src/model-context-protocol.ts:90](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/model-context-protocol.ts#L90)
 
 ___
 
@@ -140,7 +140,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/model-context-protocol.ts:66](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/model-context-protocol.ts#L66)
+[packages/core/src/model-context-protocol.ts:66](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/model-context-protocol.ts#L66)
 
 ___
 
@@ -164,7 +164,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/model-context-protocol.ts:58](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/model-context-protocol.ts#L58)
+[packages/core/src/model-context-protocol.ts:58](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/model-context-protocol.ts#L58)
 
 ___
 
@@ -188,7 +188,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/model-context-protocol.ts:74](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/model-context-protocol.ts#L74)
+[packages/core/src/model-context-protocol.ts:74](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/model-context-protocol.ts#L74)
 
 ___
 
@@ -212,4 +212,4 @@ ___
 
 #### Defined in
 
-[packages/core/src/model-context-protocol.ts:82](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/model-context-protocol.ts#L82)
+[packages/core/src/model-context-protocol.ts:82](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/model-context-protocol.ts#L82)

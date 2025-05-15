@@ -48,7 +48,7 @@
 
 #### Defined in
 
-[packages/core/src/function-calling.ts:77](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/function-calling.ts#L77)
+[packages/core/src/function-calling.ts:77](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/function-calling.ts#L77)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/function-calling.ts:63](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/function-calling.ts#L63)
+[packages/core/src/function-calling.ts:63](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/function-calling.ts#L63)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/function-calling.ts:70](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/function-calling.ts#L70)
+[packages/core/src/function-calling.ts:70](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/function-calling.ts#L70)
 
 ___
 
@@ -109,4 +109,4 @@ ___
 
 #### Defined in
 
-[packages/core/src/function-calling.ts:55](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/function-calling.ts#L55)
+[packages/core/src/function-calling.ts:55](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/function-calling.ts#L55)

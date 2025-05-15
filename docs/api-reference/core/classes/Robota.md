@@ -29,13 +29,18 @@ const response = await robota.run('안녕하세요!');
 
 - [addResponseToMemory](Robota#addresponsetomemory)
 - [addSystemMessage](Robota#addsystemmessage)
+- [callMcpTool](Robota#callmcptool)
 - [chat](Robota#chat)
 - [clearMemory](Robota#clearmemory)
+- [closeMcpClient](Robota#closemcpclient)
 - [configureFunctionCall](Robota#configurefunctioncall)
+- [getMcpResource](Robota#getmcpresource)
+- [listMcpTools](Robota#listmcptools)
 - [registerFunction](Robota#registerfunction)
 - [registerFunctions](Robota#registerfunctions)
 - [run](Robota#run)
 - [runStream](Robota#runstream)
+- [runWithMcpTool](Robota#runwithmcptool)
 - [setFunctionCallMode](Robota#setfunctioncallmode)
 - [setSystemMessages](Robota#setsystemmessages)
 - [setSystemPrompt](Robota#setsystemprompt)
@@ -60,7 +65,7 @@ Robota 인스턴스 생성
 
 #### Defined in
 
-[packages/core/src/robota.ts:51](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/robota.ts#L51)
+[packages/core/src/robota.ts:60](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L60)
 
 ## Methods
 
@@ -82,7 +87,7 @@ Robota 인스턴스 생성
 
 #### Defined in
 
-[packages/core/src/robota.ts:288](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/robota.ts#L288)
+[packages/core/src/robota.ts:433](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L433)
 
 ___
 
@@ -104,7 +109,32 @@ ___
 
 #### Defined in
 
-[packages/core/src/robota.ts:106](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/robota.ts#L106)
+[packages/core/src/robota.ts:257](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L257)
+
+___
+
+### callMcpTool
+
+▸ **callMcpTool**(`toolName`, `params`): `Promise`\<`any`\>
+
+MCP 도구 호출
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `toolName` | `string` | 도구 이름 |
+| `params` | `any` | 도구 매개변수 |
+
+#### Returns
+
+`Promise`\<`any`\>
+
+도구 호출 결과
+
+#### Defined in
+
+[packages/core/src/robota.ts:155](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L155)
 
 ___
 
@@ -129,7 +159,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/robota.ts:241](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/robota.ts#L241)
+[packages/core/src/robota.ts:392](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L392)
 
 ___
 
@@ -145,7 +175,23 @@ ___
 
 #### Defined in
 
-[packages/core/src/robota.ts:299](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/robota.ts#L299)
+[packages/core/src/robota.ts:444](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L444)
+
+___
+
+### closeMcpClient
+
+▸ **closeMcpClient**(): `Promise`\<`void`\>
+
+MCP 클라이언트 회기 종료
+
+#### Returns
+
+`Promise`\<`void`\>
+
+#### Defined in
+
+[packages/core/src/robota.ts:938](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L938)
 
 ___
 
@@ -171,7 +217,49 @@ ___
 
 #### Defined in
 
-[packages/core/src/robota.ts:147](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/robota.ts#L147)
+[packages/core/src/robota.ts:298](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L298)
+
+___
+
+### getMcpResource
+
+▸ **getMcpResource**(`uri`): `Promise`\<`any`\>
+
+MCP 리소스 가져오기
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `uri` | `string` | 리소스 URI |
+
+#### Returns
+
+`Promise`\<`any`\>
+
+리소스 내용
+
+#### Defined in
+
+[packages/core/src/robota.ts:185](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L185)
+
+___
+
+### listMcpTools
+
+▸ **listMcpTools**(): `Promise`\<`any`[]\>
+
+MCP 도구 목록 가져오기
+
+#### Returns
+
+`Promise`\<`any`[]\>
+
+MCP 도구 목록
+
+#### Defined in
+
+[packages/core/src/robota.ts:130](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L130)
 
 ___
 
@@ -194,7 +282,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/robota.ts:200](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/robota.ts#L200)
+[packages/core/src/robota.ts:351](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L351)
 
 ___
 
@@ -216,7 +304,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/robota.ts:172](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/robota.ts#L172)
+[packages/core/src/robota.ts:323](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L323)
 
 ___
 
@@ -241,7 +329,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/robota.ts:223](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/robota.ts#L223)
+[packages/core/src/robota.ts:374](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L374)
 
 ___
 
@@ -266,7 +354,33 @@ ___
 
 #### Defined in
 
-[packages/core/src/robota.ts:272](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/robota.ts#L272)
+[packages/core/src/robota.ts:423](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L423)
+
+___
+
+### runWithMcpTool
+
+▸ **runWithMcpTool**(`toolName`, `params`, `followUp?`): `Promise`\<`string`\>
+
+MCP 도구를 사용하여 작업 실행
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `toolName` | `string` | 도구 이름 |
+| `params` | `any` | 도구 매개변수 |
+| `followUp?` | `string` | 도구 호출 후 후속 프롬프트 |
+
+#### Returns
+
+`Promise`\<`string`\>
+
+실행 결과
+
+#### Defined in
+
+[packages/core/src/robota.ts:207](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L207)
 
 ___
 
@@ -288,7 +402,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/robota.ts:138](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/robota.ts#L138)
+[packages/core/src/robota.ts:289](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L289)
 
 ___
 
@@ -310,7 +424,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/robota.ts:96](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/robota.ts#L96)
+[packages/core/src/robota.ts:247](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L247)
 
 ___
 
@@ -332,4 +446,4 @@ ___
 
 #### Defined in
 
-[packages/core/src/robota.ts:86](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/robota.ts#L86)
+[packages/core/src/robota.ts:237](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/robota.ts#L237)

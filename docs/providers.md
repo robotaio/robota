@@ -18,18 +18,6 @@ Anthropic의 Claude 모델과 통합하기 위한 제공자입니다. Claude, Cl
 
 자세한 내용은 [Anthropic 제공자 문서](providers/anthropic.md)를 참조하세요.
 
-#### Replicate
-
-Replicate 플랫폼의 다양한 오픈소스 모델을 활용할 수 있는 제공자입니다.
-
-자세한 내용은 [Replicate 제공자 문서](providers/replicate.md)를 참조하세요.
-
-#### LangChain
-
-LangChain 프레임워크와 통합하기 위한 제공자로, 다양한 LangChain 모델과 체인을 Robota에서 활용할 수 있습니다.
-
-자세한 내용은 [LangChain 제공자 문서](providers/langchain.md)를 참조하세요.
-
 ### 프로토콜 제공자
 
 특정 프로토콜을 기반으로 한 제공자도 지원합니다:
@@ -51,7 +39,8 @@ Model Context Protocol을 지원하는 모델과 통합하기 위한 제공자�
 각 제공자는 일관된 인터페이스를 통해 사용됩니다. API 클라이언트를 직접 주입해야 합니다:
 
 ```typescript
-import { Robota, OpenAIProvider } from 'robota';
+import { Robota } from '@robota/core';
+import { OpenAIProvider } from '@robota/provider-openai';
 import OpenAI from 'openai';
 
 // OpenAI 클라이언트 생성
@@ -83,7 +72,8 @@ Robota는 외부에서 생성된 API 클라이언트를 사용합니다. 이를 
 3. 클라이언트 설정에 대한 더 세밀한 제어 가능
 
 ```typescript
-import { Robota, AnthropicProvider } from 'robota';
+import { Robota } from '@robota/core';
+import { AnthropicProvider } from '@robota/provider-anthropic';
 import Anthropic from '@anthropic-ai/sdk';
 
 // Anthropic 클라이언트 생성
@@ -107,7 +97,8 @@ const robota = new Robota({ provider });
 Model Context Protocol을 지원하는 모델을 사용하려면:
 
 ```typescript
-import { Robota, MCPProvider } from 'robota';
+import { Robota } from '@robota/core';
+import { MCPProvider } from '@robota/provider-mcp';
 import { Client, StdioClientTransport } from '@modelcontextprotocol/sdk';
 
 // MCP 클라이언트 생성
@@ -133,7 +124,9 @@ const result = await robota.run('안녕하세요!');
 여러 제공자를 동시에 사용하여 다양한 AI 모델의 장점을 활용할 수 있습니다:
 
 ```typescript
-import { Robota, OpenAIProvider, AnthropicProvider, ProviderRouter } from 'robota';
+import { Robota, ProviderRouter } from '@robota/core';
+import { OpenAIProvider } from '@robota/provider-openai';
+import { AnthropicProvider } from '@robota/provider-anthropic';
 import OpenAI from 'openai';
 import Anthropic from '@anthropic-ai/sdk';
 
@@ -202,7 +195,5 @@ interface ProviderOptions {
 
 - [OpenAI 제공자](providers/openai.md)
 - [Anthropic 제공자](providers/anthropic.md)
-- [Replicate 제공자](providers/replicate.md)
-- [LangChain 제공자](providers/langchain.md)
 - [MCP 제공자](protocols/mcp-provider.md)
 - [커스텀 제공자 만들기](providers/custom.md) 

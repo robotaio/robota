@@ -22,6 +22,9 @@ const robota = new Robota({
 시스템 메시지를 여러 개 설정할 수도 있습니다:
 
 ```typescript
+import { Robota } from '@robota/core';
+import { OpenAIProvider } from '@robota/provider-openai';
+
 const robota = new Robota({
   provider: new OpenAIProvider({
     model: 'gpt-4',
@@ -40,6 +43,8 @@ const robota = new Robota({
 
 ```typescript
 import OpenAI from 'openai';
+import { OpenAIProvider } from '@robota/provider-openai';
+import { AnthropicProvider } from '@robota/provider-anthropic';
 
 // OpenAI 클라이언트 생성
 const openaiClient = new OpenAI({
@@ -64,6 +69,8 @@ const anthropicProvider = new AnthropicProvider({
 AI 모델이 특정 함수를 호출할 수 있도록 합니다. 이를 통해 외부 API 호출, 데이터베이스 조회, 파일 시스템 액세스 등의 작업을 수행할 수 있습니다.
 
 ```typescript
+import { Robota } from '@robota/core';
+
 // 함수 정의
 const functions = {
   searchDatabase: async (query: string) => {
@@ -84,6 +91,9 @@ robota.setFunctionCallMode('auto'); // 'auto', 'disabled', 'force' 중 선택
 도구는 함수 호출의 확장된 개념으로, 더 복잡하고 구조화된 기능을 제공합니다. 각 도구는 메타데이터, 파라미터 검증, 실행 로직을 포함합니다.
 
 ```typescript
+import { Tool } from '@robota/tools';
+import { z } from 'zod';
+
 const calculator = new Tool({
   name: 'calculator',
   description: '수학 계산을 수행합니다',
@@ -103,6 +113,9 @@ robota.registerTools([calculator]);
 에이전트는 목표를 달성하기 위해 도구를 사용하고 추론하는 AI 시스템입니다. Robota는 다양한 에이전트 패턴을 구현할 수 있습니다.
 
 ```typescript
+import { Robota } from '@robota/core';
+import { OpenAIProvider } from '@robota/provider-openai';
+
 const researchAgent = new Robota({
   name: '리서치 에이전트',
   description: '웹에서 정보를 검색하고 요약하는 에이전트',
@@ -116,6 +129,10 @@ const researchAgent = new Robota({
 대화 기록을 저장하고 관리하는 시스템으로, 에이전트가 이전 상호작용을 기억하고 참조할 수 있게 합니다.
 
 ```typescript
+import { Robota } from '@robota/core';
+import { ConversationMemory } from '@robota/memory';
+import { OpenAIProvider } from '@robota/provider-openai';
+
 const memory = new ConversationMemory();
 const robota = new Robota({
   provider: openaiProvider,
@@ -132,6 +149,8 @@ const robota = new Robota({
 Swagger/OpenAPI 스펙에서 자동으로 도구와 함수를 생성하는 기능을 제공합니다.
 
 ```typescript
+import { OpenAPIToolkit } from '@robota/openapi';
+
 const apiTools = await OpenAPIToolkit.fromURL('https://api.example.com/openapi.json');
 robota.registerTools(apiTools);
 ```

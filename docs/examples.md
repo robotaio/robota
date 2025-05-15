@@ -77,6 +77,9 @@ Robota 예제는 다음 카테고리로 구분됩니다:
 코드 예시:
 ```typescript
 // Robota 인스턴스 생성
+import { Robota } from '@robota/core';
+import { OpenAIProvider } from '@robota/provider-openai';
+
 const robota = new Robota({
   provider: new OpenAIProvider({
     model: 'gpt-4',
@@ -100,6 +103,9 @@ const response = await robota.run('안녕하세요! 타입스크립트에 대해
   
 코드 예시:
 ```typescript
+import { Robota } from '@robota/core';
+import { OpenAIProvider } from '@robota/provider-openai';
+
 // 함수 정의
 const functions = {
   getWeather: async (location: string, unit: 'celsius' | 'fahrenheit' = 'celsius') => {
@@ -132,6 +138,10 @@ const response = await robota.run('서울의 현재 날씨가 어떤지 알려�
   
 코드 예시:
 ```typescript
+import { Robota } from '@robota/core';
+import { Tool } from '@robota/tools';
+import { z } from 'zod';
+
 // 도구 생성
 const weatherTool = new Tool({
   name: 'getWeather',
@@ -162,6 +172,10 @@ robota.registerTools([weatherTool, calculatorTool, emailTool, searchTool]);
   
 코드 예시:
 ```typescript
+import { Robota } from '@robota/core';
+import { OpenAIProvider } from '@robota/provider-openai';
+import { Tool } from '@robota/tools';
+
 // 에이전트 생성
 const researchAgent = new Robota({
   name: '리서치 에이전트',

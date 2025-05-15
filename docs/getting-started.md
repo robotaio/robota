@@ -7,19 +7,19 @@ Robota를 사용하여 에이전틱 AI를 구축하는 방법을 알아보겠습
 Bun을 사용하여 설치:
 
 ```bash
-bun install robota
+bun install @robota/core @robota/provider-openai
 ```
 
 npm을 사용하여 설치:
 
 ```bash
-npm install robota
+npm install @robota/core @robota/provider-openai
 ```
 
 yarn을 사용하여 설치:
 
 ```bash
-yarn add robota
+yarn add @robota/core @robota/provider-openai
 ```
 
 ## 기본 사용법
@@ -27,7 +27,8 @@ yarn add robota
 가장 기본적인 형태로 Robota를 설정하고 사용하는 방법은 다음과 같습니다:
 
 ```typescript
-import { Robota, OpenAIProvider } from 'robota';
+import { Robota } from '@robota/core';
+import { OpenAIProvider } from '@robota/provider-openai';
 
 // 환경 변수에서 API 키 가져오기
 const apiKey = process.env.OPENAI_API_KEY;
@@ -53,7 +54,8 @@ console.log(result);
 AI가 함수를 호출할 수 있도록 설정:
 
 ```typescript
-import { Robota, OpenAIProvider } from 'robota';
+import { Robota } from '@robota/core';
+import { OpenAIProvider } from '@robota/provider-openai';
 
 // Robota 인스턴스 생성
 const robota = new Robota({
@@ -90,7 +92,8 @@ console.log(result);
 스트리밍 응답을 사용하여 실시간으로 결과 받기:
 
 ```typescript
-import { Robota, OpenAIProvider } from 'robota';
+import { Robota } from '@robota/core';
+import { OpenAIProvider } from '@robota/provider-openai';
 
 const robota = new Robota({
   provider: new OpenAIProvider({

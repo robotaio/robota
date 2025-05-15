@@ -1,66 +1,36 @@
-# Robota 문서
+# Robota
 
-Robota 라이브러리의 사용법과 API 참조 문서입니다.
+에이전틱 AI(Agentic AI) 애플리케이션을 쉽게 구축할 수 있는 타입스크립트 라이브러리입니다.
 
-## 목차
+## 문서
 
-1. [시작하기](getting-started.md)
-2. [핵심 개념](core-concepts.md)
-3. [API 참조](api-reference.md)
-   - [Core](api-reference/core/)
-   - [OpenAI](api-reference/openai/)
-   - [Anthropic](api-reference/anthropic/)
-   - [LangChain](api-reference/langchain/)
-   - [Replicate](api-reference/replicate/)
-   - [Tools](api-reference/tools/)
-4. [AI 제공자](providers.md)
-   - [OpenAI](providers/openai.md)
-   - [Anthropic](providers/anthropic.md)
-   - [Replicate](providers/replicate.md)
-   - [LangChain](providers/langchain.md)
-   - [커스텀 제공자](providers/custom.md)
-5. [프로토콜](protocols/)
-   - [모델 컨텍스트 프로토콜](protocols/model-context-protocol.md)
-   - [MCP 제공자](protocols/mcp-provider.md)
-6. [함수 호출](function-calling.md)
-7. [시스템 메시지](system-messages.md)
-8. [코드 개선사항](code-improvements.md)
-9. [OpenAPI 통합](openapi-integration.md)
+### API 참조
+
+이 API 참조 문서는 다음 패키지에 대한 정보를 포함합니다:
+
+- [Core](api-reference/core/)
+- [OpenAI](api-reference/openai/)
+- [Anthropic](api-reference/anthropic/)
+- [Tools](api-reference/tools/)
+
+### 제공자 (Providers)
+
+- [OpenAI](providers/openai.md)
+- [Anthropic](providers/anthropic.md)
+- [커스텀 제공자](providers/custom.md)
+
+## 시작하기
+
+Robota를 시작하려면:
+
+1. [시작하기](getting-started.md) 가이드를 읽어보세요.
+2. [예제](examples.md)를 살펴보세요.
+3. [핵심 개념](core-concepts.md)을 이해하세요.
+4. [함수 호출](function-calling.md)에 대해 알아보세요.
+5. [에이전트 구축](building-agents.md) 방법을 배워보세요.
+
+자세한 내용은 [문서](https://robota.ai/docs)를 참조하세요.
 
 ## 기여하기
 
 Robota에 기여하고 싶으시다면 [기여 가이드라인](contributing.md)을 참조하세요. 
-
-## 코드 개선 요약
-
-최근 코드 리팩토링 작업에서 다음과 같은 개선사항이 적용되었습니다:
-
-1. **타입 안전성 강화**
-   - 인터페이스와 타입 정의 확장 
-   - 제네릭 타입을 활용한 타입 안전성 향상
-   - 명시적인 타입 체크 추가
-
-2. **코드 모듈화**
-   - 논리적 기능별 모듈 분리 
-   - 관련 기능 그룹화
-   - 책임 분리 원칙 적용
-
-3. **문서화 개선**
-   - JSDoc 주석 추가 및 개선
-   - 예제 코드 추가
-   - 상세한 API 설명 제공
-
-4. **에러 처리 향상**
-   - 더 명확한 에러 메시지 제공
-   - 예외 처리 로직 개선
-   - 함수 호출 실패에 대한 강건성 증가
-
-5. **개발자 경험 개선**
-   - 직관적인 API 디자인
-   - IDE 지원 최적화
-   - 일관된 코딩 스타일 적용
-
-6. **테스트 강화**
-   - 단위 테스트 확대
-   - 에지 케이스 처리
-   - 테스트 커버리지 향상 

@@ -7,7 +7,8 @@
 Robota에서 함수를 정의하고 등록하는 방법은 다음과 같습니다:
 
 ```typescript
-import { Robota, OpenAIProvider } from 'robota';
+import { Robota } from '@robota/core';
+import { OpenAIProvider } from '@robota/provider-openai';
 import OpenAI from 'openai';
 
 // OpenAI 클라이언트 생성
@@ -91,7 +92,9 @@ robota.registerFunctions(functions);
 
 ```typescript
 import { z } from 'zod';
-import { Robota, OpenAIProvider, createFunction } from 'robota';
+import { Robota } from '@robota/core';
+import { OpenAIProvider } from '@robota/provider-openai';
+import { createFunction } from '@robota/core';
 
 // zod 스키마를 사용한 함수 생성
 const sendEmail = createFunction({
@@ -183,6 +186,9 @@ robota.setFunctionCallMode('disabled');
 함수 호출을 추적하고 로깅할 수 있습니다:
 
 ```typescript
+import { Robota } from '@robota/core';
+import { OpenAIProvider } from '@robota/provider-openai';
+
 const robota = new Robota({
   provider: new OpenAIProvider({
     model: 'gpt-4',
@@ -201,6 +207,9 @@ const robota = new Robota({
 보안과 안전성을 위해 함수 호출에 전역 설정을 적용할 수 있습니다:
 
 ```typescript
+import { Robota } from '@robota/core';
+import { OpenAIProvider } from '@robota/provider-openai';
+
 // 초기화 시 설정
 const robota = new Robota({
   provider: new OpenAIProvider({

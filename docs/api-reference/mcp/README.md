@@ -1,4 +1,4 @@
-OpenAI API / [Exports](modules)
+MCP API / [Exports](modules)
 
 # Robota - AI 에이전트 프레임워크
 

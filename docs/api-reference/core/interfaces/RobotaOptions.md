@@ -8,14 +8,29 @@ Robota 설정 인터페이스
 
 ### Properties
 
+- [aiClient](RobotaOptions#aiclient)
 - [functionCallConfig](RobotaOptions#functioncallconfig)
+- [mcpClient](RobotaOptions#mcpclient)
 - [memory](RobotaOptions#memory)
+- [model](RobotaOptions#model)
 - [onFunctionCall](RobotaOptions#onfunctioncall)
+- [onToolCall](RobotaOptions#ontoolcall)
 - [provider](RobotaOptions#provider)
 - [systemMessages](RobotaOptions#systemmessages)
 - [systemPrompt](RobotaOptions#systemprompt)
+- [temperature](RobotaOptions#temperature)
 
 ## Properties
+
+### aiClient
+
+• `Optional` **aiClient**: [`AIClient`](AIClient)
+
+#### Defined in
+
+[packages/core/src/types.ts:163](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/types.ts#L163)
+
+___
 
 ### functionCallConfig
 
@@ -23,7 +38,17 @@ Robota 설정 인터페이스
 
 #### Defined in
 
-[packages/core/src/types.ts:139](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/types.ts#L139)
+[packages/core/src/types.ts:169](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/types.ts#L169)
+
+___
+
+### mcpClient
+
+• `Optional` **mcpClient**: [`MCPClient`](MCPClient)
+
+#### Defined in
+
+[packages/core/src/types.ts:162](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/types.ts#L162)
 
 ___
 
@@ -33,7 +58,17 @@ ___
 
 #### Defined in
 
-[packages/core/src/types.ts:138](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/types.ts#L138)
+[packages/core/src/types.ts:168](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/types.ts#L168)
+
+___
+
+### model
+
+• `Optional` **model**: `string`
+
+#### Defined in
+
+[packages/core/src/types.ts:164](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/types.ts#L164)
 
 ___
 
@@ -59,17 +94,43 @@ ___
 
 #### Defined in
 
-[packages/core/src/types.ts:140](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/types.ts#L140)
+[packages/core/src/types.ts:170](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/types.ts#L170)
+
+___
+
+### onToolCall
+
+• `Optional` **onToolCall**: (`toolName`: `string`, `params`: `any`, `result`: `any`) => `void`
+
+#### Type declaration
+
+▸ (`toolName`, `params`, `result`): `void`
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `toolName` | `string` |
+| `params` | `any` |
+| `result` | `any` |
+
+##### Returns
+
+`void`
+
+#### Defined in
+
+[packages/core/src/types.ts:171](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/types.ts#L171)
 
 ___
 
 ### provider
 
-• **provider**: `any`
+• `Optional` **provider**: `any`
 
 #### Defined in
 
-[packages/core/src/types.ts:135](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/types.ts#L135)
+[packages/core/src/types.ts:161](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/types.ts#L161)
 
 ___
 
@@ -79,7 +140,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/types.ts:137](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/types.ts#L137)
+[packages/core/src/types.ts:167](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/types.ts#L167)
 
 ___
 
@@ -89,4 +150,14 @@ ___
 
 #### Defined in
 
-[packages/core/src/types.ts:136](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/types.ts#L136)
+[packages/core/src/types.ts:166](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/types.ts#L166)
+
+___
+
+### temperature
+
+• `Optional` **temperature**: `number`
+
+#### Defined in
+
+[packages/core/src/types.ts:165](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/types.ts#L165)

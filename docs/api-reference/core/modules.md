@@ -15,12 +15,14 @@
 
 ### Interfaces
 
+- [AIClient](interfaces/AIClient)
 - [Context](interfaces/Context)
 - [FunctionCall](interfaces/FunctionCall)
 - [FunctionCallConfig](interfaces/FunctionCallConfig)
 - [FunctionCallResult](interfaces/FunctionCallResult)
 - [FunctionDefinition](interfaces/FunctionDefinition)
 - [FunctionSchema](interfaces/FunctionSchema)
+- [MCPClient](interfaces/MCPClient)
 - [Memory](interfaces/Memory)
 - [Message](interfaces/Message)
 - [ModelContextProtocol](interfaces/ModelContextProtocol)
@@ -34,6 +36,7 @@
 
 ### Type Aliases
 
+- [AIClientType](modules#aiclienttype)
 - [FunctionCallMode](modules#functioncallmode)
 - [FunctionHandler](modules#functionhandler)
 - [MessageRole](modules#messagerole)
@@ -50,6 +53,18 @@
 
 ## Type Aliases
 
+### AIClientType
+
+Ƭ **AIClientType**: ``"openai"`` \| ``"anthropic"`` \| ``"google"`` \| ``"cohere"`` \| `string`
+
+AI 제공업체 클라이언트 타입
+
+#### Defined in
+
+[packages/core/src/types.ts:147](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/types.ts#L147)
+
+___
+
 ### FunctionCallMode
 
 Ƭ **FunctionCallMode**: ``"auto"`` \| ``"force"`` \| ``"disabled"``
@@ -58,7 +73,7 @@
 
 #### Defined in
 
-[packages/core/src/types.ts:107](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/types.ts#L107)
+[packages/core/src/types.ts:107](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/types.ts#L107)
 
 ___
 
@@ -85,7 +100,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/function-calling.ts:40](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/function-calling.ts#L40)
+[packages/core/src/function-calling.ts:40](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/function-calling.ts#L40)
 
 ___
 
@@ -97,7 +112,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/types.ts:4](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/types.ts#L4)
+[packages/core/src/types.ts:4](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/types.ts#L4)
 
 ## Functions
 
@@ -119,7 +134,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/function-calling.ts:7](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/function-calling.ts#L7)
+[packages/core/src/function-calling.ts:7](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/function-calling.ts#L7)
 
 ___
 
@@ -143,7 +158,7 @@ Promise
 
 #### Defined in
 
-[packages/core/src/utils.ts:63](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/utils.ts#L63)
+[packages/core/src/utils.ts:63](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/utils.ts#L63)
 
 ___
 
@@ -167,7 +182,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/utils.ts:73](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/utils.ts#L73)
+[packages/core/src/utils.ts:73](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/utils.ts#L73)
 
 ___
 
@@ -196,7 +211,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/utils.ts:96](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/utils.ts#L96)
+[packages/core/src/utils.ts:96](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/utils.ts#L96)
 
 ___
 
@@ -220,7 +235,7 @@ JSON 여부
 
 #### Defined in
 
-[packages/core/src/utils.ts:48](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/utils.ts#L48)
+[packages/core/src/utils.ts:48](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/utils.ts#L48)
 
 ___
 
@@ -250,7 +265,7 @@ undefined 값이 제거된 객체
 
 #### Defined in
 
-[packages/core/src/utils.ts:28](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/utils.ts#L28)
+[packages/core/src/utils.ts:28](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/utils.ts#L28)
 
 ___
 
@@ -275,4 +290,4 @@ ___
 
 #### Defined in
 
-[packages/core/src/utils.ts:12](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/core/src/utils.ts#L12)
+[packages/core/src/utils.ts:12](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/utils.ts#L12)

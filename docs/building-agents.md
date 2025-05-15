@@ -7,7 +7,8 @@
 가장 기본적인 에이전트는 다음과 같이 생성할 수 있습니다:
 
 ```typescript
-import { Robota, OpenAIProvider, RobotaTeam } from 'robota';
+import { Robota, RobotaTeam } from '@robota/core';
+import { OpenAIProvider } from '@robota/provider-openai';
 import OpenAI from 'openai';
 
 // OpenAI 클라이언트 생성
@@ -39,7 +40,9 @@ console.log(result);
 에이전트에 도구를 추가하여 외부 시스템과 상호작용할 수 있습니다:
 
 ```typescript
-import { Robota, OpenAIProvider, RobotaTeam, Tool } from 'robota';
+import { Robota, RobotaTeam } from '@robota/core';
+import { Tool } from '@robota/tools';
+import { OpenAIProvider } from '@robota/provider-openai';
 import { z } from 'zod';
 import OpenAI from 'openai';
 
@@ -108,7 +111,9 @@ console.log(result);
 대화 기록을 저장하고 이전 대화를 참조할 수 있는 메모리 기능:
 
 ```typescript
-import { Robota, OpenAIProvider, RobotaTeam, ConversationMemory } from 'robota';
+import { Robota, RobotaTeam } from '@robota/core';
+import { ConversationMemory } from '@robota/memory';
+import { OpenAIProvider } from '@robota/provider-openai';
 import OpenAI from 'openai';
 
 // 메모리 생성
@@ -142,7 +147,9 @@ console.log(result); // "김철수님이 맞습니다. 프로그래밍과 음악
 복잡한 작업을 단계별로 계획하고 실행하는 에이전트:
 
 ```typescript
-import { Robota, OpenAIProvider, PlanningRobota, Tool } from 'robota';
+import { Robota, PlanningRobota } from '@robota/core';
+import { Tool } from '@robota/tools';
+import { OpenAIProvider } from '@robota/provider-openai';
 import { z } from 'zod';
 import OpenAI from 'openai';
 
@@ -214,7 +221,8 @@ console.log(result);
 여러 에이전트가 협력하여 복잡한 작업을 수행:
 
 ```typescript
-import { Robota, OpenAIProvider, RobotaTeam } from 'robota';
+import { Robota, RobotaTeam } from '@robota/core';
+import { OpenAIProvider } from '@robota/provider-openai';
 import OpenAI from 'openai';
 
 // OpenAI 클라이언트
@@ -291,7 +299,9 @@ console.log(result);
 ReAct 패턴을 구현한 에이전트는 추론과 행동을 번갈아 수행합니다:
 
 ```typescript
-import { Robota, OpenAIProvider, ReActRobota, Tool } from 'robota';
+import { Robota, ReActRobota } from '@robota/core';
+import { Tool } from '@robota/tools';
+import { OpenAIProvider } from '@robota/provider-openai';
 import { z } from 'zod';
 import OpenAI from 'openai';
 

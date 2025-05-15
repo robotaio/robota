@@ -22,7 +22,7 @@
 
 #### Defined in
 
-[index.ts:40](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/tools/src/index.ts#L40)
+[index.ts:40](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/tools/src/index.ts#L40)
 
 ___
 
@@ -32,7 +32,7 @@ ___
 
 #### Defined in
 
-[index.ts:38](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/tools/src/index.ts#L38)
+[index.ts:38](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/tools/src/index.ts#L38)
 
 ___
 
@@ -42,7 +42,7 @@ ___
 
 #### Defined in
 
-[index.ts:36](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/tools/src/index.ts#L36)
+[index.ts:36](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/tools/src/index.ts#L36)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[index.ts:39](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/tools/src/index.ts#L39)
+[index.ts:39](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/tools/src/index.ts#L39)
 
 ___
 
@@ -62,4 +62,4 @@ ___
 
 #### Defined in
 
-[index.ts:37](https://github.com/robotaio/robota/blob/9579105c51358f78d543b68192b3502c0ddd981f/packages/tools/src/index.ts#L37)
+[index.ts:37](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/tools/src/index.ts#L37)
