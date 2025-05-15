@@ -19,7 +19,8 @@
     "example:agents": "pnpm --filter robota-examples run start:agents",
     "example:system-messages": "pnpm --filter robota-examples run start:system-messages",
     "example:mcp": "pnpm --filter robota-examples run start:mcp",
-    "example:all": "pnpm --filter robota-examples run start:all"
+    "example:all": "pnpm --filter robota-examples run start:all",
+    "docs:generate": "node scripts/docs-generator.js"
   },
   "keywords": [
     "ai",
@@ -35,9 +36,13 @@
     "@typescript-eslint/eslint-plugin": "^6.18.0",
     "@typescript-eslint/parser": "^6.18.0",
     "eslint": "^8.56.0",
+    "glob": "^10.3.10",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
+    "marked": "^9.1.5",
     "prettier": "^3.1.1",
+    "typedoc": "^0.25.9",
+    "typedoc-plugin-markdown": "^3.17.1",
     "typescript": "^5.3.3",
     "vitest": "^1.6.1"
   },

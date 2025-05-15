@@ -39,7 +39,7 @@ const HTML_TEMPLATE = `<!DOCTYPE html>
 </html>`;
 
 // 디렉토리 경로 설정
-const ROOT_DIR = path.resolve(process.cwd(), '../../'); // 모노레포 루트 디렉토리
+const ROOT_DIR = process.cwd(); // 현재 스크립트가 루트 디렉토리에서 실행되므로 process.cwd()만 사용
 const PACKAGES_DIR = path.join(ROOT_DIR, 'packages');
 const DOCS_DIR = path.join(ROOT_DIR, 'docs');
 const OUTPUT_DIR = path.join(DOCS_DIR, 'api-reference');
@@ -49,13 +49,12 @@ const API_CATEGORIES = [
     { name: 'Core', pattern: 'packages/core/src/**/*.ts', entryPoint: path.join(PACKAGES_DIR, 'core/src/index.ts') },
     { name: 'OpenAI', pattern: 'packages/openai/src/**/*.ts', entryPoint: path.join(PACKAGES_DIR, 'openai/src/index.ts') },
     { name: 'Anthropic', pattern: 'packages/anthropic/src/**/*.ts', entryPoint: path.join(PACKAGES_DIR, 'anthropic/src/index.ts') },
-    { name: 'LangChain', pattern: 'packages/langchain/src/**/*.ts', entryPoint: path.join(PACKAGES_DIR, 'langchain/src/index.ts') },
-    { name: 'Replicate', pattern: 'packages/replicate/src/**/*.ts', entryPoint: path.join(PACKAGES_DIR, 'replicate/src/index.ts') },
+    { name: 'MCP', pattern: 'packages/mcp/src/**/*.ts', entryPoint: path.join(PACKAGES_DIR, 'mcp/src/index.ts') },
     { name: 'Tools', pattern: 'packages/tools/src/**/*.ts', entryPoint: path.join(PACKAGES_DIR, 'tools/src/index.ts') },
 ];
 
 // API 문서 메인 파일 생성
-function generateApiIndexPage(): void {
+function generateApiIndexPage() {
     console.log(`루트 디렉토리: ${ROOT_DIR}`);
     console.log(`문서 디렉토리: ${DOCS_DIR}`);
     console.log(`출력 디렉토리: ${OUTPUT_DIR}`);
@@ -79,7 +78,7 @@ ${API_CATEGORIES.map(category => `- [${category.name}](${category.name.toLowerCa
 }
 
 // TypeDoc을 사용하여 API 문서 생성
-async function generateDocsForCategory(category: { name: string; pattern: string; entryPoint: string }): Promise<number> {
+async function generateDocsForCategory(category) {
     const { name, pattern, entryPoint } = category;
 
     // 파일 존재 확인
@@ -134,7 +133,7 @@ async function generateDocsForCategory(category: { name: string; pattern: string
 }
 
 // API 문서 내 링크 경로 수정 (상대 경로 -> 절대 경로)
-function fixDocumentLinks(categoryDir: string, categoryName: string): void {
+function fixDocumentLinks(categoryDir, categoryName) {
     console.log(`🔧 ${categoryName} 카테고리 문서 내 링크 경로 수정 중...`);
 
     // 해당 카테고리의 모든 마크다운 파일 찾기
@@ -180,7 +179,7 @@ function fixDocumentLinks(categoryDir: string, categoryName: string): void {
     console.log(`✅ ${categoryName} 카테고리 문서 내 링크 경로 수정 완료`);
 }
 
-async function main(): Promise<void> {
+async function main() {
     console.log('🔍 API 문서 생성 작업 시작...');
 
     // API 인덱스 페이지 생성
