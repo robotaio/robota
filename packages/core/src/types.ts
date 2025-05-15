@@ -138,7 +138,7 @@ export interface MCPClient {
   listTools: () => Promise<{ tools: any[] }>;
   callTool: (params: { name: string, arguments: any }) => Promise<any>;
   getResource?: (uri: string) => Promise<any>;
-  close?: () => Promise<void>;
+  close: () => Promise<void>;
 }
 
 /**

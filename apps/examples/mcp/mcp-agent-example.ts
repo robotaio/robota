@@ -116,13 +116,8 @@ async function main() {
         // 10. 연결 종료 (8번 스킵)
         console.log('9. 예제 완료, 종료 중...');
         try {
-            // MCP 클라이언트 연결 종료
-            if (mcpClient && mcpClient.close) {
-                await mcpClient.close();
-            }
-            if (transport && transport.close) {
-                transport.close();
-            }
+            // Robota 에이전트 종료
+            await (agent as any)?.close();
         } catch (error) {
             console.error('연결 종료 오류:', error);
         }

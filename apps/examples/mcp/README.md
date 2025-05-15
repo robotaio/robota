@@ -7,7 +7,6 @@
 - `mcp-demo.ts` - STDIO 트랜스포트를 사용한 MCP 서버
 - `mcp-client-example.ts` - STDIO 클라이언트 예제
 - `mcp-agent-example.ts` - MCP 클라이언트와 Robota 에이전트 통합 예제
-- `stdio-mcp-server.ts` - STDIO 트랜스포트를 사용한 MCP 서버 예제 (참조용)
 
 ## 예제 실행 방법
 

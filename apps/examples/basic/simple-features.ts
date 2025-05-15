@@ -7,6 +7,7 @@ import { Robota } from '@robota/core';
 import { OpenAIProvider } from '@robota/openai';
 import { SimpleTool } from '@robota/core';
 import dotenv from 'dotenv';
+import OpenAI from 'openai';
 
 // 환경 변수 로드
 dotenv.config();
@@ -15,11 +16,15 @@ if (!apiKey) {
   throw new Error('OPENAI_API_KEY 환경 변수가 필요합니다.');
 }
 
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY, // 환경변수에서 API 키를 읽어옴
+});
+
 async function main() {
   // OpenAI 제공업체 설정
   const provider = new OpenAIProvider({
-    apiKey: apiKey as string,
-    model: 'gpt-4',
+    client: openai,
+    model: 'gpt-3.5-turbo', // 또는 원하는 모델명
     temperature: 0.7
   });
 

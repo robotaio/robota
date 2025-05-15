@@ -16,6 +16,8 @@
         "start:agents": "tsx agents/research-agent.ts",
         "start:system-messages": "tsx system-messages/system-messages.ts",
         "start:mcp": "tsx mcp/mcp-agent-example.ts",
+        "start:mcp-agent": "tsx mcp/mcp-agent-example.ts",
+        "start:all-examples": "pnpm start:basic && pnpm start:basic:simple && pnpm start:basic:advanced && pnpm start:function-calling && pnpm start:tools && pnpm start:agents && pnpm start:system-messages && pnpm start:mcp-agent",
         "start:all": "echo '모든 예제를 순차적으로 실행합니다' && pnpm start:basic && pnpm start:function-calling && pnpm start:tools && pnpm start:agents && pnpm start:system-messages && pnpm start:mcp"
     },
     "dependencies": {

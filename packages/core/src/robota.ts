@@ -15,6 +15,21 @@ import { SimpleMemory } from './memory';
 import type { Memory } from './memory';
 import type { ModelContextProtocol } from './model-context-protocol';
 
+// SDK 타입 import 대신 로컬 타입 정의
+export type Transport = {
+  close: () => Promise<void>;
+  // 필요시 추가 메서드
+};
+export type MCPClientSDK = {
+  close: () => Promise<void>;
+  transport?: Transport;
+  listTools: () => Promise<{ tools: any[] }>;
+  callTool: (params: { name: string, arguments: any }) => Promise<any>;
+  getResource?: (uri: string) => Promise<any>;
+  stream?: (options: any) => AsyncIterable<any>;
+  // 필요시 추가 메서드
+};
+
 /**
  * Robota의 메인 클래스
  * 에이전트를 초기화하고 실행하는 인터페이스 제공
@@ -34,7 +49,7 @@ import type { ModelContextProtocol } from './model-context-protocol';
  */
 export class Robota {
   private provider?: ModelContextProtocol;
-  private mcpClient?: MCPClient;
+  private mcpClient?: MCPClientSDK;
   private aiClient?: AIClient; // 단일 AI 클라이언트
   private model?: string;
   private temperature?: number;
@@ -937,8 +952,14 @@ export class Robota {
    * MCP 클라이언트 회기 종료
    */
   async closeMcpClient(): Promise<void> {
-    if (this.mcpClient && this.mcpClient.close) {
-      await this.mcpClient.close();
-    }
+    await this.mcpClient?.close();
+  }
+
+  /**
+   * 에이전트 종료 및 리소스 정리
+   */
+  async close(): Promise<void> {
+    await this.mcpClient?.close();
+    await this.mcpClient?.transport?.close();
   }
 } 
