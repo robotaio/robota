@@ -395,6 +395,13 @@ export class Robota {
       return await this.handleFunctionCall(response, context, options);
     }
 
+    // assistant 응답을 memory에 추가
+    const assistantMessage: Message = {
+      role: 'assistant',
+      content: response.content || ''
+    };
+    this.memory.addMessage(assistantMessage);
+
     return response.content || '';
   }
 
