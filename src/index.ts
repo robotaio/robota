@@ -58,4 +58,5 @@ export {
   createMcpToolProvider,
   createOpenAPIToolProvider,
   createFunctionToolProvider,
+  createZodFunctionToolAdapter,
 } from './core/client-adapter'; 
