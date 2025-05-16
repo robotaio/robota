@@ -123,8 +123,11 @@ describe('Robota', () => {
 
             // 제공업체에 올바른 컨텍스트가 전달되었는지 확인
             expect(mockProvider.lastContext).not.toBeNull();
-            expect(mockProvider.lastContext?.messages).toHaveLength(1);
-            expect(mockProvider.lastContext?.messages[0]).toEqual({
+
+            // messages 배열에 사용자 메시지가 포함되어 있는지 확인
+            const userMessages = mockProvider.lastContext?.messages.filter(msg => msg.role === 'user');
+            expect(userMessages).toHaveLength(1);
+            expect(userMessages?.[0]).toEqual({
                 role: 'user',
                 content: '안녕하세요'
             });

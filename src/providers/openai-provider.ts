@@ -3,14 +3,14 @@
  */
 
 import OpenAI from 'openai';
-import { BaseProvider } from './base-provider';
-import type { ProviderOptions, ProviderResponse, ProviderResponseStream } from '../types/provider';
+import { BaseToolProvider } from './base-provider';
+import type { ToolProviderOptions, ToolProviderResponse, ToolProviderResponseStream } from '../types/provider';
 import type { ModelContext, Message, FunctionSchema } from '../types/model-context-protocol';
 
 /**
  * OpenAI 제공업체 옵션 인터페이스
  */
-export interface OpenAIProviderOptions extends ProviderOptions {
+export interface OpenAIProviderOptions extends ToolProviderOptions {
   /**
    * OpenAI API 키
    */
@@ -65,7 +65,7 @@ export interface OpenAIProviderOptions extends ProviderOptions {
 /**
  * OpenAI 제공업체 클래스
  */
-export class OpenAIProvider extends BaseProvider {
+export class OpenAIProvider extends BaseToolProvider {
   /**
    * OpenAI 클라이언트
    */
@@ -95,8 +95,8 @@ export class OpenAIProvider extends BaseProvider {
    */
   async generateCompletion(
     context: ModelContext,
-    additionalOptions?: Partial<ProviderOptions>
-  ): Promise<ProviderResponse> {
+    additionalOptions?: Partial<ToolProviderOptions>
+  ): Promise<ToolProviderResponse> {
     const options = this.mergeOptions(additionalOptions);
     const openaiFormat = this.convertContextToModelFormat(context);
 
@@ -146,8 +146,8 @@ export class OpenAIProvider extends BaseProvider {
    */
   async generateCompletionStream(
     context: ModelContext,
-    additionalOptions?: Partial<ProviderOptions>
-  ): Promise<ProviderResponseStream> {
+    additionalOptions?: Partial<ToolProviderOptions>
+  ): Promise<ToolProviderResponseStream> {
     const options = this.mergeOptions(additionalOptions);
     const openaiFormat = this.convertContextToModelFormat(context);
 
@@ -221,7 +221,7 @@ export class OpenAIProvider extends BaseProvider {
    * @param response OpenAI 응답
    * @returns MCP 형식 응답
    */
-  convertModelResponseToMCP(response: OpenAI.Chat.Completions.ChatCompletion): ProviderResponse {
+  convertModelResponseToMCP(response: OpenAI.Chat.Completions.ChatCompletion): ToolProviderResponse {
     const choice = response.choices[0];
     if (!choice) {
       return {
@@ -297,7 +297,7 @@ export class OpenAIProvider extends BaseProvider {
    * @param stream OpenAI 스트림
    * @returns 제공업체 응답 스트림
    */
-  private async *handleOpenAIStream(stream: AsyncIterable<OpenAI.Chat.Completions.ChatCompletionChunk>): ProviderResponseStream {
+  private async *handleOpenAIStream(stream: AsyncIterable<OpenAI.Chat.Completions.ChatCompletionChunk>): ToolProviderResponseStream {
     let content = '';
     let functionName = '';
     let functionArgs = '';

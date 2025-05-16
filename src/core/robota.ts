@@ -30,7 +30,7 @@
  * ```
  */
 
-import type { Provider, ProviderOptions, ProviderResponse, ProviderResponseStream } from '../types/provider';
+import type { ToolProvider, ToolProviderOptions, ToolProviderResponse, ToolProviderResponseStream } from '../types/provider';
 import type { Message, ModelContext, FunctionSchema, FunctionCallMode, MessageRole } from '../types/model-context-protocol';
 import type { Function, FunctionResult } from '../types/function';
 import type { Tool } from '../types/tool';
@@ -50,9 +50,42 @@ export interface RobotaCoreOptions {
    * 
    * @description
    * OpenAI, Anthropic 등의 AI 제공업체 인스턴스입니다.
-   * 라이브러리에서 제공하는 Provider 인터페이스를 구현해야 합니다.
+   * 라이브러리에서 제공하는 ToolProvider 인터페이스를 구현해야 합니다.
+   * 
+   * @example
+   * ```typescript
+   * // MCP 클라이언트 어댑터를 사용한 예제
+   * import { createMcpToolProvider } from 'robota';
+   * import { Client } from '@modelcontextprotocol/sdk';
+   * 
+   * const mcpClient = new Client(transport);
+   * const provider = createMcpToolProvider(mcpClient, {
+   *   model: 'gpt-4'
+   * });
+   * 
+   * // OpenAPI 스키마 어댑터를 사용한 예제
+   * import { createOpenAPIToolProvider } from 'robota';
+   * 
+   * const provider = createOpenAPIToolProvider({
+   *   schema: 'https://api.example.com/openapi.json',
+   *   baseURL: 'https://api.example.com',
+   *   headers: { 'Authorization': 'Bearer token' },
+   *   model: 'model-name'
+   * });
+   * 
+   * // 함수 기반 어댑터를 사용한 예제
+   * import { createFunctionToolProvider } from 'robota';
+   * 
+   * const provider = createFunctionToolProvider({
+   *   chat: async (options) => {
+   *     // 채팅 요청 구현
+   *     return { content: '응답 내용' };
+   *   },
+   *   model: 'custom-model'
+   * });
+   * ```
    */
-  provider: Provider;
+  provider: ToolProvider;
 
   /**
    * 시스템 프롬프트
@@ -187,7 +220,7 @@ export interface RunOptions {
    * 이 실행에 대한 제공업체 옵션을 재정의합니다.
    * 온도, 최대 토큰 등의 매개변수를 조정할 수 있습니다.
    */
-  providerOptions?: Partial<ProviderOptions>;
+  providerOptions?: Partial<ToolProviderOptions>;
 }
 
 /**
@@ -206,7 +239,7 @@ export class RobotaCore {
    * @description
    * OpenAI, Anthropic 등의 AI 제공업체 인스턴스입니다.
    */
-  private provider: Provider;
+  private provider: ToolProvider;
 
   /**
    * 시스템 프롬프트
@@ -463,7 +496,7 @@ export class RobotaCore {
    * 
    * @param {string} prompt - 사용자 프롬프트
    * @param {RunOptions} [options={}] - 실행 옵션
-   * @returns {Promise<ProviderResponseStream>} AI 응답 스트림
+   * @returns {Promise<ToolProviderResponseStream>} AI 응답 스트림
    * 
    * @example
    * ```typescript
@@ -474,7 +507,7 @@ export class RobotaCore {
    * }
    * ```
    */
-  async runStream(prompt: string, options: RunOptions = {}): Promise<ProviderResponseStream> {
+  async runStream(prompt: string, options: RunOptions = {}): Promise<ToolProviderResponseStream> {
     // 사용자 메시지 생성
     const userMessage: Message = {
       role: 'user' as MessageRole,
@@ -559,13 +592,13 @@ export class RobotaCore {
    * @description
    * AI의 함수 호출 요청을 처리하고 결과를 반환합니다.
    * 
-   * @param {ProviderResponse} response - 제공업체 응답
+   * @param {ToolProviderResponse} response - 제공업체 응답
    * @param {ModelContext} context - 모델 컨텍스트
    * @param {RunOptions} options - 실행 옵션
    * @returns {Promise<string>} 처리 결과
    */
   private async handleFunctionCall(
-    response: ProviderResponse,
+    response: ToolProviderResponse,
     context: ModelContext,
     options: RunOptions
   ): Promise<string> {

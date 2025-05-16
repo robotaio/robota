@@ -7,7 +7,7 @@ import type { ModelContext, ModelResponse, FunctionSchema, FunctionCallMode } fr
 /**
  * 제공업체 옵션 인터페이스
  */
-export interface ProviderOptions {
+export interface ToolProviderOptions {
   /**
    * 사용할 모델 이름
    */
@@ -62,7 +62,7 @@ export interface ProviderOptions {
 /**
  * 제공업체 응답 인터페이스
  */
-export interface ProviderResponse extends ModelResponse {
+export interface ToolProviderResponse extends ModelResponse {
   /**
    * 응답 내용
    */
@@ -94,12 +94,12 @@ export interface ProviderResponse extends ModelResponse {
 /**
  * 제공업체 응답 스트림 타입
  */
-export type ProviderResponseStream = AsyncIterable<Partial<ProviderResponse>>;
+export type ToolProviderResponseStream = AsyncIterable<Partial<ToolProviderResponse>>;
 
 /**
  * 제공업체 인터페이스
  */
-export interface Provider {
+export interface ToolProvider {
   /**
    * 제공업체 ID
    */
@@ -108,7 +108,7 @@ export interface Provider {
   /**
    * 제공업체 옵션
    */
-  options: ProviderOptions;
+  options: ToolProviderOptions;
 
   /**
    * 텍스트 완성 생성
@@ -117,8 +117,8 @@ export interface Provider {
    */
   generateCompletion(
     context: ModelContext,
-    options?: Partial<ProviderOptions>
-  ): Promise<ProviderResponse>;
+    options?: Partial<ToolProviderOptions>
+  ): Promise<ToolProviderResponse>;
 
   /**
    * 스트리밍 텍스트 완성 생성
@@ -127,8 +127,8 @@ export interface Provider {
    */
   generateCompletionStream(
     context: ModelContext,
-    options?: Partial<ProviderOptions>
-  ): Promise<ProviderResponseStream>;
+    options?: Partial<ToolProviderOptions>
+  ): Promise<ToolProviderResponseStream>;
 
   /**
    * 함수 스키마 변환

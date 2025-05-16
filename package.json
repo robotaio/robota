@@ -54,5 +54,13 @@
   "packageManager": "pnpm@8.15.4",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.11.2"
-  }
+  },
+  "workspaces": [
+    "packages/core",
+    "packages/openai",
+    "packages/anthropic",
+    "packages/mcp",
+    "packages/tools",
+    "apps/examples"
+  ]
 }

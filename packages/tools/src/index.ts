@@ -223,4 +223,16 @@ export class ToolRegistry {
             };
         }
     }
-} 
+}
+
+// Zod 관련 기능 내보내기
+export {
+    zodToJsonSchema,
+    zodFunctionToSchema,
+    type ZodFunctionTool
+} from './zod-schema';
+
+export {
+    createZodFunctionToolProvider,
+    type ZodFunctionToolProviderOptions
+} from './function-tool-provider'; 

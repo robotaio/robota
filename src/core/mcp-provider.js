@@ -1,72 +1,15 @@
 /**
  * MCP 제공자 (Model Context Protocol Provider)
- * 
+ *
  * @module MCPProvider
  * @description
  * MCP(Model Context Protocol)를 통해 AI 모델과 통신하는 제공자 클래스입니다.
  * @modelcontextprotocol/sdk 라이브러리의 클라이언트를 사용합니다.
  */
-
-import type { ToolProvider, ToolProviderOptions, ToolProviderResponse, ToolProviderResponseStream } from '../types/provider';
-import type { Message, ModelContext } from '../types/model-context-protocol';
-import type { MCPClient } from '../types/mcp';
-import type { BaseClientAdapter } from './client-adapter';
 import { createMcpToolProvider, createOpenAPIToolProvider } from './client-adapter';
-
-/**
- * 함수 호출 인터페이스
- */
-export interface FunctionCall {
-    name: string;
-    arguments: Record<string, any>;
-}
-
-/**
- * MCP 제공자 옵션 인터페이스
- */
-export interface MCPProviderOptions {
-    /**
-     * 클라이언트 어댑터 또는 MCP 클라이언트 인스턴스
-     * 
-     * BaseClientAdapter 또는 MCPClient 중 하나가 필요합니다.
-     */
-    clientAdapter?: BaseClientAdapter;
-    client?: MCPClient;
-
-    /**
-     * 사용할 모델 이름
-     */
-    model: string;
-
-    /**
-     * 생성 온도 (0~1 사이)
-     */
-    temperature?: number;
-
-    /**
-     * 최대 토큰 수
-     */
-    maxTokens?: number;
-
-    /**
-     * OpenAPI 스키마 (clientAdapter 대신 사용 가능)
-     */
-    openAPISchema?: string | object;
-
-    /**
-     * API 기본 URL (openAPISchema와 함께 사용)
-     */
-    baseURL?: string;
-
-    /**
-     * HTTP 헤더 (openAPISchema와 함께 사용)
-     */
-    headers?: Record<string, string>;
-}
-
 /**
  * MCP 제공자 클래스
- * 
+ *
  * @class MCPProvider
  * @implements {ToolProvider}
  * @description
@@ -76,56 +19,52 @@ export interface MCPProviderOptions {
  * - OpenAPI 스키마 기반 클라이언트
  * - 사용자 정의 함수 기반 클라이언트
  */
-export class MCPProvider implements ToolProvider {
+export class MCPProvider {
     /**
      * 제공자 식별자
      */
-    id: string = 'mcp';
-
+    id = 'mcp';
     /**
      * 제공자 옵션
      */
-    options: ToolProviderOptions;
-
+    options;
     /**
      * 클라이언트 어댑터 인스턴스
      */
-    private clientAdapter: BaseClientAdapter;
-
+    clientAdapter;
     /**
      * 사용할 모델 이름
      */
-    private model: string;
-
+    model;
     /**
      * 생성 온도
      */
-    private temperature: number;
-
+    temperature;
     /**
      * 최대 토큰 수
      */
-    private maxTokens?: number;
-
+    maxTokens;
     /**
      * MCPProvider 생성자
-     * 
+     *
      * @constructor
      * @param {MCPProviderOptions} options - MCP 제공자 옵션
      */
-    constructor(options: MCPProviderOptions) {
+    constructor(options) {
         // 클라이언트 어댑터 초기화
         if (options.clientAdapter) {
             // 어댑터가 직접 제공된 경우
             this.clientAdapter = options.clientAdapter;
-        } else if (options.client) {
+        }
+        else if (options.client) {
             // MCP 클라이언트가 제공된 경우
             this.clientAdapter = createMcpToolProvider(options.client, {
                 model: options.model,
                 temperature: options.temperature,
                 maxTokens: options.maxTokens
-            }) as BaseClientAdapter;
-        } else if (options.openAPISchema && options.baseURL) {
+            });
+        }
+        else if (options.openAPISchema && options.baseURL) {
             // OpenAPI 스키마가 제공된 경우
             this.clientAdapter = createOpenAPIToolProvider({
                 schema: options.openAPISchema,
@@ -134,29 +73,27 @@ export class MCPProvider implements ToolProvider {
                 model: options.model,
                 temperature: options.temperature,
                 maxTokens: options.maxTokens
-            }) as BaseClientAdapter;
-        } else {
+            });
+        }
+        else {
             throw new Error("MCPProvider 초기화에 필요한 클라이언트 어댑터, MCP 클라이언트, 또는 OpenAPI 스키마 중 하나를 제공해야 합니다.");
         }
-
         this.model = options.model;
         this.temperature = options.temperature || 0.7;
         this.maxTokens = options.maxTokens;
-
         // ToolProvider 인터페이스 옵션 초기화
         this.options = {
             model: this.model
         };
     }
-
     /**
      * MCP 형식으로 요청 변환
-     * 
+     *
      * @private
      * @param {ModelContext} context - 모델 컨텍스트
      * @returns {Object} MCP 형식 요청
      */
-    private transformToClientRequest(context: ModelContext): any {
+    transformToClientRequest(context) {
         return {
             model: this.model,
             messages: context.messages.map(msg => ({
@@ -174,24 +111,21 @@ export class MCPProvider implements ToolProvider {
             stream: false
         };
     }
-
     /**
      * MCP 응답을 Robota 형식으로 변환
-     * 
+     *
      * @private
      * @param {any} clientResponse - 클라이언트 응답
      * @returns {ToolProviderResponse} Robota 형식 응답
      */
-    private transformFromClientResponse(clientResponse: any): ToolProviderResponse {
-        let functionCall: FunctionCall | undefined;
-
+    transformFromClientResponse(clientResponse) {
+        let functionCall;
         if (clientResponse.function_call) {
             functionCall = {
                 name: clientResponse.function_call.name,
                 arguments: JSON.parse(clientResponse.function_call.arguments || '{}')
             };
         }
-
         // metadata 형식 변환
         let usage = undefined;
         if (clientResponse.metadata) {
@@ -201,64 +135,57 @@ export class MCPProvider implements ToolProvider {
                 totalTokens: clientResponse.metadata.total_tokens || 0
             };
         }
-
         return {
             content: clientResponse.content,
             functionCall,
             usage
         };
     }
-
     /**
      * 모델 완성 요청
-     * 
+     *
      * @param {ModelContext} context - 모델 컨텍스트
      * @returns {Promise<ToolProviderResponse>} 모델 응답
      */
-    async getCompletion(context: ModelContext): Promise<ToolProviderResponse> {
+    async getCompletion(context) {
         try {
             const clientRequest = this.transformToClientRequest(context);
             const clientResponse = await this.clientAdapter.chat(clientRequest);
             return this.transformFromClientResponse(clientResponse);
-        } catch (error) {
+        }
+        catch (error) {
             console.error('MCP 제공자 오류:', error);
             throw error;
         }
     }
-
     /**
      * 생성 요청 (ToolProvider 인터페이스 구현)
-     * 
+     *
      * @param {ModelContext} context - 모델 컨텍스트
      * @returns {Promise<ToolProviderResponse>} 모델 응답
      */
-    async generateCompletion(context: ModelContext): Promise<ToolProviderResponse> {
+    async generateCompletion(context) {
         return this.getCompletion(context);
     }
-
     /**
      * 스트리밍 완성 요청
-     * 
+     *
      * @param {ModelContext} context - 모델 컨텍스트
      * @returns {AsyncIterable<ToolProviderResponse>} 스트림 응답
      */
-    async *getCompletionStream(context: ModelContext): AsyncGenerator<ToolProviderResponse> {
+    async *getCompletionStream(context) {
         try {
             const clientRequest = this.transformToClientRequest(context);
             clientRequest.stream = true;
-
             const clientStream = await this.clientAdapter.stream(clientRequest);
-
             for await (const chunk of clientStream) {
-                let functionCall: FunctionCall | undefined;
-
+                let functionCall;
                 if (chunk.function_call) {
                     functionCall = {
                         name: chunk.function_call.name,
                         arguments: JSON.parse(chunk.function_call.arguments || '{}')
                     };
                 }
-
                 // metadata 형식 변환
                 let usage = undefined;
                 if (chunk.metadata) {
@@ -268,49 +195,43 @@ export class MCPProvider implements ToolProvider {
                         totalTokens: chunk.metadata.total_tokens || 0
                     };
                 }
-
                 yield {
                     content: chunk.content,
                     functionCall,
                     usage
                 };
             }
-        } catch (error) {
+        }
+        catch (error) {
             console.error('MCP 스트리밍 오류:', error);
             throw error;
         }
     }
-
     /**
      * 생성 스트리밍 요청 (ToolProvider 인터페이스 구현)
-     * 
+     *
      * @param {ModelContext} context - 모델 컨텍스트
      * @param {Partial<ToolProviderOptions>} [options] - 추가 옵션
      * @returns {Promise<AsyncIterable<ToolProviderResponse>>} 스트림 응답
      */
-    async generateCompletionStream(context: ModelContext, options?: Partial<ToolProviderOptions>): Promise<AsyncIterable<ToolProviderResponse>> {
+    async generateCompletionStream(context, options) {
         // 옵션이 제공되면 임시로 적용
         if (options?.model) {
             const originalModel = this.model;
             this.model = options.model;
-
             const generator = this.getCompletionStream(context);
-
             // 원래 모델로 복원
             this.model = originalModel;
-
             return generator;
         }
-
         return this.getCompletionStream(context);
     }
-
     /**
      * 제공자 설정 업데이트
-     * 
+     *
      * @param {Partial<MCPProviderOptions>} options - 업데이트할 옵션
      */
-    updateOptions(options: Partial<MCPProviderOptions>): void {
+    updateOptions(options) {
         if (options.model) {
             this.model = options.model;
             this.options.model = options.model;
@@ -321,17 +242,18 @@ export class MCPProvider implements ToolProvider {
         if (options.maxTokens !== undefined) {
             this.maxTokens = options.maxTokens;
         }
-
         // 클라이언트 어댑터 업데이트
         if (options.clientAdapter) {
             this.clientAdapter = options.clientAdapter;
-        } else if (options.client) {
+        }
+        else if (options.client) {
             this.clientAdapter = createMcpToolProvider(options.client, {
                 model: this.model,
                 temperature: this.temperature,
                 maxTokens: this.maxTokens
-            }) as BaseClientAdapter;
-        } else if (options.openAPISchema && options.baseURL) {
+            });
+        }
+        else if (options.openAPISchema && options.baseURL) {
             this.clientAdapter = createOpenAPIToolProvider({
                 schema: options.openAPISchema,
                 baseURL: options.baseURL,
@@ -339,18 +261,18 @@ export class MCPProvider implements ToolProvider {
                 model: this.model,
                 temperature: this.temperature,
                 maxTokens: this.maxTokens
-            }) as BaseClientAdapter;
+            });
         }
     }
-
     /**
      * 기능 지원 여부 확인
-     * 
+     *
      * @param {string} feature - 확인할 기능 이름
      * @returns {boolean} 지원 여부
      */
-    supportsFeature(feature: string): boolean {
+    supportsFeature(feature) {
         const supportedFeatures = ['function-calling', 'streaming'];
         return supportedFeatures.includes(feature);
     }
-} 
+}
+//# sourceMappingURL=mcp-provider.js.map

@@ -205,6 +205,150 @@ const result = await researchAgent.run('인공지능의 역사와 발전 과정�
   - 메시지 템플릿 사용법
   - 컨텍스트 조정
 
+## 클라이언트 어댑터 사용하기
+
+클라이언트 어댑터는 다양한 AI 클라이언트와 통합할 수 있는 유연한 방법을 제공합니다. MCP 클라이언트, OpenAPI 스키마, 사용자 정의 함수 등 다양한 소스로부터 Provider 구현체를 생성할 수 있습니다.
+
+### MCP 클라이언트 어댑터
+
+```typescript
+import { createMcpToolProvider, Robota } from 'robota';
+import { Client, StdioClientTransport } from '@modelcontextprotocol/sdk';
+
+// MCP 클라이언트 생성
+const transport = new StdioClientTransport(/* 설정 */);
+const mcpClient = new Client(transport);
+
+// MCP 클라이언트 어댑터를 Provider로 생성
+const provider = createMcpToolProvider(mcpClient, {
+  model: 'gpt-4'
+});
+
+// Robota 인스턴스 생성 (provider 직접 사용)
+const robota = new Robota({
+  provider,
+  systemPrompt: '당신은 도움이 되는 AI 어시스턴트입니다.'
+});
+
+// 실행
+const response = await robota.run('안녕하세요!');
+console.log(response);
+```
+
+### OpenAPI 스키마 어댑터
+
+```typescript
+import { createOpenAPIToolProvider, Robota } from 'robota';
+
+// OpenAPI 스키마 어댑터를 Provider로 생성
+const provider = createOpenAPIToolProvider({
+  schema: 'https://api.example.com/openapi.json',
+  baseURL: 'https://api.example.com',
+  headers: {
+    'Authorization': `Bearer ${process.env.API_KEY}`
+  },
+  model: 'model-name'
+});
+
+// Robota 인스턴스 생성 (provider 직접 사용)
+const robota = new Robota({
+  provider,
+  systemPrompt: '당신은 도움이 되는 AI 어시스턴트입니다.'
+});
+
+// 실행
+const response = await robota.run('안녕하세요!');
+console.log(response);
+```
+
+### 함수 기반 어댑터
+
+```typescript
+import { createFunctionToolProvider, Robota } from 'robota';
+
+// 함수 기반 어댑터를 Provider로 생성
+const provider = createFunctionToolProvider({
+  chat: async (options) => {
+    console.log('채팅 요청:', options);
+    // 외부 API 호출 또는 자체 구현 로직
+    return {
+      content: `입력 메시지: ${options.messages[options.messages.length - 1].content}에 대한 응답입니다.`,
+      // 필요한 경우 함수 호출 정보 추가
+      function_call: options.functions?.length > 0 ? {
+        name: options.functions[0].name,
+        arguments: '{}'
+      } : undefined
+    };
+  },
+  stream: async function* (options) {
+    // 스트리밍 구현 (선택적)
+    const chunks = ['안녕하세요', '저는', '커스텀', '어댑터입니다'];
+    for (const chunk of chunks) {
+      yield { content: chunk };
+      await new Promise(resolve => setTimeout(resolve, 500));
+    }
+  },
+  model: 'custom-model'
+});
+
+// Robota 인스턴스 생성 (provider 직접 사용)
+const robota = new Robota({
+  provider,
+  systemPrompt: '당신은 도움이 되는 AI 어시스턴트입니다.'
+});
+
+// 실행
+const response = await robota.run('안녕하세요!');
+console.log(response);
+
+// 스트리밍 실행
+const stream = await robota.runStream('안녕하세요!');
+for await (const chunk of stream) {
+  process.stdout.write(chunk.content || '');
+}
+```
+
+### 여러 어댑터 전환하기
+
+```typescript
+import { createMcpToolProvider, createFunctionToolProvider, Robota } from 'robota';
+import { Client } from '@modelcontextprotocol/sdk';
+
+// 두 가지 어댑터 생성
+const mcpProvider = createMcpToolProvider(new Client(transport), {
+  model: 'gpt-4'
+});
+
+const fallbackProvider = createFunctionToolProvider({
+  chat: async (options) => {
+    return { content: '폴백 응답입니다.' };
+  },
+  model: 'fallback-model'
+});
+
+// Robota 인스턴스 생성 (기본 제공자 사용)
+const robota = new Robota({
+  provider: mcpProvider,
+  systemPrompt: '당신은 도움이 되는 AI 어시스턴트입니다.'
+});
+
+try {
+  // 기본 어댑터로 실행
+  const response = await robota.run('안녕하세요!');
+  console.log(response);
+} catch (error) {
+  // 오류 발생 시 폴백 어댑터로 전환
+  console.error('기본 어댑터 오류:', error);
+  
+  // 폴백 어댑터로 변경
+  robota.provider = fallbackProvider;
+  
+  // 폴백 어댑터로 재시도
+  const fallbackResponse = await robota.run('안녕하세요!');
+  console.log('폴백 응답:', fallbackResponse);
+}
+```
+
 ## 예제 확장하기
 
 이 예제들은 Robota 라이브러리의 기본 기능을 보여주는 간단한 데모입니다. 다음과 같은 방식으로 예제를 확장할 수 있습니다:
@@ -223,4 +367,4 @@ const result = await researchAgent.run('인공지능의 역사와 발전 과정�
 3. 최신 버전의 Node.js를 사용 중인지 확인하세요. (v18 이상 권장)
 4. Provider 클래스의 인터페이스가 ModelContextProtocol을 올바르게 구현하는지 확인하세요.
 
-추가 도움이 필요하면 [GitHub Issues](https://github.com/yourorg/robota/issues)에 문의하세요. 
+추가 도움이 필요하면 [GitHub Issues](https://github.com/yourorg/robota/issues)에 문의하세요.
