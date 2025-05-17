@@ -14,6 +14,7 @@ import { Robota } from '@robota/core';
 import { OpenAIProvider } from '@robota/openai';
 import dotenv from 'dotenv';
 import chalk from 'chalk';
+import OpenAI from 'openai';
 
 // .env 파일에서 환경 변수 로드
 dotenv.config();
@@ -40,10 +41,13 @@ async function main() {
     process.exit(1);
   }
 
+  // OpenAI 인스턴스 생성
+  const openai = new OpenAI({ apiKey });
+
   // Robota 인스턴스 생성
   const robota = new Robota({
     provider: new OpenAIProvider({
-      apiKey,
+      client: openai,
       model: 'gpt-4',
       temperature: 0.7
     }),
@@ -169,7 +173,7 @@ async function main() {
 
     // 스트리밍 모드로 응답 받기
     let reply = '';
-    for await (const chunk of robota.chatStream('도쿄 여행 3일 일정을 짜주세요. 유명한 관광지와 맛집을 포함해주세요.')) {
+    for await (const chunk of await robota.runStream('도쿄 여행 3일 일정을 짜주세요. 유명한 관광지와 맛집을 포함해주세요.')) {
       if (chunk.content) {
         process.stdout.write(chalk.cyan(chunk.content));
         reply += chunk.content;

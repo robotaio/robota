@@ -41,7 +41,7 @@
 
 #### Defined in
 
-[packages/core/src/memory.ts:74](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/memory.ts#L74)
+[packages/core/src/memory.ts:74](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/memory.ts#L74)
 
 ## Methods
 
@@ -67,7 +67,7 @@
 
 #### Defined in
 
-[packages/core/src/memory.ts:85](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/memory.ts#L85)
+[packages/core/src/memory.ts:85](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/memory.ts#L85)
 
 ___
 
@@ -87,7 +87,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/memory.ts:93](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/memory.ts#L93)
+[packages/core/src/memory.ts:93](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/memory.ts#L93)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 #### Defined in
 
-[packages/core/src/memory.ts:89](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/memory.ts#L89)
+[packages/core/src/memory.ts:89](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/memory.ts#L89)
 
 ___
 
@@ -129,4 +129,4 @@ ___
 
 #### Defined in
 
-[packages/core/src/memory.ts:106](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/core/src/memory.ts#L106)
+[packages/core/src/memory.ts:106](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/core/src/memory.ts#L106)

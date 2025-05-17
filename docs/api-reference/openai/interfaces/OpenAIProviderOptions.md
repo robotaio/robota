@@ -36,7 +36,7 @@ OpenAI API 키 (옵션: client를 사용하는 경우 필요하지 않음)
 
 #### Defined in
 
-[openai/src/types.ts:11](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/openai/src/types.ts#L11)
+[openai/src/types.ts:11](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/openai/src/types.ts#L11)
 
 ___
 
@@ -48,7 +48,7 @@ API 기본 URL (기본값: 'https://api.openai.com/v1')
 
 #### Defined in
 
-[openai/src/types.ts:26](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/openai/src/types.ts#L26)
+[openai/src/types.ts:26](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/openai/src/types.ts#L26)
 
 ___
 
@@ -60,7 +60,7 @@ OpenAI 클라이언트 인스턴스 (필수)
 
 #### Defined in
 
-[openai/src/types.ts:36](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/openai/src/types.ts#L36)
+[openai/src/types.ts:36](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/openai/src/types.ts#L36)
 
 ___
 
@@ -100,7 +100,7 @@ OpenAI 조직 ID (선택사항)
 
 #### Defined in
 
-[openai/src/types.ts:16](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/openai/src/types.ts#L16)
+[openai/src/types.ts:16](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/openai/src/types.ts#L16)
 
 ___
 
@@ -112,7 +112,7 @@ ___
 
 #### Defined in
 
-[openai/src/types.ts:31](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/openai/src/types.ts#L31)
+[openai/src/types.ts:31](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/openai/src/types.ts#L31)
 
 ___
 
@@ -166,4 +166,4 @@ API 요청 타임아웃 (밀리초)
 
 #### Defined in
 
-[openai/src/types.ts:21](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/openai/src/types.ts#L21)
+[openai/src/types.ts:21](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/openai/src/types.ts#L21)

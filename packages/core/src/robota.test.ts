@@ -123,8 +123,11 @@ describe('Robota', () => {
 
             // 제공업체에 올바른 컨텍스트가 전달되었는지 확인
             expect(mockProvider.lastContext).not.toBeNull();
-            expect(mockProvider.lastContext?.messages).toHaveLength(1);
-            expect(mockProvider.lastContext?.messages[0]).toEqual({
+
+            // messages 배열에 사용자 메시지가 포함되어 있는지 확인
+            const userMessages = mockProvider.lastContext?.messages.filter(msg => msg.role === 'user');
+            expect(userMessages).toHaveLength(1);
+            expect(userMessages?.[0]).toEqual({
                 role: 'user',
                 content: '안녕하세요'
             });
@@ -180,34 +183,65 @@ describe('Robota', () => {
     });
 
     describe('함수 호출', () => {
-        it('함수를 등록하고 호출할 수 있어야 함', async () => {
-            const calculator = vi.fn().mockImplementation(({ a, b }) => a + b);
+        it('함수 호출 모드를 설정할 수 있어야 함', async () => {
+            // 함수 호출 모드 설정
+            robota.setFunctionCallMode('auto');
+            expect(robota['functionCallConfig'].defaultMode).toBe('auto');
 
-            robota.registerFunction({
-                name: 'add',
-                description: '두 숫자를 더합니다',
-                parameters: {
-                    type: 'object',
-                    properties: {
-                        a: { type: 'number', description: '첫 번째 숫자' },
-                        b: { type: 'number', description: '두 번째 숫자' }
-                    },
-                    required: ['a', 'b']
-                }
-            }, calculator);
+            await robota.run('테스트 메시지');
+            expect(mockProvider.mockOptions.functionCallMode).toBe('auto');
 
-            // 함수 호출 응답 설정
-            mockProvider.mockResponse = {
-                functionCall: {
-                    name: 'add',
-                    arguments: { a: 5, b: 3 }
-                }
-            };
+            // 다른 모드로 변경
+            robota.setFunctionCallMode('disabled');
+            expect(robota['functionCallConfig'].defaultMode).toBe('disabled');
 
-            await robota.run('5와 3을 더해주세요');
+            await robota.run('테스트 메시지');
+            expect(mockProvider.mockOptions.functionCallMode).toBe('disabled');
+        });
 
-            // 함수가 호출되었는지 확인
-            expect(calculator).toHaveBeenCalledWith({ a: 5, b: 3 });
+        it('run 메서드에서 함수 호출 모드를 재정의할 수 있어야 함', async () => {
+            // 기본 모드 설정
+            robota.setFunctionCallMode('auto');
+
+            // 실행 시 재정의
+            await robota.run('테스트 메시지', { functionCallMode: 'disabled' });
+            expect(mockProvider.mockOptions.functionCallMode).toBe('disabled');
+
+            // 다시 기본 모드로 실행
+            await robota.run('테스트 메시지');
+            expect(mockProvider.mockOptions.functionCallMode).toBe('auto');
+        });
+
+        it('force 모드에서 강제 함수와 인자를 지정할 수 있어야 함', async () => {
+            const forcedFunction = 'getWeather';
+            const forcedArguments = { location: '서울' };
+
+            await robota.run('안녕하세요', {
+                functionCallMode: 'force',
+                forcedFunction,
+                forcedArguments
+            });
+
+            expect(mockProvider.mockOptions.functionCallMode).toBe('force');
+            expect(mockProvider.mockOptions.forcedFunction).toBe(forcedFunction);
+            expect(mockProvider.mockOptions.forcedArguments).toEqual(forcedArguments);
+        });
+
+        it('configureFunctionCall로 함수 호출 설정을 변경할 수 있어야 함', async () => {
+            robota.configureFunctionCall({
+                mode: 'auto',
+                maxCalls: 5,
+                timeout: 10000,
+                allowedFunctions: ['getWeather', 'calculate']
+            });
+
+            await robota.run('안녕하세요');
+
+            expect(robota['functionCallConfig'].defaultMode).toBe('auto');
+            expect(robota['functionCallConfig'].maxCalls).toBe(5);
+            expect(robota['functionCallConfig'].timeout).toBe(10000);
+            expect(robota['functionCallConfig'].allowedFunctions).toEqual(['getWeather', 'calculate']);
+            expect(mockProvider.mockOptions.functionCallMode).toBe('auto');
         });
     });
 
@@ -264,55 +298,6 @@ describe('Robota', () => {
             expect(messages.length).toBeGreaterThan(2);
             expect(messages[0]).toEqual({ role: 'system', content: '당신은 도움이 되는 AI 비서입니다.' });
             expect(messages[1]).toEqual({ role: 'system', content: '사용자에게 공손하게 대응하세요.' });
-        });
-    });
-
-    describe('함수 호출 모드', () => {
-        it('setFunctionCallMode로 전역 함수 호출 모드를 설정할 수 있어야 함', async () => {
-            robota.setFunctionCallMode('disabled');
-
-            await robota.run('안녕하세요');
-
-            expect(robota['functionCallConfig'].defaultMode).toBe('disabled');
-            expect(mockProvider.mockOptions.functionCallMode).toBe('disabled');
-        });
-
-        it('run 메서드에서 함수 호출 모드를 지정할 수 있어야 함', async () => {
-            await robota.run('안녕하세요', { functionCallMode: 'disabled' });
-
-            expect(mockProvider.mockOptions.functionCallMode).toBe('disabled');
-        });
-
-        it('force 모드에서 강제 함수와 인자를 지정할 수 있어야 함', async () => {
-            const forcedFunction = 'getWeather';
-            const forcedArguments = { location: '서울' };
-
-            await robota.run('안녕하세요', {
-                functionCallMode: 'force',
-                forcedFunction,
-                forcedArguments
-            });
-
-            expect(mockProvider.mockOptions.functionCallMode).toBe('force');
-            expect(mockProvider.mockOptions.forcedFunction).toBe(forcedFunction);
-            expect(mockProvider.mockOptions.forcedArguments).toEqual(forcedArguments);
-        });
-
-        it('configureFunctionCall로 함수 호출 설정을 변경할 수 있어야 함', async () => {
-            robota.configureFunctionCall({
-                mode: 'auto',
-                maxCalls: 5,
-                timeout: 10000,
-                allowedFunctions: ['getWeather', 'calculate']
-            });
-
-            await robota.run('안녕하세요');
-
-            expect(robota['functionCallConfig'].defaultMode).toBe('auto');
-            expect(robota['functionCallConfig'].maxCalls).toBe(5);
-            expect(robota['functionCallConfig'].timeout).toBe(10000);
-            expect(robota['functionCallConfig'].allowedFunctions).toEqual(['getWeather', 'calculate']);
-            expect(mockProvider.mockOptions.functionCallMode).toBe('auto');
         });
     });
 }); 

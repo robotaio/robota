@@ -129,19 +129,6 @@ export interface FunctionCallConfig {
 }
 
 /**
- * MCP 클라이언트 인터페이스
- */
-export interface MCPClient {
-  connect: (transport: any) => Promise<void>;
-  chat: (options: any) => Promise<any>;
-  stream?: (options: any) => AsyncIterable<any>;
-  listTools: () => Promise<{ tools: any[] }>;
-  callTool: (params: { name: string, arguments: any }) => Promise<any>;
-  getResource?: (uri: string) => Promise<any>;
-  close?: () => Promise<void>;
-}
-
-/**
  * AI 제공업체 클라이언트 타입
  */
 export type AIClientType = 'openai' | 'anthropic' | 'google' | 'cohere' | string;
@@ -152,6 +139,16 @@ export type AIClientType = 'openai' | 'anthropic' | 'google' | 'cohere' | string
 export interface AIClient {
   type: AIClientType; // 클라이언트 타입
   instance: any; // 클라이언트 인스턴스
+  close?: () => Promise<void>; // 클라이언트 연결 종료 메서드 (선택 사항)
+  transport?: Transport; // 전송 계층 (선택 사항)
+}
+
+/**
+ * 전송 계층 인터페이스
+ */
+export interface Transport {
+  close: () => Promise<void>;
+  // 필요시 추가 메서드
 }
 
 /**
@@ -159,16 +156,14 @@ export interface AIClient {
  */
 export interface RobotaOptions {
   provider?: any; // 제공업체 인터페이스는 각 패키지에서 정의됨 (선택 사항)
-  mcpClient?: MCPClient; // MCP 클라이언트 직접 사용 (선택 사항)
   aiClient?: AIClient; // AI 제공업체 클라이언트 (선택 사항)
-  model?: string; // mcpClient를 사용할 때의 모델명 (선택 사항)
+  model?: string; // 사용할 모델명 (선택 사항)
   temperature?: number; // 모델 온도 (선택 사항)
   systemPrompt?: string;
   systemMessages?: Message[];
   memory?: any; // 메모리 인터페이스는 별도로 정의됨
   functionCallConfig?: FunctionCallConfig;
-  onFunctionCall?: (functionName: string, args: any, result: any) => void;
-  onToolCall?: (toolName: string, params: any, result: any) => void; // MCP 도구 호출 콜백
+  onToolCall?: (toolName: string, params: any, result: any) => void; // 도구 호출 콜백
 }
 
 /**
@@ -176,7 +171,6 @@ export interface RobotaOptions {
  */
 export interface Context {
   messages: Message[];
-  functions?: FunctionSchema[];
   systemPrompt?: string;
   systemMessages?: Message[];
   metadata?: Record<string, any>;

@@ -32,7 +32,7 @@ MCP 클라이언트 인스턴스 (필수)
 
 #### Defined in
 
-[mcp/src/types.ts:21](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/mcp/src/types.ts#L21)
+[mcp/src/types.ts:21](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/mcp/src/types.ts#L21)
 
 ___
 
@@ -114,4 +114,4 @@ ___
 
 #### Defined in
 
-[mcp/src/types.ts:26](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/mcp/src/types.ts#L26)
+[mcp/src/types.ts:26](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/mcp/src/types.ts#L26)

@@ -9,6 +9,7 @@ import {
 } from '@robota/core';
 import { ModelContextProtocol } from '@robota/core';
 import { OpenAIProviderOptions } from './types';
+import { logger } from '@robota/core';
 
 /**
  * OpenAI 제공업체 구현
@@ -44,7 +45,7 @@ export class OpenAIProvider implements ModelContextProtocol {
    */
   formatMessages(messages: Message[]): OpenAI.Chat.ChatCompletionMessageParam[] {
     if (!Array.isArray(messages)) {
-      console.error('formatMessages: messages는 배열이어야 합니다.', messages);
+      logger.error('formatMessages: messages는 배열이어야 합니다.', messages);
       return [];
     }
 
@@ -52,7 +53,7 @@ export class OpenAIProvider implements ModelContextProtocol {
 
     for (const message of messages) {
       if (!message || typeof message !== 'object') {
-        console.error('formatMessages: 유효하지 않은 메시지 형식', message);
+        logger.error('formatMessages: 유효하지 않은 메시지 형식', message);
         continue;
       }
 
@@ -167,14 +168,14 @@ export class OpenAIProvider implements ModelContextProtocol {
    */
   async chat(context: Context, options?: any): Promise<ModelResponse> {
     if (!context || typeof context !== 'object') {
-      console.error('[OpenAIProvider] 유효하지 않은 컨텍스트:', context);
+      logger.error('[OpenAIProvider] 유효하지 않은 컨텍스트:', context);
       throw new Error('유효한 Context 객체가 필요합니다');
     }
 
-    const { messages, functions, systemPrompt } = context;
+    const { messages, systemPrompt } = context;
 
     if (!Array.isArray(messages)) {
-      console.error('[OpenAIProvider] 유효하지 않은 메시지 배열:', messages);
+      logger.error('[OpenAIProvider] 유효하지 않은 메시지 배열:', messages);
       throw new Error('유효한 메시지 배열이 필요합니다');
     }
 
@@ -186,11 +187,11 @@ export class OpenAIProvider implements ModelContextProtocol {
     const formattedMessages = this.formatMessages(messagesWithSystem);
 
     if (formattedMessages.length === 0) {
-      console.error('[OpenAIProvider] 포맷된 메시지가 비어있습니다:', messagesWithSystem);
+      logger.error('[OpenAIProvider] 포맷된 메시지가 비어있습니다:', messagesWithSystem);
       throw new Error('유효한 메시지가 필요합니다');
     }
 
-    console.log('[OpenAIProvider] 메시지 전송:', JSON.stringify(formattedMessages, null, 2));
+    logger.info('[OpenAIProvider] 메시지 전송:', JSON.stringify(formattedMessages, null, 2));
 
     // OpenAI API 요청 옵션 구성
     const completionOptions: OpenAI.Chat.ChatCompletionCreateParams = {
@@ -207,17 +208,12 @@ export class OpenAIProvider implements ModelContextProtocol {
       };
     }
 
-    // 함수가 있는 경우 도구 추가
-    if (functions && functions.length > 0) {
-      completionOptions.tools = this.formatFunctions(functions);
-    }
-
     try {
-      console.log('[OpenAIProvider] API 요청 옵션:', JSON.stringify(completionOptions, null, 2));
+      logger.info('[OpenAIProvider] API 요청 옵션:', JSON.stringify(completionOptions, null, 2));
       const response = await this.client.chat.completions.create(completionOptions);
       return this.parseResponse(response);
     } catch (error) {
-      console.error('[OpenAIProvider] API 호출 오류:', error);
+      logger.error('[OpenAIProvider] API 호출 오류:', error);
       throw error;
     }
   }
@@ -227,14 +223,14 @@ export class OpenAIProvider implements ModelContextProtocol {
    */
   async *chatStream(context: Context, options?: any): AsyncGenerator<StreamingResponseChunk, void, unknown> {
     if (!context || typeof context !== 'object') {
-      console.error('[OpenAIProvider] 유효하지 않은 컨텍스트:', context);
+      logger.error('[OpenAIProvider] 유효하지 않은 컨텍스트:', context);
       throw new Error('유효한 Context 객체가 필요합니다');
     }
 
-    const { messages, functions, systemPrompt } = context;
+    const { messages, systemPrompt } = context;
 
     if (!Array.isArray(messages)) {
-      console.error('[OpenAIProvider] 유효하지 않은 메시지 배열:', messages);
+      logger.error('[OpenAIProvider] 유효하지 않은 메시지 배열:', messages);
       throw new Error('유효한 메시지 배열이 필요합니다');
     }
 
@@ -246,11 +242,11 @@ export class OpenAIProvider implements ModelContextProtocol {
     const formattedMessages = this.formatMessages(messagesWithSystem);
 
     if (formattedMessages.length === 0) {
-      console.error('[OpenAIProvider] 포맷된 메시지가 비어있습니다:', messagesWithSystem);
+      logger.error('[OpenAIProvider] 포맷된 메시지가 비어있습니다:', messagesWithSystem);
       throw new Error('유효한 메시지가 필요합니다');
     }
 
-    console.log('[OpenAIProvider] 스트리밍 요청 시작:', JSON.stringify(formattedMessages, null, 2));
+    logger.info('[OpenAIProvider] 스트리밍 요청 시작:', JSON.stringify(formattedMessages, null, 2));
 
     // OpenAI API 요청 옵션 구성
     const completionOptions: OpenAI.Chat.ChatCompletionCreateParams = {
@@ -268,13 +264,8 @@ export class OpenAIProvider implements ModelContextProtocol {
       };
     }
 
-    // 함수가 있는 경우 도구 추가
-    if (functions && functions.length > 0) {
-      completionOptions.tools = this.formatFunctions(functions);
-    }
-
     try {
-      console.log('[OpenAIProvider] 스트리밍 API 요청 옵션:', JSON.stringify({
+      logger.info('[OpenAIProvider] 스트리밍 API 요청 옵션:', JSON.stringify({
         ...completionOptions,
         stream: true
       }, null, 2));
@@ -286,7 +277,7 @@ export class OpenAIProvider implements ModelContextProtocol {
         yield this.parseStreamingChunk(chunk);
       }
     } catch (error) {
-      console.error('[OpenAIProvider] 스트리밍 API 호출 오류:', error);
+      logger.error('[OpenAIProvider] 스트리밍 API 호출 오류:', error);
       throw error;
     }
   }

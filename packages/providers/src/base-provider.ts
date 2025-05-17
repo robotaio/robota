@@ -4,13 +4,13 @@
  */
 
 import { randomUUID } from 'crypto';
-import type { Provider, ProviderOptions, ProviderResponse, ProviderResponseStream } from '../types/provider';
+import type { ToolProvider, ToolProviderOptions, ToolProviderResponse, ToolProviderResponseStream } from '../types/provider';
 import type { ModelContext, FunctionSchema, ModelContextProtocol, FunctionCallMode } from '../types/model-context-protocol';
 
 /**
  * 기본 제공업체 구현
  */
-export abstract class BaseProvider implements Provider, Partial<ModelContextProtocol> {
+export abstract class BaseToolProvider implements ToolProvider, Partial<ModelContextProtocol> {
   /**
    * 제공업체 ID
    */
@@ -19,13 +19,13 @@ export abstract class BaseProvider implements Provider, Partial<ModelContextProt
   /**
    * 제공업체 옵션
    */
-  public readonly options: ProviderOptions;
+  public readonly options: ToolProviderOptions;
 
   /**
    * 생성자
    * @param options 제공업체 옵션
    */
-  constructor(options: ProviderOptions) {
+  constructor(options: ToolProviderOptions) {
     this.id = randomUUID();
     this.options = {
       ...options,
@@ -44,8 +44,8 @@ export abstract class BaseProvider implements Provider, Partial<ModelContextProt
    */
   abstract generateCompletion(
     context: ModelContext,
-    options?: Partial<ProviderOptions>
-  ): Promise<ProviderResponse>;
+    options?: Partial<ToolProviderOptions>
+  ): Promise<ToolProviderResponse>;
 
   /**
    * 스트리밍 텍스트 완성 생성 (추상 메서드)
@@ -54,8 +54,8 @@ export abstract class BaseProvider implements Provider, Partial<ModelContextProt
    */
   abstract generateCompletionStream(
     context: ModelContext,
-    options?: Partial<ProviderOptions>
-  ): Promise<ProviderResponseStream>;
+    options?: Partial<ToolProviderOptions>
+  ): Promise<ToolProviderResponseStream>;
 
   /**
    * 함수 스키마 변환
@@ -95,10 +95,10 @@ export abstract class BaseProvider implements Provider, Partial<ModelContextProt
    * @param modelResponse 모델 응답
    * @returns MCP 형식 응답
    */
-  convertModelResponseToMCP?(modelResponse: any): ProviderResponse {
+  convertModelResponseToMCP?(modelResponse: any): ToolProviderResponse {
     // 기본 구현은 응답을 그대로 반환
     // 각 제공업체 클래스에서 재정의
-    return modelResponse as ProviderResponse;
+    return modelResponse as ToolProviderResponse;
   }
 
   /**
@@ -106,7 +106,7 @@ export abstract class BaseProvider implements Provider, Partial<ModelContextProt
    * @param additionalOptions 추가 옵션
    * @returns 병합된 옵션
    */
-  protected mergeOptions(additionalOptions?: Partial<ProviderOptions>): ProviderOptions {
+  protected mergeOptions(additionalOptions?: Partial<ToolProviderOptions>): ToolProviderOptions {
     return {
       ...this.options,
       ...additionalOptions
@@ -118,6 +118,6 @@ export abstract class BaseProvider implements Provider, Partial<ModelContextProt
    * @returns 제공업체 정보 문자열
    */
   toString(): string {
-    return `Provider(id=${this.id}, model=${this.options.model})`;
+    return `ToolProvider(id=${this.id}, model=${this.options.model})`;
   }
 } 

@@ -45,7 +45,7 @@ OpenAI 제공업체 구현
 
 #### Defined in
 
-[openai/src/provider.ts:27](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/openai/src/provider.ts#L27)
+[openai/src/provider.ts:28](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/openai/src/provider.ts#L28)
 
 ## Properties
 
@@ -61,7 +61,7 @@ ModelContextProtocol.options
 
 #### Defined in
 
-[openai/src/provider.ts:25](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/openai/src/provider.ts#L25)
+[openai/src/provider.ts:26](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/openai/src/provider.ts#L26)
 
 ## Methods
 
@@ -88,7 +88,7 @@ ModelContextProtocol.chat
 
 #### Defined in
 
-[openai/src/provider.ts:168](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/openai/src/provider.ts#L168)
+[openai/src/provider.ts:169](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/openai/src/provider.ts#L169)
 
 ___
 
@@ -115,7 +115,7 @@ ModelContextProtocol.chatStream
 
 #### Defined in
 
-[openai/src/provider.ts:228](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/openai/src/provider.ts#L228)
+[openai/src/provider.ts:229](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/openai/src/provider.ts#L229)
 
 ___
 
@@ -141,7 +141,7 @@ ModelContextProtocol.formatFunctions
 
 #### Defined in
 
-[openai/src/provider.ts:102](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/openai/src/provider.ts#L102)
+[openai/src/provider.ts:103](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/openai/src/provider.ts#L103)
 
 ___
 
@@ -167,7 +167,7 @@ ModelContextProtocol.formatMessages
 
 #### Defined in
 
-[openai/src/provider.ts:45](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/openai/src/provider.ts#L45)
+[openai/src/provider.ts:46](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/openai/src/provider.ts#L46)
 
 ___
 
@@ -193,7 +193,7 @@ ModelContextProtocol.parseResponse
 
 #### Defined in
 
-[openai/src/provider.ts:116](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/openai/src/provider.ts#L116)
+[openai/src/provider.ts:117](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/openai/src/provider.ts#L117)
 
 ___
 
@@ -219,4 +219,4 @@ ModelContextProtocol.parseStreamingChunk
 
 #### Defined in
 
-[openai/src/provider.ts:146](https://github.com/robotaio/robota/blob/c397724a2d06d66ad71d874519312f9bbb9b1d70/packages/openai/src/provider.ts#L146)
+[openai/src/provider.ts:147](https://github.com/robotaio/robota/blob/1202ed01072674e4ff6307d72c09a57873f8f949/packages/openai/src/provider.ts#L147)

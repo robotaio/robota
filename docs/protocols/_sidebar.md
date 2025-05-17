@@ -6,7 +6,6 @@
   * [커스텀 제공자](/providers/custom.md)
 * [프로토콜](/protocols/)
   * [모델 컨텍스트 프로토콜](/protocols/model-context-protocol.md)
-  * [MCP 제공자](/protocols/mcp-provider.md)
 * [함수 호출](/function-calling.md)
 * [시스템 메시지](/system-messages.md)
 * [코드 개선사항](code-improvements.md)

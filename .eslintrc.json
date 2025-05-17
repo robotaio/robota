@@ -23,8 +23,36 @@
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/ban-ts-comment": "warn",
     "@typescript-eslint/ban-types": "warn",
-    "no-useless-catch": "warn"
+    "no-useless-catch": "warn",
+    "no-console": [
+      "error",
+      {
+        "allow": [
+          "warn",
+          "error",
+          "info"
+        ]
+      }
+    ]
   },
+  "overrides": [
+    {
+      "files": [
+        "packages/core/src/utils.ts"
+      ],
+      "rules": {
+        "no-console": "off"
+      }
+    },
+    {
+      "files": [
+        "apps/examples/**/*"
+      ],
+      "rules": {
+        "no-console": "off"
+      }
+    }
+  ],
   "ignorePatterns": [
     "website/**/*",
     "backup/**/*",

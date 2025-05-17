@@ -21,7 +21,9 @@
  * 현재는 개발 편의를 위해 타입 단언(as any)을 사용하여 타입 오류를 무시합니다.
  */
 
-import { Robota } from "@robota/core"; // @robota/core에서 Robota 임포트
+import { Robota } from "../../../src";
+import { createMcpToolProvider } from "../../../src/core/client-adapter";
+import { OpenAIProvider } from "../../../src/providers/openai-provider";
 import { Client } from "@modelcontextprotocol/sdk/dist/esm/client/index.js"; // Client 클래스 임포트
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/dist/esm/client/stdio.js"; // StdioClientTransport 클래스 임포트
 import OpenAI from "openai"; // OpenAI 패키지 임포트
@@ -51,12 +53,25 @@ async function main() {
         const mcpClient = new Client({
             name: 'simple-client',
             version: '1.0',
-        }) as any; // 타입 단언
+        });
 
         await mcpClient.connect(transport);
 
-        // 3. OpenAI 클라이언트 생성
-        console.log('3. OpenAI 클라이언트 생성 중...');
+        // 디버깅: MCP 클라이언트 객체 검사
+        console.log('MCP 클라이언트 메소드 목록:');
+        console.log('mcpClient.run 존재여부:', typeof mcpClient.run === 'function');
+        console.log('mcpClient.chat 존재여부:', typeof mcpClient.chat === 'function');
+        console.log('사용 가능한 메소드:', Object.getOwnPropertyNames(Object.getPrototypeOf(mcpClient)).filter(m => typeof mcpClient[m] === 'function'));
+
+        // 3. MCP 툴 제공자 생성
+        console.log('3. MCP 툴 제공자 생성 중...');
+        const mcpProvider = createMcpToolProvider(mcpClient, {
+            model: 'mcp-model',
+            temperature: 0.7
+        });
+
+        // 4. OpenAI 클라이언트 생성
+        console.log('4. OpenAI 클라이언트 생성 중...');
 
         // API 키 확인
         if (!process.env.OPENAI_API_KEY) {
@@ -69,27 +84,44 @@ async function main() {
             apiKey: process.env.OPENAI_API_KEY || ''
         });
 
-        // 4. Robota 에이전트 인스턴스 생성 (일반 Provider 사용)
-        console.log('4. Robota 에이전트 인스턴스 생성 중...');
+        // 5. OpenAI 제공자 생성
+        console.log('5. OpenAI 제공자 생성 중...');
+        const openaiProvider = new OpenAIProvider({
+            model: 'gpt-3.5-turbo',
+            temperature: 0.7,
+            client: openaiClient
+        });
+
+        // 6. Robota 에이전트 인스턴스 생성
+        console.log('6. Robota 에이전트 인스턴스 생성 중...');
         const agent = new Robota({
-            aiClient: {
-                type: 'openai',
-                instance: openaiClient
-            },
-            mcpClient: mcpClient,
-            model: 'gpt-3.5-turbo', // 사용할 OpenAI 모델 지정
-            systemPrompt: '당신은 MCP와 OpenAI를 통해 연결된 AI 모델을 사용하는 도우미입니다. 정확하고 유용한 정보를 제공하세요.',
-            temperature: 0.7
-        } as any); // 타입 단언
+            provider: mcpProvider, // MCP 제공자 사용
+            systemPrompt: '당신은 MCP를 통해 연결된 AI 모델을 사용하는 도우미입니다. 정확하고 유용한 정보를 제공하세요.'
+        });
 
 
-        // 6. 기본 대화 실행
-        console.log('6. 기본 대화 실행 중...');
-        const result = await agent.run('안녕하세요! 오늘 서울의 날씨는 어떤가요?');
+        // 7. 기본 대화 실행
+        console.log('7. 기본 대화 실행 중...');
+        try {
+            // 직접 callTool을 사용하여 'add' 도구 호출
+            console.log('Add 도구 호출 결과:');
+            const addResult = await mcpClient.callTool({
+                name: 'add',
+                arguments: { a: 5, b: 7 }
+            });
+            console.log(addResult);
 
-        console.log('\n--- 에이전트 응답 ---');
-        console.log(result);
-        console.log('-------------------\n');
+            // 날씨 정보 가져오기
+            console.log('\n날씨 도구 호출 결과:');
+            const weatherResult = await mcpClient.callTool({
+                name: 'getWeather',
+                arguments: { location: '서울', unit: 'celsius' }
+            });
+            console.log(weatherResult);
+
+        } catch (error) {
+            console.error('도구 호출 오류:', error);
+        }
 
         // 8. 자연어로 도구 호출을 포함한 대화 실행
         console.log('8. 자연어로 도구 호출 예제 실행 중...');
@@ -113,16 +145,11 @@ async function main() {
             console.error('날씨 정보 요청 오류:', error);
         }
 
-        // 10. 연결 종료 (8번 스킵)
-        console.log('9. 예제 완료, 종료 중...');
+        // 10. 연결 종료
+        console.log('10. 예제 완료, 종료 중...');
         try {
-            // MCP 클라이언트 연결 종료
-            if (mcpClient && mcpClient.close) {
-                await mcpClient.close();
-            }
-            if (transport && transport.close) {
-                transport.close();
-            }
+            // Robota 에이전트 종료
+            await agent.close?.();
         } catch (error) {
             console.error('연결 종료 오류:', error);
         }

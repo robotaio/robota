@@ -7,6 +7,16 @@ dist
 dist-ssr
 *.tgz
 
+# generated files
+src/**/*.js
+src/**/*.js.map
+src/**/*.d.ts
+src/**/*.d.ts.map
+packages/**/*.js
+packages/**/*.js.map
+packages/**/*.d.ts
+packages/**/*.d.ts.map
+
 # code coverage
 coverage
 *.lcov
