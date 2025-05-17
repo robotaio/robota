@@ -16,12 +16,12 @@
  */
 export interface MCPClient {
     /**
-     * 채팅 요청 처리
+     * 완료 요청 처리
      * 
      * @param {any} options - 요청 옵션
      * @returns {Promise<any>} MCP 응답
      */
-    chat(options: any): Promise<any>;
+    complete(options: any): Promise<any>;
 
     /**
      * 스트리밍 채팅 요청 처리

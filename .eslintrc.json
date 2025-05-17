@@ -27,7 +27,11 @@
     "no-console": [
       "error",
       {
-        "allow": []
+        "allow": [
+          "warn",
+          "error",
+          "info"
+        ]
       }
     ]
   },

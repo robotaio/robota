@@ -354,7 +354,8 @@ export class MCPClientAdapter extends BaseClientAdapter {
      */
     async chat(options: ClientRequestOptions): Promise<ClientResponse> {
         try {
-            return await this.client.chat(options);
+            // MCP client는 complete 메서드만 사용
+            return await this.client.complete(options);
         } catch (error) {
             logger.error('MCP 클라이언트 채팅 오류:', error);
             throw error;

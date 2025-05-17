@@ -63,59 +63,7 @@ async function createProvider() {
     // Zod 함수 도구 제공자 생성
     return createZodFunctionToolProvider({
         model: "function-model",
-        tools: toolSchemas,
-        // 메시지 처리 및 도구 호출 함수 구현
-        processMessage: async (message: string, tools: Record<string, any>) => {
-            console.log("Function Provider에 요청 들어옴:", message);
-
-            // "더하기"나 "add"가 포함된 경우 add 함수 호출
-            if (message.includes("더하") || message.includes("add") || message.includes("덧셈") ||
-                message.includes("더해") || message.includes("합") || message.includes("+")) {
-                console.log("덧셈 함수 호출 시도:", message);
-
-                // 정규식을 사용해 숫자 추출 - 한국어 텍스트에서도 숫자를 잘 추출하도록 수정
-                const numbers = message.match(/\d+/g);
-                console.log("추출된 숫자:", numbers);
-
-                if (numbers && numbers.length >= 2) {
-                    const a = parseInt(numbers[0]);
-                    const b = parseInt(numbers[1]);
-
-                    console.log(`add 함수 호출 준비: ${a} + ${b}`);
-                    const result = await tools.add.handler({ a, b });
-                    console.log("add 함수 결과:", result);
-
-                    return {
-                        content: `계산 결과: ${a} + ${b} = ${result.result}`
-                    };
-                } else {
-                    return {
-                        content: "죄송합니다, 두 개의 숫자를 인식하지 못했습니다."
-                    };
-                }
-            }
-
-            // "날씨"나 "weather"가 포함된 경우 getWeather 함수 호출
-            if (message.includes("날씨") || message.includes("weather")) {
-                // 도시 이름 확인
-                let location = "서울"; // 기본값
-                let unit = "celsius"; // 기본값
-
-                if (message.includes("서울")) location = "서울";
-                else if (message.includes("부산")) location = "부산";
-                else if (message.includes("제주")) location = "제주";
-
-                if (message.includes("화씨") || message.includes("fahrenheit")) unit = "fahrenheit";
-
-                const weatherInfo = await tools.getWeather.handler({ location, unit });
-                return {
-                    content: `${location}의 날씨: ${weatherInfo.temperature}°${weatherInfo.unit}, ${weatherInfo.condition}, 습도 ${weatherInfo.humidity}%`
-                };
-            }
-
-            // 기본 응답
-            return { content: `'${message}'에 대한 응답입니다.` };
-        }
+        tools: toolSchemas
     });
 }
 

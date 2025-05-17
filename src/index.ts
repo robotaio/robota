@@ -12,7 +12,6 @@ export type { RobotaOptions } from './core/agent';
 // 제공업체
 export { BaseToolProvider } from './providers/base-provider';
 export { OpenAIProvider } from './providers/openai-provider';
-export { MCPProvider } from './core/mcp-provider';
 
 // 함수 호출 및 도구
 export { createFunction } from './core/function';

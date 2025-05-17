@@ -131,7 +131,7 @@ MCP_API_KEY=your_mcp_api_key_here
 Robota는 이제 Model Context Protocol을 지원합니다. MCP를 통해 다양한 AI 모델 제공자와 표준화된 방식으로 통신할 수 있습니다:
 
 ```typescript
-import { Robota, MCPProvider } from 'robota';
+import { Robota, createMcpToolProvider } from 'robota';
 import { Client, StdioClientTransport } from '@modelcontextprotocol/sdk';
 
 // MCP 클라이언트 생성
@@ -139,9 +139,7 @@ const transport = new StdioClientTransport(/* 설정 */);
 const mcpClient = new Client(transport);
 
 // MCP 제공자 초기화
-const provider = new MCPProvider({
-  type: 'client',
-  client: mcpClient,
+const provider = createMcpToolProvider(mcpClient, {
   model: 'model-name', // 사용할 모델 이름
   temperature: 0.7
 });

@@ -24,9 +24,9 @@ Anthropic의 Claude 모델과 통합하기 위한 제공자입니다. Claude, Cl
 
 #### MCP (Model Context Protocol)
 
-Model Context Protocol을 지원하는 모델과 통합하기 위한 제공자입니다. MCP 클라이언트 주입 방식과 OpenAPI 스키마 방식을 모두 지원합니다.
+Model Context Protocol을 지원하는 모델과 통합하기 위한 제공자입니다. `createMcpToolProvider` 함수를 통해 MCP 기반 툴 제공자를 생성할 수 있습니다.
 
-자세한 내용은 [MCP 제공자 문서](protocols/mcp-provider.md)와 [모델 컨텍스트 프로토콜](protocols/model-context-protocol.md)을 참조하세요.
+자세한 내용은 [모델 컨텍스트 프로토콜](protocols/model-context-protocol.md)을 참조하세요.
 
 ### 커스텀 제공자
 
@@ -97,8 +97,7 @@ const robota = new Robota({ provider });
 Model Context Protocol을 지원하는 모델을 사용하려면:
 
 ```typescript
-import { Robota } from '@robota/core';
-import { MCPProvider } from '@robota/provider-mcp';
+import { Robota, createMcpToolProvider } from '@robota/core';
 import { Client, StdioClientTransport } from '@modelcontextprotocol/sdk';
 
 // MCP 클라이언트 생성
@@ -106,10 +105,9 @@ const transport = new StdioClientTransport(/* 설정 */);
 const mcpClient = new Client(transport);
 
 // MCP 제공자 초기화
-const provider = new MCPProvider({
-  type: 'client', // 클라이언트 방식
-  client: mcpClient,
-  model: 'model-name'
+const provider = createMcpToolProvider(mcpClient, {
+  model: 'model-name',
+  temperature: 0.7
 });
 
 // Robota 인스턴스에 제공자 연결
@@ -195,5 +193,4 @@ interface ProviderOptions {
 
 - [OpenAI 제공자](providers/openai.md)
 - [Anthropic 제공자](providers/anthropic.md)
-- [MCP 제공자](protocols/mcp-provider.md)
 - [커스텀 제공자 만들기](providers/custom.md) 
