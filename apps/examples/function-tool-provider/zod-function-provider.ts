@@ -6,8 +6,8 @@
  */
 
 import { z } from "zod";
-import { Robota, createZodFunctionToolProvider } from "../../../src";
-import { type ZodFunctionTool } from "../../../packages/tools/src";
+import { Robota } from "@robota/core";
+import { createZodFunctionToolProvider, type ZodFunctionTool } from "@robota/tools";
 
 // Zod 스키마를 기반으로 함수 도구 정의
 const toolSchemas: Record<string, ZodFunctionTool<z.ZodObject<any>>> = {
@@ -61,10 +61,31 @@ const toolSchemas: Record<string, ZodFunctionTool<z.ZodObject<any>>> = {
 // Function Provider 생성
 async function createProvider() {
     // Zod 함수 도구 제공자 생성
-    return createZodFunctionToolProvider({
+    const provider = createZodFunctionToolProvider({
         model: "function-model",
         tools: toolSchemas
     });
+
+    // ModelContextProtocol 인터페이스와 호환되도록 wrapping
+    return {
+        options: {
+            model: 'function-model'
+        },
+        chat: async (context, options) => {
+            const result = await provider.generateCompletion(context);
+            return result;
+        },
+        chatStream: async function* (context, options) {
+            const result = provider.generateCompletionStream(context);
+            for await (const chunk of result) {
+                yield chunk;
+            }
+        },
+        formatMessages: (messages) => messages,
+        formatFunctions: (functions) => functions,
+        parseResponse: (response) => response,
+        parseStreamingChunk: (chunk) => chunk
+    };
 }
 
 // 메인 함수
@@ -77,8 +98,6 @@ async function main() {
 
         // Robota 인스턴스 생성
         const robota = new Robota({
-            name: "Function Tool 로봇",
-            description: "Zod를 사용한 Function Tool Provider 예제",
             provider,
             systemPrompt: "당신은 도구를 사용하여 사용자의 요청을 처리하는 AI 비서입니다. 당신은 다음 도구를 사용할 수 있습니다: 숫자 더하기(add), 날씨 정보 조회(getWeather)."
         });
