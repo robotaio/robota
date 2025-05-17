@@ -35,7 +35,7 @@ import type { Message, ModelContext, FunctionSchema, FunctionCallMode, MessageRo
 import type { Function, FunctionResult } from '../types/function';
 import type { Tool } from '../types/tool';
 import { ConversationMemory } from '../utils/conversation-memory';
-import { logger } from '../../packages/core/src/utils';
+import { logger } from '../../packages/core/src';
 
 /**
  * RobotaCore 옵션 인터페이스

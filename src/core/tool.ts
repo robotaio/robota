@@ -11,7 +11,7 @@ import { z } from 'zod';
 import { createFunction } from './function';
 import type { Tool as ToolInterface, ToolOptions, ToolResult } from '../types/tool';
 import type { FunctionSchema } from '../types/model-context-protocol';
-import { logger } from '../../packages/core/src/utils';
+import { logger } from '../../packages/core/src';
 
 /**
  * 도구 클래스

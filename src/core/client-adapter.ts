@@ -10,7 +10,7 @@
 import type { MCPClient } from '../types/mcp';
 import type { Message, ModelContext } from '../types/model-context-protocol';
 import type { ToolProvider, ToolProviderOptions, ToolProviderResponse, ToolProviderResponseStream } from '../types/provider';
-import { logger } from '../../packages/core/src/utils';
+import { logger } from '../../packages/core/src';
 
 /**
  * 클라이언트 요청 옵션 인터페이스

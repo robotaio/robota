@@ -17,7 +17,7 @@ import type {
     FunctionSchema
 } from '../types/model-context-protocol';
 import { Client } from '@modelcontextprotocol/sdk';
-import { logger } from '../../packages/core/src/utils';
+import { logger } from '../../packages/core/src';
 
 /**
  * MCP 제공업체 옵션 인터페이스

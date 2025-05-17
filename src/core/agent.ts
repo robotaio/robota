@@ -12,7 +12,7 @@ import type { Message } from '../types/model-context-protocol';
 import { ConversationMemory } from '../utils/conversation-memory';
 import { Tool } from './tool';
 import { RobotaCore } from './robota';
-import { logger } from '../../packages/core/src/utils';
+import { logger } from '../../packages/core/src';
 
 /**
  * Robota 옵션 인터페이스
