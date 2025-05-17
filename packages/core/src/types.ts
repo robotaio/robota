@@ -140,7 +140,15 @@ export interface AIClient {
   type: AIClientType; // 클라이언트 타입
   instance: any; // 클라이언트 인스턴스
   close?: () => Promise<void>; // 클라이언트 연결 종료 메서드 (선택 사항)
-  transport?: { close: () => Promise<void> }; // 전송 계층 (선택 사항)
+  transport?: Transport; // 전송 계층 (선택 사항)
+}
+
+/**
+ * 전송 계층 인터페이스
+ */
+export interface Transport {
+  close: () => Promise<void>;
+  // 필요시 추가 메서드
 }
 
 /**

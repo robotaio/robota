@@ -6,9 +6,6 @@ export * from './memory';
 export * from './tools';
 export * from './utils';
 
-// function-calling.ts에서 내보내던 함수는 function.ts로 이동했으므로 제거
-// export * from './function-calling';
-
 // function.ts에서 필요한 항목만 내보내기
 export {
     createFunction,

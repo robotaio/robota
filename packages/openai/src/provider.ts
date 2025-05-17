@@ -9,7 +9,7 @@ import {
 } from '@robota/core';
 import { ModelContextProtocol } from '@robota/core';
 import { OpenAIProviderOptions } from './types';
-import { logger } from '@robota/core/src/utils';
+import { logger } from '@robota/core';
 
 /**
  * OpenAI 제공업체 구현
