@@ -2,11 +2,11 @@
  * Zod를 사용한 Function Tool Provider 예제
  * 
  * 이 예제는 Zod 스키마를 사용하여 함수 파라미터를 정의하고,
- * createZodFunctionToolAdapter를 통해 ToolProvider를 생성하는 방법을 보여줍니다.
+ * createZodFunctionToolProvider를 통해 ToolProvider를 생성하는 방법을 보여줍니다.
  */
 
 import { z } from "zod";
-import { Robota, createZodFunctionToolAdapter } from "../../../src";
+import { Robota, createZodFunctionToolProvider } from "../../../src";
 import { type ZodFunctionTool } from "../../../packages/tools/src";
 
 // Zod 스키마를 기반으로 함수 도구 정의
@@ -61,7 +61,7 @@ const toolSchemas: Record<string, ZodFunctionTool<z.ZodObject<any>>> = {
 // Function Provider 생성
 async function createProvider() {
     // Zod 함수 도구 제공자 생성
-    return createZodFunctionToolAdapter({
+    return createZodFunctionToolProvider({
         model: "function-model",
         tools: toolSchemas,
         // 메시지 처리 및 도구 호출 함수 구현

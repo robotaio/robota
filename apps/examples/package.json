@@ -9,17 +9,13 @@
         "lint": "eslint ./**/*.ts",
         "lint:fix": "eslint ./**/*.ts --fix",
         "start:basic": "tsx basic/simple-conversation.ts",
-        "start:basic:simple": "tsx basic/simple-features.ts",
         "start:basic:advanced": "tsx basic/advanced-features.ts",
         "start:function-calling": "tsx function-calling/weather-calculator.ts",
-        "start:tools": "tsx tools/tool-examples.ts",
-        "start:agents": "tsx agents/research-agent.ts",
-        "start:system-messages": "tsx system-messages/system-messages.ts",
         "start:mcp": "tsx mcp/mcp-agent-example.ts",
         "start:mcp-agent": "tsx mcp/mcp-agent-example.ts",
         "start:function-tool-provider": "tsx function-tool-provider/zod-function-provider.ts",
-        "start:all-examples": "pnpm start:basic && pnpm start:basic:simple && pnpm start:basic:advanced && pnpm start:function-calling && pnpm start:tools && pnpm start:agents && pnpm start:system-messages && pnpm start:mcp-agent",
-        "start:all": "echo '모든 예제를 순차적으로 실행합니다' && pnpm start:basic && pnpm start:function-calling && pnpm start:tools && pnpm start:agents && pnpm start:system-messages && pnpm start:mcp"
+        "start:all-examples": "pnpm start:basic && pnpm start:basic:advanced && pnpm start:function-calling && pnpm start:mcp-agent",
+        "start:all": "echo '모든 예제를 순차적으로 실행합니다' && pnpm start:basic && pnpm start:function-calling && pnpm start:mcp"
     },
     "dependencies": {
         "@robota/anthropic": "workspace:*",

@@ -172,7 +172,7 @@ export class OpenAIProvider implements ModelContextProtocol {
       throw new Error('유효한 Context 객체가 필요합니다');
     }
 
-    const { messages, functions, systemPrompt } = context;
+    const { messages, systemPrompt } = context;
 
     if (!Array.isArray(messages)) {
       logger.error('[OpenAIProvider] 유효하지 않은 메시지 배열:', messages);
@@ -208,11 +208,6 @@ export class OpenAIProvider implements ModelContextProtocol {
       };
     }
 
-    // 함수가 있는 경우 도구 추가
-    if (functions && functions.length > 0) {
-      completionOptions.tools = this.formatFunctions(functions);
-    }
-
     try {
       logger.info('[OpenAIProvider] API 요청 옵션:', JSON.stringify(completionOptions, null, 2));
       const response = await this.client.chat.completions.create(completionOptions);
@@ -232,7 +227,7 @@ export class OpenAIProvider implements ModelContextProtocol {
       throw new Error('유효한 Context 객체가 필요합니다');
     }
 
-    const { messages, functions, systemPrompt } = context;
+    const { messages, systemPrompt } = context;
 
     if (!Array.isArray(messages)) {
       logger.error('[OpenAIProvider] 유효하지 않은 메시지 배열:', messages);
@@ -267,11 +262,6 @@ export class OpenAIProvider implements ModelContextProtocol {
       completionOptions.response_format = {
         type: this.options.responseFormat as any
       };
-    }
-
-    // 함수가 있는 경우 도구 추가
-    if (functions && functions.length > 0) {
-      completionOptions.tools = this.formatFunctions(functions);
     }
 
     try {

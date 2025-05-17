@@ -202,7 +202,7 @@ export class MCPProvider implements ModelContextProtocol {
      * 모델 채팅 요청
      */
     async chat(context: Context): Promise<ModelResponse> {
-        const { messages, functions, systemPrompt } = context;
+        const { messages, systemPrompt } = context;
 
         // 시스템 프롬프트 추가 (없는 경우)
         const messagesWithSystem = systemPrompt && !messages.some(m => m.role === 'system')
@@ -218,11 +218,6 @@ export class MCPProvider implements ModelContextProtocol {
             temperature: this.options.temperature,
             max_tokens: this.options.maxTokens
         };
-
-        // 함수가 있는 경우 추가
-        if (functions && functions.length > 0) {
-            requestOptions.functions = this.formatFunctions(functions);
-        }
 
         // 요청 전 undefined 값 제거
         const cleanedOptions = removeUndefined(requestOptions);
@@ -245,7 +240,7 @@ export class MCPProvider implements ModelContextProtocol {
      * 모델 채팅 스트리밍 요청
      */
     async *chatStream(context: Context): AsyncGenerator<StreamingResponseChunk, void, unknown> {
-        const { messages, functions, systemPrompt } = context;
+        const { messages, systemPrompt } = context;
 
         // 시스템 프롬프트 추가 (없는 경우)
         const messagesWithSystem = systemPrompt && !messages.some(m => m.role === 'system')
@@ -262,11 +257,6 @@ export class MCPProvider implements ModelContextProtocol {
             max_tokens: this.options.maxTokens,
             stream: true
         };
-
-        // 함수가 있는 경우 추가
-        if (functions && functions.length > 0) {
-            requestOptions.functions = this.formatFunctions(functions);
-        }
 
         // 요청 전 undefined 값 제거
         const cleanedOptions = removeUndefined(requestOptions);

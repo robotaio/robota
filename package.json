@@ -15,10 +15,8 @@
     "prepare": "husky install",
     "example:basic": "pnpm --filter robota-examples run start:basic",
     "example:function-calling": "pnpm --filter robota-examples run start:function-calling",
-    "example:tools": "pnpm --filter robota-examples run start:tools",
-    "example:agents": "pnpm --filter robota-examples run start:agents",
-    "example:system-messages": "pnpm --filter robota-examples run start:system-messages",
     "example:mcp": "pnpm --filter robota-examples run start:mcp",
+    "example:function-tool-provider": "pnpm --filter robota-examples run start:function-tool-provider",
     "example:all": "pnpm --filter robota-examples run start:all",
     "docs:generate": "node scripts/docs-generator.js"
   },

@@ -537,6 +537,32 @@ export class RobotaCore {
   }
 
   /**
+   * 도구 실행
+   * 
+   * @description
+   * 특정 도구를 직접 실행하고 결과를 반환합니다.
+   * 
+   * @param {string} toolName - 실행할 도구 이름
+   * @param {any} params - 도구에 전달할 매개변수
+   * @returns {Promise<any>} 도구 실행 결과
+   * 
+   * @example
+   * ```typescript
+   * const result = await robota.runTool('getWeather', { location: '서울' });
+   * logger.info(result); // { temperature: 25, condition: '맑음' }
+   * ```
+   */
+  async runTool(toolName: string, params: any): Promise<any> {
+    const tool = this.tools.get(toolName) || this.functions.get(toolName);
+
+    if (!tool) {
+      throw new Error(`도구 또는 함수 '${toolName}'를 찾을 수 없습니다.`);
+    }
+
+    return tool.execute(params);
+  }
+
+  /**
    * 모델 컨텍스트 생성
    * 
    * @private

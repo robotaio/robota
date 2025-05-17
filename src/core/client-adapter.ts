@@ -8,7 +8,7 @@
  */
 
 import type { MCPClient } from '../types/mcp';
-import type { Message, ModelContext, FunctionCallMode } from '../types/model-context-protocol';
+import type { Message, ModelContext } from '../types/model-context-protocol';
 import type { ToolProvider, ToolProviderOptions, ToolProviderResponse, ToolProviderResponseStream } from '../types/provider';
 import { logger } from '../../packages/core/src/utils';
 
@@ -624,6 +624,152 @@ export class FunctionClientAdapter extends BaseClientAdapter {
 }
 
 /**
+ * Zod 함수 도구 제공자 클래스
+ * 
+ * @class ZodFunctionToolProvider
+ * @extends FunctionClientAdapter
+ * @description
+ * Zod 스키마를 기반으로 함수 도구를 제공하는 제공자 클래스입니다.
+ */
+export class ZodFunctionToolProvider extends FunctionClientAdapter {
+    /**
+     * 클라이언트 정보 반환
+     * 
+     * @returns 클라이언트 타입 정보
+     */
+    getInfo(): { type: string;[key: string]: any } {
+        return {
+            type: 'zod-function-tool'
+        };
+    }
+}
+
+/**
+ * Zod 함수 도구 제공자 생성 함수
+ * 
+ * @function createZodFunctionToolProvider
+ * @description
+ * Zod 스키마 기반 함수 도구로부터 ToolProvider를 생성합니다.
+ * 
+ * @param {Object} options - Zod 함수 도구 옵션
+ * @param {string} options.model - 사용할 모델 이름
+ * @param {Object} options.tools - Zod 도구 정의 객체
+ * @param {Function} [options.processMessage] - 메시지 처리 함수 (선택적)
+ * @param {number} [options.temperature] - 생성 온도 (0~1)
+ * @param {number} [options.maxTokens] - 최대 토큰 수
+ * @returns {ToolProvider} Zod 스키마 기반 함수 도구 제공자
+ * 
+ * @example
+ * ```typescript
+ * import { z } from 'zod';
+ * import { createZodFunctionToolProvider } from 'robota';
+ * 
+ * const calculatorTool = {
+ *   name: 'add',
+ *   description: '두 숫자를 더합니다',
+ *   parameters: z.object({
+ *     a: z.number().describe('첫 번째 숫자'),
+ *     b: z.number().describe('두 번째 숫자')
+ *   }),
+ *   handler: async (params) => {
+ *     const { a, b } = params;
+ *     return { result: a + b };
+ *   }
+ * };
+ * 
+ * const provider = createZodFunctionToolProvider({
+ *   model: 'gpt-4',
+ *   tools: { add: calculatorTool }
+ * });
+ * 
+ * const robota = new Robota({
+ *   provider,
+ *   systemPrompt: '당신은 수학 계산을 도와주는 AI 비서입니다.'
+ * });
+ * ```
+ */
+export function createZodFunctionToolProvider(options: {
+    model: string;
+    tools: Record<string, any>;
+    processMessage?: (message: string, tools: Record<string, any>) => Promise<ClientResponse>;
+    temperature?: number;
+    maxTokens?: number;
+}): ToolProvider {
+    // Zod 스키마를 JSON 스키마로 변환
+    const functions = Object.values(options.tools).map(tool => {
+        return {
+            name: tool.name,
+            description: tool.description,
+            parameters: {
+                type: "object",
+                properties: {},
+                required: []
+            }
+        };
+    });
+
+    // 기본 메시지 처리 함수
+    const defaultProcessMessage = async (message: string): Promise<ClientResponse> => {
+        return { content: `'${message}'에 대한 응답입니다.` };
+    };
+
+    // 함수 호출 처리 함수
+    const processMessage = options.processMessage || defaultProcessMessage;
+
+    // 채팅 함수 구현
+    const chat = async (requestOptions: ClientRequestOptions): Promise<ClientResponse> => {
+        // 마지막 사용자 메시지 가져오기
+        const lastUserMessage = requestOptions.messages
+            .slice().reverse()
+            .find((msg: { role: string }) => msg.role === 'user')?.content || '';
+
+        try {
+            // 메시지 처리 및 응답 생성
+            const response = await processMessage(lastUserMessage, options.tools);
+            return response;
+        } catch (error) {
+            logger.error('함수 도구 처리 중 오류 발생:', error);
+            return { content: `오류가 발생했습니다: ${error instanceof Error ? error.message : String(error)}` };
+        }
+    };
+
+    // 스트리밍 함수 구현
+    const stream = async function* (requestOptions: ClientRequestOptions): AsyncIterable<ClientResponse> {
+        try {
+            // 일반 응답 생성
+            const response = await chat(requestOptions);
+
+            // 응답을 단어 단위로 나누어 스트리밍
+            if (response.content) {
+                const words = response.content.split(' ');
+                for (const word of words) {
+                    yield { content: word + ' ' };
+                    await new Promise(resolve => setTimeout(resolve, 50)); // 작은 지연 추가
+                }
+            }
+
+            // 함수 호출이 있는 경우 완전한 응답 전달
+            if (response.function_call) {
+                yield response;
+            }
+        } catch (error) {
+            logger.error('스트리밍 처리 중 오류 발생:', error);
+            yield { content: `오류가 발생했습니다: ${error instanceof Error ? error.message : String(error)}` };
+        }
+    };
+
+    // Zod 함수 도구 제공자 생성
+    return new ZodFunctionToolProvider({
+        chat,
+        stream,
+        model: options.model,
+        temperature: options.temperature,
+        maxTokens: options.maxTokens,
+        functions
+    });
+}
+
+/**
  * MCP 클라이언트 어댑터 생성 함수
  * 
  * @function createMcpToolProvider
@@ -631,7 +777,7 @@ export class FunctionClientAdapter extends BaseClientAdapter {
  * MCP 클라이언트로부터 ToolProvider를 생성합니다.
  * 
  * @param {MCPClient} client - MCP 클라이언트 인스턴스
- * @param {Object} [options] - 어댑터 옵션
+ * @param {Object} options - MCP 클라이언트 옵션
  * @param {string} options.model - 사용할 모델 이름
  * @param {number} [options.temperature] - 생성 온도 (0~1)
  * @param {number} [options.maxTokens] - 최대 토큰 수
@@ -756,150 +902,4 @@ export function createFunctionToolProvider(options: {
     functions?: any[];
 }): ToolProvider {
     return new FunctionClientAdapter(options);
-}
-
-/**
- * Zod 함수 도구 어댑터 클래스
- * 
- * @class ZodFunctionToolAdapter
- * @extends FunctionClientAdapter
- * @description
- * Zod 스키마를 기반으로 함수 도구를 제공하는 어댑터 클래스입니다.
- */
-export class ZodFunctionToolAdapter extends FunctionClientAdapter {
-    /**
-     * 클라이언트 정보 반환
-     * 
-     * @returns 클라이언트 타입 정보
-     */
-    getInfo(): { type: string;[key: string]: any } {
-        return {
-            type: 'zod-function-tool'
-        };
-    }
-}
-
-/**
- * Zod 함수 도구 어댑터 생성 함수
- * 
- * @function createZodFunctionToolAdapter
- * @description
- * Zod 스키마 기반 함수 도구로부터 ToolProvider를 생성합니다.
- * 
- * @param {Object} options - Zod 함수 도구 옵션
- * @param {string} options.model - 사용할 모델 이름
- * @param {Object} options.tools - Zod 도구 정의 객체
- * @param {Function} [options.processMessage] - 메시지 처리 함수 (선택적)
- * @param {number} [options.temperature] - 생성 온도 (0~1)
- * @param {number} [options.maxTokens] - 최대 토큰 수
- * @returns {ToolProvider} Zod 스키마 기반 함수 도구 제공자
- * 
- * @example
- * ```typescript
- * import { z } from 'zod';
- * import { createZodFunctionToolAdapter } from 'robota';
- * 
- * const calculatorTool = {
- *   name: 'add',
- *   description: '두 숫자를 더합니다',
- *   parameters: z.object({
- *     a: z.number().describe('첫 번째 숫자'),
- *     b: z.number().describe('두 번째 숫자')
- *   }),
- *   handler: async (params) => {
- *     const { a, b } = params;
- *     return { result: a + b };
- *   }
- * };
- * 
- * const provider = createZodFunctionToolAdapter({
- *   model: 'gpt-4',
- *   tools: { add: calculatorTool }
- * });
- * 
- * const robota = new Robota({
- *   provider,
- *   systemPrompt: '당신은 수학 계산을 도와주는 AI 비서입니다.'
- * });
- * ```
- */
-export function createZodFunctionToolAdapter(options: {
-    model: string;
-    tools: Record<string, any>;
-    processMessage?: (message: string, tools: Record<string, any>) => Promise<ClientResponse>;
-    temperature?: number;
-    maxTokens?: number;
-}): ToolProvider {
-    // Zod 스키마를 JSON 스키마로 변환
-    const functions = Object.values(options.tools).map(tool => {
-        return {
-            name: tool.name,
-            description: tool.description,
-            parameters: {
-                type: "object",
-                properties: {},
-                required: []
-            }
-        };
-    });
-
-    // 기본 메시지 처리 함수
-    const defaultProcessMessage = async (message: string): Promise<ClientResponse> => {
-        return { content: `'${message}'에 대한 응답입니다.` };
-    };
-
-    // 함수 호출 처리 함수
-    const processMessage = options.processMessage || defaultProcessMessage;
-
-    // 채팅 함수 구현
-    const chat = async (requestOptions: ClientRequestOptions): Promise<ClientResponse> => {
-        // 마지막 사용자 메시지 가져오기
-        const lastUserMessage = requestOptions.messages
-            .slice().reverse()
-            .find((msg: { role: string }) => msg.role === 'user')?.content || '';
-
-        try {
-            // 메시지 처리 및 응답 생성
-            const response = await processMessage(lastUserMessage, options.tools);
-            return response;
-        } catch (error) {
-            logger.error('함수 도구 처리 중 오류 발생:', error);
-            return { content: `오류가 발생했습니다: ${error instanceof Error ? error.message : String(error)}` };
-        }
-    };
-
-    // 스트리밍 함수 구현
-    const stream = async function* (requestOptions: ClientRequestOptions): AsyncIterable<ClientResponse> {
-        try {
-            // 일반 응답 생성
-            const response = await chat(requestOptions);
-
-            // 응답을 단어 단위로 나누어 스트리밍
-            if (response.content) {
-                const words = response.content.split(' ');
-                for (const word of words) {
-                    yield { content: word + ' ' };
-                    await new Promise(resolve => setTimeout(resolve, 50)); // 작은 지연 추가
-                }
-            }
-
-            // 함수 호출이 있는 경우 완전한 응답 전달
-            if (response.function_call) {
-                yield response;
-            }
-        } catch (error) {
-            logger.error('스트리밍 처리 중 오류 발생:', error);
-            yield { content: `오류가 발생했습니다: ${error instanceof Error ? error.message : String(error)}` };
-        }
-    };
-
-    // Zod 함수 도구 어댑터 생성
-    return new ZodFunctionToolAdapter({
-        chat,
-        stream,
-        model: options.model,
-        temperature: options.temperature,
-        maxTokens: options.maxTokens,
-        functions
-    });
 } 
